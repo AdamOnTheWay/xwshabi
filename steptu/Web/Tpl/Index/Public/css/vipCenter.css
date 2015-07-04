@@ -1,0 +1,464 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/vipCenter/background.png");
+    font-family:SimSun,STSong,Arial;
+    /*font-family: Arial, "宋体";*/
+    /*background-size: ;*/
+    /*background-repeat: space;*/
+}
+.container{
+    width: 60.5%;
+    margin-top: 16%;
+    margin-left: 19.7%;
+    position: absolute;
+}
+.mainbox{
+    background-color: white;
+    width: 60.5%;
+    height: 510px;
+    opacity: 0.63;
+    position: absolute;
+    margin-top:20.1%;
+    margin-left: 19.7%;
+}
+.dearVIP{
+    margin: 7px 7px;
+    background-color: white;
+    height: 60px;
+}
+.dearVIP img{
+    float: left;
+    margin-left: 10px;
+}
+.realDearVIP{
+    float: left;
+    padding-left: 10px;
+    margin: 7px;
+    line-height: 22px;
+    font-size: 12px;
+    color: #000000;
+}
+.border{
+    background-color: white;
+    height: 430px;
+    margin: 7px;
+}
+.realOrders{
+    margin: 5px;
+    height: 416px;
+    border: 1px solid rgba(169, 169, 169, 0.25);
+}
+.empty{
+    height: 3px;
+}
+.navbar{
+    position: absolute;
+    width: 200px;
+    margin-left: 1%;
+    margin-top: 32%;
+    height: 320px;
+}
+.userHead{
+    background-color: #0384e0;
+    float: left;
+    width: 100%;
+}
+.imageBox{
+    float: left;
+    width: 55px;
+    height: 75px;
+}
+.imageBox a{
+    color: white;
+}
+.imageBox img{
+    height: 55px;
+    width: 55px;
+    float: left;
+}
+.userHead span{
+    line-height: 75px;
+    float: left;
+    font-size: 16px;
+    color: #000000;
+}
+.realNavbar{
+    background-color: ghostwhite;
+    height: 300px;
+    width: 200px;
+}
+.realNavbarContent{
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 15px;
+    height: 15px;
+    width: 150px;
+    line-height: 15px;
+    float: left;
+}
+.realNavbarContent a{
+    font-size: 14px;
+    color: #000000;
+}
+.realNavbarContent img{
+    height: 14px;
+    padding-right: 6px;
+}
+.nowGrades{
+    height: 100px;
+    margin-left: 7px;
+    margin-right: 7px;
+    border: 1px solid rgba(169, 169, 169, 0.51);
+}
+.realNowGreades{
+    height: 45px;
+    background-color: #ffd4aa;
+}
+.realNowGreades img{
+    padding-left: 50px;
+    margin-top: 7px;
+}
+.words{
+    height: 45px;
+    width: 230px;
+    line-height: 45px;
+    float: left;
+    margin-left: 50px;
+    font-size: 18px;
+    color: #000000;
+}
+.words span{
+    font-size: 30px;
+    color: #f98f47;
+}
+.buttons{
+    height: 40px;
+}
+.recoder{
+    background-color: white;
+    height: 30px;
+    width: 70px;
+    margin-left: 7px;
+    margin-top: 10px;
+    float: left;
+}
+.exchange{
+    background-color: white;
+    height: 30px;
+    width: 70px;
+    float: left;
+    margin-top: 10px;
+}
+#gradesExchange{
+    height: 280px;
+    margin-left: 7px;
+    margin-right: 7px;
+    border: 1px solid rgba(169, 169, 169, 0.51);
+}
+#gradesRecoder{
+    height: 280px;
+    margin-left: 7px;
+    margin-right: 7px;
+    border: 1px solid rgba(169, 169, 169, 0.51);
+}
+.myEvaluations{
+    height: 130px;
+    border: 1px solid rgba(169, 169, 169, 0.51);
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.operations{
+    height: 280px;
+    border: 1px solid rgba(169, 169, 169, 0.51);
+    margin: 10px 7px;
+}
+.giveAComment label{
+    height: 14px;
+    vertical-align: top;
+    padding-left: 10px;
+}
+.giveAComment{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 100%;
+}
+.giveAComment li{
+    list-style: none;
+    float: left;
+    padding-left: 10px;
+}
+.giveAComment ol{
+    float: left;
+}
+.giveAComment span{
+    float: left;
+}
+.textarea{
+    height: 110px;
+    width: 83%;
+    clear: both;
+    margin-left: 8%;
+    margin-top: 10px;
+}
+#imgfile{
+    margin-left: 8%;
+    margin-top: 10px;
+    width: 150px;
+    background-color: darkgray;
+}
+.button{
+    margin-left: 8%;
+    margin-top: 10px;
+    height: 23px;
+    width: 50px;
+    background-color: #4955ff;
+    color: white;
+}
+.button_1{
+    margin-top: 10px;
+    height: 23px;
+    width: 50px;
+    background-color: #4955ff;
+    margin-left: 20px;
+    color: white;
+}
+#myInformation{
+    height: 415px;
+    border: 1px solid rgba(169, 169, 169, 0.51);
+    margin: 5px 7px;
+}
+.temp{
+    width: 90%;
+    height: 93%;
+    background-color: #f6fbfe;
+}
+.basicInformation{
+    height: 49%;
+    border-bottom: 1px solid rgba(169, 169, 169, 0.51);
+}
+.basicInformation span{
+    float: left;
+    text-align: right;
+    width: 80px;
+}
+.chooseContent{
+    width: 100%;
+    float: left;
+    margin: 5px 10px;
+}
+.chooses{
+    float: left;
+    padding-left: 30px;
+}
+.label{
+    color: red;
+}
+.contactInformation{
+    height: 17%;
+    border-bottom: 1px solid rgba(169, 169, 169, 0.51);
+}
+.contactInformation span{
+    float: left;
+    text-align: right;
+    width: 80px;
+}
+.passwordArea span{
+    float: left;
+    text-align: right;
+    width: 80px;
+}
+.leftPart{
+    width: 300px;
+    height: 410px;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    border-right: 1px solid rgba(169, 169, 169, 0.51);
+}
+#MoneyPotPlan{
+    height: 80px;
+    width: 270px;
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(169, 169, 169, 0.51);
+
+}
+#MoneyPotPlan img{
+    float: left;
+}
+.realPlan{
+    float: left;
+    line-height: 20px;
+    padding-left: 20px;
+}
+.rightSpan{
+    padding-left: 10px;
+}
+.rightPart{
+    margin-top: 20px;
+    margin-left: 20px;
+    float: left;
+    width: 380px;
+}
+.rightPart img{
+    float: left;
+}
+.realRight{
+    padding-left: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000000;
+    float: left;
+}
+.realRight button{
+    background-image: url("../images/vipCenter/adaPlan.png");
+    float: right;
+    width: 90px;
+    height: 25px;
+    border: none;
+}
+.bigger{
+    font-size: 14px;
+    color: #000000;
+}
+td{
+    height: 20px;
+}
+/*a:hover{*/
+    /*color: red;*/
+    /*font-weight: bolder;*/
+/*}*/
+button:hover{
+    border: 2px solid red;
+}
+.buttonbox{
+    margin-left: 7px;
+    margin-right: 7px;
+    margin-top: 3px;
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    color: #000000;
+}
+.letterToFuture{
+    height: 25px;
+    width: 45px;
+    background-color: white;
+    color: #000000;
+    margin-left: 0;
+    float: left;
+    border: 1px solid lightskyblue;
+}
+#realTravealBook{
+    border: 1px solid rgba(169, 169, 169, 0.51);
+    height: 390px;
+    margin-left: 7px;
+    margin-right: 7px;
+    float: left;
+    width: 98%;
+}
+.background{
+    margin-top: 2px;
+    margin-left: 4px;
+    height: 75%;
+    width: 95%;
+    line-height: 35px;
+    vertical-align: middle;
+    background-color: rgba(160, 188, 174, 0.49);
+}
+.singleLine{
+    width: 100%;
+    margin-left: 20px;
+    margin-top: 10px;
+    float: left;
+}
+.hateWords{
+    width: 60px;
+    float: left;
+    text-align: right;
+    margin-right: 10px;
+}
+#realLetter{
+    border: 1px solid rgba(169, 169, 169, 0.51);
+    height: 390px;
+    margin-left: 7px;
+    margin-right: 7px;
+    float: left;
+    width: 98%;
+}
+.detialLetter{
+    height: 120px;
+    margin-left: 10px;
+    margin-right: 30px;
+    border-bottom: 1px dashed darkgray;
+}
+.letterTitle{
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #000000;
+}
+.dateContainer{
+    float: right;
+    margin-bottom: 10px;
+}
+.realPassage{
+    float: left;
+    height: 40%;
+    overflow: auto;
+    padding-left: 20px;
+}
+.realFelling{
+    margin: 5px;
+    height: 416px;
+    border: 1px solid rgba(169, 169, 169, 0.25);
+}
+.realFelling table{
+    margin: 10px 10px;
+}
+.realFelling table tr{
+    margin-bottom: 10px;
+}
+.uploadImage{
+    border: none;
+    width: 78px;
+    height: 30px;
+    background-color: #1786dc;
+    color: white;
+    margin-left: 10px;
+}
+.alreadyUpload{
+    height: 172px;
+    margin: 5px 10px;
+    border: 1px solid rgba(169, 169, 169, 0.25);
+}
+.leftWords{
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 40px;
+    font-size: 14px;
+    color: #000000;
+    height: 162px;
+    float: left;
+    border-right: 1px solid rgba(169, 169, 169, 0.25);
+}
+#pictures{
+    height: 162px;
+    overflow: auto;
+}
+#pictures img{
+    width: 114px;
+    height: 75px; ;
+    margin: 2px 2px;
+}
+#pictures img:hover{
+    border: 1px solid red;
+}
+a{
+    color: #444444;
+}
+a:hover{
+    color: red;
+    font-weight: bolder;
+}

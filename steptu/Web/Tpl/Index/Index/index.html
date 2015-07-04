@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	    <link rel="stylesheet" href="__CSS__/index.css" media="all" type="text/css">
+	<title>游迹网</title>
+<script type="text/javascript" src="__JS__/jquery-easyui-1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
+<script type="text/javascript" src="__JS__/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__JS__/jquery-easyui-1.4.2/themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="__JS__/jquery-easyui-1.4.2/themes/icon.css">
+  <link rel="stylesheet" type="text/css" href="__JS__/jquery-easyui-1.4.2/demo/demo.css">
+  <link rel="stylesheet" href="__CSS__/css.css" media="all">
+
+<script>
+jQuery(document).ready(function($) {
+  $('.theme-login').click(function(){
+    $('.theme-popover-mask').fadeIn(100);
+    $('.theme-popover').slideDown(200);
+  })
+  $('.theme-poptit .close').click(function(){
+    $('.theme-popover-mask').fadeOut(100);
+    $('.theme-popover').slideUp(200);
+  })
+
+})
+$(document).ready(function() {
+
+// alert("dadf");
+
+  if($.cookie('username') != '' && $.cookie('username') != null && $.cookie('username') != undefined){
+
+      loganniu.style.display="none";
+      reanniu.style.display="none";
+      document.getElementById("dengluchenggong").innerHTML="欢迎您，"+$.cookie('username');
+    }
+
+});
+</script>
+<script type="text/javascript">
+function showjieguo(){
+    zhuhaohuajieguo.style.display="block";
+    zhuhaohuatu.style.display="none";
+}
+
+</script>
+</head>
+<body >
+
+  <STYLE TYPE="text/css">
+
+<!--
+
+BODY {background-image: URL(__IMG__/background.png);
+
+background-position:center top;
+
+background-repeat: no-repeat;
+
+}
+
+  a{
+    color: #444444;
+}
+a:hover{
+    color: red;
+    font-weight: bolder;
+}
+
+
+-->
+</STYLE>
+
+
+<div class="quanbu">
+
+	<div class="contentbg"></div>
+	<div class="content">
+		<!--优惠套餐条-->
+    <img src="__IMG__/youhuitiao1.png" class="youhuitiao1">
+    <img src="__IMG__/youhuitiao2.png" class="youhuitiao2">
+		<!--以下这一段是优惠套餐滚动实现-->
+    <div style="position:absolute;top:30px;left:30px;">
+  <div class="rollBox">
+     <div class="zuogun" onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp1()" onmouseout="ISL_StopUp()" onmouseover="document.images['zuoguntu'].src='__IMG__/zuogun1.png'">
+      <img id="zuoguntu" src="__IMG__/zuogun.png">
+    </div>
+     <div class="Cont" id="ISL_Cont">
+      <div class="ScrCont">
+       <div id="List1">
+        <!-- 图片列表 begin -->
+
+         <div class="pic">
+          <a href="{:U('Index/package/package')}" target="_blank"><img src="{$season[0].image}.jpg" width="145" height="145" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
+          <a href="{:U('Index/package/package')}" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$season[0].name}</div><div style="font-size:15px;font-family: SimHei;color:#ff8004;">{$season[0].price}起</div></a>
+
+         </div>
+
+ <div class="pic">
+          <a href="{:U('Index/package/package')}" target="_blank"><img src="{$season[1].image}.jpg" width="145" height="145" alt="二号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
+          <a href="{:U('Index/package/package')}" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$season[1].name}</div><div style="font-size:15px;font-family: SimHei;color:#ff8004;">{$season[1].price}起</div></a>
+
+         </div>
+         <div class="pic">
+          <a href="{:U('Index/package/package')}" target="_blank"><img src="{$season[2].image}.jpg" width="145" height="145" alt="三号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
+          <a href="{:U('Index/package/package')}" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$season[2].name}</div><div style="font-size:15px;font-family: SimHei;color:#ff8004;">{$season[2].price}起</div></a>
+
+         </div>
+         <div class="pic">
+          <a href="{:U('Index/package/package')}" target="_blank"><img src="/image/4.jpg" width="145" height="145" alt="四号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
+          <a href="{:U('Index/package/package')}" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$season[3].name}</div><div style="font-size:15px;font-family: SimHei;color:#ff8004;">{$season[3].price}起</div></a>
+
+         </div>
+         <div class="pic">
+          <a href="<#ZC_BLOG_HOST#>?cat=5" target="_blank"><img src="/image/5.jpg" width="145" height="145" alt="五号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
+          <a href="<#ZC_BLOG_HOST#>?cat=5" target="_blank">五号图片</a>
+
+         </div>
+ <div class="pic">
+          <a href="<#ZC_BLOG_HOST#>?cat=6" target="_blank"><img src="/image/1.jpg" width="145" height="145" alt="您自定义"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
+          <a href="<#ZC_BLOG_HOST#>?cat=6" target="_blank">您自定义</a>
+
+         </div>
+         <div class="pic">
+          <a href="<#ZC_BLOG_HOST#>?cat=7" target="_blank"><img src="/image/1.jpg" width="145" height="145" alt="您自定义"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
+          <a href="<#ZC_BLOG_HOST#>?cat=7" target="_blank">您自定义</a>
+
+         </div>
+        <!-- 图片列表 end -->
+       </div>
+       <div id="List2"></div>
+      </div>
+     </div>
+     <div class="yougun" onmousedown="ISL_GoDown()" onmouseup="ISL_StopDown1()" onmouseout="ISL_StopDown()" onmouseover="document.images['youguntu'].src='/steptu/Web/Tpl/Index/Public/images/yougun1.png'" >
+     	<img id="youguntu" src="/steptu/Web/Tpl/Index/Public/images/yougun.png"></div>
+    </div>
+
+</div>
+<!--以上这一段是优惠套餐滚动实现-->
+
+	<img src="__IMG__/zhutiao.png" class="zhutiao">
+	<div></div>
+  <!--旅游志标题条-->
+	<img src="__IMG__/lvyouzhi1.png" class="lvyouzhi">
+  <img src="__IMG__/lvyouzhi2.png" class="lvyouzhi2">
+	<div class="lvyouzhicontent">
+      <img src="" style="width:150px;height:150px;margin:15px 0 0 15px;">
+
+    <div style=" word-wrap:break-word; word-break:break-all;width:150px;margin:5px 0 0 15px;font-size:14px;">{$note[0].note}</div>
+
+	</div>
+  <div class="zhuhaohuaform">
+  <form action="{:U('Index/index/index')}" name="zhuxianghaohua" method="post" >
+  <div style="position:absolute;left:0px;top:0px;font-size:15px;font-family: SimHei;">目的地</div><input name="destination" type="text" style="position:absolute;width:95px;left:70px;top:-3px;border-radius:4px;"/>
+  <div style="position:absolute;left:0px;top:40px;font-size:15px;font-family: SimHei;">入住时间</div><div style="position:absolute;width:90px;left:70px;top:37px;"><input name="intime" type="text"style="width:100px;" class="easyui-datebox" required="required" data-options="formatter:myformatter,parser:myparser"/></div>
+  <div style="position:absolute;left:0px;top:80px;font-size:15px;font-family: SimHei;">离店时间</div><div style="position:absolute;width:120px;left:70px;top:77px;"><input id="outtime" type="text" style="width:100px;" class="easyui-datebox" required="required" data-options="formatter:myformatter,parser:myparser"/></div>
+  <div style="position:absolute;left:0px;top:120px;font-size:15px;font-family: SimHei;">酒店品牌</div><select name="brand" style="position:absolute;width:100px;left:70px;top:117px;font-size:18px;">
+		<foreach name='hotel' item='hotel'>
+  <option value="{$hotel.hotelName}" name='brand'>{$hotel.hotelName}</option>
+</foreach>
+  <!-- <option value="洲际酒店">洲际酒店</option> -->
+</select>
+
+  <div style="position:absolute;left:50px;top:180px;"><input type="image" src="__IMG__/search.png" style="border:0;" onclick="showjieguo()" />
+  </div>
+  </form>
+  </div>
+  <img src="__IMG__/zhufenge.png" class="zhufenge">
+  <div class="zhuhaohuatu" id="zhuhaohuatu">
+
+<div id="demo" style="height:250px;width:280px; overflow:hidden; ">
+<div id="demo1">
+<a href="{:U('Index/travelStore/jiudian','','')}/id/3" target="_blank" ><div id="jiudiantu"><img src="__IMG__/xilaideng.png" border="0" /><div id="jiudianming"style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;">喜来登酒店<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">2300</div></div></div></a>
+<a href="http://www.16sucai.com" target="_blank" ><div id="jiudiantu"><img src="__IMG__/xilaideng.png" border="0" /><div id="jiudianming"style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;">喜来登酒店<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">2300</div></div></div></a>
+<a href="http://www.16sucai.com" target="_blank" ><div id="jiudiantu"><img src="__IMG__/xilaideng.png" border="0" /><div id="jiudianming"style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;">喜来登酒店<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">2300</div></div></div></a>
+</div>
+<div id="demo2"></div>
+</div>
+
+  </div>
+<div style="position: absolute;left: 230px;top: 280px;height: 234px;width: 288px;display:none" id="zhuhaohuajieguo">
+<foreach name='hotel' item='hotel'>
+<div style="position:absolute;left:10px;width:130px;height:100px;">
+<img src="" style="width:130px;height:70px;">
+<div style="font-size:13px;width:130px;">{$hotel.hotelName}<span style="position:absolute;left:90px;color:#ff8004;">{$hotel.price}</span></div>
+</div>
+</foreach>
+<!-- <div style="position:absolute;left:150px;width:130px;height:100px;">
+<img src="" style="width:130px;height:70px;">
+<div style="font-size:13px;width:130px;">喜来登 <span style="position:absolute;left:90px;color:#ff8004;">￥500</span></div>
+</div>
+
+<div style="position:absolute;left:10px;top:120px;width:130px;height:100px;">
+<img src="" style="width:130px;height:70px;">
+<div style="font-size:13px;width:130px;">喜来登 <span style="position:absolute;left:90px;color:#ff8004;">￥500</span></div>
+</div>
+
+<div style="position:absolute;left:150px;top:120px;width:130px;height:100px;">
+<img src="" style="width:130px;height:70px;">
+<div style="font-size:13px;width:130px;">喜来登 <span style="position:absolute;left:90px;color:#ff8004;">￥500</span></div>
+</div> -->
+
+</div>
+
+</div>
+
+  <a href="{:U('Index/travelStore/travelStore')}"><img src="__IMG__/travelsm.png" class="travelsm"></a>
+        <a href="{:U('Index/vipCenter/myInformation')}"><img src="__IMG__/personal.png" class="personal"></a>
+        <a href="{:U('Index/travelTheme/travelTheme')}"> <img src="__IMG__/travel.png" class="travel" ></a>
+        <a href="{:U('Index/makePlan/makePlan')}"> <img src="__IMG__/makeplan.png" class="makeplan"></a>
+        <a href="{:U('Index/index/index')}"><img src="__IMG__/index.png" class="index"></a>
+        <a href="{:U('Index/travelBook/travelBook')}"><img src="__IMG__/travelbook.png" class="travelbook"></a>
+  <img src="__IMG__/xuanchuan.png"class="xuanchuan">
+    <img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
+   <!-- <img src="__IMG__/logo.png"class="logo"> -->
+   <img src="__IMG__/phone.png"class="phone">
+
+	<a href="{:U('Index/index/register','','')}"><img src="__IMG__/register.png"class="register" id="reanniu"></a>
+
+
+<div id="loganniu" ><a href="javascript:;"class=" btn-large theme-login"><img src="__IMG__/login.png"class="login"></a>
+</div>
+
+ <div >
+        <div class="bottom"></div>
+        <div class="bottomsm">
+            <span class="bottombiao">旅游超市</span>
+            <div class="bottomxuanxiang">
+            <a href="{:U('Index/travelStore/smsousuojieguo')}">住</a><br>
+            <a href="{:U('Index/travelStore/travelStore')}">吃货</a>
+            </div>
+        </div>
+        <div class="bottompersonal">
+            <span class="bottombiao">会员中心</span>
+            <div class="bottomxuanxiang1">
+            <a href="{:U('Index/vipCenter/myOrders')}"> 我的订单</a><br>
+            <a href="{:U('Index/vipCenter/myGrades')}">我的积分</a> <br>
+            <a href="{:U('Index/vipCenter/myEvaluations')}"> 我的评价</a><br>
+            <a href="{:U('Index/vipCenter/myInformation')}">我的信息</a> <br>
+            <a href="{:U('Index/vipCenter/myMoneyPot')}">我的储钱罐旅行计划</a><br>
+            </div>
+        </div>
+        <div class="bottombook">
+            <span class="bottombiao">旅游志</span>
+            <div class="bottomxuanxiang">
+            <a href="{:U('Index/travelBook/travelBook')}">旅游随感</a> <br>
+            <a href="{:U('Index/travelBook/letterList')}"> 写给未来的信</a></div>
+         </div>
+         <div class="weishenme">
+             <span class="bottombiao">主题旅游</span>
+            <div class="bottomxuanxiang"><a href="/travel/steptu/index.php/travelTheme/travelTheme/class/学子游">城市之间</a><br>
+            <a href="{:U(Index/travelTheme/travelTheme,'class=学子游','')}"> 学子游</a><br>
+            <a href="{:U(Index/travelTheme/travelTheme,'class=年休假','')}">年休假</a><br>
+            <a href="{:U(Index/travelTheme/travelTheme,'class=美食街','')}">美食游</a></div></div>
+        <div class="bottomaboutus"><span class="bottombiao">关于游记</span><div class="bottomxuanxiang">
+            <a href="{:U('Index/index/aboutUs')}">关于我们</a><br>
+            <a href="{:U('Index/index/aboutUs')}">联系我们</a><br>
+            <a href="{:U('Index/index/aboutUs')}">一起合作</a><br>
+            <a href="{:U('Index/index/aboutUs')}">用户协议</a><br>
+            <a href="{:U('Index/index/aboutUs')}">诚聘英才</a></div>
+        </div>
+    </div>
+    <img src="../Public/images/steptu.png" class="steptu">
+    <img src="../Public/images/banquan.png" class="banquan">
+    <img src="../Public/images/renzhengwang.png" class="renzhengwang">
+    <img src="../Public/images/kexin.png" class="kexin">
+    <img src="../Public/images/chengxin.png" class="chengxin">
+
+
+
+
+</div>
+
+<script src="__JS__/index.js" type="text/javascript"></script>
+<div id="tuichudenglu">退出</div>
+<div  id="asdfq">
+<div class="theme-popover" id="theme-popover">
+     <div class="theme-poptit">
+          <a href="javascript:;" title="关闭" class="close" id="close">×</a>
+          <h3>旅行是一种生活</h3>
+     </div>
+     <div class="theme-popbod dform">
+           <form class="theme-signin" name="loginform" action="{:U('Index/loginVerify/loginVerify')}" method="post">
+                <ol>
+                     <li ><h4>请登录</h4></li>
+                     <li><strong>用户名：</strong><input class="ipt" id="name" type="text" name="log" value="jq22" size="20" /></li>
+                     <li><strong>密码：</strong><input class="ipt" id="psw" type="password" name="pwd" value="***" size="20" /></li>
+                     <li><input class="btn btn-primary" name="submit" value=" 登 录 " id="dlanniu" /></li>
+                </ol>
+           </form>
+     </div>
+</div>
+<div class="theme-popover-mask" id="theme-popover-mask"></div>
+  </div>
+  <div class="dengluchenggong" id="dengluchenggong"></div>
+</body>
+<script type="text/javascript">
+
+$("#dlanniu").click(function(){
+   // console.log($data['code']);
+   // alert("用户名/密码 错误！");
+   var url = '{:U(\'Index/loginVerify/loginVerify\')}';
+   $.post(url,{log:$("#name").val(),pwd:$("#psw").val()},function(data){
+       console.log($.cookie('username'));
+      // alert(data['address'][2]);
+      
+      // console.log(shishi);
+      if (data.code==1) {
+      alert("登陆成功");
+      var shishi=$.cookie('username');
+       document.getElementById("close").click(); 
+      loganniu.style.display="none";
+      reanniu.style.display="none";
+      document.getElementById("dengluchenggong").innerHTML="欢迎您，"+shishi;
+      // theme-popover.style.display=none;
+      //  theme-popover-mask.style.display="none";
+      }
+      else
+      {
+        alert("用户名/密码 错误！")
+      };
+    }
+      )
+}
+)
+$("#tuichudenglu").click(function(){
+  var url = '{:U(\'Index/loginVerify/tuichudenglu\')}';
+$.post(url,function(){
+document.getElementById("dengluchenggong").innerHTML="";
+loganniu.style.display="block";
+reanniu.style.display="block";
+})
+
+
+
+});
+</script>
+</html>

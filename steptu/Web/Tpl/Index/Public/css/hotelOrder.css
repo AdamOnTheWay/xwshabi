@@ -1,0 +1,141 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/aboutUs/background.jpg");
+    background-color: #d2e1fe;
+    font-family:SimSun,STSong,Arial;
+    background-repeat: no-repeat;
+}
+.container{
+    width: 60.5%;
+    margin-top: 16%;
+    margin-left: 19.7%;
+    position: absolute;
+}
+.mainbox{
+    background-color: white;
+    width: 60.5%;
+    height: 510px;
+    opacity: 0.63;
+    position: absolute;
+    margin-top:20.1%;
+    margin-left: 19.7%;
+}
+.realContainer{
+    margin: 7px 7px;
+    background-color: white;
+    height: 496px;
+    width: 97.3%;
+    overflow: auto;
+}
+.realContainer img{
+    width: 188px;
+    height: 30px;
+    position: absolute;
+    margin-top: 0;
+    float: left;
+}
+.first{
+    margin-left: 0;
+}
+.second{
+    margin-left: 175px;
+}
+.third{
+    margin-left: 350px;
+}
+.fourth{
+    margin-left: 525px;
+}
+.orderContainer{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.tabel{
+    margin-top: 0;
+}
+tr{
+    height: 30px;
+}
+td:first-child{
+    width: 80px;
+    padding-right: 15px;
+    text-align: right;
+    font-size: 14px;
+    color: #000000;
+}
+.totalSpend{
+    margin-top: 50px;
+    margin-left: 400px;
+    font-size: 18px;
+    color: #000000;
+}
+.totalSpend span{
+    font-size: 18px;
+    color: #ff6c09;
+}
+.confirmButton{
+    border: none;
+    background-color: #1786dc;
+    color: white;
+    font-family:SimSun,STSong,Arial;
+    height: 30px;
+    width: 63px;
+    position: absolute;
+    left: 300px;
+    top: 320px;
+}
+.lastButton{
+    border: none;
+    background-color: #1786dc;
+    color: white;
+    font-family:SimSun,STSong,Arial;
+    height: 30px;
+    width: 63px;
+    margin-left: 220px;
+    margin-top: 50px;
+}
+.nextButton{
+    border: none;
+    background-color: #1786dc;
+    color: white;
+    font-family:SimSun,STSong,Arial;
+    height: 30px;
+    width: 63px;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+.realHotelOrder span{
+    font-size: 18px;
+    color: #000000;
+}
+.realHotelOrder td{
+    color: #000000;
+}
+.realHotelOrder{
+    margin-top: 10px;
+}
+.showHotelOrder{
+    margin-left: 210px;
+    margin-top: 10px;
+}
+.realSuccess{
+    margin-top: 100px;
+    margin-left: 220px;
+    font-size: 36px;
+    color: #000000;
+    text-align: center;
+}
+.orderContainer img{
+    width: 44px;
+    height: 44px;
+}
+a{
+    color: #444444;
+}
+a:hover{
+    color: red;
+    font-weight: bolder;
+}

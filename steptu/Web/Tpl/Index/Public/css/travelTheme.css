@@ -1,0 +1,110 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/register/backgroung.png");
+    /*background-size: ;*/
+    /*background-repeat: space;*/
+}
+.container{
+    width: 60.5%;
+    margin-top: 21.8%;
+    margin-left: 19.7%;
+    position: absolute;
+}
+.mainbox{
+    background-color: white;
+    width: 60.5%;
+    height: 490px;
+    opacity: 0.5;
+    position: absolute;
+    margin-top:21.8%;
+    margin-left: 19.7%;
+}
+.mainboxreal{
+    margin: 7px;
+    background-color: white;
+    height: 477px;
+}
+.travealThemeContent{
+    width: 166px;
+    height: 205px;
+    float: left;
+    margin: 5px;
+    border: 1px solid darkgray;
+}
+.travealThemeContent img{
+    margin: 2px;
+    width: 162px;
+}
+.operation {
+    bottom: 0;
+    width: 166px;
+    text-align: right;
+    height: 23px;
+    background-color: #e7f1ff;
+    line-height: 23px;
+    color: #0032d3;
+}
+.searchNavbar{
+    position: absolute;
+    width: 60.5%;
+    /*background-color: darkgray;*/
+    margin-left: 19.7%;
+    margin-top: 16%;
+}
+.searchContainer{
+    background-color: #0384e0;
+    width: 100%;
+    height: 30px;
+}
+.searchContainer li{
+    line-height: 30px;
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white;
+}
+.searchContainer input{
+    width: 58px;
+}
+.alternative{
+    position: absolute;
+    height: 320px;
+    width: 200px;
+    background-color: white;
+    margin-top: 32%;
+    margin-left: 1%;
+}
+.themeTitle{
+    width: 100%;
+    height: 35px;
+    background-color: #0384e0;
+    line-height: 35px;
+    color: #ffffff;
+    font-size: 16px;
+}
+.alternativeDetial{
+    height: 20px;
+    width: 150px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 1px solid #0884df;
+    color: #0884df;
+    text-align: center;
+    margin-top: 12px;
+    line-height: 20px;
+}
+.moreinfomation {
+    margin-right: 25px;
+    text-align: right;
+    height: 20px;
+    line-height: 20px;
+    color: #0884df;
+}
+a{
+    color: #444444;
+}
+a:hover{
+    color: red;
+    font-weight: bolder;
+}

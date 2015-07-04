@@ -1,0 +1,10 @@
+$("#tuichudenglu").click(function(){
+$.cookie('username', ""); 
+dengluchenggong.style.display="none";
+loganniu.style.display="block";
+reanniu.style.display="block";
+
+
+});
+
+ document.getElementById("close").click(); 

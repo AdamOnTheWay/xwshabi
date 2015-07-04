@@ -1,0 +1,217 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/travelBook/backgrounfFelling.png");
+    /*background-size: ;*/
+    /*background-repeat: space;*/
+}
+.container{
+    width: 60.5%;
+    margin-top: 16%;
+    margin-left: 19.7%;
+    position: absolute;
+}
+.mainbox{
+    background-color: white;
+    width: 60.5%;
+    height: 1060px;
+    opacity: 0.63;
+    position: absolute;
+    margin-top:20.1%;
+    margin-left: 19.7%;
+}
+#mainboxrealFelling{
+    width: 100%;
+    height: 500px;
+}
+#mainboxrealLetter{
+    width: 100%;
+    height: 500px;
+}
+.contentsFromUser{
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 19%;
+    background-color: white;
+}
+.image{
+    /*width: 80%;*/
+}
+.image img{
+    height: 84px;
+    width: 27%;
+    padding-top: 5px;
+}
+.textword{
+    width: 70%;
+    float: left;
+}
+.realContents{
+    height: 90%;
+    margin: 5px 5px;
+    vertical-align: middle;
+}
+.btnbox button{
+    float: right;
+    margin-right: 10px;
+}
+.information{
+    height: 40%;
+    width: 100%;
+    background-color: red;
+}
+.imgeye{
+    height: 40px;
+    float: left;
+}
+.passage{
+    height: 60%;
+    background-color: darkgray;
+}
+.titlebox{
+    float: left;
+    margin-left: 10px;
+    margin-top: 7px;
+    /*width: 100%;*/
+}
+.letterContents{
+    background-color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.letterRealContents{
+    height: 75px;
+    border-bottom: 1px dashed darkgray;
+}
+.twoBtn a{
+    position: absolute;
+    font-size: 18px;
+    color: white;
+}
+.twoBtn a:hover{
+    color: black;
+}
+.detialContents{
+    background-color: white;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.realDetials{
+    padding-left: 10px;
+    padding-top: 10PX;
+    padding-right: 10px;
+    font-size: 15px;
+    height: 480px;
+    overflow: auto;
+}
+.realDetials img{
+    height: 300px;
+    width: 500px;
+}
+.bottom_1{
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 800px;
+    height: 180px;
+    top: 1315px;
+    left: 203px;
+    filter: alpha(opacity=63);
+    -moz-opacity: 0.63;
+    opacity: 0.63;
+}
+textarea{
+    width: 87%;
+    height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+}
+.comments{
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 18%;
+    overflow: auto;
+    border-bottom: 1px solid darkgray;
+    border-top: 1px solid darkgray;
+}
+.commentContent{
+    float: left;
+    padding-left: 20px;
+    /*height: 17%;*/
+    /*overflow: auto;*/
+}
+.bottomsm_1{
+    position: absolute;
+    left: 243px;
+    top: 1333px;
+    height: 180px;
+    width: 70px;
+}
+.bottompersonal_1{
+    position: absolute;
+    left: 343px;
+    top: 1333px;
+    height: 180px;
+    width: 70px;
+}
+.bottombook_1{
+    position: absolute;
+    left: 443px;
+    top: 1333px;
+    height: 180px;
+    width: 70px;
+}
+.weishenme_1{
+    position: absolute;
+    left: 543px;
+    top: 1333px;
+    height: 180px;
+    width: 70px;
+}
+.bottomaboutus_1{
+    position: absolute;
+    left: 643px;
+    top: 1333px;
+    height: 180px;
+    width: 70px;
+}
+.steptu_1 {
+    position: absolute;
+    left: 780px;
+    top: 1340px;
+    height: 50px;
+}
+.banquan_1 {
+    position: absolute;
+    left: 760px;
+    top: 1395px;
+    height: 33px;
+}
+.renzhengwang_1 {
+    position: absolute;
+    left: 720px;
+    top: 1435px;
+    height: 33px;
+}
+.kexin_1 {
+    position: absolute;
+    left: 893px;
+    top: 1435px;
+    height: 33px;
+}
+.chengxin_1 {
+    position: absolute;
+    left: 800px;
+    top: 1435px;
+    height: 33px;
+}
+a{
+    color: #444444;
+}
+a:hover{
+    color: red;
+    font-weight: bolder;
+}
