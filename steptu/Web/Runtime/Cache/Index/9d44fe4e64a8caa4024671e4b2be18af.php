@@ -87,7 +87,7 @@ a:hover{
 <a href="javascript:;"class=" btn-large theme-login" style="" id="loganniu"><img src="../Public/images/login.png"   class="login"></a>
 <a href="<?php echo U('Index/index/register','','');?>"><img src="__IMG__/register.png" class="register" id="reanniu"></a>
 <div style="position: absolute;left: 822px;top: 0px;font-size:14px;color:white"id="dengluchenggong"></div>
-<div id="tuichudenglu" style="position: absolute;left: 1102px;top: 5px;font-size:14px;color:white;display:none;cursor: pointer;">退出登录</div>
+<div id="tuichudenglu" style="position: absolute;left: 960px;top: 5px;font-size:14px;color:white;display:none;cursor: pointer;">退出登录</div>
 <a href="<?php echo U('Index/travelStore/smsousuojieguo');?>"><img src="../Public/images/travelstore/zhu.png" class="zhu"></a>
 <img src="../Public/images/travelstore/chi.png" class="chi" onclick="showchi()">
 <div class="zhongyang">
