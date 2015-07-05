@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/themes/default/easyui.css">
   <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/themes/icon.css">
   <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/demo/demo.css">
+  <script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
 <style type="text/css">
     #allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
   </style>
@@ -26,6 +27,19 @@ jQuery(document).ready(function($) {
 	})
 
 })
+$(document).ready(function() {
+
+// alert("dadf");
+
+  if($.cookie('username') != '' && $.cookie('username') != null && $.cookie('username') != undefined){
+
+      loganniu.style.display="none";
+      reanniu.style.display="none";
+       document.getElementById("dengluchenggong").innerHTML=$.cookie('username')+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
+      tuichudenglu.style.display="block";
+    }
+
+});
 </script>
 <script type="text/javascript">
 function showchi(){
@@ -69,9 +83,11 @@ a:hover{
         <a href="{:U('Index/makePlan/makePlan')}"> <img src="__IMG__/makeplan.png" class="makeplan"></a>
         <a href="{:U('Index/index/index')}"><img src="__IMG__/index.png" class="index"></a>
         <a href="{:U('Index/travelBook/travelBook')}"><img src="__IMG__/travelbook.png" class="travelbook"></a>
-<img src="../Public/images/xuanchuan.png"class="xuanchuan">
-
-
+        <img src="../Public/images/xuanchuan.png"class="xuanchuan">
+<a href="javascript:;"class=" btn-large theme-login" style="" id="loganniu"><img src="../Public/images/login.png"   class="login"></a>
+<a href="{:U('Index/index/register','','')}"><img src="__IMG__/register.png" class="register" id="reanniu"></a>
+<div style="position: absolute;left: 822px;top: 0px;font-size:14px;color:white"id="dengluchenggong"></div>
+<div id="tuichudenglu" style="position: absolute;left: 1102px;top: 5px;font-size:14px;color:white;display:none;cursor: pointer;">退出登录</div>
 <a href="{:U('Index/travelStore/smsousuojieguo')}"><img src="../Public/images/travelstore/zhu.png" class="zhu"></a>
 <img src="../Public/images/travelstore/chi.png" class="chi" onclick="showchi()">
 <div class="zhongyang">
@@ -177,25 +193,7 @@ a:hover{
 </div>
 </foreach>
 {$page}
-<!-- 以上是一层楼 -->
-<!-- 这是吃的每层楼的div 最多显示三个，你来做页码 -->
-       <!-- <div class="chiceng" name="成都市一环路东一段">
-          <div class="chicengtu" id="chicengtu"><img src="../Public/images/travelstore/chitu.jpg" width="145" height="95"></div>
-          <div style="position:relative;top:5px;left:3px;font-size:14px;word-break: break-all;">店名:<span id="smdianming" style="font-size:14;">111113423</span></div>
-          <div style="position:relative;top:5px;left:3px;font-size:14px;word-break: break-all;">地址:<span class="smdizhi">成都市一环路东一段</span></div>
-          <div style="position:relative;top:5px;left:3px;font-size:14px;word-break: break-all;">电话:<span id="smdianhua"></span></div>
-</div> -->
-<!-- 以上是一层楼 -->
-<!-- 这是吃的每层楼的div 最多显示三个，你来做页码 -->
-       <!-- <div class="chiceng">
-          <div class="chicengtu" id="chicengtu"><img src="../Public/images/travelstore/chitu.jpg" width="145" height="95"></div>
-          <div style="position:relative;top:5px;left:3px;font-size:14px;word-break: break-all;">店名:<span id="smdianming" style="font-size:14;">111113423</span></div>
-          <div style="position:relative;top:5px;left:3px;font-size:14px;word-break: break-all;">地址:<span class="smdizhi"></span></div>
-          <div style="position:relative;top:5px;left:3px;font-size:14px;word-break: break-all;">电话:<span id="smdianhua"></span></div>
-</div> -->
-<!-- 以上是一层楼 -->
-<!--   <img src="../Public/images/travelstore/shangye.png" style="position:absolute;top:356px;left:35px;">
-  <img src="../Public/images/travelstore/xiaye.png" style="position:absolute;top:355px;left:235px;"> -->
+
 </div>
 <div class="baiduditu">
    <div id="allmap">
@@ -320,24 +318,25 @@ a:hover{
 
 
 
-<div class="theme-popover">
+<div  id="asdfq">
+<div class="theme-popover" id="theme-popover">
      <div class="theme-poptit">
-          <a href="javascript:;" title="关闭" class="close">×</a>
+          <a href="javascript:;" title="关闭" class="close" id="close">×</a>
           <h3>旅行是一种生活</h3>
      </div>
      <div class="theme-popbod dform">
-           <form class="theme-signin" name="loginform" action="" method="post">
+           <form class="theme-signin" name="loginform" action="{:U('Index/loginVerify/loginVerify')}" method="post">
                 <ol>
-                     <li><h4>请登录</h4></li>
-                     <li><strong>用户名：</strong><input class="ipt" type="text" name="log" value="jq22" size="20" /></li>
-                     <li><strong>密码：</strong><input class="ipt" type="password" name="pwd" value="***" size="20" /></li>
-                     <li><input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " /></li>
+                     <li ><h4>请登录</h4></li>
+                     <li><strong>用户名：</strong><input class="ipt" id="name" type="text" name="log" value="" size="20" /></li>
+                     <li><strong>密码：</strong><input class="ipt" id="psw" type="password" name="pwd" value="" size="20" /></li>
+                     <li><input class="btn btn-primary" name="submit" value=" 登 录 " id="dlanniu" /></li>
                 </ol>
            </form>
      </div>
 </div>
-<div class="theme-popover-mask"></div>
-<div class="theme-popover-mask"></div>
+<div class="theme-popover-mask" id="theme-popover-mask"></div>
+  </div>
 <script type="text/javascript">
 function myformatter(date){
  var y = date.getFullYear();
@@ -601,4 +600,47 @@ var weizhishangchuan = "不限";
   )
 
 
+</script>
+<script type="text/javascript">
+
+$("#dlanniu").click(function(){
+   // console.log($data['code']);
+   // alert("用户名/密码 错误！");
+   var url = '{:U(\'Index/loginVerify/loginVerify\')}';
+   $.post(url,{log:$("#name").val(),pwd:$("#psw").val()},function(data){
+       console.log($.cookie('username'));
+      // alert(data['address'][2]);
+      
+      // console.log(shishi);
+      if (data.code==1) {
+      alert("登陆成功");
+      var shishi=$.cookie('username');
+       document.getElementById("close").click(); 
+      loganniu.style.display="none";
+      reanniu.style.display="none";
+      document.getElementById("dengluchenggong").innerHTML=shishi+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
+      tuichudenglu.style.display="block";
+      // theme-popover.style.display=none;
+      //  theme-popover-mask.style.display="none";
+      }
+      else
+      {
+        alert("用户名/密码 错误！")
+      };
+    }
+      )
+}
+)
+$("#tuichudenglu").click(function(){
+  var url = '{:U(\'Index/loginVerify/tuichudenglu\')}';
+$.post(url,function(){
+document.getElementById("dengluchenggong").innerHTML="";
+loganniu.style.display="block";
+reanniu.style.display="block";
+tuichudenglu.style.display="none";
+})
+
+
+
+});
 </script>

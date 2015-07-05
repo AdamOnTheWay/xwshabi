@@ -32,7 +32,8 @@ $(document).ready(function() {
 
       loganniu.style.display="none";
       reanniu.style.display="none";
-      document.getElementById("dengluchenggong").innerHTML="欢迎您，"+$.cookie('username');
+       document.getElementById("dengluchenggong").innerHTML=$.cookie('username')+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
+      tuichudenglu.style.display="block";
     }
 
 });
@@ -263,12 +264,12 @@ a:hover{
     <img src="../Public/images/chengxin.png" class="chengxin">
 
 
-
-
+ <div style="position: absolute;left: 822px;top: 0px;font-size:14px;color:white"id="dengluchenggong"></div>
+<div id="tuichudenglu" style="position: absolute;left: 1102px;top: 5px;font-size:14px;color:white;display:none;">退出登录</div>
 </div>
 
 <script src="__JS__/index.js" type="text/javascript"></script>
-<div id="tuichudenglu">退出</div>
+
 <div  id="asdfq">
 <div class="theme-popover" id="theme-popover">
      <div class="theme-poptit">
@@ -279,8 +280,8 @@ a:hover{
            <form class="theme-signin" name="loginform" action="<?php echo U('Index/loginVerify/loginVerify');?>" method="post">
                 <ol>
                      <li ><h4>请登录</h4></li>
-                     <li><strong>用户名：</strong><input class="ipt" id="name" type="text" name="log" value="jq22" size="20" /></li>
-                     <li><strong>密码：</strong><input class="ipt" id="psw" type="password" name="pwd" value="***" size="20" /></li>
+                     <li><strong>用户名：</strong><input class="ipt" id="name" type="text" name="log" value="" size="20" /></li>
+                     <li><strong>密码：</strong><input class="ipt" id="psw" type="password" name="pwd" value="" size="20" /></li>
                      <li><input class="btn btn-primary" name="submit" value=" 登 录 " id="dlanniu" /></li>
                 </ol>
            </form>
@@ -288,7 +289,7 @@ a:hover{
 </div>
 <div class="theme-popover-mask" id="theme-popover-mask"></div>
   </div>
-  <div class="dengluchenggong" id="dengluchenggong"></div>
+ 
 </body>
 <script type="text/javascript">
 
@@ -307,7 +308,8 @@ $("#dlanniu").click(function(){
        document.getElementById("close").click(); 
       loganniu.style.display="none";
       reanniu.style.display="none";
-      document.getElementById("dengluchenggong").innerHTML="欢迎您，"+shishi;
+      document.getElementById("dengluchenggong").innerHTML=shishi+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
+      tuichudenglu.style.display="block";
       // theme-popover.style.display=none;
       //  theme-popover-mask.style.display="none";
       }
@@ -325,6 +327,7 @@ $.post(url,function(){
 document.getElementById("dengluchenggong").innerHTML="";
 loganniu.style.display="block";
 reanniu.style.display="block";
+tuichudenglu.style.display="none";
 })
 
 
