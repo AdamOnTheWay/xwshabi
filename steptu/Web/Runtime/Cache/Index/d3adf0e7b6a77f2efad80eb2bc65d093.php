@@ -15,9 +15,27 @@
             cursor: pointer;
         }
     </style>
+
+<script>
+
+$(document).ready(function() {
+
+// alert("dadf");
+
+  if($.cookie('username') != '' && $.cookie('username') != null && $.cookie('username') != undefined){
+
+       document.getElementById("dengluchenggong").innerHTML=$.cookie('username')+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
+      tuichudenglu.style.display="block";
+    }
+
+});
+</script>
+<script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
 </head>
 <body>
 <div class="quanbu">
+    <div style="position: absolute;left: 822px;top: 0px;font-size:14px;color:white"id="dengluchenggong"></div>
+<div id="tuichudenglu" style="position: absolute;left: 960px;top: 8px;font-size:14px;color:white;display:none;cursor: pointer;">退出登录</div>
     <div>
         <img src="../Public/images/travelsm.png"  class="travelsm">
         <img src="../Public/images/personal.png" class="personal">
@@ -28,11 +46,9 @@
         <img src="../Public/images/travelbook.png" class="travelbook">
         <img src="../Public/images/xuanchuan.png" class="xuanchuan">
         <img src="../Public/images/phone.png" class="phone">
-        <img src="../Public/images/register.png" class="register">
+     
     </div>
-    <div ><a href="javascript:;" class=" btn-large theme-login"><img src="../Public/images/login.png"class="login"></a>
-    </div>
-
+    
     <div class="mainbox"></div>
 
     <div class="container">

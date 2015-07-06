@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/demo/demo.css">
     <link rel="stylesheet" href="../Public/css/css.css" media="all">
     <link href="../Public/css/packageOrder.css" rel="stylesheet" type="text/css">
-    <script>
+       <script>
 
 $(document).ready(function() {
 
@@ -40,9 +40,9 @@ $(document).ready(function() {
         <img src="../Public/images/travelbook.png" class="travelbook">
         <img src="../Public/images/xuanchuan.png" class="xuanchuan">
         <img src="../Public/images/phone.png" class="phone">
-        
+      
     </div>
-  
+   
 
     <div class="mainbox"></div>
 
@@ -52,14 +52,11 @@ $(document).ready(function() {
             <img src="../Public/images/package/first.png" class="first">
             <img src="../Public/images/package/second_blue.png" class="second">
             <img src="../Public/images/package/pay.png" class="third">
-            <img src="../Public/images/package/fourth.png" class="fourth">
+            <img src="../Public/images/package/orderSuccess.png" class="fourth">
             <div class="orderContainer">
-                <div class="comfirmTravelInfo">
-                    么么哒
+                <div class="realSuccess">
+                    预定成功！<img src="../Public/images/package/right.png">
                 </div>
-                <label class="lastButton" id="up" onclick="window.history.back(-1)">上一步</label>
-                <button class="nexyButton">下一步</button>
-                
             </div>
         </div>
     </div>

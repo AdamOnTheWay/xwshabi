@@ -4,7 +4,9 @@
 	<meta charset="utf-8">
 	    <link rel="stylesheet" href="../Public/css/package/package.css" media="all" type="text/css">
 	    <link rel="stylesheet" href="../Public/css/css.css" media="all">
+
 	    <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+     
 	<title>优惠套餐</title>
 	<script>
 jQuery(document).ready(function($) {
@@ -25,6 +27,19 @@ $('a').click(function() {
     }, 500);
     return false;
 });
+
+$(document).ready(function() {
+
+  if($.cookie('username') != '' && $.cookie('username') != null && $.cookie('username') != undefined){
+
+      loganniu.style.display="none";
+      reanniu.style.display="none";
+       document.getElementById("dengluchenggong").innerHTML=$.cookie('username')+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
+      tuichudenglu.style.display="block";
+    }
+
+});
+
 </script>
 <link href="../Public/css/calendar.css" rel="stylesheet" type="text/css" />
 
@@ -40,7 +55,7 @@ $('a').click(function() {
     <link rel="stylesheet" href="../Public/css/package/demo.css">
     <script src="../Public/js/package/bjqs-1.3.min.js"></script>
 
-
+ <script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
 
 </head>
 
@@ -60,7 +75,11 @@ background-repeat: no-repeat;
 -->1
 </STYLE> 
 <div class="quanbu">
-	
+<a href="javascript:;"class=" btn-large theme-login" style="" id="loganniu"><img src="../Public/images/login.png"   style=" position: absolute;left: 822px;top: 70px;cursor: pointer;"></a>
+<a href="<?php echo U('Index/index/register','','');?>"><img src="__IMG__/register.png" style="position: absolute;left: 920px;top: 70px;" id="reanniu"></a>
+<div style="position: absolute;left: 822px;top: 0px;font-size:14px;color:white"id="dengluchenggong"></div>
+<div id="tuichudenglu" style="position: absolute;left: 960px;top: 5px;font-size:14px;color:white;display:none;cursor: pointer;">退出登录</div>
+
 	<a href="<?php echo U('Index/travelStore/travelStore');?>"><img src="__IMG__/travelsm.png" class="travelsm"></a>
         <a href="<?php echo U('Index/vipCenter/myInformation');?>"><img src="__IMG__/personal.png" class="personal"></a>
         <a href="<?php echo U('Index/travelTheme/travelTheme');?>"> <img src="__IMG__/travel.png" class="travel" ></a>
@@ -69,8 +88,6 @@ background-repeat: no-repeat;
         <a href="<?php echo U('Index/travelBook/travelBook');?>"><img src="__IMG__/travelbook.png" class="travelbook"></a>
 <img src="../Public/images/xuanchuan.png"class="xuanchuan">
 
-<a href="javascript:;"class=" btn-large theme-login" style=""><img src="../Public/images/login.png"   class="login"></a>
-<img src="../Public/images/register.png"class="register">
 
 
 
@@ -112,7 +129,7 @@ background-repeat: no-repeat;
   <div class="taocanyudingziti">出游日期:</div><input name="chufashijianshuru" id="chufashijianshuru" type="text" value="" style="position:absolute;width:195px;left:80px;top:8px;border-radius:4px;"/> <div class="taocanyudingziti">出发城市:</div><input name="chufachengshishuru" id="chufachengshishuru" type="text" value="" style="position:absolute;width:195px;left:80px;top:42px;border-radius:4px;"/><div class="taocanyudingziti">出游人数:</div> <input name="chufarenshuchengren" id="chufarenshuchengren" type="text" value=""style="position:absolute;width:35px;left:80px;top:76px;border-radius:4px;"><div style="position:absolute;left:120px;top:76px;font-family: serif;font-size: 14px;">成人</div><input name="chufarenshuertong" id="chufarenshuertong" type="text" value=""style="position:absolute;width:35px;left:180px;top:76px;border-radius:4px;"><div style="position:absolute;left:220px;top:76px;font-family: serif;font-size: 14px;">儿童</div>
 
 
-  <a href="<?php echo U('Index/package/order_1');?>"><div style="position:absolute;left:100px;top:120px;"><img src="../Public/images/package/yuding.png" style="border:0;" ></div></a>
+  <a href="javascript:"><div style="position:absolute;left:100px;top:120px;" id="yudinganniu"><img src="../Public/images/package/yuding.png" style="border:0;" ></div></a>
  </form>
 
 </div>
@@ -142,23 +159,28 @@ background-repeat: no-repeat;
 
 <div class="neirongtiao" id="youkedianping"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">游客点评</div></div>
 <div class="youhuihuodongcontent" id="youkedianpingcontent">
-<div class="pinglunfenlei">
-<table style="width: 700px;height: 35px;border: 1px solid #b5b5b5;"></table>
-</div>  
-
-
-
-<div class="taocandianping">
-  <form action="" name="taocandianping" method="post">
-
-
-  </form>
-
+<div style="width:732px;height:38px;border:1px solid #d2d2d2;position:relative;top:-20px;left:5px;">
+ <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha1">全部点评()</div>
+  <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha2">满意()</div>
+  <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha3">一般()</div>
+    <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha4">不满意()</div>
+</div>
+<!-- 这是一层评论楼 -->
+<div style="width:727px;margin:5px 0 0 0;">
+<img src="../Public/images/package/fengexian3.jpg" style="position:relative;left:10px;">
+<div style="width:60px;height:60px;border:1px solid #d2d2d2;position:relative;left:13px;float:left"><img src="../pu">这里放头像</div>
+<div style="width:46px;height:22px;background-color:#FF6C0A;margin:5px 0 0 25px;color:white;font-size:14px;center;float:left;line-height:22px;text-align:center;">满意</div>
+<div style="width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;">哈弗士大夫和大厦附近阿萨德飞结婚卡士大夫阿什顿房价肯定是减肥换金水发酵卡上的符合电费iweuiqworu活动时间复活节大师傅阿萨德飞回家大师傅开始大家发货撒旦就地方挥洒的减肥撒娇地方就阿斯顿飞回家阿斯顿飞机的萨芬很受打击飞洒地地方开始的缴费卡拉斯地方大煞风景阿斯蒂芬卡三飞洒的减肥哈三等奖回复就爱上看到附近拉上阿萨德加咖啡哈三等奖等奖盛大开放就撒旦法士大夫就卡死的浪费</div> <!-- 限定150字 -->
 </div>
 
 
 
 
+
+
+
+
+<div style="width:727px;height:70px;"></div>
 
 </div>
 
@@ -271,23 +293,25 @@ background-repeat: no-repeat;
 </div>
 
 
-<div class="theme-popover">
+<div  id="asdfq">
+<div class="theme-popover" id="theme-popover">
      <div class="theme-poptit">
-          <a href="javascript:;" title="关闭" class="close">×</a>
+          <a href="javascript:;" title="关闭" class="close" id="close">×</a>
           <h3>旅行是一种生活</h3>
      </div>
      <div class="theme-popbod dform">
-           <form class="theme-signin" name="loginform" action="" method="post">
+           <form class="theme-signin" name="loginform" action="<?php echo U('Index/loginVerify/loginVerify');?>" method="post">
                 <ol>
-                     <li><h4>请登录</h4></li>
-                     <li><strong>用户名：</strong><input class="ipt" type="text" name="log" value="jq22" size="20" /></li>
-                     <li><strong>密码：</strong><input class="ipt" type="password" name="pwd" value="***" size="20" /></li>
-                     <li><input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " /></li>
+                     <li ><h4>请登录</h4></li>
+                     <li><strong>用户名：</strong><input class="ipt" id="name" type="text" name="log" value="" size="20" /></li>
+                     <li><strong>密码：</strong><input class="ipt" id="psw" type="password" name="pwd" value="" size="20" /></li>
+                     <li><input class="btn btn-primary" name="submit" value=" 登 录 " id="dlanniu" /></li>
                 </ol>
            </form>
      </div>
 </div>
-<div class="theme-popover-mask"></div>
+<div class="theme-popover-mask" id="theme-popover-mask"></div>
+</div>
 
 
 
@@ -304,9 +328,64 @@ background-repeat: no-repeat;
 
         });
       </script>
+<script type="text/javascript">
+
+$("#dlanniu").click(function(){
+   // console.log($data['code']);
+   // alert("用户名/密码 错误！");
+   var url = '<?php echo U('Index/loginVerify/loginVerify');?>';
+   $.post(url,{log:$("#name").val(),pwd:$("#psw").val()},function(data){
+       console.log($.cookie('username'));
+      // alert(data['address'][2]);
+      
+      // console.log(shishi);
+      if (data.code==1) {
+      alert("登陆成功");
+      var shishi=$.cookie('username');
+       document.getElementById("close").click(); 
+      loganniu.style.display="none";
+      reanniu.style.display="none";
+      document.getElementById("dengluchenggong").innerHTML=shishi+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
+      tuichudenglu.style.display="block";
+      // theme-popover.style.display=none;
+      //  theme-popover-mask.style.display="none";
+      }
+      else
+      {
+        alert("用户名/密码 错误！")
+      };
+    }
+      )
+}
+)
+$("#tuichudenglu").click(function(){
+  var url = '<?php echo U('Index/loginVerify/tuichudenglu');?>';
+$.post(url,function(){
+document.getElementById("dengluchenggong").innerHTML="";
+loganniu.style.display="block";
+reanniu.style.display="block";
+tuichudenglu.style.display="none";
+})
+
+
+
+});
+
+$("#yudinganniu").click(function(){
+if($.cookie('username') != '' && $.cookie('username') != null && $.cookie('username') != undefined){
+  console.log("123")
+    window.location.href="/steptu/index.php/Index/package/order_1.html"; 
+}
+ else
+ alert("请先登录");
+})
+
+
+</script>
 
 
 
 
 </body>
+
 </html>
