@@ -64,9 +64,11 @@
 	 	//处理我的信息显示页面
 
 	 	public function myInformation(){
+	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "alert('请先登录')";
-	 			redirect(U('Index/index/index','',''));	
+	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
+	 			// redirect(U('Index/index/index','',''));	
+	 			return;
 	 		}
 
 

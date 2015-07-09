@@ -67,6 +67,7 @@ class loginVerifyAction extends Action{
 	public function tuichudenglu(){
 
 		cookie('username',null);
+		cookie('userid',null);
 	}
 
 	}
