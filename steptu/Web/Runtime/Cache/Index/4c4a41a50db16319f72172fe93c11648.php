@@ -3,8 +3,11 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Public/css/index.css" media="all" type="text/css">
-    <title>储钱罐旅行计划</title>
+    <title>我的评价</title>
+    <script  src="/steptu/Web/Tpl/ueditor/ueditor.config.js"></script>
+    <script src="/steptu/Web/Tpl/ueditor/ueditor.all.min.js"></script>
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../Public/js/jquery.form.js"></script>
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
     <script src="../Public/js/jquery-easyui-1.4.2/locale/easyui-lang-zh_CN.js"></script>
     <script src="../Public/js/jquery.cookie.js"></script>
@@ -42,11 +45,8 @@
         <img src="__IMG__/phone.png" class="phone">
         
     </div>
- 
-    <div id="afterLogin" style="display: none">
-        <img src="../Public/images/afterLogin.png" class="login">
-        <button class="register" id="exitLogin">退出登录</button>
-    </div>
+    
+   
     <div class="mainbox"></div>
 
     <div class="container">
@@ -54,68 +54,82 @@
         <div class="dearVIP">
             <img src="../Public/images/vipCenter/point.png">
             <div class="realDearVIP">
-                尊敬的会员<span>nimabu</span>，欢迎你！<br/>
-                手机号码：<span>12345678900</span>  |  邮箱地址：<span>1234567@qq.com</span>
+                尊敬的会员<span><?php echo ($user["name"]); ?></span>，欢迎你！<br/>
+                手机号码：<span><?php echo ($user["phone"]); ?></span>  |  邮箱地址：<span><?php echo ($user["email"]); ?></span>
             </div>
         </div>
         <div class="border">
             <div class="empty"></div>
-            <div id="myMoneyPot">  <!--我的储钱罐旅行计划 -->
-                <div class="leftPart">
-                    <div id="MoneyPotPlan"><!-- 从这里开始循环，每增加一条，增加一个div-->
-                        <img src="../Public/images/vipCenter/point.png">
-                        <div class="realPlan">
-                            <span class="bigger">A储钱罐旅行计划</span> <br/>
-                            <span>活动时间:<span class="rightSpan">2015.1.1-2015-2-2</span></span> <br/>
-                            <span>报名人数:<span class="rightSpan">4</span></span> <br/>
-                            <span>报名状态:<span class="rightSpan">已报名</span></span> <br/>
-                        </div>
-                    </div>  <!-- 到这里循环结束-->
-                    <div id="MoneyPotPlan">  <!-- -->
-                        <img src="../Public/images/vipCenter/point.png">
-                        <div class="realPlan">
-                            <span class="bigger">A储钱罐旅行计划</span> <br/>
-                            <span>活动时间:<span class="rightSpan">2015.1.1-2015-2-2</span></span> <br/>
-                            <span>报名人数:<span class="rightSpan">4</span></span> <br/>
-                            <span>报名状态:<span class="rightSpan">已报名</span></span> <br/>
-                        </div>
-                    </div>
-                    <div id="MoneyPotPlan">
-                        <img src="../Public/images/vipCenter/point.png">
-                        <div class="realPlan">
-                            <span class="bigger">A储钱罐旅行计划</span> <br/>
-                            <span>活动时间:<span class="rightSpan">2015.1.1-2015-2-2</span></span> <br/>
-                            <span>报名人数:<span class="rightSpan">4</span></span> <br/>
-                            <span>报名状态:<span class="rightSpan">已报名</span></span> <br/>
-                        </div>
-                    </div>
-                    <div id="MoneyPotPlan">
-                        <img src="../Public/images/vipCenter/point.png">
-                        <div class="realPlan">
-                            <span class="bigger">A储钱罐旅行计划</span> <br/>
-                            <span>活动时间:<span class="rightSpan">2015.1.1-2015-2-2</span></span> <br/>
-                            <span>报名人数:<span class="rightSpan">4</span></span> <br/>
-                            <span>报名状态:<span class="rightSpan">已报名</span></span> <br/>
-                        </div>
-                    </div>
+            <!--<div id="myEvaluation">  &lt;!&ndash;我的评价&ndash;&gt;-->
+                <div class="myEvaluations">
+                    <table>
+                        <tr style="background-color: #9ccde7;height: 30px;text-align: left;font-size: 12px">
+                            <th style="width: 400px">我的点评</th>
+                            <th style="width: 150px">满意程度</th>
+                            <th style="width: 150px">点评时间</th>
+                        </tr>
+                        <?php if(is_array($order)): foreach($order as $key=>$v): ?><tr>  <!-- 从这里开始循环，每增加一条评价，增加一个tr-->
+                                <td><?php echo (htmlspecialchars_decode($v["content"])); ?></td>
+                                <td><?php echo ($v["level"]); ?></td>
+                                <td><?php echo ($v["time"]); ?></td>
+                            </tr> <!-- 到这里循环结束--><?php endforeach; endif; ?>
+                    </table>
+                    <?php echo ($show); ?>
                 </div>
-                <div class="rightPart">
-                    <img src="../Public/images/vipCenter/point.png">
-                    <div class="realRight">
-                        <span class="bigger">A储钱罐旅行计划</span><br/>
-                        <span>详细内容说明:</span><br/>
-                        <span style="float: left">balabala</span>
-                        <a href="#"><button value=""></button></a>
+            <?php if($juge == 1): ?><form class="operations" action="<?php echo U('Index/vipCenter/orderComment');?>" method="post" enctype="multipart/form-data">
+                    <div class="giveAComment">
+                        评分：
+                        <label><input type="checkbox" name="level" value="满意" checked='checked' onclick="chooseOne(this)">满意</label>
+                        <label><input type="checkbox" name="level" value="一般" onclick="chooseOne(this)">一般</label>
+                        <label><input type="checkbox" name="level" value="不满意" onclick="chooseOne(this)">不满意</label>
                     </div>
-                </div>
-            </div>
+                    <div class="giveAComment">
+                        <span>评价：</span>
+                        <ol>
+                            <li>行程安排</li>
+                            <li>旅游交通</li>
+                            <li>餐饮服务</li>
+                            <li>导游服务</li>
+                            <li>酒店住宿</li>
+                        </ol><br/>
+                    </div>
+                    <input type='hidden' value="<?php echo ($travelId); ?>" name='travelId'>
+                    <label><textarea class="textarea" name="content" id="content"></textarea><br/></label>
+                    <script type="text/javascript">
+                            window.UEDITOR_HOME_URL = '/steptu/Web/Tpl/ueditor/';
+                            window.UEDITOR_CONFIG.toolbars = [['undo', 'redo','|',
+                                                               'bold', 'italic',
+                                                                'emotion','date', 'time'
+                                                               ]];
+                            window.UEDITOR_CONFIG.scaleEnabled  = true;
+                            window.UEDITOR_CONFIG.elementPathEnabled = false;
+                            var ue = UE.getEditor('content',{initialFrameWidth:550,initialFrameHeight:80});
+                     </script>
+                <!--     <input id="imgfile" type="file" accept="image/gif, image/png, image/jpeg" name="image" /> -->
+                    <div class="giveAComment">
+                        <!-- <span>验证码：</span><label><input class="easyui-textbox" style="height: 20px;width: 50px"></label>
+                        <img src="<?php echo U('Index/loginVerify/identify');?>" id="code"/><a href="javascript:void(change_code(this));">看不清</a> -->
+                         <script>
+                        //     var verifyURL = "<?php echo U('Index/loginVerify/identify','','');?>";
+                        //     function change_code(){
+                        //         document.getElementById("code").setAttribute("src",verifyURL +'/' + Math.random());
+                        //         return false;
+                        //     }
+                         </script>
+                    </div>
+                    <button class="button" type="submit">上传</button>
+                    <button class="button_1" type="reset">取消</button>
+                </form>
+            <!--</div>-->
+              <?php else: endif; ?>
         </div>
     </div>
-    <div class="navbar">
+
+   <div class="navbar">
         <div class="userHead">
             <div class="imageBox">
                 <img id="imgHead" src="../Public/images/vipCenter/head.png">
-                <a onclick="fileSelect()">上传头像</a>  <!-- -->
+                <a onclick="fileSelect()" style="font-size: 10px">上传头像</a>  <!-- -->
             </div>
             <span><?php echo ($user["name"]); ?></span>
             <form id="form_face" method="post" enctype="multipart/form-data" style="width:auto;">  <!--  上传头像提交表单-->
@@ -168,6 +182,7 @@
             </div>
         </div>
     </div>
+
     <div>
         <div class="bottom"></div>
         <div class="bottomsm">
@@ -180,7 +195,7 @@
         <div class="bottompersonal">
             <span class="bottombiao">会员中心</span>
             <div class="bottomxuanxiang1">
-                <a href="<?php echo U('Index/vipCenter/myOrders','','');?>"> 我的订单</a><br>
+                <a href="<?php echo U('Index/vipCenter/myOrders');?>"> 我的订单</a><br>
                 <a href="<?php echo U('Index/vipCenter/myGrades');?>">我的积分</a> <br>
                 <a href="<?php echo U('Index/vipCenter/myEvaluations');?>"> 我的评价</a><br>
                 <a href="<?php echo U('Index/vipCenter/myInformation');?>">我的信息</a> <br>

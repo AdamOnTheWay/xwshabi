@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Public/css/index.css" media="all" type="text/css">
-    <title>我的订单</title>
+    <title>旅游随感</title>
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
     <script src="../Public/js/jquery-easyui-1.4.2/locale/easyui-lang-zh_CN.js"></script>
@@ -31,18 +31,17 @@
 <body>
 <div class="quanbu">
     <div>
-        <a href="{:U('Index/travelStore/travelStore')}"><img src="__IMG__/travelsm.png" class="travelsm"></a>
-        <a href="{:U('Index/vipCenter/myInformation')}"><img src="__IMG__/personal.png" class="personal"></a>
-        <a href="{:U('Index/travelTheme/travelTheme')}"> <img src="__IMG__/travel.png" class="travel" ></a>
-        <a href="{:U('Index/makePlan/makePlan')}"> <img src="__IMG__/makeplan.png" class="makeplan"></a>
-        <a href="{:U('Index/index/index')}"><img src="__IMG__/index.png" class="index"></a>
-        <a href="{:U('Index/travelBook/travelBook')}"><img src="__IMG__/travelbook.png" class="travelbook"></a>
+        <a href="<?php echo U('Index/travelStore/travelStore');?>"><img src="__IMG__/travelsm.png" class="travelsm"></a>
+        <a href="<?php echo U('Index/vipCenter/myInformation');?>"><img src="__IMG__/personal.png" class="personal"></a>
+        <a href="<?php echo U('Index/travelTheme/travelTheme');?>"> <img src="__IMG__/travel.png" class="travel" ></a>
+        <a href="<?php echo U('Index/makePlan/makePlan');?>"> <img src="__IMG__/makeplan.png" class="makeplan"></a>
+        <a href="<?php echo U('Index/index/index');?>"><img src="__IMG__/index.png" class="index"></a>
+        <a href="<?php echo U('Index/travelBook/travelBook');?>"><img src="__IMG__/travelbook.png" class="travelbook"></a>
         <img src="__IMG__/xuanchuan.png" class="xuanchuan">
         <img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
         <img src="__IMG__/phone.png" class="phone">
-       
-    </div>
-   
+            </div>
+    
     <div id="afterLogin" style="display: none">
         <img src="../Public/images/afterLogin.png" class="login">
         <button class="register" id="exitLogin">退出登录</button>
@@ -54,46 +53,55 @@
         <div class="dearVIP">
             <img src="../Public/images/vipCenter/point.png">
             <div class="realDearVIP">
-                尊敬的会员<span>{$user.name}</span>，欢迎你！<br/>
-                手机号码：<span>{$user.phone}</span>  |  邮箱地址：<span>{$user.email}</span>
+                尊敬的会员<span>nimabu</span>，欢迎你！<br/>
+                手机号码：<span>12345678900</span>  |  邮箱地址：<span>1234567@qq.com</span>
             </div>
         </div>
         <div class="border">
             <div class="empty"></div>
-            <div id="myOrders">    <!-- 我的订单-->
-                <div class="realOrders">
+            <div id="myFelling">    <!-- 我的订单-->
+                <div class="realFelling">
                     <table>
-                        <tr style="background-color: #9ccde7;height: 30px;text-align: left;font-size: 12px">
-                            <th width="175px">时间</th>
-                            <th width="175px">订单号</th>
-                            <th width="200px">内容</th>
-                            <th width="100px">查看订单</th>
-                            <th width="50px">评价</th>
+                        <tr>
+                            <td>主题：</td>
+                            <td><label><input type="text" class="easyui-textbox" style="width: 300px"></label></td>
                         </tr>
-                        <foreach name="list" item='v'>
-                            <tr>  <!--这里也是每增加一条，就增加一个tr -->
-                            <td>{$v.time}</td>
-                            <td>{$v.id}</td>
-                            <td>{$v.content}</td>
-                            <td><a href=""> 查看</a></td>
-                            <td><a href='{:U("Index/vipCenter/myEvaluations","","")}/travelId/{$v.scencyId}'> 评价 </a></td>
+                        <tr>
+                            <td>正文：</td>
+                            <td><textarea style="width: 600px;height: 150px"></textarea></td> <!--把 这里换成编辑框  大小差不多按照这个来适当调整就ok -->
                         </tr>
-                        </foreach>                        
                     </table>
-                    {$show}
+                    <button class="uploadImage" onclick="fileSelect()">上传图片</button>
+                    <div class="alreadyUpload">
+                        <div class="leftWords">
+                            &nbsp;点<br/>
+                            &nbsp;击<br/>
+                            已图<br/>
+                            上片<br/>
+                            传插<br/>
+                            图入<br/>
+                            片正<br/>
+                            &nbsp;文<br/>
+                            &nbsp;中
+                        </div>
+                        <div id="pictures">
+                            <img src="../Public/images/vipCenter/upload.png">
+                            <img src="../Public/images/vipCenter/upload.png">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-   
-        <div class="navbar">
-            <div class="userHead">
+    <div class="navbar">
+        <div class="userHead">
             <div class="imageBox">
-                <img id="imgHead" src="../Public/images/vipCenter/head.png">
+                <img src="../Public/images/vipCenter/head.png">
                 <a onclick="fileSelect()">上传头像</a>  <!-- -->
             </div>
-            <span>{$user.name}</span>
-            <form id="form_face" method="post" enctype="multipart/form-data" style="width:auto;">  <!--  上传头像提交表单-->
+            <span>Username</span>
+
+            <form id="form_face" enctype="multipart/form-data" style="width:auto;">  <!--  上传头像提交表单-->
                 <input type="file" accept="image/gif, image/png, image/jpeg" name="fileToUpload" id="fileToUpload" onchange="fileSelected();" style="display:none;">
             </form>
             <script type="text/javascript">  <!--上传头像函数 -->
@@ -102,84 +110,71 @@
             }
             function fileSelected() {
                 // 文件选择后触发次函数
-                var option = {
-                    url: "{:U('Index/vipCenter/handUploadImage','','')}",
-                    success: showResponse
-
-                };
-                $('#form_face').ajaxForm(option).submit();
-
-            }
-            function showResponse(data){
-                if (data["msg"] == 1) {
-                     $("#imgHead").attr('src',"/travel/steptu/"+data["path"]);
-                }else{
-                    alert(data["path"]);
-                }
             }
             </script>
+
         </div>
-            <div class="realNavbar">
+        <div class="realNavbar">
             <div class="realNavbarContent">
-                <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myOrders','','')}">我的订单</a>
+                <img src="../Public/images/vipCenter/point.png"><a href="myOrders.html">我的订单</a>
             </div>
             <div class="realNavbarContent">
-                    <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myGrades','','')}">我的积分 | 奖励</a>
+                <img src="../Public/images/vipCenter/point.png"><a href="myGrades.html">我的积分 | 奖励</a>
             </div>
             <div class="realNavbarContent">
-                <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myEvaluations','','')}/juge/3">我的评价</a>
+                <img src="../Public/images/vipCenter/point.png"><a href="myEvaluations.html">我的评价</a>
             </div>
             <div class="realNavbarContent">
-                <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myInformation','','')}">我的信息</a>
+                <img src="../Public/images/vipCenter/point.png"><a href="myInformation.html">我的信息</a>
             </div>
             <div class="realNavbarContent">
                 <img src="../Public/images/vipCenter/point.png"><a href="myMoneyPot.html">我的储钱罐计划</a>
             </div>
             <div class="realNavbarContent">
-                <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myTravealBook','','')}">写给未来的信</a>
+                <img src="../Public/images/vipCenter/point.png"><a href="myTravealBook.html">写给未来的信</a>
             </div>
             <div class="realNavbarContent">
-                    <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myFelling','','')}">旅游随感</a>
+                <img src="../Public/images/vipCenter/point.png"><a href="myFelling.html">旅游随感</a>
             </div>
         </div>
-        </div>
+    </div>
     <div>
         <div class="bottom"></div>
         <div class="bottomsm">
             <span class="bottombiao">旅游超市</span>
             <div class="bottomxuanxiang">
-                <a href="{:U('Index/travelStore/smsousuojieguo')}">住</a><br>
-                <a href="{:U('Index/travelStore/travelStore')}">吃货</a>
+                <a href="<?php echo U('Index/travelStore/smsousuojieguo');?>">住</a><br>
+                <a href="<?php echo U('Index/travelStore/travelStore');?>">吃货</a>
             </div>
         </div>
         <div class="bottompersonal">
             <span class="bottombiao">会员中心</span>
             <div class="bottomxuanxiang1">
-                <a href="{:U('Index/vipCenter/myOrders')}"> 我的订单</a><br>
-                <a href="{:U('Index/vipCenter/myGrades')}">我的积分</a> <br>
-                <a href="{:U('Index/vipCenter/myEvaluations')}"> 我的评价</a><br>
-                <a href="{:U('Index/vipCenter/myInformation')}">我的信息</a> <br>
-                <a href="{:U('Index/vipCenter/myMoneyPot')}">我的储钱罐旅行计划</a><br>
+                <a href="<?php echo U('Index/vipCenter/myOrders');?>"> 我的订单</a><br>
+                <a href="<?php echo U('Index/vipCenter/myGrades');?>">我的积分</a> <br>
+                <a href="<?php echo U('Index/vipCenter/myEvaluations');?>"> 我的评价</a><br>
+                <a href="<?php echo U('Index/vipCenter/myInformation');?>">我的信息</a> <br>
+                <a href="<?php echo U('Index/vipCenter/myMoneyPot');?>">我的储钱罐旅行计划</a><br>
             </div>
         </div>
         <div class="bottombook">
             <span class="bottombiao">旅游志</span>
             <div class="bottomxuanxiang">
-                <a href="{:U('Index/travelBook/travelBook')}">旅游随感</a> <br>
-                <a href="{:U('Index/travelBook/letterList')}"> 写给未来的信</a></div>
+                <a href="<?php echo U('Index/travelBook/travelBook');?>">旅游随感</a> <br>
+                <a href="<?php echo U('Index/travelBook/letterList');?>"> 写给未来的信</a></div>
         </div>
         <div class="weishenme">
             <span class="bottombiao">主题旅游</span>
-            <div class="bottomxuanxiang"><a href="{:U('Index/travelTheme/travelTheme')}">城市之间</a><br>
-                <a href="{:U('Index/travelTheme/travelTheme')}"> 学子游</a><br>
-                <a href="{:U('Index/travelTheme/travelTheme')}">年休假</a><br>
-                <a href="{:U('Index/travelTheme/travelTheme')}">美食游</a></div></div>
+            <div class="bottomxuanxiang"><a href="<?php echo U('Index/travelTheme/travelTheme');?>">城市之间</a><br>
+                <a href="<?php echo U('Index/travelTheme/travelTheme');?>"> 学子游</a><br>
+                <a href="<?php echo U('Index/travelTheme/travelTheme');?>">年休假</a><br>
+                <a href="<?php echo U('Index/travelTheme/travelTheme');?>">美食游</a></div></div>
         <div class="bottomaboutus"><span class="bottombiao">关于游记</span><div class="bottomxuanxiang">
-            <a href="{:U('Index/index/aboutUs')}">关于我们</a><br>
-            <a href="{:U('Index/index/aboutUs')}">联系我们</a><br>
-            <a href="{:U('Index/index/aboutUs')}">一起合作</a><br>
-            <a href="{:U('Index/index/aboutUs')}">用户协议</a><br>
-            <a href="{:U('Index/index/aboutUs')}">诚聘英才</a></div>
+            <a href="<?php echo U('Index/index/aboutUs');?>">关于我们</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">联系我们</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">一起合作</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">用户协议</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">诚聘英才</a></div>
         </div>
     </div>
     <img src="../Public/images/steptu.png" class="steptu">

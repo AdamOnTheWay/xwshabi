@@ -26,15 +26,15 @@
 //    document.getElementById("likeNumber").innerHTML=like;
 //}
 
-function showFelling(){
-    mainboxrealFelling.style.display="block";
-    mainboxrealLetter.style.display="none";
-}
-function showLetter(){
-    mainboxrealFelling.style.display="none";
-    mainboxrealLetter.style.display="block";
-}
-$(document).ready(function(){
-    $("#btnbox").find("a").eq(0).addClass("btn btn-primary");
-    $("#btnbox").find("a").eq(1).addClass("btn btn-primary");
-})
+//function showFelling(){
+//    mainboxrealFelling.style.display="block";
+//    mainboxrealLetter.style.display="none";
+//}
+//function showLetter(){
+//    mainboxrealFelling.style.display="none";
+//    mainboxrealLetter.style.display="block";
+//}
+//$(document).ready(function(){
+//    $("#btnbox").find("a").eq(0).addClass("btn btn-primary");
+//    $("#btnbox").find("a").eq(1).addClass("btn btn-primary");
+//})

@@ -78,13 +78,8 @@
         <a href="{:U('Index/index/index')}"><img src="__IMG__/index.png" class="index"></a>
         <a href="{:U('Index/travelBook/travelBook')}"><img src="__IMG__/travelbook.png" class="travelbook"></a>
         <img src="__IMG__/xuanchuan.png" class="xuanchuan">
+        <img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
         <img src="__IMG__/phone.png" class="phone">
-        <!--<a href="{:U('Index/index/register')}"><img src="__IMG__/register.png" class="register"></a>-->
-    </div>
-    
-    <div id="afterLogin" style="display: none">
-        <img src="../Public/images/afterLogin.png" class="login">
-        <button class="register" id="exitLogin">退出登录</button>
     </div>
     <div class="mainbox"></div>
 
@@ -119,39 +114,6 @@
                         <div class="chooseContent">
                             <span>生日<label class="label">*</label></span>
                             <div class="chooses">
-                                <!--<select class="easyui-combobox" name="year" required>-->
-                                    <!--<option value="2000">2000</option>-->
-                                    <!--<option value="2001">2001</option>-->
-                                    <!--<option value="2002">2002</option>-->
-                                    <!--<option value="2003">2003</option>-->
-                                    <!--<option value="2004">2004</option>-->
-                                <!--</select>-->
-                                <!--<select class="easyui-combobox" name="month" required>-->
-                                    <!--<option value="1">1</option>-->
-                                    <!--<option value="2">2</option>-->
-                                    <!--<option value="3">3</option>-->
-                                    <!--<option value="4">4</option>-->
-                                    <!--<option value="5">5</option>-->
-                                    <!--<option value="6">6</option>-->
-                                    <!--<option value="7">7</option>-->
-                                    <!--<option value="8">8</option>-->
-                                    <!--<option value="9">9</option>-->
-                                    <!--<option value="10">10</option>-->
-                                    <!--<option value="11">11</option>-->
-                                    <!--<option value="12">12</option>-->
-                                <!--</select>-->
-                                <!--<select class="easyui-combobox" name="day" required>-->
-                                    <!--<option value="1">1</option>-->
-                                    <!--<option value="2">2</option>-->
-                                    <!--<option value="3">3</option>-->
-                                    <!--<option value="4">4</option>-->
-                                    <!--<option value="5">5</option>-->
-                                    <!--<option value="6">6</option>-->
-                                    <!--<option value="7">7</option>-->
-                                    <!--<option value="8">8</option>-->
-                                    <!--<option value="9">9</option>-->
-                                    <!--<option value="10">10</option>-->
-                                <!--</select>-->
                                 <input class="easyui-datebox" name="birthday" value="{$user.birthday}">
                             </div>
                         </div>
@@ -183,7 +145,7 @@
                         <div class="chooseContent">
                             <span>自我介绍</span>
                             <div class="chooses">
-                                <label><textarea name="comment" rows="3" cols="70" maxlength="140" onchange="this.value=this.value.substring(0, 140)" onkeydown="this.value=this.value.substring(0, 140)" onkeyup="this.value=this.value.substring(0, 140)" >{$user.comment}</textarea></label>
+                                <label><textarea name="comment" rows="3" cols="50" maxlength="140" onchange="this.value=this.value.substring(0, 140)" onkeydown="this.value=this.value.substring(0, 140)" onkeyup="this.value=this.value.substring(0, 140)" >{$user.comment}</textarea></label>
                                 <label style="vertical-align: bottom">限140字</label>
                             </div>
                         </div>
@@ -235,7 +197,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" id='sub' value="" style="background-image: url('../Public/images/vipCenter/saveButton.png');width: 80px;height: 30px;border: none;margin-left: 45px"></button>
+                    <button type="button" id="sub">保存资料</button>
                 </form>
                 <script type="text/javascript">
                     function isEnterLegal(){
@@ -292,7 +254,7 @@
                 <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myInformation','','')}">我的信息</a>
             </div>
             <div class="realNavbarContent">
-                <img src="../Public/images/vipCenter/point.png"><a href="myMoneyPot.html">我的储钱罐旅行计划</a>
+                <img src="../Public/images/vipCenter/point.png"><a href="myMoneyPot.html">我的储钱罐计划</a>
             </div>
             <div class="realNavbarContent">
                 <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myTravealBook','','')}">写给未来的信</a>

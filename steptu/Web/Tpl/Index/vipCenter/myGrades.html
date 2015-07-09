@@ -38,6 +38,7 @@
         <a href="{:U('Index/index/index')}"><img src="__IMG__/index.png" class="index"></a>
         <a href="{:U('Index/travelBook/travelBook')}"><img src="__IMG__/travelbook.png" class="travelbook"></a>
         <img src="__IMG__/xuanchuan.png" class="xuanchuan">
+        <img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
         <img src="__IMG__/phone.png" class="phone">
         
     </div>
@@ -89,14 +90,12 @@
                         </tr>
                     </table>
                 </div> -->
-                <div id="gradesRecoder" style="display: block">   <!--积分记录 -->
+                <div id="gradesRecoder">   <!--积分记录 -->
                     <table>
                         <tr style="background-color: #9ccde7;height: 30px;text-align: left;font-size: 12px">
-                            <th style="width: 100px">获取日期</th>
-                           
-                            <th style="width: 150px">获取积分</th>
-                            
-                            <th style="width: 100px">有效期至</th>
+                            <th style="width: 200px">获取日期</th>
+                            <th style="width: 200px">获取积分</th>
+                            <th style="width: 300px">有效期至</th>
                         </tr>
                         <foreach name='score' item='v'>
                             <tr>   <!--这里也是每增加一条，就增加一个tr -->
@@ -159,7 +158,7 @@
                 <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myInformation','','')}">我的信息</a>
             </div>
             <div class="realNavbarContent">
-                <img src="../Public/images/vipCenter/point.png"><a href="myMoneyPot.html">我的储钱罐旅行计划</a>
+                <img src="../Public/images/vipCenter/point.png"><a href="myMoneyPot.html">我的储钱罐计划</a>
             </div>
             <div class="realNavbarContent">
                 <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myTravealBook','','')}">写给未来的信</a>

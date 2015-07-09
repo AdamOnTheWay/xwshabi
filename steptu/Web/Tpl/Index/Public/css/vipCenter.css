@@ -3,9 +3,10 @@ body{
     padding: 0;
     background-image: url("../images/vipCenter/background.png");
     font-family:SimSun,STSong,Arial;
-    /*font-family: Arial, "宋体";*/
-    /*background-size: ;*/
-    /*background-repeat: space;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #D2E0FD;
 }
 .container{
     width: 60.5%;
@@ -66,7 +67,7 @@ body{
 }
 .imageBox{
     float: left;
-    width: 55px;
+    width: 65px;
     height: 75px;
 }
 .imageBox a{
@@ -317,6 +318,7 @@ body{
     width: 90px;
     height: 25px;
     border: none;
+    margin-top: 200px;
 }
 .bigger{
     font-size: 14px;
@@ -454,6 +456,14 @@ button:hover{
 }
 #pictures img:hover{
     border: 1px solid red;
+}
+#sub{
+    width: 80px;
+    height: 30px;
+    border: none;
+    margin-left: 45px;
+    background-color: #0384e0;
+    color: white;
 }
 a{
     color: #444444;
