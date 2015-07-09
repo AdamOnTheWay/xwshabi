@@ -118,7 +118,7 @@ background-repeat: no-repeat;
    <div class="outer clearfix" id="calendarcontainer"> </div></div> 
 </div>
 <img src="../Public/images/package/youhuijiakuang.png" class="youhuijiakuang">
-<div class="youhuijiazi">优惠价: ￥<div class="youhuijia" id="youhuijia">{$scency[0].price}</div><div class="youhuijiazi2">起</div></div>
+<div class="youhuijiazi">优惠价: ￥<div class="youhuijia" id="youhuijia">&nbsp{$scency[0].price}</div><div class="youhuijiazi2">起</div></div>
 <div class="feiyongshuoming" id="feiyongshuoming">
     {$scency[0].descriptionPrice}
 </div>
@@ -160,10 +160,13 @@ background-repeat: no-repeat;
 <div class="neirongtiao" id="youkedianping"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">游客点评</div></div>
 <div class="youhuihuodongcontent" id="youkedianpingcontent">
 <div style="width:732px;height:38px;border:1px solid #d2d2d2;position:relative;top:-20px;left:5px;">
- <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha1">全部点评()</div>
-  <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha2">满意()</div>
-  <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha3">一般()</div>
-    <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha4">不满意()</div>
+
+ 
+ <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha1" >全部点评()</div>
+  <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha2" onclick="this.form.submit()">满意()</div>
+  <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha3" onclick="this.form.submit()">一般()</div>
+    <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha4" onclick="this.form.submit()">不满意()</div>
+     
 </div>
 <!-- 这是一层评论楼 -->
 <div style="width:727px;margin:5px 0 0 0;">
@@ -380,7 +383,42 @@ if($.cookie('username') != '' && $.cookie('username') != null && $.cookie('usern
  alert("请先登录");
 })
 
+$("#haha1").click(function(){
+  $("#yincang").val("quanbudianping");
+  // alert($("#yincang").val());
+  url="";
+  $.post(url,{data:$("#yincang").val()},function(data){
+    location.reload();
+  });
 
+})
+$("#haha2").click(function(){
+  $("#yincang").val("manyi");
+  // alert($("#yincang").val());
+  url="";
+  $.post(url,{data:$("#yincang").val()},function(data){
+    location.reload();
+  });
+
+})
+$("#haha3").click(function(){
+  $("#yincang").val("yiban");
+  // alert($("#yincang").val());
+  url="";
+  $.post(url,{data:$("#yincang").val()},function(data){
+    location.reload();
+  });
+
+})
+$("#haha4").click(function(){
+  $("#yincang").val("bumanyi");
+  // alert($("#yincang").val());
+  url="";
+  $.post(url,{data:$("#yincang").val()},function(data){
+    location.reload();
+  });
+
+})
 </script>
 
 

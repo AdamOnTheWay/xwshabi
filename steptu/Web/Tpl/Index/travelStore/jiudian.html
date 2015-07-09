@@ -397,6 +397,43 @@ tuichudenglu.style.display="none";
 
 
 });
+
+$("#haha1").click(function(){
+  $("#yincang").val("quanbudianping");
+  // alert($("#yincang").val());
+  url="";
+  $.post(url,{data:$("#yincang").val(),},function(data){
+    location.reload();
+  });
+
+})
+$("#haha2").click(function(){
+  $("#yincang").val("manyi");
+  // alert($("#yincang").val());
+  url="";
+  $.post(url,{data:$("#yincang").val(),},function(data){
+    location.reload();
+  });
+
+})
+$("#haha3").click(function(){
+  $("#yincang").val("yiban");
+  // alert($("#yincang").val());
+  url="";
+  $.post(url,{data:$("#yincang").val(),},function(data){
+    location.reload();
+  });
+
+})
+$("#haha4").click(function(){
+  $("#yincang").val("bumanyi");
+  // alert($("#yincang").val());
+  url="";
+  $.post(url,{data:$("#yincang").val(),},function(data){
+    location.reload();
+  });
+
+})
 </script>
 
 
