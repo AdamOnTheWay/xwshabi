@@ -2,8 +2,10 @@ body{
     margin: 0;
     padding: 0;
     background-image: url("../images/register/backgroung.png");
-    /*background-size: ;*/
-    /*background-repeat: space;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #D2E0FD;
 }
 .container{
     width: 60.5%;
@@ -17,7 +19,7 @@ body{
     height: 510px;
     opacity: 0.63;
     position: absolute;
-    margin-top:20.1%;
+    margin-top:21%;
     margin-left: 19.7%;
 }
 .realContainer{
@@ -40,7 +42,7 @@ body{
 }
 .severalBtn{
     position: absolute;
-    margin-top: 20.1%;
+    margin-top: 20.6%;
     margin-left: 26.7%;
 }
 .severalBtn a{

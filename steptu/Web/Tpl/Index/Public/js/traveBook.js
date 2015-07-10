@@ -34,7 +34,7 @@ function showLetter(){
     mainboxrealFelling.style.display="none";
     mainboxrealLetter.style.display="block";
 }
-$(document).ready(function(){
-    $("#btnbox").find("a").eq(0).addClass("btn btn-primary");
-    $("#btnbox").find("a").eq(1).addClass("btn btn-primary");
-})
+//$(document).ready(function(){
+//    $("#btnbox").find("a").eq(0).addClass("btn btn-primary");
+//    $("#btnbox").find("a").eq(1).addClass("btn btn-primary");
+//})

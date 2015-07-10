@@ -2,8 +2,10 @@ body{
     margin: 0;
     padding: 0;
     background-image: url("../images/register/backgroung.png");
-    /*background-size: ;*/
-    /*background-repeat: space;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #D2E0FD;
 }
 .container{
     width: 60.5%;
@@ -40,7 +42,7 @@ body{
     bottom: 0;
     width: 166px;
     text-align: right;
-    height: 23px;
+    height: 28px;
     background-color: #e7f1ff;
     line-height: 23px;
     color: #0032d3;
@@ -100,6 +102,20 @@ body{
     height: 20px;
     line-height: 20px;
     color: #0884df;
+}
+.nameSpan{
+    color: #046bb3;
+    font-size: 13px;
+    height: 34px;
+    width: 160px
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.buttonBox{
+   position: absolute;
+    margin-left: 20px;
+    margin-top: 450px;
 }
 a{
     color: #444444;

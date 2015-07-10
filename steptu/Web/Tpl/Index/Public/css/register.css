@@ -1,10 +1,11 @@
 body{
     margin: 0;
     padding: 0;
-    /*background-image: url("__IMG__/register/backgroung.png");*/
     background-image: url("../images/register/backgroung.png");
-    /*background-size: ;*/
-    /*background-repeat: space;*/
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #D2E0FD;
 }
 .container{
     width: 53.8%;
@@ -15,48 +16,56 @@ body{
     background-color: white;
     width: 100%;
     height: 480px;
-    /*opacity: 0.8;*/
 }
-.infoBox{
-    font-size: 15px;
-    margin-top: 10%;
-    margin-left: 10%;
+.confirmBox{
+    margin-top: 40px;
+    margin-left: 50px;
     float: left;
-}
-.infoBox input{
-    height: 40px;
-    width: 80px;
-    font-size: 20px;
-}
-.infoBox span{
-    font-size: 20px;
-    font-weight: bolder;
-}
-.infoBox button{
-    margin-left: 34%;
-    margin-top: 8%;
+    font-size: 14px;
+    color: #000000;
+    font-family:微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+    line-height: 30px;
 }
 .tips{
-    background-color: rgba(158, 167, 169, 0.25);
-    font-size: 15px;
-    padding: 10px 10px;
-}
-.tipsBox{
+    margin-top: 40px;
+    margin-left: 40px;
     float: left;
-    margin-top: 10%;
-    margin-left: 10%;
-    border: 1px solid #4a87ff;
+    background-color: #EDEEEF;
+    border: 1px solid #66B1E3;
 }
-.tips a{
-    font-size: 15px;
+.upForm{
+    margin-top: 40px;
 }
-.tips button{
-    /*background-image: url("../images/register/button.png");*/
+.upForm label{
+    font-size: 20px;
+    color: #000000;
+}
+.upForm input{
     height: 30px;
-    width: 85px;
-    background-color: #5fd6ff;
+    width: 80px;
+}
+.upForm button{
+    background-color: #26A9DF;
     color: white;
-    font-size: 15px;
+    border: none;
+    width: 70px;
+    height: 30px;
+    margin-top: 40px;
+    margin-left: 80px;
+}
+.realTips{
+    margin: 10px;
+}
+.realTips button{
+    background-color: #2AB2DF;
+    color: white;
+    width: 85px;
+    height: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.realTips a{
+    color: #1887DF;
 }
 a{
     color: #444444;
