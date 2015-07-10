@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/demo/demo.css">
     <link rel="stylesheet" href="../Public/css/css.css" media="all">
     <link href="../Public/css/vipCenter.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript">
+    <script type="text/javascript"></script>
     <style type="text/css">
         #content{
            margin-left: 72px;
@@ -37,7 +37,6 @@
         <img src="__IMG__/xuanchuan.png" class="xuanchuan">
         <img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
         <img src="__IMG__/phone.png" class="phone">
-        
     </div>
     
     <div id="afterLogin" style="display: none">
@@ -111,18 +110,18 @@
                 </form>
 
                  <script type="text/javascript">
-                //     $(function(){
-                //         $("#commit").click(function(){
-                //             // alert($("#emaile").val() == '');
-                //             if($("#emaile").val() == ''){
-                //                 alert("邮箱不能为空");
-                //             }else if($("#theme").val() == ""){
-                //                 alert("主题不能为空");
-                //             }else if (UE.getEditor('content').getContent() == '') {
-                //                 alert("编辑内容不能为空");
-                //             }
-                //         });
-                //     })
+                     $(function(){
+                         $("#commit").click(function(){
+                             // alert($("#emaile").val() == '');
+                             if($("#emaile").val() == ''){
+                                 alert("邮箱不能为空");
+                             }else if($("#theme").val() == ""){
+                                 alert("主题不能为空");
+                             }else if (UE.getEditor('content').getContent() == '') {
+                                 alert("编辑内容不能为空");
+                             }
+                         });
+                     })
                  </script>
                 <div id="realLetter" style="display:block">
                      <foreach name='list' item='v'>
@@ -190,7 +189,7 @@
                 <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myInformation','','')}">我的信息</a>
             </div>
             <div class="realNavbarContent">
-                <img src="../Public/images/vipCenter/point.png"><a href="myMoneyPot.html">我的储钱罐旅行计划</a>
+                <img src="../Public/images/vipCenter/point.png"><a href="myMoneyPot.html">我的储钱罐计划</a>
             </div>
             <div class="realNavbarContent">
                 <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myTravealBook','','')}">写给未来的信</a>
@@ -247,20 +246,6 @@
 </div>
 
 <div class="theme-popover">
-    <div class="theme-poptit">
-        <a href="javascript:;" title="关闭" class="close">×</a>
-        <h3>旅行是一种生活</h3>
-    </div>
-    <div class="theme-popbod dform">
-        <form class="theme-signin" name="loginform" action="" method="post">
-            <ol>
-                <li><h4>请登录</h4></li>
-                <li><strong>用户名：</strong><input class="ipt" id="loginUsername" type="text" name="log" value="jq22" size="20" /></li>
-                <li><strong>密码：</strong><input class="ipt" id="loginPassword" type="password" name="pwd" value="***" size="20" /></li>
-                <li><input class="btn btn-primary" id="loginButton" type="submit" name="submit" value=" 登 录 " /></li>
-            </ol>
-        </form>
-    </div>
 </div>
 <div class="theme-popover-mask"></div>
 </body>
