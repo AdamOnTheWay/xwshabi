@@ -26,8 +26,9 @@
 			$this->display();
 		}
 		public function yonghuguanli(){
+
 			if(I('yonghuid')!=''){
-				$data['id'] = array('LIKE',"%".I('yonghuid')."%");
+				$data['id'] = I('yonghuid');
 			}
 			if(I('yonghuming')!=''){
 				$data['name'] = array('LIKE',"%". I('yonghuming')."%");
@@ -48,8 +49,15 @@
 				$data['address'] = array('LIKE',"%". I('xianjuzhudizhi')."%");
 			}
 
-			$user = M('usertable')->where($data)->select();
-			$this->assign('user',$user);
+			import('ORG.Util.Page');
+			$count = M('usertable')->where($data)->count();
+			$page = new Page($count,10);
+			$limit = $page->firstRow .','. $page->listRows;
+
+			$content = M('usertable')->limit($limit)->where($data)->select();
+			$this->content = $content;
+			$this->page = $page->show();
+
 
 
 			$this->display();

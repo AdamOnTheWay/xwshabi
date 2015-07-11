@@ -84,7 +84,7 @@ a:hover{
 -->1
 </STYLE>
 <div class="quanbu">
-
+<img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
 	<a href="<?php echo U('Index/travelStore/travelStore');?>"><img src="__IMG__/travelsm.png" class="travelsm"></a>
         <a href="<?php echo U('Index/vipCenter/myInformation');?>"><img src="__IMG__/personal.png" class="personal"></a>
         <a href="<?php echo U('Index/travelTheme/travelTheme');?>"> <img src="__IMG__/travel.png" class="travel" ></a>
@@ -103,24 +103,26 @@ a:hover{
    <div class="content2tiao"><span style="color:white;font-size:19px;font-family: serif;
 position:relative;top:15px;left:20px;">发起活动</span></div>
   <form action="<?php echo U('Index/makePlan/savePlan');?>" name="huodongsousuo" method="post">
-      <div style="position:relative;left:10px;top:10px;font-size:14px;">活动时间</div>
-        <div style="position:relative;top:15px;left:10px;"><input name="mphuodongshijian" id="mphuodongshijian" type="text" value=""style="width:150px;" class="easyui-datebox" required="required"data-options="formatter:myformatter,parser:myparser" /> </div>
-        <div style="position:relative;left:10px;top:25px;font-size:14px;">活动始发地</div>
-         <input name="mpshifadi" id="mpshifadi" type="text" value="" style="position:relative;left:10px;top:30px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
-         <div style="position:relative;left:10px;top:40px;font-size:14px;">活动目的地</div>
-         <input name="mpmudidi" id="mpmudidi" type="text" value="" style="position:relative;left:10px;top:45px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
-         <div style="position:relative;left:10px;top:55px;font-size:14px;">活动内容</div>
-         <textarea name="mpcontent" cols="16" rows="4" maxlength="34"style="position:relative;left:10px;top:60px;font-size:15px;border: 1px solid #83a9e1;" >最多34字</textarea>
-          <div style="position:relative;left:10px;top:70px;font-size:14px;">最大参与人数</div>
-            <input name="mpcanyurenshu" id="mpcanyurenshu" type="text" value="" style="position:relative;left:10px;top:75px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
-            <div style="position:relative;left:10px;top:85px;font-size:14px;">发起人</div>
-            <input name="mpfaqiren" id="mpfaqiren" type="text" value="" style="position:relative;left:10px;top:90px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
-             <div style="position:relative;left:10px;top:100px;font-size:14px;">活动备注</div>
-              <textarea name="mpcontent" cols="16" rows="4" style="position:relative;left:10px;top:105px;font-size:15px;border: 1px solid #83a9e1;" ></textarea>
-              <div style="position:absolute;top:575px;left:10px;color:#0032d3"><input name="checkbox" type="checkbox" checked="checked" value="checkbox" style="position:relative;top:-3px;" required="required">
+    <div style="position:relative;left:10px;top:10px;font-size:14px;">活动类别</div>
+     <input name="huodongleibie" id="huodongleibie" type="text" value="" style="position:relative;left:10px;top:15px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
+      <div style="position:relative;left:10px;top:20px;font-size:14px;">活动时间</div>
+        <div style="position:relative;top:25px;left:10px;"><input name="mphuodongshijian" id="mphuodongshijian" type="text" value=""style="width:150px;" class="easyui-datebox" required="required"data-options="formatter:myformatter,parser:myparser" /> </div>
+        <div style="position:relative;left:10px;top:35px;font-size:14px;">活动始发地</div>
+         <input name="mpshifadi" id="mpshifadi" type="text" value="" style="position:relative;left:10px;top:40px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
+         <div style="position:relative;left:10px;top:50px;font-size:14px;">活动目的地</div>
+         <input name="mpmudidi" id="mpmudidi" type="text" value="" style="position:relative;left:10px;top:55px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
+         <div style="position:relative;left:10px;top:65px;font-size:14px;">活动内容</div>
+         <textarea name="mpcontent" cols="16" rows="4" maxlength="34"style="position:relative;left:10px;top:70px;font-size:15px;border: 1px solid #83a9e1;" >最多34字</textarea>
+          <div style="position:relative;left:10px;top:80px;font-size:14px;">最大参与人数</div>
+            <input name="mpcanyurenshu" id="mpcanyurenshu" type="text" value="" style="position:relative;left:10px;top:85px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
+            <div style="position:relative;left:10px;top:95px;font-size:14px;">发起人</div>
+            <input name="mpfaqiren" id="mpfaqiren" type="text" value="" style="position:relative;left:10px;top:100px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
+             <div style="position:relative;left:10px;top:110px;font-size:14px;">活动备注</div>
+              <textarea name="mpcontent" cols="16" rows="4" style="position:relative;left:10px;top:115px;font-size:15px;border: 1px solid #83a9e1;" ></textarea>
+              <div style="position:absolute;top:615px;left:10px;color:#0032d3"><input name="checkbox" type="checkbox" checked="checked" value="checkbox" style="position:relative;top:-3px;" required="required">
      已阅读并同意相关法律条约
     </div>
-    <div style="position:absolute;left:40px;top:610px; cursor: pointer;"><input type="image" src="../Public/images/makeplan/wancheng.png" style="border:0;" onclick="this.form.submit()"></div>
+    <div style="position:absolute;left:40px;top:650px; cursor: pointer;"><input type="image" src="../Public/images/makeplan/wancheng.png" style="border:0;" onclick="this.form.submit()"></div>
     </form>
 </div>
 

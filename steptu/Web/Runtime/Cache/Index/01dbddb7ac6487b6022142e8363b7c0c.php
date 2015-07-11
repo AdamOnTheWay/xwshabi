@@ -1,0 +1,266 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../Public/css/index.css" media="all" type="text/css">
+    <title>旅游随感</title>
+    <script  src="/steptu/Web/Tpl/ueditor/ueditor.config.js"></script>
+    <script src="/steptu/Web/Tpl/ueditor/ueditor.all.min.js"></script>
+    <script src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
+    <script type="text/javascript" src="__JS__/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+    <script src="../Public/js/register.js"></script>
+    <script src="../Public/js/traveBook.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/demo/demo.css">
+    <link rel="stylesheet" href="../Public/css/css.css" media="all">
+    <link href="../Public/css/travelFelling.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        $(document).ready(function(){
+        　　$("#like").click(function(){
+        　　　　$.post('<?php echo U("Index/travelBook/upadateLikeNumber");?>',{id:<?php echo $data['id']?>},function(data) {
+                $('#likeNumber').html(data);
+                });
+        　　});
+
+            $('#sub').click(function() {
+                
+                if (UE.getEditor('text').getContent()) {
+                    $.post(
+                        '<?php echo U("Index/travelBook/fellingComment");?>',
+                        {id:<?php echo $data['id']?>,content:UE.getEditor('text').getContent()},
+                        function(data){
+                            if (data['msg'] == 'sussess') {
+                                window.location.href="<?php echo U('Index/travelBook/felling','','');?>/id/<?php echo ($data["id"]); ?>";
+                            }else{
+                                alert(data['msg'])
+                            }
+                         
+                    });
+                }else{
+                     alert("请填写评论内容");
+                }
+               
+            });
+        });
+        jQuery(document).ready(function($) {
+            $('.theme-login').click(function(){
+                $('.theme-popover-mask').fadeIn(100);
+                $('.theme-popover').slideDown(200);
+            });
+            $('.theme-poptit .close').click(function(){
+                $('.theme-popover-mask').fadeOut(100);
+                $('.theme-popover').slideUp(200);
+            })
+
+        });
+        $(document).ready(function() {
+
+// alert("dadf");
+
+            if($.cookie('username') != '' && $.cookie('username') != null && $.cookie('username') != undefined){
+
+                loganniu.style.display="none";
+                reanniu.style.display="none";
+                document.getElementById("dengluchenggong").innerHTML=$.cookie('username')+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
+                tuichudenglu.style.display="block";
+            }
+
+        });
+    </script>
+</head>
+<body>
+<div class="quanbu">
+    <div>
+        <a href="<?php echo U('Index/travelStore/travelStore');?>"><img src="__IMG__/travelsm.png" class="travelsm"></a>
+        <a href="<?php echo U('Index/vipCenter/myInformation');?>"><img src="__IMG__/personal.png" class="personal"></a>
+        <a href="<?php echo U('Index/travelTheme/travelTheme');?>"> <img src="__IMG__/travel.png" class="travel" ></a>
+        <a href="<?php echo U('Index/makePlan/makePlan');?>"> <img src="__IMG__/makeplan.png" class="makeplan"></a>
+        <a href="<?php echo U('Index/index/index');?>"><img src="__IMG__/index.png" class="index"></a>
+        <a href="<?php echo U('Index/travelBook/travelBook');?>"><img src="__IMG__/travelbook.png" class="travelbook"></a>
+        <img src="../Public/images/xuanchuan.png" class="xuanchuan">
+        <img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
+        <img src="../Public/images/phone.png" class="phone">
+        <a href="javascript:;"class=" btn-large theme-login" style="" id="loganniu"><img src="../Public/images/login.png"   style=" position: absolute;left: 822px;top: 70px;cursor: pointer;"></a>
+        <a href="<?php echo U('Index/index/register','','');?>"><img src="__IMG__/register.png" style="position: absolute;left: 920px;top: 70px;" id="reanniu"></a>
+    </div>
+
+    <div class="mainbox"></div>
+
+    <div class="container">
+
+       
+        <img src="../Public/images/travelBook/headtitle_felling.png" style="margin-top: 10px"><br>
+        <img src="../Public/images/travelBook/title.png"><br/>
+        <div id="mainboxrealFelling">
+            <div class="contentsFromUser">
+                <div class="realContents">
+                    <div class="image">
+                        <img src="../Public/images/travelBook/upload.png" style="float: left">
+                    </div>
+                    <div class="textword" >
+                        <div class="information">
+                            <img src="../Public/images/travelBook/headimg.png" class="imgeye">
+                            <div class="titlebox">
+                                <a href=""><p style="color: #0055FF"><b><?php echo ($data["name"]); ?></b></p></a><br/>
+                                <a href=""><?php echo ($data["userName"]); ?></a> &nbsp;&nbsp;&nbsp;&nbsp;<span id="dataBox"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <img src="../Public/images/travelBook/eye.png"  style="height: 13px;">&nbsp;<span id="readerNumber" ><?php echo ($data["readNumber"]); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <img src="../Public/images/travelBook/message.png" style="height: 13px">&nbsp;<span id="replayNumber"><?php echo ($count); ?></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <img src="../Public/images/travelBook/like.png" id='like' style="height: 13px;">&nbsp;<span id="likeNumber" ><?php echo ($data["likeNumber"]); ?></span>
+                            </div>
+                        </div>
+                        <div class="passage">
+                            <!--<p>Welcome to SYSLAB! We do hands-on systems research on topics ranging from wireless ad-hoc networks to cloud computing to computer security. Principal ...Welcome to SYSLAB! We do hands-on systems research on topics ranging from wireless ad-hoc networks to cloud computing to computer security. Principal ...Welcome to SYSLAB! We do hands-on systems research on topics ranging from wireless ad-hoc networks to cloud computing to computer security. Principal ...</p>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detialContents">
+                <div class="realDetials">
+                    <?php echo ($note["note"]); ?> 
+                    <!-- 内容 -->
+                <br>
+                </div>
+            </div>
+            <span><b>发表评论</b></span><br/>
+            <img src="../Public/images/travelBook/headimg.png" class="imgeye">
+            <textarea id='text'></textarea>
+            <!-- 添加文本编辑器 -->
+            <script type="text/javascript">
+                window.UEDITOR_HOME_URL = '/steptu/Web/Tpl/ueditor/';
+                window.UEDITOR_CONFIG.toolbars = [['undo', 'redo','|',
+                                                   'bold', 'italic',
+                                                    'emotion',
+                                                   ]];
+                window.UEDITOR_CONFIG.scaleEnabled  = true; 
+                window.UEDITOR_CONFIG.elementPathEnabled = false;
+                var ue = UE.getEditor('text',{initialFrameWidth:720,initialFrameHeight:90});
+        </script>
+            <button class="btn btn-primary" style="margin-left: 50px" id='sub'>  提 交  </button><br/><br/>
+            <span><b>网友评论</b></span><br/>
+            <?php if(is_array($list)): foreach($list as $key=>$v): ?><div class="comments">
+                    <img src="../Public/images/travelBook/headimg.png" class="imgeye">
+                    <span style="color: #0055FF"><b><?php echo ($v["name"]); ?></b> </span><br>
+                    <span id="dataBox_2"><?php echo ($v["time"]); ?></span><br/><br/>
+                    <div class="commentContent">
+                        <p>
+                            <?php echo (htmlspecialchars_decode($v["content"])); ?>
+                        </p><br/>
+                    </div>
+                </div><?php endforeach; endif; ?>
+            <div class="btnbox" style="margin-top: 10px">
+                <?php echo ($page); ?>
+            </div>
+        </div>
+    </div>
+  <div>
+        <div class="bottom_1"></div>
+        <div class="bottomsm_1"><span class="bottombiao">旅游超市</span><div class="bottomxuanxiang">
+            <a href="<?php echo U('Index/travelStore/smsousuojieguo');?>">住</a><br>
+            <a href="<?php echo U('Index/travelStore/travelStore');?>">吃货</a>
+        </div></div>
+        <div class="bottompersonal_1"><span class="bottombiao">会员中心</span><div class="bottomxuanxiang1">
+            <a href="<?php echo U('Index/vipCenter/myOrders');?>"> 我的订单</a><br>
+            <a href="<?php echo U('Index/vipCenter/myGrades');?>">我的积分</a> <br>
+            <a href="<?php echo U('Index/vipCenter/myEvaluations');?>"> 我的评价</a><br>
+            <a href="<?php echo U('Index/vipCenter/myInformation');?>">我的信息</a> <br>
+            <a href="<?php echo U('Index/vipCenter/myMoneyPot');?>">我的储钱罐旅行计划</a><br>
+        </div> </div>
+        <div class="bottombook_1"><span class="bottombiao">旅游志</span><div class="bottomxuanxiang">
+            <a href="<?php echo U('Index/travelBook/travelBook');?>">旅游随感</a> <br>
+            <a href="<?php echo U('Index/travelBook/letterList');?>"> 写给未来的信</a>
+        </div></div>
+        <div class="weishenme_1"><span class="bottombiao">主题旅游</span><div class="bottomxuanxiang">
+            <a href="<?php echo U('Index/travelTheme/travelTheme');?>">城市之间</a><br>
+            <a href="<?php echo U('Index/travelTheme/travelTheme');?>"> 学子游</a><br>
+            <a href="<?php echo U('Index/travelTheme/travelTheme');?>">年休假</a><br>
+            <a href="<?php echo U('Index/travelTheme/travelTheme');?>">美食游</a>
+        </div></div>
+        <div class="bottomaboutus_1"><span class="bottombiao">关于游记</span><div class="bottomxuanxiang">
+            <a href="<?php echo U('Index/index/aboutUs');?>">关于我们</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">联系我们</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">一起合作</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">用户协议</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">诚聘英才</a>
+        </div></div>
+    </div>
+    <img src="../Public/images/steptu.png" class="steptu_1">
+    <img src="../Public/images/banquan.png" class="banquan_1">
+    <img src="../Public/images/renzhengwang.png" class="renzhengwang_1">
+    <img src="../Public/images/kexin.png" class="kexin_1">
+    <img src="../Public/images/chengxin.png" class="chengxin_1">
+    <div class="twoBtn">
+        <a style="top: 240px;left: 37%" href="<?php echo U('Index/travelBook/travelBook');?>"> 旅 游 随 感 </a>
+        <a style="top: 240px;left: 54%" href="<?php echo U('Index/travelBook/letterList');?>">写 给 未 来 的 信</a>
+    </div>
+    <div style="position: absolute;left: 822px;top: 0px;font-size:14px;color:white"id="dengluchenggong"></div>
+    <div id="tuichudenglu" style="position: absolute;left: 960px;top: 5px;font-size:14px;color:white;display:none;cursor: pointer;">退出登录</div>
+
+</div>
+<script src="__JS__/index.js" type="text/javascript"></script>
+
+<div  id="asdfq">
+    <div class="theme-popover" id="theme-popover">
+        <div class="theme-poptit">
+            <a href="javascript:;" title="关闭" class="close" id="close">×</a>
+            <h3>旅行是一种生活</h3>
+        </div>
+        <div class="theme-popbod dform">
+            <form class="theme-signin" name="loginform" action="<?php echo U('Index/loginVerify/loginVerify');?>" method="post">
+                <ol>
+                    <li ><h4>请登录</h4></li>
+                    <li><strong>用户名：</strong><input class="ipt" id="name" type="text" name="log" value="" size="20" /></li>
+                    <li><strong>密码：</strong><input class="ipt" id="psw" type="password" name="pwd" value="" size="20" /></li>
+                    <li><input class="btn btn-primary" name="submit" value=" 登 录 " id="dlanniu" /></li>
+                </ol>
+            </form>
+        </div>
+    </div>
+    <div class="theme-popover-mask" id="theme-popover-mask"></div>
+</div>
+</body>
+<script type="text/javascript">
+
+    $("#dlanniu").click(function(){
+                // console.log($data['code']);
+                // alert("用户名/密码 错误！");
+                var url = '<?php echo U('Index/loginVerify/loginVerify');?>';
+                $.post(url,{log:$("#name").val(),pwd:$("#psw").val()},function(data){
+                            console.log($.cookie('username'));
+                            // alert(data['address'][2]);
+
+                            // console.log(shishi);
+                            if (data.code==1) {
+                                alert("登陆成功");
+                                var shishi=$.cookie('username');
+                                document.getElementById("close").click();
+                                loganniu.style.display="none";
+                                reanniu.style.display="none";
+                                document.getElementById("dengluchenggong").innerHTML=shishi+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
+                                tuichudenglu.style.display="block";
+                                // theme-popover.style.display=none;
+                                //  theme-popover-mask.style.display="none";
+                            }
+                            else
+                            {
+                                alert("用户名/密码 错误！")
+                            };
+                        }
+                )
+            }
+    )
+    $("#tuichudenglu").click(function(){
+        var url = '<?php echo U('Index/loginVerify/tuichudenglu');?>';
+        $.post(url,function(){
+            document.getElementById("dengluchenggong").innerHTML="";
+            loganniu.style.display="block";
+            reanniu.style.display="block";
+            tuichudenglu.style.display="none";
+        })
+
+
+
+    });
+</script>
+</html>

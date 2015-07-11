@@ -60,23 +60,9 @@
 	<br>
 	<br>
 	<table border="1" cellspacing="10">
-		<?php if(is_array($user)): foreach($user as $key=>$u): ?><tr>
-			<td><?php echo ($u["id"]); ?></td>
-			<td><?php echo ($u["name"]); ?></td>
-			<td>密码</td>
-			<td>电话号码</td>
-			<td>邮箱</td>
-			<td>性别</td>
-			<td>出生日期</td>
-			<td>自我介绍</td>
-			<td>qq号</td>
-			<td>现居住地址</td>
-			<td>用户头像</td>
-		</tr><?php endforeach; endif; ?>
-		<!-- 以下是要重复的一行 自我介绍只显示前几个字吧。-->
 
 		<tr>
-			<td>用户id号</td>
+			<td>用户id</td>
 			<td>用户名</td>
 			<td>密码</td>
 			<td>电话号码</td>
@@ -87,19 +73,36 @@
 			<td>qq号</td>
 			<td>现居住地址</td>
 			<td>用户头像</td>
-			<td style="cursor:pointer;" id="xiugai" name="用户id号">
+		</tr>
+
+		<!-- 以下是要重复的一行 自我介绍只显示前几个字吧。-->
+<?php if(is_array($content)): foreach($content as $key=>$u): ?><tr>
+			<td><?php echo ($u["id"]); ?></td>
+			<td><?php echo ($u["name"]); ?></td>
+			<td><?php echo ($u["password"]); ?></td>
+			<td><?php echo ($u["phone"]); ?></td>
+			<td><?php echo ($u["email"]); ?></td>
+			<td><?php echo ($u["sex"]); ?></td>
+			<td><?php echo ($u["birthday"]); ?></td>
+			<td><?php echo ($u["comment"]); ?></td>
+			<td><?php echo ($u["qq"]); ?></td>
+			<td><?php echo ($u["address"]); ?></td>
+			<td><?php echo ($u["image"]); ?></td>
+			<td style="cursor:pointer;" id="xiugai" name="<?php echo ($u["id"]); ?>">
 				<font size="3" color="red">修改</font>
 			</td>
-			<td style="cursor:pointer;" name="用户id号" id="shanchu">
+			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" id="shanchu">
 				<font size="3" color="red">删除</font>
 			</td>
 			<td style="cursor:pointer;">
 				<font size="3" color="red">详情及修改</font>
 			</td>
-		</tr>
+		</tr><?php endforeach; endif; ?>
+  <?php echo ($page); ?>
 
 
 	</table>
+
 	<br>
 	<br>
 	<br>
