@@ -121,27 +121,27 @@ a:hover{
         <!-- 图片列表 begin -->
          <div class="pic">
           <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
-          <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$store[0].name}</div><div style="font-size:13px;font-family: SimHei;color:#ff8004;">{$store[0].description}</div><div style="font-size:18px;font-family: SimHei;color:red;float:left;">￥{$store[0].price}</div></a>
+          <a href="{:U('Index/package/package')}?id={$store[0].id}" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$store[0].name}</div><div style="font-size:13px;font-family: SimHei;color:#ff8004;">{$store[0].description}</div><div style="font-size:18px;font-family: SimHei;color:red;float:left;">￥{$store[0].price}</div></a>
 
          </div>
  <div class="pic">
           <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
-          <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$store[1].name}</div><div style="font-size:13px;font-family: SimHei;color:#ff8004;">{$store[1].description}</div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥{$store[1].price}</div></a>
+          <a href="{:U('Index/package/package')}?id={$store[1].id}" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$store[1].name}</div><div style="font-size:13px;font-family: SimHei;color:#ff8004;">{$store[1].description}</div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥{$store[1].price}</div></a>
 
          </div>
          <div class="pic">
           <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
-          <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$store[2].name}</div><div style="font-size:13px;font-family: SimHei;color:#ff8004;">{$store[2].description}</div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥{$store[2].price}</div></a>
+          <a href="{:U('Index/package/package')}?id={$store[2].id}" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$store[2].name}</div><div style="font-size:13px;font-family: SimHei;color:#ff8004;">{$store[2].description}</div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥{$store[2].price}</div></a>
 
          </div>
          <div class="pic">
           <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
-          <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$store[3].name}</div><div style="font-size:13px;font-family: SimHei;color:#ff8004;">{$store[3].description}</div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥{$store[3].price}</div></a>
+          <a href="{:U('Index/package/package')}?id={$store[3].id}" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$store[3].name}</div><div style="font-size:13px;font-family: SimHei;color:#ff8004;">{$store[3].description}</div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥{$store[3].price}</div></a>
 
          </div>
          <div class="pic">
           <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
-          <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">桂林4</div><div style="font-size:13px;font-family: SimHei;color:#ff8004;">海南南山+植物园+植物园+呀诺达五日舒适团队</div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥230</div></a>
+          <a href="{:U('Index/package/package')}" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">桂林4</div><div style="font-size:13px;font-family: SimHei;color:#ff8004;">海南南山+植物园+植物园+呀诺达五日舒适团队</div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥230</div></a>
 
          </div>
         <!-- 图片列表 end -->
@@ -610,12 +610,12 @@ $("#dlanniu").click(function(){
    $.post(url,{log:$("#name").val(),pwd:$("#psw").val()},function(data){
        console.log($.cookie('username'));
       // alert(data['address'][2]);
-      
+
       // console.log(shishi);
       if (data.code==1) {
       alert("登陆成功");
       var shishi=$.cookie('username');
-       document.getElementById("close").click(); 
+       document.getElementById("close").click();
       loganniu.style.display="none";
       reanniu.style.display="none";
       document.getElementById("dengluchenggong").innerHTML=shishi+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";

@@ -6,7 +6,7 @@
 	    <link rel="stylesheet" href="../Public/css/css.css" media="all">
 
 	    <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
-     
+
 	<title>优惠套餐</title>
 	<script>
 jQuery(document).ready(function($) {
@@ -51,7 +51,7 @@ $(document).ready(function() {
     <link rel="stylesheet" href="../Public/css/package/bjqs.css">
 
 
-    <!-- demo.css contains additional styles used to set up this demo page - not required for the slider --> 
+    <!-- demo.css contains additional styles used to set up this demo page - not required for the slider -->
     <link rel="stylesheet" href="../Public/css/package/demo.css">
     <script src="../Public/js/package/bjqs-1.3.min.js"></script>
 
@@ -73,7 +73,7 @@ background-repeat: no-repeat;
 }
 
 -->1
-</STYLE> 
+</STYLE>
 <div class="quanbu">
 <a href="javascript:;"class=" btn-large theme-login" style="" id="loganniu"><img src="../Public/images/login.png"   style=" position: absolute;left: 822px;top: 70px;cursor: pointer;"></a>
 <a href="{:U('Index/index/register','','')}"><img src="__IMG__/register.png" style="position: absolute;left: 920px;top: 70px;" id="reanniu"></a>
@@ -93,18 +93,18 @@ background-repeat: no-repeat;
 
 <div class="zhongyang">
 <div class="content">
-	
+
 <div id="taocanbiaoti" class="taocanbiaoti">
-   {$scency[0].name}
+   {$scency.name}
 </div>
 <div class="yulantu">
    <div id="banner-fade">
 
         <!-- start Basic Jquery Slider -->
         <ul class="bjqs">
-          <li><img src="img/banner01.jpg" ></li>
-          <li><img src="img/banner02.jpg" ></li>
-          <li><img src="img/banner03.jpg" title="Automatically generated caption"></li>
+          <li><img src="{$scency.image}.jpg" ></li>
+          <li><img src="{$scency.image}.jpg" ></li>
+          <li><img src="{$scency.image}.jpg" title="Automatically generated caption"></li>
 
         </ul>
         <!-- end Basic jQuery Slider -->
@@ -115,12 +115,12 @@ background-repeat: no-repeat;
 </div>
 <div class="jiagerili" >
 	<div class="calendar">
-   <div class="outer clearfix" id="calendarcontainer"> </div></div> 
+   <div class="outer clearfix" id="calendarcontainer"> </div></div>
 </div>
 <img src="../Public/images/package/youhuijiakuang.png" class="youhuijiakuang">
-<div class="youhuijiazi">优惠价: ￥<div class="youhuijia" id="youhuijia">&nbsp{$scency[0].price}</div><div class="youhuijiazi2">起</div></div>
+<div class="youhuijiazi">优惠价: ￥<div class="youhuijia" id="youhuijia">&nbsp{$scency.price}</div><div class="youhuijiazi2">起</div></div>
 <div class="feiyongshuoming" id="feiyongshuoming">
-    {$scency[0].descriptionPrice}
+    {$scency.descriptionPrice}
 </div>
 
 <div class="yudinglan">
@@ -145,28 +145,28 @@ background-repeat: no-repeat;
 </table>
 </div>
 <div class="neirongtiao" id="youhuihuodong"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">优惠活动</div></div>
-<div class="youhuihuodongcontent" id="youhuihuodongcontent">{$scency[0].discountAction}</div>
+<div class="youhuihuodongcontent" id="youhuihuodongcontent">{$scency.discountAction}</div>
 
 <div class="neirongtiao" id="chanpintese"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">产品特色</div></div>
-<div class="youhuihuodongcontent" id="chanpintesecontent">{$scency[0].characteristics}</div>
+<div class="youhuihuodongcontent" id="chanpintesecontent">{$scency.characteristics}</div>
 
 <div class="neirongtiao" id="xingchengjieshao"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">行程介绍</div></div>
-<div class="youhuihuodongcontent" id="xingchengjieshaocontent">{$scency[0].routeDescription}</div>
+<div class="youhuihuodongcontent" id="xingchengjieshaocontent">{$scency.routeDescription}</div>
 
 
 <div class="neirongtiao" id="yudingxuzhi"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">预定须知</div></div>
-<div class="youhuihuodongcontent" id="yudingxuzhicontent">{$scency[0].bookInformation}</div>
+<div class="youhuihuodongcontent" id="yudingxuzhicontent">{$scency.bookInformation}</div>
 
 <div class="neirongtiao" id="youkedianping"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">游客点评</div></div>
 <div class="youhuihuodongcontent" id="youkedianpingcontent">
 <div style="width:732px;height:38px;border:1px solid #d2d2d2;position:relative;top:-20px;left:5px;">
 
- 
+
  <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha1" >全部点评()</div>
   <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha2" onclick="this.form.submit()">满意()</div>
   <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha3" onclick="this.form.submit()">一般()</div>
     <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha4" onclick="this.form.submit()">不满意()</div>
-     
+
 </div>
 <!-- 这是一层评论楼 -->
 <div style="width:727px;margin:5px 0 0 0;">
@@ -189,7 +189,7 @@ background-repeat: no-repeat;
 
 <div class="neirongtiao" id="xiangguanchanpin"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">相关产品</div></div>
 <div class="youhuihuodongcontent" id="xiangguanchanpincontent">
-    
+
 
     <div style="position:relative;left:30px;top:-20px">
     <div class="rollBox">
@@ -340,12 +340,12 @@ $("#dlanniu").click(function(){
    $.post(url,{log:$("#name").val(),pwd:$("#psw").val()},function(data){
        console.log($.cookie('username'));
       // alert(data['address'][2]);
-      
+
       // console.log(shishi);
       if (data.code==1) {
       alert("登陆成功");
       var shishi=$.cookie('username');
-       document.getElementById("close").click(); 
+       document.getElementById("close").click();
       loganniu.style.display="none";
       reanniu.style.display="none";
       document.getElementById("dengluchenggong").innerHTML=shishi+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
@@ -377,7 +377,7 @@ tuichudenglu.style.display="none";
 $("#yudinganniu").click(function(){
 if($.cookie('username') != '' && $.cookie('username') != null && $.cookie('username') != undefined){
   console.log("123")
-    window.location.href="/steptu/index.php/Index/package/order_1.html"; 
+    window.location.href="/steptu/index.php/Index/package/order_1.html";
 }
  else
  alert("请先登录");
