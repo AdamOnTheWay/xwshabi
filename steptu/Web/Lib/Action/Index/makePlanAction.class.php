@@ -62,7 +62,7 @@ class makePlanAction extends Action{
 		$max = I('mpcanyurenshu');
 		$faqi = I('mpfaqiren');
 		$beizhu = I('mpother');
-
+		$huodongleibie = I('huodongleibie');
 		$data = array(
 			'startTime' => $starttime,
 			'startarea' => $startarea,
@@ -71,6 +71,7 @@ class makePlanAction extends Action{
 			'maxnumber' => $max,
 			'initiator' => $faqi,
 			'remark' => $beizhu,
+			'theme' => $huodongleibie,
 			'publishtime' => date('Y-m-d')
 			);
 		$mk = M('action');
