@@ -4,7 +4,9 @@ body{
     background-image: url("../images/aboutUs/background.jpg");
     background-color: #d2e1fe;
     font-family:SimSun,STSong,Arial;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center top;
 }
 .container{
     width: 60.5%;

@@ -2,8 +2,10 @@ body{
     margin: 0;
     padding: 0;
     background-image: url("../images/travelBook/backgrounfFelling.png");
-    /*background-size: ;*/
-    /*background-repeat: space;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #D2E0FD;
 }
 .container{
     width: 60.5%;
@@ -14,7 +16,7 @@ body{
 .mainbox{
     background-color: white;
     width: 60.5%;
-    height: 1060px;
+    height: 1100px;
     opacity: 0.63;
     position: absolute;
     margin-top:20.1%;
@@ -114,8 +116,8 @@ body{
     position: absolute;
     background-color: #FFFFFF;
     width: 800px;
-    height: 180px;
-    top: 1315px;
+    height: 190px;
+    top: 1365px;
     left: 203px;
     filter: alpha(opacity=63);
     -moz-opacity: 0.63;
@@ -146,66 +148,66 @@ textarea{
 .bottomsm_1{
     position: absolute;
     left: 243px;
-    top: 1333px;
+    top: 1373px;
     height: 180px;
     width: 70px;
 }
 .bottompersonal_1{
     position: absolute;
     left: 343px;
-    top: 1333px;
+    top: 1373px;
     height: 180px;
     width: 70px;
 }
 .bottombook_1{
     position: absolute;
     left: 443px;
-    top: 1333px;
+    top: 1373px;
     height: 180px;
     width: 70px;
 }
 .weishenme_1{
     position: absolute;
     left: 543px;
-    top: 1333px;
+    top: 1373px;
     height: 180px;
     width: 70px;
 }
 .bottomaboutus_1{
     position: absolute;
     left: 643px;
-    top: 1333px;
+    top: 1373px;
     height: 180px;
     width: 70px;
 }
 .steptu_1 {
     position: absolute;
     left: 780px;
-    top: 1340px;
+    top: 1380px;
     height: 50px;
 }
 .banquan_1 {
     position: absolute;
     left: 760px;
-    top: 1395px;
+    top: 1435px;
     height: 33px;
 }
 .renzhengwang_1 {
     position: absolute;
     left: 720px;
-    top: 1435px;
+    top: 1475px;
     height: 33px;
 }
 .kexin_1 {
     position: absolute;
     left: 893px;
-    top: 1435px;
+    top: 1475px;
     height: 33px;
 }
 .chengxin_1 {
     position: absolute;
     left: 800px;
-    top: 1435px;
+    top: 1475px;
     height: 33px;
 }
 a{
@@ -214,4 +216,7 @@ a{
 a:hover{
     color: red;
     font-weight: bolder;
+}
+#dataBox_2{
+
 }
