@@ -40,6 +40,12 @@
 		});
 	</script>
 	<script type="text/javascript">
+		$(document).ready(function() {
+
+			zhuhaohuajieguo.style.display = "block";
+		
+
+		})
 		function showjieguo() {
           $("f1").submit();
 		  window.location.href="<?php echo U('Index/index/index2');?>"; 
@@ -211,83 +217,9 @@
 
 			</div>
 			<img src="__IMG__/zhufenge.png" class="zhufenge">
-			<div class="zhuhaohuatu" id="zhuhaohuatu">
+			
 
-				<div id="demo" style="height:250px;width:280px; overflow:hidden; ">
-					<div id="demo1">
-
-						<a href="<?php echo U('Index/travelStore/jiudian','','');?>/id/3" target="_blank">
-							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[0]["hotelName"]); ?>
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[0]["price"]); ?></div>
-								</div>
-							</div>
-						</a>
-
-						<a href="http://www.16sucai.com" target="_blank">
-							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[1]["hotelName"]); ?>
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[1]["price"]); ?></div>
-								</div>
-							</div>
-						</a>
-
-						<a href="http://www.16sucai.com" target="_blank">
-							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[2]["hotelName"]); ?>
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[2]["price"]); ?></div>
-								</div>
-							</div>
-						</a>
-
-						<a href="http://www.16sucai.com" target="_blank">
-							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[3]["hotelName"]); ?>
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[3]["price"]); ?></div>
-								</div>
-							</div>
-						</a>
-
-						<a href="http://www.16sucai.com" target="_blank">
-							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[4]["hotelName"]); ?>
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[4]["price"]); ?></div>
-								</div>
-							</div>
-						</a>
-
-						<a href="http://www.16sucai.com" target="_blank">
-							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[5]["hotelName"]); ?>
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[5]["price"]); ?></div>
-								</div>
-							</div>
-						</a>
-
-						<a href="http://www.16sucai.com" target="_blank">
-							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[6]["hotelName"]); ?>
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[6]["price"]); ?></div>
-								</div>
-							</div>
-						</a>
-
-					</div>
-					<div id="demo2">
-
-				</div>
-				</div>
-
-			</div>
-
-			<div style="position: absolute;left: 230px;top: 280px;height: 234px;width: 288px;display:none" id="zhuhaohuajieguo">
+			<div style="position: absolute;left: 230px;top: 280px;height: 234px;width: 288px;display:block" id="zhuhaohuajieguo">
 				<?php if(is_array($hs)): foreach($hs as $key=>$hsd): ?><div style="position:absolute;left:10px;width:130px;height:100px;">
 						<img src="" style="width:130px;height:70px;">
 						<div style="font-size:13px;width:130px;"><?php echo ($hsd["hotelName"]); ?>
