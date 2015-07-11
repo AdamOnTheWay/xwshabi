@@ -26,6 +26,32 @@
 			$this->display();
 		}
 		public function yonghuguanli(){
+			if(I('yonghuid')!=''){
+				$data['id'] = array('LIKE',"%".I('yonghuid')."%");
+			}
+			if(I('yonghuming')!=''){
+				$data['name'] = array('LIKE',"%". I('yonghuming')."%");
+			}
+			if(I('youxiang')!=''){
+				$data['email'] = array('LIKE',"%". I('youxiang')."%");
+			}
+			if(I('xingbie')!=''){
+				$data['sex'] = array('LIKE',"%". I('xingbie')."%");
+			}
+			if(I('chushengriqi')!=''){
+				$data['birthday'] = array('LIKE',"%". I('chushengriqi')."%");
+			}
+			if(I('qq')!=''){
+				$data['qq'] = array('LIKE',"%". I('qq')."%");
+			}
+			if(I('xianjuzhudizhi')!=''){
+				$data['address'] = array('LIKE',"%". I('xianjuzhudizhi')."%");
+			}
+
+			$user = M('usertable')->where($data)->select();
+			$this->assign('user',$user);
+
+
 			$this->display();
 		}
 		public function taocanxiangqing(){

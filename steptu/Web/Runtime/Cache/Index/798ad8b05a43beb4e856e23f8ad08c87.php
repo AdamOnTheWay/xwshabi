@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 
 <head>
@@ -18,25 +18,25 @@
 <body>
 
 	<table border="1" cellspacing="10">
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/yonghuguanli')}'">用户管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/taocanguanli')}'">套餐管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/haohuajiudianguanli')}'">豪华酒店管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/lvyouchaoshijiudian')}'">旅游超市酒店管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/shouyeguanli')}'">首页管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/faqihuodongguanli')}'">发起活动管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/lvyouchaoshiguanli')}'">旅游超市管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/yonghuguanli');?>'">用户管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/taocanguanli');?>'">套餐管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/haohuajiudianguanli');?>'">豪华酒店管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouchaoshijiudian');?>'">旅游超市酒店管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/shouyeguanli');?>'">首页管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/faqihuodongguanli');?>'">发起活动管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouchaoshiguanli');?>'">旅游超市管理</td>
 		<!-- 以下陈亚东来做 包括用户管理详情页面-->
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/zhutilvyouguanli')}'">主题旅游管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/guanyuyoujiguanli')}'">关于游迹管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/lvyouzhiguanli')}'">旅游志管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/taocandingdan')}'">套餐订单管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/jiudiandingdan')}'">酒店订单管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/zhutilvyouguanli');?>'">主题旅游管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/guanyuyoujiguanli');?>'">关于游迹管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouzhiguanli');?>'">旅游志管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/taocandingdan');?>'">套餐订单管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/jiudiandingdan');?>'">酒店订单管理</td>
 	</table>
 
 	<br>
 	<br>
 	<br>
-	<form action="{:U('Index/background/yonghuguanli')}" name="yonghusousuo" method="post">用户搜索
+	<form action="<?php echo U('Index/background/yonghuguanli');?>" name="yonghusousuo" method="post">用户搜索
 		<br> 用户id&nbsp&nbsp
 		<input name="yonghuid" type="text" value="">
 		<br> 用户名&nbsp&nbsp
@@ -60,10 +60,9 @@
 	<br>
 	<br>
 	<table border="1" cellspacing="10">
-		<foreach name="user" item="u">
-		<tr>
-			<td>{$u.id}</td>
-			<td>{$u.name}</td>
+		<?php if(is_array($user)): foreach($user as $key=>$u): ?><tr>
+			<td><?php echo ($u["id"]); ?></td>
+			<td><?php echo ($u["name"]); ?></td>
 			<td>密码</td>
 			<td>电话号码</td>
 			<td>邮箱</td>
@@ -73,8 +72,7 @@
 			<td>qq号</td>
 			<td>现居住地址</td>
 			<td>用户头像</td>
-		</tr>
-	</foreach>
+		</tr><?php endforeach; endif; ?>
 		<!-- 以下是要重复的一行 自我介绍只显示前几个字吧。-->
 
 		<tr>

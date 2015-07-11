@@ -41,8 +41,10 @@
 	</script>
 	<script type="text/javascript">
 		function showjieguo() {
+
 			zhuhaohuajieguo.style.display = "block";
 			zhuhaohuatu.style.display = "none";
+			$("#f1").submit();
 
 		}
 	</script>
@@ -185,7 +187,7 @@
 			</div>
 			<div class="zhuhaohuaform">
 
-				<form action="<?php echo U('Index/index/index');?>" name="zhuxianghaohua" method="post">
+				<form action="<?php echo U('Index/index/index');?>" name="zhuxianghaohua" method="post" id="f1">
 					<div style="position:absolute;left:0px;top:0px;font-size:15px;font-family: SimHei;">目的地</div>
 					<input name="destination" type="text" style="position:absolute;width:95px;left:70px;top:-3px;border-radius:4px;" />
 					<div style="position:absolute;left:0px;top:40px;font-size:15px;font-family: SimHei;">入住时间</div>
@@ -194,7 +196,7 @@
 					</div>
 					<div style="position:absolute;left:0px;top:80px;font-size:15px;font-family: SimHei;">离店时间</div>
 					<div style="position:absolute;width:120px;left:70px;top:77px;">
-						<input id="outtime" type="text" style="width:100px;" class="easyui-datebox" required="required" data-options="formatter:myformatter,parser:myparser" />
+						<input name="outtime" type="text" style="width:100px;" class="easyui-datebox" required="required" data-options="formatter:myformatter,parser:myparser" />
 					</div>
 					<div style="position:absolute;left:0px;top:120px;font-size:15px;font-family: SimHei;">酒店品牌</div>
 					<select name="brand" style="position:absolute;width:100px;left:70px;top:117px;font-size:18px;">
@@ -203,7 +205,7 @@
 					</select>
 
 					<div style="position:absolute;left:50px;top:180px;">
-						<input type="image" src="__IMG__/search.png" style="border:0;" onclick="this.form.submit()" />
+						<input type="image" src="__IMG__/search.png" style="border:0;" onclick="showjieguo()" />
 
 					</div>
 
@@ -290,8 +292,8 @@
 			<div style="position: absolute;left: 230px;top: 280px;height: 234px;width: 288px;display:none" id="zhuhaohuajieguo">
 				<?php if(is_array($hs)): foreach($hs as $key=>$hsd): ?><div style="position:absolute;left:10px;width:130px;height:100px;">
 						<img src="" style="width:130px;height:70px;">
-						<div style="font-size:13px;width:130px;"><?php echo ($hsd[0]["hotelName"]); ?>
-							<span style="position:absolute;left:90px;color:#ff8004;">￥<?php echo ($hsd[0]["price"]); ?></span>
+						<div style="font-size:13px;width:130px;"><?php echo ($hsd["hotelName"]); ?>
+							<span style="position:absolute;left:90px;color:#ff8004;">￥<?php echo ($hsd["price"]); ?></span>
 						</div>
 					</div><?php endforeach; endif; ?>
 				<!-- <div style="position:absolute;left:150px;width:130px;height:100px;">
