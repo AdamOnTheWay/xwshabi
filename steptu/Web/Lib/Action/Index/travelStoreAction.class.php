@@ -46,7 +46,7 @@
 			// var_dump($_COOKIE['name']);
 			if($_COOKIE['name']==''){
 				  // redirect(U('Index/index/index','',''));
-		
+
 			 $id = $_COOKIE['id'];
 			 $usr = $_COOKIE['name'];
 			$cou = M('order')->where(array('id'=>$id))->count();
@@ -101,7 +101,7 @@
 
 
 				}else{
-					$store = M('travelscency')->where($data)->order("id DESC")->select();
+					$store = M('travelscency')->order("id DESC")->select();
 					$this->assign("store",$store);
 
 					import('ORG.Util.Page');

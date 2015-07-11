@@ -6,9 +6,9 @@ class indexAction extends Action{
 
 	//显示主页
 	public function index(){
-		$hotel = M('hotel')->where(array('status'=>1))->limit("5")->order("id DESC")->select();
-		$this->assign('hotel',$hotel);
+
 		if(IS_POST){
+			// dump($_POST);
 		$mudidi = I('destination');
 		$ruzhu = I('intime');
 		$lidian = I('outtime');
@@ -26,14 +26,28 @@ class indexAction extends Action{
 		if($jiezhiri!=''){
 			$data['endTime'] = array('ELT',I('outtime'));
 		}
+// dump($data);
 
-		$hotel = M('hotel')->where($data)->order("id DESC")->limit("5")->select();
-		$this->assign('hotel',$hotel);
-	}
+		$a = array(
+			'destination'=>重庆,
+		);
+		$hotel = M('hotel')->where($data)->order("id DESC")->limit("4")->select();
+
+// dump($hotel);
+// die();
+		$this->assign('hs',$hotel);
 		$this->assign('note',$this->travelNote());
 		$this->assign('season',$this->discountSeason());
 		$this->display();
 	}
+
+		$hotel = M('hotel')->where(array('status'=>1))->order("id DESC")->limit("7")->select();
+		$this->assign('hds',$hotel);
+		$this->assign('note',$this->travelNote());
+		$this->assign('season',$this->discountSeason());
+		$this->display();
+
+}
 
 
 	//搜索功能

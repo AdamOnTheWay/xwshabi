@@ -1,18 +1,19 @@
 <?php
 
 /**
-* 
+*
 */
 class packageAction extends Action
 {
-	
+
 	public function package()
 	{
+		$id = $_GET['id'];
 
-		$data = M('travelscency')->select();
+		$data = M('travelscency')->where(array('id'=>$id))->find();
 			$this->assign('scency',$data);
 			$this->display();
-		
+
 	}
 	public function order_1()
 	{
@@ -22,7 +23,7 @@ class packageAction extends Action
 
 		$this->assign("data",$data);
 		// var_dump($data);
-		
+
 		$this->display();
 	}
 

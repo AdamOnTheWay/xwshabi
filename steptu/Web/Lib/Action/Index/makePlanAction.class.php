@@ -7,10 +7,10 @@
 class makePlanAction extends Action{
 
 
-	
-	public function makePlan(){	
+
+	public function makePlan(){
 		if(IS_POST){
-			 
+
 			$shifa = I('shifadi');
 			$mudi = I('mudidi');
 			$huodongshijian =I('huodongshijian');
@@ -30,7 +30,7 @@ class makePlanAction extends Action{
 
 			$content = M('action')->order('id DESC')->limit($limit)->where($data)->select();
 			$this->content = $content;
-			$this->page = $page->show(); 
+			$this->page = $page->show();
 
 		}else{
 
@@ -41,7 +41,7 @@ class makePlanAction extends Action{
 
 			$content = M('action')->order('id DESC')->limit($limit)->where($data)->select();
 			$this->content = $content;
-			$this->page = $page->show(); 
+			$this->page = $page->show();
 
 		}
 		$this->display();
@@ -54,8 +54,7 @@ class makePlanAction extends Action{
 	}
 	public function savePlan(){
 		if(!IS_POST) _404('请先登录');
-		if($_COOKIE['name']){
-
+		if(cookie('username') != '' && cookie('username') != null && cookie('username') != undefined){
 		$starttime = I('mphuodongshijian');
 		$startarea = I('mpshifadi');
 		$des = I('mpmudidi');
@@ -72,7 +71,7 @@ class makePlanAction extends Action{
 			'maxnumber' => $max,
 			'initiator' => $faqi,
 			'remark' => $beizhu,
-			'publishtime' => date('Y-m-d')				
+			'publishtime' => date('Y-m-d')
 			);
 		$mk = M('action');
 		$mk->add($data);

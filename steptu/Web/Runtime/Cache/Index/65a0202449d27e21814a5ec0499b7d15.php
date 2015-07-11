@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 
 <head>
@@ -91,73 +91,73 @@
 								<!-- 图片列表 begin -->
 
 								<div class="pic">
-									<a href="{:U('Index/package/package')}" target="_blank">
-										<img src="{$season[0].image}.jpg" width="145" height="145" alt="一号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+									<a href="<?php echo U('Index/package/package');?>" target="_blank">
+										<img src="<?php echo ($season[0]["image"]); ?>.jpg" width="145" height="145" alt="一号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
 									</a>
-									<a href="{:U('Index/package/package')}?id={$season[0].id}" target="_blank">
-										<div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$season[0].name}</div>
-										<div style="font-size:15px;font-family: SimHei;color:#ff8004;">{$season[0].price}起</div>
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[0]["id"]); ?>" target="_blank">
+										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[0]["name"]); ?></div>
+										<div style="font-size:15px;font-family: SimHei;color:#ff8004;"><?php echo ($season[0]["price"]); ?>起</div>
 									</a>
 
 								</div>
 
 								<div class="pic">
-									<a href="{:U('Index/package/package')}" target="_blank">
-										<img src="{$season[1].image}.jpg" width="145" height="145" alt="二号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+									<a href="<?php echo U('Index/package/package');?>" target="_blank">
+										<img src="<?php echo ($season[1]["image"]); ?>.jpg" width="145" height="145" alt="二号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
 									</a>
-									<a href="{:U('Index/package/package')}?id={$season[1].id}" target="_blank">
-										<div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$season[1].name}</div>
-										<div style="font-size:15px;font-family: SimHei;color:#ff8004;">{$season[1].price}起</div>
-									</a>
-
-								</div>
-								<div class="pic">
-									<a href="{:U('Index/package/package')}" target="_blank">
-										<img src="{$season[2].image}.jpg" width="145" height="145" alt="三号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
-									</a>
-									<a href="{:U('Index/package/package')}?id={$season[2].id}" target="_blank">
-										<div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$season[2].name}</div>
-										<div style="font-size:15px;font-family: SimHei;color:#ff8004;">{$season[2].price}起</div>
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[1]["id"]); ?>" target="_blank">
+										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[1]["name"]); ?></div>
+										<div style="font-size:15px;font-family: SimHei;color:#ff8004;"><?php echo ($season[1]["price"]); ?>起</div>
 									</a>
 
 								</div>
 								<div class="pic">
-									<a href="{:U('Index/package/package')}" target="_blank">
-										<img src="{$season[3].image}.jpg" width="145" height="145" alt="四号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+									<a href="<?php echo U('Index/package/package');?>" target="_blank">
+										<img src="<?php echo ($season[2]["image"]); ?>.jpg" width="145" height="145" alt="三号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
 									</a>
-									<a href="{:U('Index/package/package')}?id={$season[3].id}" target="_blank">
-										<div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$season[3].name}</div>
-										<div style="font-size:15px;font-family: SimHei;color:#ff8004;">{$season[3].price}起</div>
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[2]["id"]); ?>" target="_blank">
+										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[2]["name"]); ?></div>
+										<div style="font-size:15px;font-family: SimHei;color:#ff8004;"><?php echo ($season[2]["price"]); ?>起</div>
+									</a>
+
+								</div>
+								<div class="pic">
+									<a href="<?php echo U('Index/package/package');?>" target="_blank">
+										<img src="<?php echo ($season[3]["image"]); ?>.jpg" width="145" height="145" alt="四号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+									</a>
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[3]["id"]); ?>" target="_blank">
+										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[3]["name"]); ?></div>
+										<div style="font-size:15px;font-family: SimHei;color:#ff8004;"><?php echo ($season[3]["price"]); ?>起</div>
 									</a>
 
 								</div>
 								<div class="pic">
 									<a href="<#ZC_BLOG_HOST#>?cat=5" target="_blank">
-										<img src="{$season[4].image}.jpg" width="145" height="145" alt="五号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+										<img src="<?php echo ($season[4]["image"]); ?>.jpg" width="145" height="145" alt="五号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
 									</a>
-									<a href="{:U('Index/package/package')}?id={$season[4].id}" target="_blank">
-										<div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$season[4].name}</div>
-										<div style="font-size:15px;font-family: SimHei;color:#ff8004;">{$season[4].price}起</div>
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[4]["id"]); ?>" target="_blank">
+										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[4]["name"]); ?></div>
+										<div style="font-size:15px;font-family: SimHei;color:#ff8004;"><?php echo ($season[4]["price"]); ?>起</div>
 									</a>
 
 								</div>
 								<div class="pic">
 									<a href="<#ZC_BLOG_HOST#>?cat=6" target="_blank">
-										<img src="{$season[5].image}.jpg" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+										<img src="<?php echo ($season[5]["image"]); ?>.jpg" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
 									</a>
-									<a href="{:U('Index/package/package')}?id={$season[5].id}" target="_blank">
-										<div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$season[5].name}</div>
-										<div style="font-size:15px;font-family: SimHei;color:#ff8004;">{$season[5].price}起</div>
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[5]["id"]); ?>" target="_blank">
+										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[5]["name"]); ?></div>
+										<div style="font-size:15px;font-family: SimHei;color:#ff8004;"><?php echo ($season[5]["price"]); ?>起</div>
 									</a>
 
 								</div>
 								<div class="pic">
 									<a href="<#ZC_BLOG_HOST#>?cat=7" target="_blank">
-										<img src="{$season[6].image}.jpg" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+										<img src="<?php echo ($season[6]["image"]); ?>.jpg" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
 									</a>
-									<a href="{:U('Index/package/package')}?id={$season[6].id}" target="_blank">
-										<div style="font-size:15px;font-family: SimHei;color:#046bb3;">{$season[6].name}</div>
-										<div style="font-size:15px;font-family: SimHei;color:#ff8004;">{$season[6].price}起</div>
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[6]["id"]); ?>" target="_blank">
+										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[6]["name"]); ?></div>
+										<div style="font-size:15px;font-family: SimHei;color:#ff8004;"><?php echo ($season[6]["price"]); ?>起</div>
 									</a>
 
 								</div>
@@ -182,12 +182,12 @@
 			<div class="lvyouzhicontent">
 				<img src="" style="width:150px;height:150px;margin:15px 0 0 15px;">
 
-				<div style=" word-wrap:break-word; word-break:break-all;width:150px;margin:5px 0 0 15px;font-size:14px;">{$note[0].note}</div>
+				<div style=" word-wrap:break-word; word-break:break-all;width:150px;margin:5px 0 0 15px;font-size:14px;"><?php echo ($note[0]["note"]); ?></div>
 
 			</div>
 			<div class="zhuhaohuaform">
 
-				<form action="{:U('Index/index/index')}" name="zhuxianghaohua" method="post" id="f1">
+				<form action="<?php echo U('Index/index/index');?>" name="zhuxianghaohua" method="post" id="f1">
 					<div style="position:absolute;left:0px;top:0px;font-size:15px;font-family: SimHei;">目的地</div>
 					<input name="destination" type="text" style="position:absolute;width:95px;left:70px;top:-3px;border-radius:4px;" />
 					<div style="position:absolute;left:0px;top:40px;font-size:15px;font-family: SimHei;">入住时间</div>
@@ -200,9 +200,7 @@
 					</div>
 					<div style="position:absolute;left:0px;top:120px;font-size:15px;font-family: SimHei;">酒店品牌</div>
 					<select name="brand" style="position:absolute;width:100px;left:70px;top:117px;font-size:18px;">
-						<foreach name='hds' item='hd'>
-							<option value="{$hd.hotelName}" name='brand'>{$hd.hotelName}</option>
-						</foreach>
+						<?php if(is_array($hds)): foreach($hds as $key=>$hd): ?><option value="<?php echo ($hd["hotelName"]); ?>" name='brand'><?php echo ($hd["hotelName"]); ?></option><?php endforeach; endif; ?>
 						<!-- <option value="洲际酒店">洲际酒店</option> -->
 					</select>
 
@@ -220,11 +218,11 @@
 				<div id="demo" style="height:250px;width:280px; overflow:hidden; ">
 					<div id="demo1">
 
-						<a href="{:U('Index/travelStore/jiudian','','')}/id/3" target="_blank">
+						<a href="<?php echo U('Index/travelStore/jiudian','','');?>/id/3" target="_blank">
 							<div id="jiudiantu">
 								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;">{$hds[0].hotelName}
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥{$hds[0].price}</div>
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[0]["hotelName"]); ?>
+									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[0]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
@@ -232,8 +230,8 @@
 						<a href="http://www.16sucai.com" target="_blank">
 							<div id="jiudiantu">
 								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;">{$hds[1].hotelName}
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥{$hds[1].price}</div>
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[1]["hotelName"]); ?>
+									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[1]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
@@ -241,8 +239,8 @@
 						<a href="http://www.16sucai.com" target="_blank">
 							<div id="jiudiantu">
 								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;">{$hds[2].hotelName}
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥{$hds[2].price}</div>
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[2]["hotelName"]); ?>
+									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[2]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
@@ -250,8 +248,8 @@
 						<a href="http://www.16sucai.com" target="_blank">
 							<div id="jiudiantu">
 								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;">{$hds[3].hotelName}
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥{$hds[3].price}</div>
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[3]["hotelName"]); ?>
+									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[3]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
@@ -259,8 +257,8 @@
 						<a href="http://www.16sucai.com" target="_blank">
 							<div id="jiudiantu">
 								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;">{$hds[4].hotelName}
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥{$hds[4].price}</div>
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[4]["hotelName"]); ?>
+									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[4]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
@@ -268,8 +266,8 @@
 						<a href="http://www.16sucai.com" target="_blank">
 							<div id="jiudiantu">
 								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;">{$hds[5].hotelName}
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥{$hds[5].price}</div>
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[5]["hotelName"]); ?>
+									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[5]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
@@ -277,8 +275,8 @@
 						<a href="http://www.16sucai.com" target="_blank">
 							<div id="jiudiantu">
 								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;">{$hds[6].hotelName}
-									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥{$hds[6].price}</div>
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[6]["hotelName"]); ?>
+									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[6]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
@@ -292,32 +290,30 @@
 			</div>
 
 			<div style="position: absolute;left: 230px;top: 280px;height: 234px;width: 288px;display:none" id="zhuhaohuajieguo">
-				<foreach name='hs' item='hsd'>
-					<div style="position:absolute;left:10px;width:130px;height:100px;">
+				<?php if(is_array($hs)): foreach($hs as $key=>$hsd): ?><div style="position:absolute;left:10px;width:130px;height:100px;">
 						<img src="" style="width:130px;height:70px;">
-						<div style="font-size:13px;width:130px;">{$hsd.hotelName}
-							<span style="position:absolute;left:90px;color:#ff8004;">￥{$hsd.price}</span>
+						<div style="font-size:13px;width:130px;"><?php echo ($hsd["hotelName"]); ?>
+							<span style="position:absolute;left:90px;color:#ff8004;">￥<?php echo ($hsd["price"]); ?></span>
 						</div>
-					</div>
-				</foreach>
+					</div><?php endforeach; endif; ?>
 				<!-- <div style="position:absolute;left:150px;width:130px;height:100px;">
 					<img src="" style="width:130px;height:70px;">
-					<div style="font-size:13px;width:130px;">{$hs[1].hotelName}
-						<span style="position:absolute;left:90px;color:#ff8004;">￥{$hotel[1].price}</span>
+					<div style="font-size:13px;width:130px;"><?php echo ($hs[1]["hotelName"]); ?>
+						<span style="position:absolute;left:90px;color:#ff8004;">￥<?php echo ($hotel[1]["price"]); ?></span>
 					</div>
 				</div>
 
 				<div style="position:absolute;left:10px;top:120px;width:130px;height:100px;">
 					<img src="" style="width:130px;height:70px;">
-					<div style="font-size:13px;width:130px;">{$hotel[2].hotelName}
-						<span style="position:absolute;left:90px;color:#ff8004;">￥{$hotel[2].price}</span>
+					<div style="font-size:13px;width:130px;"><?php echo ($hotel[2]["hotelName"]); ?>
+						<span style="position:absolute;left:90px;color:#ff8004;">￥<?php echo ($hotel[2]["price"]); ?></span>
 					</div>
 				</div>
 
 				<div style="position:absolute;left:150px;top:120px;width:130px;height:100px;">
 					<img src="" style="width:130px;height:70px;">
-					<div style="font-size:13px;width:130px;">{$hotel[3].hotelName}
-						<span style="position:absolute;left:90px;color:#ff8004;">￥{$hotel[3].price}</span>
+					<div style="font-size:13px;width:130px;"><?php echo ($hotel[3]["hotelName"]); ?>
+						<span style="position:absolute;left:90px;color:#ff8004;">￥<?php echo ($hotel[3]["price"]); ?></span>
 					</div>
 				</div> -->
 
@@ -325,22 +321,22 @@
 
 		</div>
 
-		<a href="{:U('Index/travelStore/travelStore')}">
+		<a href="<?php echo U('Index/travelStore/travelStore');?>">
 			<img src="__IMG__/travelsm.png" class="travelsm">
 		</a>
-		<a href="{:U('Index/vipCenter/myInformation')}">
+		<a href="<?php echo U('Index/vipCenter/myInformation');?>">
 			<img src="__IMG__/personal.png" class="personal">
 		</a>
-		<a href="{:U('Index/travelTheme/travelTheme')}">
+		<a href="<?php echo U('Index/travelTheme/travelTheme');?>">
 			<img src="__IMG__/travel.png" class="travel">
 		</a>
-		<a href="{:U('Index/makePlan/makePlan')}">
+		<a href="<?php echo U('Index/makePlan/makePlan');?>">
 			<img src="__IMG__/makeplan.png" class="makeplan">
 		</a>
-		<a href="{:U('Index/index/index')}">
+		<a href="<?php echo U('Index/index/index');?>">
 			<img src="__IMG__/index.png" class="index">
 		</a>
-		<a href="{:U('Index/travelBook/travelBook')}">
+		<a href="<?php echo U('Index/travelBook/travelBook');?>">
 			<img src="__IMG__/travelbook.png" class="travelbook">
 		</a>
 		<img src="__IMG__/xuanchuan.png" class="xuanchuan">
@@ -348,7 +344,7 @@
 		<!-- <img src="__IMG__/logo.png"class="logo"> -->
 		<img src="__IMG__/phone.png" class="phone">
 
-		<a href="{:U('Index/index/register','','')}">
+		<a href="<?php echo U('Index/index/register','','');?>">
 			<img src="__IMG__/register.png" class="register" id="reanniu">
 		</a>
 
@@ -364,55 +360,55 @@
 			<div class="bottomsm">
 				<span class="bottombiao">旅游超市</span>
 				<div class="bottomxuanxiang">
-					<a href="{:U('Index/travelStore/smsousuojieguo')}">住</a>
+					<a href="<?php echo U('Index/travelStore/smsousuojieguo');?>">住</a>
 					<br>
-					<a href="{:U('Index/travelStore/travelStore')}">吃货</a>
+					<a href="<?php echo U('Index/travelStore/travelStore');?>">吃货</a>
 				</div>
 			</div>
 			<div class="bottompersonal">
 				<span class="bottombiao">会员中心</span>
 				<div class="bottomxuanxiang1">
-					<a href="{:U('Index/vipCenter/myOrders')}"> 我的订单</a>
+					<a href="<?php echo U('Index/vipCenter/myOrders');?>"> 我的订单</a>
 					<br>
-					<a href="{:U('Index/vipCenter/myGrades')}">我的积分</a>
+					<a href="<?php echo U('Index/vipCenter/myGrades');?>">我的积分</a>
 					<br>
-					<a href="{:U('Index/vipCenter/myEvaluations')}"> 我的评价</a>
+					<a href="<?php echo U('Index/vipCenter/myEvaluations');?>"> 我的评价</a>
 					<br>
-					<a href="{:U('Index/vipCenter/myInformation')}">我的信息</a>
+					<a href="<?php echo U('Index/vipCenter/myInformation');?>">我的信息</a>
 					<br>
-					<a href="{:U('Index/vipCenter/myMoneyPot')}">我的储钱罐旅行计划</a>
+					<a href="<?php echo U('Index/vipCenter/myMoneyPot');?>">我的储钱罐旅行计划</a>
 					<br>
 				</div>
 			</div>
 			<div class="bottombook">
 				<span class="bottombiao">旅游志</span>
 				<div class="bottomxuanxiang">
-					<a href="{:U('Index/travelBook/travelBook')}">旅游随感</a>
+					<a href="<?php echo U('Index/travelBook/travelBook');?>">旅游随感</a>
 					<br>
-					<a href="{:U('Index/travelBook/letterList')}"> 写给未来的信</a></div>
+					<a href="<?php echo U('Index/travelBook/letterList');?>"> 写给未来的信</a></div>
 			</div>
 			<div class="weishenme">
 				<span class="bottombiao">主题旅游</span>
 				<div class="bottomxuanxiang"><a href="/travel/steptu/index.php/travelTheme/travelTheme/class/学子游">城市之间</a>
 					<br>
-					<a href="{:U(Index/travelTheme/travelTheme,'class=学子游','')}"> 学子游</a>
+					<a href="<?php echo U(Index/travelTheme/travelTheme,'class=学子游','');?>"> 学子游</a>
 					<br>
-					<a href="{:U(Index/travelTheme/travelTheme,'class=年休假','')}">年休假</a>
+					<a href="<?php echo U(Index/travelTheme/travelTheme,'class=年休假','');?>">年休假</a>
 					<br>
-					<a href="{:U(Index/travelTheme/travelTheme,'class=美食街','')}">美食游</a></div>
+					<a href="<?php echo U(Index/travelTheme/travelTheme,'class=美食街','');?>">美食游</a></div>
 			</div>
 			<div class="bottomaboutus">
 				<span class="bottombiao">关于游记</span>
 				<div class="bottomxuanxiang">
-					<a href="{:U('Index/index/aboutUs')}">关于我们</a>
+					<a href="<?php echo U('Index/index/aboutUs');?>">关于我们</a>
 					<br>
-					<a href="{:U('Index/index/aboutUs')}">联系我们</a>
+					<a href="<?php echo U('Index/index/aboutUs');?>">联系我们</a>
 					<br>
-					<a href="{:U('Index/index/aboutUs')}">一起合作</a>
+					<a href="<?php echo U('Index/index/aboutUs');?>">一起合作</a>
 					<br>
-					<a href="{:U('Index/index/aboutUs')}">用户协议</a>
+					<a href="<?php echo U('Index/index/aboutUs');?>">用户协议</a>
 					<br>
-					<a href="{:U('Index/index/aboutUs')}">诚聘英才</a></div>
+					<a href="<?php echo U('Index/index/aboutUs');?>">诚聘英才</a></div>
 			</div>
 		</div>
 		<img src="../Public/images/steptu.png" class="steptu">
@@ -435,7 +431,7 @@
 				<h3>旅行是一种生活</h3>
 			</div>
 			<div class="theme-popbod dform">
-				<form class="theme-signin" name="loginform" action="{:U('Index/loginVerify/loginVerify')}" method="post">
+				<form class="theme-signin" name="loginform" action="<?php echo U('Index/loginVerify/loginVerify');?>" method="post">
 					<ol>
 						<li>
 							<h4>请登录</h4>
@@ -463,7 +459,7 @@
 	$("#dlanniu").click(function() {
 		// console.log($data['code']);
 		// alert("用户名/密码 错误！");
-		var url = '{:U(\'Index/loginVerify/loginVerify\')}';
+		var url = '<?php echo U('Index/loginVerify/loginVerify');?>';
 		$.post(url, {
 			log: $("#name").val(),
 			pwd: $("#psw").val()
@@ -488,7 +484,7 @@
 		})
 	})
 	$("#tuichudenglu").click(function() {
-		var url = '{:U(\'Index/loginVerify/tuichudenglu\')}';
+		var url = '<?php echo U('Index/loginVerify/tuichudenglu');?>';
 		$.post(url, function() {
 			document.getElementById("dengluchenggong").innerHTML = "";
 			loganniu.style.display = "block";

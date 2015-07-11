@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -76,16 +76,16 @@ background-repeat: no-repeat;
 </STYLE>
 <div class="quanbu">
 <a href="javascript:;"class=" btn-large theme-login" style="" id="loganniu"><img src="../Public/images/login.png"   style=" position: absolute;left: 822px;top: 70px;cursor: pointer;"></a>
-<a href="{:U('Index/index/register','','')}"><img src="__IMG__/register.png" style="position: absolute;left: 920px;top: 70px;" id="reanniu"></a>
+<a href="<?php echo U('Index/index/register','','');?>"><img src="__IMG__/register.png" style="position: absolute;left: 920px;top: 70px;" id="reanniu"></a>
 <div style="position: absolute;left: 822px;top: 0px;font-size:14px;color:white"id="dengluchenggong"></div>
 <div id="tuichudenglu" style="position: absolute;left: 960px;top: 5px;font-size:14px;color:white;display:none;cursor: pointer;">退出登录</div>
 
-	<a href="{:U('Index/travelStore/travelStore')}"><img src="__IMG__/travelsm.png" class="travelsm"></a>
-        <a href="{:U('Index/vipCenter/myInformation')}"><img src="__IMG__/personal.png" class="personal"></a>
-        <a href="{:U('Index/travelTheme/travelTheme')}"> <img src="__IMG__/travel.png" class="travel" ></a>
-        <a href="{:U('Index/makePlan/makePlan')}"> <img src="__IMG__/makeplan.png" class="makeplan"></a>
-        <a href="{:U('Index/index/index')}"><img src="__IMG__/index.png" class="index"></a>
-        <a href="{:U('Index/travelBook/travelBook')}"><img src="__IMG__/travelbook.png" class="travelbook"></a>
+	<a href="<?php echo U('Index/travelStore/travelStore');?>"><img src="__IMG__/travelsm.png" class="travelsm"></a>
+        <a href="<?php echo U('Index/vipCenter/myInformation');?>"><img src="__IMG__/personal.png" class="personal"></a>
+        <a href="<?php echo U('Index/travelTheme/travelTheme');?>"> <img src="__IMG__/travel.png" class="travel" ></a>
+        <a href="<?php echo U('Index/makePlan/makePlan');?>"> <img src="__IMG__/makeplan.png" class="makeplan"></a>
+        <a href="<?php echo U('Index/index/index');?>"><img src="__IMG__/index.png" class="index"></a>
+        <a href="<?php echo U('Index/travelBook/travelBook');?>"><img src="__IMG__/travelbook.png" class="travelbook"></a>
 <img src="../Public/images/xuanchuan.png"class="xuanchuan">
 
 
@@ -95,16 +95,16 @@ background-repeat: no-repeat;
 <div class="content">
 
 <div id="taocanbiaoti" class="taocanbiaoti">
-   {$scency.name}
+   <?php echo ($scency["name"]); ?>
 </div>
 <div class="yulantu">
    <div id="banner-fade">
 
         <!-- start Basic Jquery Slider -->
         <ul class="bjqs">
-          <li><img src="{$scency.image}.jpg" ></li>
-          <li><img src="{$scency.image}.jpg" ></li>
-          <li><img src="{$scency.image}.jpg" title="Automatically generated caption"></li>
+          <li><img src="<?php echo ($scency["image"]); ?>.jpg" ></li>
+          <li><img src="<?php echo ($scency["image"]); ?>.jpg" ></li>
+          <li><img src="<?php echo ($scency["image"]); ?>.jpg" title="Automatically generated caption"></li>
 
         </ul>
         <!-- end Basic jQuery Slider -->
@@ -118,9 +118,9 @@ background-repeat: no-repeat;
    <div class="outer clearfix" id="calendarcontainer"> </div></div>
 </div>
 <img src="../Public/images/package/youhuijiakuang.png" class="youhuijiakuang">
-<div class="youhuijiazi">优惠价: ￥<div class="youhuijia" id="youhuijia">&nbsp{$scency.price}</div><div class="youhuijiazi2">起</div></div>
+<div class="youhuijiazi">优惠价: ￥<div class="youhuijia" id="youhuijia">&nbsp<?php echo ($scency["price"]); ?></div><div class="youhuijiazi2">起</div></div>
 <div class="feiyongshuoming" id="feiyongshuoming">
-    {$scency.descriptionPrice}
+    <?php echo ($scency["descriptionPrice"]); ?>
 </div>
 
 <div class="yudinglan">
@@ -145,17 +145,17 @@ background-repeat: no-repeat;
 </table>
 </div>
 <div class="neirongtiao" id="youhuihuodong"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">优惠活动</div></div>
-<div class="youhuihuodongcontent" id="youhuihuodongcontent">{$scency.discountAction}</div>
+<div class="youhuihuodongcontent" id="youhuihuodongcontent"><?php echo ($scency["discountAction"]); ?></div>
 
 <div class="neirongtiao" id="chanpintese"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">产品特色</div></div>
-<div class="youhuihuodongcontent" id="chanpintesecontent">{$scency.characteristics}</div>
+<div class="youhuihuodongcontent" id="chanpintesecontent"><?php echo ($scency["characteristics"]); ?></div>
 
 <div class="neirongtiao" id="xingchengjieshao"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">行程介绍</div></div>
-<div class="youhuihuodongcontent" id="xingchengjieshaocontent">{$scency.routeDescription}</div>
+<div class="youhuihuodongcontent" id="xingchengjieshaocontent"><?php echo ($scency["routeDescription"]); ?></div>
 
 
 <div class="neirongtiao" id="yudingxuzhi"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">预定须知</div></div>
-<div class="youhuihuodongcontent" id="yudingxuzhicontent">{$scency.bookInformation}</div>
+<div class="youhuihuodongcontent" id="yudingxuzhicontent"><?php echo ($scency["bookInformation"]); ?></div>
 
 <div class="neirongtiao" id="youkedianping"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">游客点评</div></div>
 <div class="youhuihuodongcontent" id="youkedianpingcontent">
@@ -252,32 +252,32 @@ background-repeat: no-repeat;
 
 <div class="bottom">
 <div class="bottomsm">
-  <span class="bottombiao">旅游超市</span><div class="bottomxuanxiang"><a href="{:U('Index/travelStore/smsousuojieguo')}">住</a><br>
-            <a href="{:U('Index/travelStore/travelStore')}">吃货</a></div>
+  <span class="bottombiao">旅游超市</span><div class="bottomxuanxiang"><a href="<?php echo U('Index/travelStore/smsousuojieguo');?>">住</a><br>
+            <a href="<?php echo U('Index/travelStore/travelStore');?>">吃货</a></div>
 </div>
 <div class="bottomsm">
-  <span class="bottombiao">会员中心</span><div class="bottomxuanxiang1"><a href="{:U('Index/vipCenter/myOrders')}"> 我的订单</a><br>
-            <a href="{:U('Index/vipCenter/myGrades')}">我的积分</a> <br>
-            <a href="{:U('Index/vipCenter/myEvaluations')}"> 我的评价</a><br>
-            <a href="{:U('Index/vipCenter/myInformation')}">我的信息</a> <br>
-            <a href="{:U('Index/vipCenter/myMoneyPot')}">我的储钱罐旅行计划</a><br></div>
+  <span class="bottombiao">会员中心</span><div class="bottomxuanxiang1"><a href="<?php echo U('Index/vipCenter/myOrders');?>"> 我的订单</a><br>
+            <a href="<?php echo U('Index/vipCenter/myGrades');?>">我的积分</a> <br>
+            <a href="<?php echo U('Index/vipCenter/myEvaluations');?>"> 我的评价</a><br>
+            <a href="<?php echo U('Index/vipCenter/myInformation');?>">我的信息</a> <br>
+            <a href="<?php echo U('Index/vipCenter/myMoneyPot');?>">我的储钱罐旅行计划</a><br></div>
 </div>
 <div class="bottomsm">
-  <span class="bottombiao">旅游志</span><div class="bottomxuanxiang"> <a href="{:U('Index/travelBook/travelBook')}">旅游随感</a> <br>
-            <a href="{:U('Index/travelBook/letterList')}"> 写给未来的信</a></div>
+  <span class="bottombiao">旅游志</span><div class="bottomxuanxiang"> <a href="<?php echo U('Index/travelBook/travelBook');?>">旅游随感</a> <br>
+            <a href="<?php echo U('Index/travelBook/letterList');?>"> 写给未来的信</a></div>
 </div>
 <div class="bottomsm">
-  <span class="bottombiao">主题旅游</span><div class="bottomxuanxiang"> <a href="{:U(Index/travelTheme/travelTheme,'class=学子游','')}"> 学子游</a><br>
-            <a href="{:U(Index/travelTheme/travelTheme,'class=年休假','')}">年休假</a><br>
-            <a href="{:U(Index/travelTheme/travelTheme,'class=美食街','')}">美食游</a></div>
+  <span class="bottombiao">主题旅游</span><div class="bottomxuanxiang"> <a href="<?php echo U(Index/travelTheme/travelTheme,'class=学子游','');?>"> 学子游</a><br>
+            <a href="<?php echo U(Index/travelTheme/travelTheme,'class=年休假','');?>">年休假</a><br>
+            <a href="<?php echo U(Index/travelTheme/travelTheme,'class=美食街','');?>">美食游</a></div>
 </div>
 
 <div class="bottomsm" >
-  <span class="bottombiao">关于游记</span><div class="bottomxuanxiang"> <a href="{:U('Index/index/aboutUs')}">关于我们</a><br>
-            <a href="{:U('Index/index/aboutUs')}">联系我们</a><br>
-            <a href="{:U('Index/index/aboutUs')}">一起合作</a><br>
-            <a href="{:U('Index/index/aboutUs')}">用户协议</a><br>
-            <a href="{:U('Index/index/aboutUs')}">诚聘英才</a></div>
+  <span class="bottombiao">关于游记</span><div class="bottomxuanxiang"> <a href="<?php echo U('Index/index/aboutUs');?>">关于我们</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">联系我们</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">一起合作</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">用户协议</a><br>
+            <a href="<?php echo U('Index/index/aboutUs');?>">诚聘英才</a></div>
 </div>
 
 <img src="../Public/images/package/steptu.png" class="steptu">
@@ -303,7 +303,7 @@ background-repeat: no-repeat;
           <h3>旅行是一种生活</h3>
      </div>
      <div class="theme-popbod dform">
-           <form class="theme-signin" name="loginform" action="{:U('Index/loginVerify/loginVerify')}" method="post">
+           <form class="theme-signin" name="loginform" action="<?php echo U('Index/loginVerify/loginVerify');?>" method="post">
                 <ol>
                      <li ><h4>请登录</h4></li>
                      <li><strong>用户名：</strong><input class="ipt" id="name" type="text" name="log" value="" size="20" /></li>
@@ -336,7 +336,7 @@ background-repeat: no-repeat;
 $("#dlanniu").click(function(){
    // console.log($data['code']);
    // alert("用户名/密码 错误！");
-   var url = '{:U(\'Index/loginVerify/loginVerify\')}';
+   var url = '<?php echo U('Index/loginVerify/loginVerify');?>';
    $.post(url,{log:$("#name").val(),pwd:$("#psw").val()},function(data){
        console.log($.cookie('username'));
       // alert(data['address'][2]);
@@ -362,7 +362,7 @@ $("#dlanniu").click(function(){
 }
 )
 $("#tuichudenglu").click(function(){
-  var url = '{:U(\'Index/loginVerify/tuichudenglu\')}';
+  var url = '<?php echo U('Index/loginVerify/tuichudenglu');?>';
 $.post(url,function(){
 document.getElementById("dengluchenggong").innerHTML="";
 loganniu.style.display="block";
