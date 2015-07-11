@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="../Public/css/makeplan/makeplan.css" media="all" type="text/css">
     <link rel="stylesheet" href="../Public/css/css.css" media="all">
 		 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
-   
+
     <script type="text/javascript" src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
       <script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
 <script type="text/javascript" src="../Public/js/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
@@ -43,7 +43,7 @@ $(document).ready(function() {
 			$("#biaofaqiren").html(date["initiator"]);
 			$("#biaohuodongneirong").html(date["content"]);
 			$("#actionId").attr("value",date["id"]);
-			
+
 		});
 	});
 });
@@ -82,7 +82,7 @@ a:hover{
     color: red;
     font-weight: bolder;}
 -->1
-</STYLE> 
+</STYLE>
 <div class="quanbu">
 <img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
 	<a href="{:U('Index/travelStore/travelStore')}"><img src="__IMG__/travelsm.png" class="travelsm"></a>
@@ -163,7 +163,7 @@ position:relative;top:15px;left:20px;">发起活动</span></div>
                 <div style="position:absolute;left:150px;font-size:13px;float:left;">发布时间:</div>
                  <div id="loufabushijian" class="loufabushijian">{$v.publishtime}</div>
                   <div style="position:absolute;top:48px;font-size:13px;float:left;">发起人数:</div>
-                     <div id="loufaqirenshu" class="loufaqirenshu">{$v.maxnumber}</div> 
+                     <div id="loufaqirenshu" class="loufaqirenshu">{$v.maxnumber}</div>
                        <div style="position:absolute;top:48px;left:150px;font-size:13px;float:left;">报名人数:</div>
                        <div id="loubaomingrenshu" class="loubaomingrenshu">{$v.number}</div>
                        <div style="position:absolute;top:72px;font-size:13px;float:left;">活动状态:</div>
@@ -183,34 +183,34 @@ position:relative;top:15px;left:20px;">发起活动</span></div>
 
 <div id="biaohuodongmingcheng" class="biaohuodongmingcheng">{$content[0]['theme']}</div>
     <div class="biao">
-    	
+
        <div id="startTime" style="position:relative;font-size:14px;top:16px;left:25px;float:left">活动时间:</div>
         <div id="biaohuodongshijian"style="position:relative;font-size:14px;top:16px;left:25px">{$content[0]['startTime']}</div>
-          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div> 
+          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div>
             <div style="position:relative;font-size:14px;top:16px;left:25px;float:left">发布时间:</div>
          <div id="biaofabushijian"style="position:relative;font-size:14px;top:16px;left:25px">{$content[0]['publishtime']}</div>
-          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div> 
+          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div>
             <div style="position:relative;font-size:14px;top:16px;left:25px;float:left">活动始发地:</div>
          <div id="biaohuodongshifadi"style="position:relative;font-size:14px;top:16px;left:25px">{$content[0]['startTime']}</div>
-          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div> 
+          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div>
             <div style="position:relative;font-size:14px;top:16px;left:25px;float:left">活动目的地:</div>
          <div id="biaohuodongmudidi"style="position:relative;font-size:14px;top:16px;left:25px">{$content[0]['intentarea']}</div>
-          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div> 
+          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div>
             <div style="position:relative;font-size:14px;top:16px;left:25px;float:left">最大参与人数:</div>
          <div id="biaozuidacanyurenshu"style="position:relative;font-size:14px;top:16px;left:25px">{$content[0]['maxnumber']}</div>
-          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div> 
+          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div>
           <div style="position:relative;font-size:14px;top:16px;left:25px;float:left">报名人数:</div>
          <div id="biaobaomingrenshu"style="position:relative;font-size:14px;top:16px;left:25px">{$content[0]['number']}</div>
-          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div> 
+          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div>
           <div style="position:relative;font-size:14px;top:16px;left:25px;float:left">活动状态:</div>
          <div id="biaohuodongzhuangtai"style="position:relative;font-size:14px;top:16px;left:25px">{$content[0]['remark']}</div>
-          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div> 
+          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div>
            <div style="position:relative;font-size:14px;top:16px;left:25px;float:left">发起人:</div>
          <div id="biaofaqiren"style="position:relative;font-size:14px;top:16px;left:25px">{$content[0]['initiator']}</div>
-          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div> 
+          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div>
           <div style="position:relative;font-size:14px;top:16px;left:25px;float:left">活动内容:</div>
          <div id="biaohuodongneirong"style="position:relative;font-size:14px;top:16px;left:25px;width:280px;">{$content[0]['content']}</div>
-          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div> 
+          <div style="height:7px"><img src="../Public/images/makeplan/biaofenge.png" style="position:relative;top:16px;"></div>
           <div style="position:relative;font-size:13px;top:21px;left:25px;float:left;color:#0032d3" >发起人信息</div>
           <div style="position:relative;font-size:13px;top:21px;left:45px;float:left;color:#0032d3" >已阅读并同意相关法律条约</div>
           <img src="../Public/images/makeplan/baoming.png" style="position:relative;left:80px;width:80px;top:15px;">
@@ -321,12 +321,12 @@ $("#dlanniu").click(function(){
    $.post(url,{log:$("#name").val(),pwd:$("#psw").val()},function(data){
        console.log($.cookie('username'));
       // alert(data['address'][2]);
-      
+
       // console.log(shishi);
       if (data.code==1) {
       alert("登陆成功");
       var shishi=$.cookie('username');
-       document.getElementById("close").click(); 
+       document.getElementById("close").click();
       loganniu.style.display="none";
       reanniu.style.display="none";
       document.getElementById("dengluchenggong").innerHTML=shishi+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";

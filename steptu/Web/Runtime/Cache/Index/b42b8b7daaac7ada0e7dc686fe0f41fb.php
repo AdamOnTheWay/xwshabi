@@ -41,10 +41,8 @@
 	</script>
 	<script type="text/javascript">
 		function showjieguo() {
-
-			zhuhaohuajieguo.style.display = "block";
-			zhuhaohuatu.style.display = "none";
-			$("#f1").submit();
+          $("#f1").submit();
+		//  window.location.href="<?php echo U('Index/index/index2');?>";
 
 		}
 	</script>
@@ -187,7 +185,7 @@
 			</div>
 			<div class="zhuhaohuaform">
 
-				<form action="<?php echo U('Index/index/index');?>" name="zhuxianghaohua" method="post" id="f1">
+				<form action="<?php echo U('Index/index/index2');?>" name="zhuxianghaohua" method="post" id="f1">
 					<div style="position:absolute;left:0px;top:0px;font-size:15px;font-family: SimHei;">目的地</div>
 					<input name="destination" type="text" style="position:absolute;width:95px;left:70px;top:-3px;border-radius:4px;" />
 					<div style="position:absolute;left:0px;top:40px;font-size:15px;font-family: SimHei;">入住时间</div>
