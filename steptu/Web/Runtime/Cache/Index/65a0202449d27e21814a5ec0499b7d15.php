@@ -78,7 +78,7 @@
 		<div class="content">
 			<!--优惠套餐条-->
 			<img src="__IMG__/youhuitiao1.png" class="youhuitiao1">
-			<img src="__IMG__/youhuitiao2.png" class="youhuitiao2">
+			<a href="<?php echo U('Index/travelStore/travelStore');?>"><img src="__IMG__/youhuitiao2.png" class="youhuitiao2"></a>
 			<!--以下这一段是优惠套餐滚动实现-->
 			<div style="position:absolute;top:30px;left:30px;">
 				<div class="rollBox">
@@ -178,7 +178,7 @@
 			<div></div>
 			<!--旅游志标题条-->
 			<img src="__IMG__/lvyouzhi1.png" class="lvyouzhi">
-			<img src="__IMG__/lvyouzhi2.png" class="lvyouzhi2">
+			<a href="<?php echo U('Index/travelBook/travelBook');?>"><img src="__IMG__/lvyouzhi2.png" class="lvyouzhi2"></a>
 			<div class="lvyouzhicontent">
 				<img src="" style="width:150px;height:150px;margin:15px 0 0 15px;">
 
