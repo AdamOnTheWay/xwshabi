@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 
 <head>
@@ -79,16 +79,16 @@
 	<br>
 	<br>
 	<br>
-	<form action="{:U('Index/background/tcxq')}" name="taocanxiangqingxiugai" method="post">
-		套餐id&nbsp&nbsp <input name="taocanid" type="text" value="{$tr.id}" readonly="true">
+	<form action="<?php echo U('Index/background/tcxq');?>" name="taocanxiangqingxiugai" method="post">
+		套餐id&nbsp&nbsp <input name="taocanid" type="text" value="<?php echo ($tr["id"]); ?>" readonly="true">
 		<br>
 		<br> 套餐名&nbsp&nbsp
-		<input name="taocanming" type="text" value="{$tr.name}">
+		<input name="taocanming" type="text" value="<?php echo ($tr["name"]); ?>">
 		<br>
 		<br> 套餐起始日期
-		<input name="qishiriqi" type="text" value="{$tr.startTime}">按格式填写
+		<input name="qishiriqi" type="text" value="<?php echo ($tr["startTime"]); ?>">按格式填写
 		<br> 套餐截止日期
-		<input name="jiezhiriqi" type="text" value="{$tr.endTime}">按格式填写
+		<input name="jiezhiriqi" type="text" value="<?php echo ($tr["endTime"]); ?>">按格式填写
 		<br> 是否属于优惠套餐：
 		<select name="shifouyouhui">
 			<option value="1">是</option>
@@ -97,7 +97,7 @@
 		<br>
 		<br> 优惠价&nbsp&nbsp
 
-		<input name="youhuijia" type="text" value="{$tr.price}">
+		<input name="youhuijia" type="text" value="<?php echo ($tr["price"]); ?>">
 		<br>
 		<br> 套餐说明:
 		<br>
