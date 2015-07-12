@@ -3,16 +3,16 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>套餐管理</title>
+	<title>旅游超市酒店</title>
 	<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 
-	<script type="text/javascript" src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="__JS__/jquery-easyui-1.4.2/jquery.min.js"></script>
 	<script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
 	<script type="text/javascript" src="../Public/js/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/demo/demo.css">
-
+	<script language="javascript" src="/steptu/Web/Tpl/Index/background/city.js"></script>
 </head>
 
 <body>
@@ -31,89 +31,117 @@
 		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/taocandingdan');?>'">套餐订单管理</td>
 		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/jiudiandingdan');?>'">酒店订单管理</td>
 	</table>
+	<br>
+	<table border="1" cellspacing="10">
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouchaoshijiudian');?>'">位置管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouchaoshixinxiguanli');?>'">旅游住酒店信息管理</td>
+	</table>
 
 	<br>
+	<h3>位置管理，城市名和区县可重复添加</h3>
 	<br>
-	<br>
-	<form action="<?php echo U('Index/background/taocanguanli');?>" name="taocansousuo" method="post">套餐搜索
-		<br> 套餐id&nbsp&nbsp <?php echo ($user["id"]); ?>
-		<input name="taocanid" type="text" value="">
-		<br> 套餐名&nbsp&nbsp
-		<input name="taocanming" type="text" value="">
-		<br> 是否属于优惠套餐：
-		<select name="shifouyouhui">
-			<option value="1">是</option>
-			<option value="0">否</option>
-		</select>
-		<br>
-		<br> 优惠价&nbsp&nbsp
-		<input name="youhuijia" type="text" value="">
+	<br> 位置查询
+	<form action="" name="weizhichaxun" id="weizhichaxun" method="post">
+		ID&nbsp&nbsp
+		<input name="ID" type="text" value="">
+		<br> 城市名&nbsp&nbsp
+		<input name="chengshiming" type="text" value="">
+		<br> 区县名&nbsp&nbsp
+		<input name="quxianming" type="text" value="">
+		<br> 景点&nbsp&nbsp
+		<input name="jingdian" type="text" value="">
+		<br> 机场火车站&nbsp&nbsp
+		<input name="jichanghuochezhan" type="text" value="">
+		<br> 商业区&nbsp&nbsp
+		<input name="shangyequ" type="text" value="">
 		<br>
 		<input type="submit" value="搜索" />
 	</form>
-	<br>
-	<br>
-	<br>
 
+	<br>
+	<br>
+	<br>
 	<table border="1" cellspacing="10">
 		<tr>
-			<td>套餐id</td>
-			<td>套餐名</td>
-			<td>优惠价</td>
-			<td>是否属于优惠套餐</td>
+			<td>id</td>
+			<td>城市名</td>
+			<td>区县</td>
+			<td>景点</td>
+			<td>机场火车站</td>
+			<td>商业区</td>
 			<td style="cursor:pointer;" id="zengjia">
 				<font size="3" color="red">增加</font>
 			</td>
 		</tr>
 
-		<!-- 以下是一层 name需要你渲染上去对应的套餐id-->
+		<!-- 以下是一层 -->
 		<?php if(is_array($content)): foreach($content as $key=>$u): ?><tr>
 			<td><?php echo ($u["id"]); ?></td>
-			<td><?php echo ($u["name"]); ?></td>
-			<td><?php echo ($u["price"]); ?></td>
-			<td><?php echo ($u["ifdiscount"]); ?></td>
+			<td><?php echo ($u["cityName"]); ?></td>
+			<td><?php echo ($u["xian"]); ?></td>
+			<td><?php echo ($u["jingdian"]); ?></td>
+			<td><?php echo ($u["station"]); ?></td>
+			<td><?php echo ($u["business"]); ?></td>
 			<td style="cursor:pointer;" id="xiugai" name="<?php echo ($u["id"]); ?>">
 				<font size="3" color="red">修改</font>
 			</td>
 			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" id="shanchu">
 				<font size="3" color="red">删除</font>
 			</td>
-			<td style="cursor:pointer;" onclick="window.open('<?php echo U('Index/background/taocanxiangqing','','');?>?id=<?php echo ($u["id"]); ?>');">
-				<font size="3" color="red">详情及修改</font>
-			</td>
 		</tr><?php endforeach; endif; ?>
 	<?php echo ($page); ?>
+
 	</table>
-	<br>
-	<br>
-	<br>
 	<div id="yonghuxinxi" style="display:none;">
-		<form action="<?php echo U('Index/background/tcadd');?>" name="yonghuguanli" id="yonghuguanli" method="post">
-			<div>套餐id&nbsp&nbsp</div>
-			<br> 套餐名&nbsp&nbsp
-			<input name="taocanming" type="text" value="">
-			<br> 是否属于优惠套餐：
-			<select name="shifouyouhui">
-				<option value="1">是</option>
-				<option value="0">否</option>
-			</select>
+		<form action="" name="yonghuguanli" id="yonghuguanli" method="post">
+			<div>ID：渲染上id就好</div>
 			<br>
-			<br> 优惠价&nbsp&nbsp
-			<input name="youhuijia" type="text" value="">
+			<br>
+			<div class="info">
+				<div>
+					<select id="s_province" name="s_province"></select>&nbsp;&nbsp;
+					<select id="s_city" name="s_city"></select>&nbsp;&nbsp;
+					<select id="s_county" name="s_county"></select>
+					<script class="resources library" src="/xwshabi/steptu/Web/Tpl/Index/background/city.js" type="text/javascript"></script>
+
+					<script type="text/javascript">
+						_init_area();
+					</script>
+				</div>
+				<div id="show"></div>
+			</div>
+			景点&nbsp&nbsp
+			<input name="jingdian" type="text" value="">
+			<br> 机场火车站&nbsp&nbsp
+			<input name="jichanghuochezhan" type="text" value="">
+			<br> 商业区&nbsp&nbsp
+			<input name="shangyequ" type="text" value="">
 			<br>
 
+			<br>
 			<input type="submit" value="提交修改" /> &nbsp &nbsp &nbsp
 			<input type="reset" value="重置" />
 		</form>
 	</div>
 
+
+
+	<script type="text/javascript">
+		var Gid = document.getElementById;
+		var showArea = function() {
+			Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" +
+				Gid('s_city').value + " - 县/区" +
+				Gid('s_county').value + "</h3>"
+		}
+		Gid('s_county').setAttribute('onchange', 'showArea()');
+	</script>
 </body>
 
 </html>
+
 <script type="text/javascript">
 	$("#xiugai").click(function() {
-
-		url = '<?php echo U('Index/background/taocanguanli','','');?>'
+		url = ""
 		$.post(url, {
 			data: $(this).attr("name")
 		}, function(data) {
@@ -122,8 +150,8 @@
 	})
 
 	$("#shanchu").click(function() {
-		//alert($(this).attr("name"));
-		url = '<?php echo U('Index/background/tcdelete');?>'
+		// alert($(this).attr("name"));
+		url = ""
 		$.post(url, {
 			data: $(this).attr("name")
 		}, function(data) {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 
 <head>
@@ -17,19 +17,19 @@
 
 <body>
 	<table border="1" cellspacing="10">
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/yonghuguanli')}'">用户管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/taocanguanli')}'">套餐管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/haohuajiudianguanli')}'">豪华酒店管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/lvyouchaoshijiudian')}'">旅游超市酒店管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/shouyeguanli')}'">首页管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/faqihuodongguanli')}'">发起活动管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/lvyouchaoshiguanli')}'">旅游超市管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/yonghuguanli');?>'">用户管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/taocanguanli');?>'">套餐管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/haohuajiudianguanli');?>'">豪华酒店管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouchaoshijiudian');?>'">旅游超市酒店管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/shouyeguanli');?>'">首页管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/faqihuodongguanli');?>'">发起活动管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouchaoshiguanli');?>'">旅游超市管理</td>
 		<!-- 以下陈亚东来做 包括用户管理详情页面-->
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/zhutilvyouguanli')}'">主题旅游管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/guanyuyoujiguanli')}'">关于游迹管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/lvyouzhiguanli')}'">旅游志管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/taocandingdan')}'">套餐订单管理</td>
-		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/jiudiandingdan')}'">酒店订单管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/zhutilvyouguanli');?>'">主题旅游管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/guanyuyoujiguanli');?>'">关于游迹管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouzhiguanli');?>'">旅游志管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/taocandingdan');?>'">套餐订单管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/jiudiandingdan');?>'">酒店订单管理</td>
 	</table>
 
 	<br>
@@ -44,15 +44,15 @@
 	<br>
 	<form action="" name="jiudianxiangqingxiugai" method="post">
 		酒店id&nbsp&nbsp
-		<input name="haohuajiudianid" type="text" value="{$ho.id}">
+		<input name="haohuajiudianid" type="text" value="<?php echo ($ho["id"]); ?>">
 		<br> 酒店名&nbsp&nbsp
-		<input name="haohuajiudianming" type="text" value="{$ho.hotelName}">
+		<input name="haohuajiudianming" type="text" value="<?php echo ($ho["hotelName"]); ?>">
 		<br> 酒店价格&nbsp&nbsp
-		<input name="haohuajiudianjiage" type="text" value="{$ho.price}">
+		<input name="haohuajiudianjiage" type="text" value="<?php echo ($ho["price"]); ?>">
 		<br> 最早可入住日期&nbsp&nbsp
-		<input name="zuizaokeruzhu" type="text" value="{$ho.startTime}">按照格式填写
+		<input name="zuizaokeruzhu" type="text" value="<?php echo ($ho["startTime"]); ?>">按照格式填写
 		<br> 最晚可离店日期&nbsp&nbsp
-		<input name="zuiwanlidian" type="text" value="{$ho.endTime}">按照格式填写
+		<input name="zuiwanlidian" type="text" value="<?php echo ($ho["endTime"]); ?>">按照格式填写
 		<br>
 		<br>
 		<br> 酒店所在地&nbsp&nbsp
@@ -71,7 +71,7 @@
 			<div id="show"></div>
 		</div>
 		&nbsp 具体地址：
-		<input name="haohuajutidizhi" type="text" value="{$ho.xiangxidizhi}">
+		<input name="haohuajutidizhi" type="text" value="<?php echo ($ho["xiangxidizhi"]); ?>">
 		<br>
 		<br> 房型种类：(最多输入八种)
 

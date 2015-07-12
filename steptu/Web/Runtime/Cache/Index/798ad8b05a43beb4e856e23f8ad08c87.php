@@ -76,29 +76,29 @@
 		</tr>
 
 		<!-- 以下是要重复的一行 自我介绍只显示前几个字吧。-->
-<?php if(is_array($content)): foreach($content as $key=>$u): ?><tr>
-			<td><?php echo ($u["id"]); ?></td>
-			<td><?php echo ($u["name"]); ?></td>
-			<td><?php echo ($u["password"]); ?></td>
-			<td><?php echo ($u["phone"]); ?></td>
-			<td><?php echo ($u["email"]); ?></td>
-			<td><?php echo ($u["sex"]); ?></td>
-			<td><?php echo ($u["birthday"]); ?></td>
-			<td><?php echo ($u["comment"]); ?></td>
-			<td><?php echo ($u["qq"]); ?></td>
-			<td><?php echo ($u["address"]); ?></td>
-			<td><?php echo ($u["image"]); ?></td>
-			<td style="cursor:pointer;" id="xiugai" name="<?php echo ($u["id"]); ?>">
-				<font size="3" color="red">修改</font>
-			</td>
-			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" id="shanchu">
-				<font size="3" color="red">删除</font>
-			</td>
-			<td style="cursor:pointer;">
-				<font size="3" color="red">详情及修改</font>
-			</td>
-		</tr><?php endforeach; endif; ?>
-  <?php echo ($page); ?>
+		<?php if(is_array($content)): foreach($content as $key=>$u): ?><tr>
+				<td id = "td1"><?php echo ($u["id"]); ?></td>
+				<td><?php echo ($u["name"]); ?></td>
+				<td><?php echo ($u["password"]); ?></td>
+				<td><?php echo ($u["phone"]); ?></td>
+				<td><?php echo ($u["email"]); ?></td>
+				<td><?php echo ($u["sex"]); ?></td>
+				<td><?php echo ($u["birthday"]); ?></td>
+				<td><?php echo ($u["comment"]); ?></td>
+				<td><?php echo ($u["qq"]); ?></td>
+				<td><?php echo ($u["address"]); ?></td>
+				<td><?php echo ($u["image"]); ?></td>
+				<td style="cursor:pointer;" id="xiugai" name="<?php echo ($u["id"]); ?>">
+					<font size="3" color="red">修改</font>
+				</td>
+				<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" id="shanchu">
+					<font size="3" color="red">删除</font>
+				</td>
+				<td style="cursor:pointer;">
+					<font size="3" color="red">详情及修改</font>
+				</td>
+			</tr><?php endforeach; endif; ?>
+		<?php echo ($page); ?>
 
 
 	</table>
@@ -107,10 +107,11 @@
 	<br>
 	<br>
 	<div id="yonghuxinxi" style="display:none;">
-		<form action="" name="yonghuguanli" id="yonghuguanli" method="post">
-			<div>用户id&nbsp&nbsp</div>
+		<form action="<?php echo U('Index/background/yhchange');?>" name="yonghuguanli" id="yonghuguanli" method="post">
+			<br>用户id&nbsp&nbsp
+			<input name="yonghuid" type="text" value="">
 			<br> 用户名&nbsp&nbsp
-			<input name="yonghuming" type="text" value="">
+			<input name="yonghuming" type="text" value="" >
 			<br> 密码&nbsp&nbsp
 			<input name="mima" type="text" value="">
 			<br> 电话号码&nbsp&nbsp
@@ -139,20 +140,21 @@
 </html>
 <script type="text/javascript">
 	$("#xiugai").click(function() {
-		url = ""
+		url = ''
 		$.post(url, {
-			data: $(this).attr("name")
+			data : $("#xiugai").attr('name')
 		}, function(data) {
 			yonghuxinxi.style.display = "block";
+
 		});
 
 	})
 
 	$("#shanchu").click(function() {
 		// alert($(this).attr("name"));
-		url = ""
+		url = '<?php echo U('Index/background/yhdelete');?>'
 		$.post(url, {
-			data: $(this).attr("name")
+			data: $("#shanchu").attr("name")
 		}, function(data) {
 			location.reload();
 		});

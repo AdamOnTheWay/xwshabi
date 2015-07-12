@@ -93,7 +93,7 @@ public function index2(){
 	$this->assign('hds',$hotel);
 	$this->assign('note',$this->travelNote());
 	$this->assign('season',$this->discountSeason());
-	$this->display();
+	//$this->display();
 }
 
 
