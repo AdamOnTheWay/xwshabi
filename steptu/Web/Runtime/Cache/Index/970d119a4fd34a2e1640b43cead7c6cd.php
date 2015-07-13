@@ -60,7 +60,7 @@
 			<td>套餐id</td>
 			<td>套餐名</td>
 			<td>优惠价</td>
-			<td>是否属于优惠套餐</td>
+			<td>是否属于优惠套餐&nbsp1:是&nbsp0:不是</td>
 			<td style="cursor:pointer;" id="zengjia">
 				<font size="3" color="red">增加</font>
 			</td>
@@ -93,10 +93,7 @@
 			<br> 套餐名&nbsp&nbsp
 			<input id="taocanming" name="taocanming" type="text" value="">
 			<br> 是否属于优惠套餐：
-			<select name="shifouyouhui">
-				<option value="1">是</option>
-				<option value="0">否</option>
-			</select>
+			<input id="shifoushuyu" name="shifoushuyu" type="text" value="">
 			<br>
 			<br> 优惠价&nbsp&nbsp
 			<input id="youhuijia" name="youhuijia" type="text" value="">
@@ -120,7 +117,7 @@
 	     $("#taocanid").val(changshi);
          $("#taocanming").val($("#name"+changshi).html());
           $("#youhuijia").val($("#price"+changshi).html());
-			// alert("123")
+        $("#shifoushuyu").val($("#ifdiscount"+changshi).html());
 	})
 
 	$(".shanchu").click(function() {
@@ -134,7 +131,7 @@
 	})
 
 	$("#zengjia").click(function() {
-$("#taocanming").val("");
+       $("#taocanming").val("");
           $("#youhuijia").val("");
 		 $("#taocanid").val("kong");
 			yonghuxinxi.style.display = "block";

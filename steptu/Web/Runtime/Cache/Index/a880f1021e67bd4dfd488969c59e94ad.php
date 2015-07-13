@@ -91,12 +91,12 @@
 					</div>
 					<div class="Cont" id="ISL_Cont">
 						<div class="ScrCont">
-							<div id="List1">
+								<div id="List1">
 								<!-- 图片列表 begin -->
 
 								<div class="pic">
-									<a href="<?php echo U('Index/package/package');?>" target="_blank">
-										<img src="<?php echo ($season[0]["image"]); ?>.jpg" width="145" height="145" alt="一号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[0]["id"]); ?>" target="_blank">
+										<img src="<?php echo ($season[0]["image"]); ?>.jpg" width="145" height="145" alt="一号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[0]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[0]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[0]["name"]); ?></div>
@@ -106,8 +106,8 @@
 								</div>
 
 								<div class="pic">
-									<a href="<?php echo U('Index/package/package');?>" target="_blank">
-										<img src="<?php echo ($season[1]["image"]); ?>.jpg" width="145" height="145" alt="二号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[1]["id"]); ?>" target="_blank">
+										<img src="<?php echo ($season[1]["image"]); ?>.jpg" width="145" height="145" alt="二号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[1]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[1]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[1]["name"]); ?></div>
@@ -116,8 +116,8 @@
 
 								</div>
 								<div class="pic">
-									<a href="<?php echo U('Index/package/package');?>" target="_blank">
-										<img src="<?php echo ($season[2]["image"]); ?>.jpg" width="145" height="145" alt="三号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[2]["id"]); ?>" target="_blank">
+										<img src="<?php echo ($season[2]["image"]); ?>.jpg" width="145" height="145" alt="三号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[2]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[2]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[2]["name"]); ?></div>
@@ -126,8 +126,8 @@
 
 								</div>
 								<div class="pic">
-									<a href="<?php echo U('Index/package/package');?>" target="_blank">
-										<img src="<?php echo ($season[3]["image"]); ?>.jpg" width="145" height="145" alt="四号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[3]["id"]); ?>" target="_blank">
+										<img src="<?php echo ($season[3]["image"]); ?>.jpg" width="145" height="145" alt="四号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[3]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[3]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[3]["name"]); ?></div>
@@ -136,8 +136,8 @@
 
 								</div>
 								<div class="pic">
-									<a href="<#ZC_BLOG_HOST#>?cat=5" target="_blank">
-										<img src="<?php echo ($season[4]["image"]); ?>.jpg" width="145" height="145" alt="五号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[4]["id"]); ?>" target="_blank">
+										<img src="<?php echo ($season[4]["image"]); ?>.jpg" width="145" height="145" alt="五号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[4]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[4]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[4]["name"]); ?></div>
@@ -146,8 +146,8 @@
 
 								</div>
 								<div class="pic">
-									<a href="<#ZC_BLOG_HOST#>?cat=6" target="_blank">
-										<img src="<?php echo ($season[5]["image"]); ?>.jpg" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[5]["id"]); ?>" target="_blank">
+										<img src="<?php echo ($season[5]["image"]); ?>.jpg" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[5]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[5]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[5]["name"]); ?></div>
@@ -156,8 +156,8 @@
 
 								</div>
 								<div class="pic">
-									<a href="<#ZC_BLOG_HOST#>?cat=7" target="_blank">
-										<img src="<?php echo ($season[6]["image"]); ?>.jpg" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;" />
+									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[6]["id"]); ?>" target="_blank">
+										<img src="<?php echo ($season[6]["image"]); ?>.jpg" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[6]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[6]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[6]["name"]); ?></div>
