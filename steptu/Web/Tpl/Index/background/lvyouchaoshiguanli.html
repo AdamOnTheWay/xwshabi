@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>旅游超市管理</title>
+	<title>旅游超市(吃)管理</title>
 		 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
    
     <script type="text/javascript" src="__JS__/jquery-easyui-1.4.2/jquery.min.js"></script>
@@ -32,5 +32,105 @@
 </table>
 <br>
 <br><br><br>
+<h3>吃管理</h3>
+	<form action="" name="chisousuo" method="post">吃店搜索
+		<br> 吃店id&nbsp&nbsp {$user.id}
+		<input name="chidian" type="text" value="">
+		<br> 吃店名&nbsp&nbsp
+		<input name="chidianming" type="text" value="">
+		<br> 吃店地址&nbsp&nbsp
+		<input name="chidiandizhi" type="text" value="">
+		<br> 吃店电话&nbsp&nbsp
+		<input name="chidiandianhua" type="text" value="">
+		<br>
+		<br>
+		<input type="submit" value="搜索" />
+	</form>
+	<br>
+	<br>
+	<br>
+		<table border="1" cellspacing="10">
+		<tr>
+			<td>吃店id</td>
+			<td>吃店名</td>
+			<td>吃店地址</td>
+			<td>吃店电话</td>
+			<td style="cursor:pointer;" id="zengjia">
+				<font size="3" color="red">增加</font>
+			</td>
+
+		</tr>
+
+		<!-- 以下是一层 name需要你渲染上去对应的套餐id-->
+	
+		<tr>
+			<td >{$u.id}</td>
+			<td id="name{$u.id}" >{$u.name}</td>
+			<td id="dizhi{$u.id}"></td>
+			<td id="phone{$u.id}">{$u.phone}</td>
+			<td style="cursor:pointer;" class="xiugai" name="{$u.id}">
+				<font size="3" color="red">修改</font>
+			</td>
+			<td style="cursor:pointer;" name="{$u.id}" class="shanchu">
+				<font size="3" color="red">删除</font>
+			</td>
+			<td style="cursor:pointer;" onclick="window.open('{:U('Index/background/taocanxiangqing','','')}?id={$u.id}');">
+				<font size="3" color="red">详情及修改</font>
+			</td>
+		</tr>
+	
+	</table>
+	<br>
+	<br>
+	<br>
+	<div id="yonghuxinxi" style="display:none;">
+		<form action="" name="yonghuguanli" id="yonghuguanli" method="post">
+			吃店id&nbsp&nbsp <input id="chidianid" type="text" value="" readonly="true">
+			<br> 吃店名&nbsp&nbsp
+			<input id="chidianming" name="taocanming" type="text" value="">
+			<br>
+			<br> 吃店地址&nbsp&nbsp
+			<input id="chidiandizhi" name="youhuijia" type="text" value="">
+			<br> 吃店电话&nbsp&nbsp
+			<input id="chidiandianhua" name="youhuijia" type="text" value="">
+		   <br>
+
+			<input type="submit" value="提交修改" /> &nbsp &nbsp &nbsp
+			<input type="reset" value="重置" />
+		</form>
+	</div>
 </body>
 </html>
+<script type="text/javascript">
+	$(".xiugai").click(function() {
+          yonghuxinxi.style.display = "block";
+          var changshi=$(this).attr("name");
+          namechangshi="name"+changshi;
+          // alert($("#name"+changshi).html());
+	     // document.getElementById("taocanid").innerHTML =changshi;
+	     $("#chidianid").val(changshi);
+         $("#chidianming").val($("#name"+changshi).html());
+          $("#chidiandizhi").val($("#dizhi"+changshi).html());
+        $("#chidiandianhua").val($("#phone"+changshi).html());
+	})
+
+	$(".shanchu").click(function() {
+		//alert($(this).attr("name"));
+		url = '{:U(\'Index/background/tcdelete\')}'
+		$.post(url, {
+			data: $(this).attr("name")
+		}, function(data) {
+			location.reload();
+		});
+	})
+
+	$("#zengjia").click(function() {
+       $("#chidianid").val("kong");
+         $("#chidianming").val("");
+          $("#chidiandizhi").val("");
+        $("#chidiandianhua").val("");
+			yonghuxinxi.style.display = "block";
+		
+
+	})
+</script>
