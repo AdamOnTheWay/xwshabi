@@ -60,23 +60,23 @@
 			<td>套餐id</td>
 			<td>套餐名</td>
 			<td>优惠价</td>
-			<td>是否属于优惠套餐</td>
+			<td>是否属于优惠套餐&nbsp1:是&nbsp0:不是</td>
 			<td style="cursor:pointer;" id="zengjia">
 				<font size="3" color="red">增加</font>
 			</td>
 		</tr>
 
 		<!-- 以下是一层 name需要你渲染上去对应的套餐id-->
-		<foreach name="content" item="u">
+		<foreach name="content" item="u" >
 		<tr>
-			<td>{$u.id}</td>
-			<td>{$u.name}</td>
-			<td>{$u.price}</td>
-			<td>{$u.ifdiscount}</td>
-			<td style="cursor:pointer;" id="xiugai" name="{$u.id}">
+			<td >{$u.id}</td>
+			<td id="name{$u.id}" >{$u.name}</td>
+			<td id="price{$u.id}">{$u.price}</td>
+			<td id="ifdiscount{$u.id}">{$u.ifdiscount}</td>
+			<td style="cursor:pointer;" class="xiugai" name="{$u.id}">
 				<font size="3" color="red">修改</font>
 			</td>
-			<td style="cursor:pointer;" name="{$u.id}" id="shanchu">
+			<td style="cursor:pointer;" name="{$u.id}" class="shanchu">
 				<font size="3" color="red">删除</font>
 			</td>
 			<td style="cursor:pointer;" onclick="window.open('{:U('Index/background/taocanxiangqing','','')}?id={$u.id}');">
@@ -91,17 +91,14 @@
 	<br>
 	<div id="yonghuxinxi" style="display:none;">
 		<form action="{:U('Index/background/tcadd')}" name="yonghuguanli" id="yonghuguanli" method="post">
-			<div>套餐id&nbsp&nbsp</div>
+			套餐id&nbsp&nbsp <input id="taocanid" name="taocanid" type="text" value="" readonly="true">
 			<br> 套餐名&nbsp&nbsp
-			<input name="taocanming" type="text" value="">
+			<input id="taocanming" name="taocanming" type="text" value="">
 			<br> 是否属于优惠套餐：
-			<select name="shifouyouhui">
-				<option value="1">是</option>
-				<option value="0">否</option>
-			</select>
+			<input id="shifoushuyu" name="shifoushuyu" type="text" value="">
 			<br>
 			<br> 优惠价&nbsp&nbsp
-			<input name="youhuijia" type="text" value="">
+			<input id="youhuijia" name="youhuijia" type="text" value="">
 			<br>
 
 			<input type="submit" value="提交修改" /> &nbsp &nbsp &nbsp
@@ -113,17 +110,20 @@
 
 </html>
 <script type="text/javascript">
-	$("#xiugai").click(function() {
+	$(".xiugai").click(function() {
+          yonghuxinxi.style.display = "block";
+          var changshi=$(this).attr("name");
+          namechangshi="name"+changshi;
 
-		url = '{:U(\'Index/background/taocanguanli\','','')}'
-		$.post(url, {
-			data: $(this).attr("name")
-		}, function(data) {
-			yonghuxinxi.style.display = "block";
-		});
+	     // document.getElementById("taocanid").innerHTML =changshi;
+	     $("#taocanid").val(changshi);
+         $("#taocanming").val($("#name"+changshi).html());
+          $("#youhuijia").val($("#price"+changshi).html());
+        $("#shifoushuyu").val($("#ifdiscount"+changshi).html());
+			//	alert($("#taocanid").val());
 	})
 
-	$("#shanchu").click(function() {
+	$(".shanchu").click(function() {
 		//alert($(this).attr("name"));
 		url = '{:U(\'Index/background/tcdelete\')}'
 		$.post(url, {
@@ -134,11 +134,11 @@
 	})
 
 	$("#zengjia").click(function() {
-
-		url = ""
-		$.post(url, "zengjia", function(data) {
+       $("#taocanming").val("");
+          $("#youhuijia").val("");
+		 $("#taocanid").val("kong");
 			yonghuxinxi.style.display = "block";
-		});
+
 
 	})
 </script>

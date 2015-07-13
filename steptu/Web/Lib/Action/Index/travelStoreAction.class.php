@@ -84,7 +84,7 @@
 					$dianming = I('chisousuodianming');
 
 					if($smudidi!=''){
-						$eat['destination'] = array('LIKE',"%".I('chisousuomudidi')."%");
+						$eat['area'] = array('LIKE',"%".I('chisousuomudidi')."%");
 					}
 					if($dianming!=''){
 						$eat['storeName'] = array('LIKE',"%".I('chisousuodianming')."%");

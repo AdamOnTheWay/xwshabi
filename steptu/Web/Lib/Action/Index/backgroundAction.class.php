@@ -56,21 +56,45 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 
 }
 		public function tcadd(){
+			if(I('taocanid')=='kong'){
+
 			if(I('taocanming')!=''){
 				$data['name'] = I('taocanming');
 			}
-			if(I('shifouyouhui')!=''){
-				$data['ifdiscount'] = I('shifouyouhui');
+			if(I('shifoushuyu')!=''){
+				$data['ifdiscount'] = I('shifoushuyu');
 			}
-			if(I('youxiang')!=''){
+			if(I('youhuijia')!=''){
 				$data['price'] =I('youhuijia');
 			}
 			if(M('travelscency')->add($data)){
-				$this->success('ok');
+				$this->success('添加成功');
+			}else{
+				$this->error('由于某种原因添加失败');
 			}
+		}else{
+
+			if(I('taocanming')!=''){
+				$data['name'] = I('taocanming');
+			}
+			if(I('shifoushuyu')!=''){
+				$data['ifdiscount'] = I('shifoushuyu');
+			}
+			if(I('youhuijia')!=''){
+				$data['price'] =I('youhuijia');
+			}
+			if(M('travelscency')->where(array('id'=>I('taocanid')))->save($data)){
+				$this->success('修改成功');
+			}else{
+				$this->error('由于某种原因修改失败');
+			}
+
+		}
+
 		}
 		public function yhdelete(){
 			$id = I('data');
+
 
 		if(	M('usertable')->where(array('id'=>I('data')))->delete()){
 			$this->ajaxreturn('ok');
@@ -263,7 +287,7 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 
 
 
-			
+
 			$id = $_GET['id'];
 			$data = M('travelscency')->where(array('id'=>$id))->find();
 
@@ -301,6 +325,19 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 		}
 		public function shouyeguanli(){
 			$this->display();
+		}
+
+
+
+
+		public function tcxqimage(){
+			$file['image'] = I('file');
+			$id = I('taocanid');
+		if(M('travelscency')->where(array('id'=>$id))->save($file)){
+				$this->success('image');
+			}else{
+				$this->error('faild');
+			}
 		}
 
 	}

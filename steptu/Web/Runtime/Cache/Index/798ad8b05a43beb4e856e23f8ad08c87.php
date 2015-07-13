@@ -77,21 +77,21 @@
 
 		<!-- 以下是要重复的一行 自我介绍只显示前几个字吧。-->
 		<?php if(is_array($content)): foreach($content as $key=>$u): ?><tr>
-				<td id = "td1"><?php echo ($u["id"]); ?></td>
-				<td><?php echo ($u["name"]); ?></td>
-				<td><?php echo ($u["password"]); ?></td>
-				<td><?php echo ($u["phone"]); ?></td>
-				<td><?php echo ($u["email"]); ?></td>
-				<td><?php echo ($u["sex"]); ?></td>
-				<td><?php echo ($u["birthday"]); ?></td>
-				<td><?php echo ($u["comment"]); ?></td>
-				<td><?php echo ($u["qq"]); ?></td>
-				<td><?php echo ($u["address"]); ?></td>
-				<td><?php echo ($u["image"]); ?></td>
-				<td style="cursor:pointer;" id="xiugai" name="<?php echo ($u["id"]); ?>">
+				<td id = "id<?php echo ($u["id"]); ?>" ><?php echo ($u["id"]); ?></td>
+				<td id="name<?php echo ($u["id"]); ?>"><?php echo ($u["name"]); ?></td>
+				<td id="password<?php echo ($u["id"]); ?>"><?php echo ($u["password"]); ?></td>
+				<td id="phone<?php echo ($u["id"]); ?>"><?php echo ($u["phone"]); ?></td>
+				<td id="email<?php echo ($u["id"]); ?>"><?php echo ($u["email"]); ?></td>
+				<td id="sex<?php echo ($u["id"]); ?>"><?php echo ($u["sex"]); ?></td>
+				<td id="birthday<?php echo ($u["id"]); ?>"><?php echo ($u["birthday"]); ?></td>
+				<td id="comment<?php echo ($u["id"]); ?>"><?php echo ($u["comment"]); ?></td>
+				<td id="qq<?php echo ($u["id"]); ?>"><?php echo ($u["qq"]); ?></td>
+				<td id="address<?php echo ($u["id"]); ?>"><?php echo ($u["address"]); ?></td>
+				<td id="image<?php echo ($u["id"]); ?>"><?php echo ($u["image"]); ?></td>
+				<td style="cursor:pointer;" class="xiugai" name="<?php echo ($u["id"]); ?>">
 					<font size="3" color="red">修改</font>
 				</td>
-				<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" id="shanchu">
+				<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" class="shanchu">
 					<font size="3" color="red">删除</font>
 				</td>
 				<td style="cursor:pointer;">
@@ -109,27 +109,27 @@
 	<div id="yonghuxinxi" style="display:none;">
 		<form action="<?php echo U('Index/background/yhchange');?>" name="yonghuguanli" id="yonghuguanli" method="post">
 			<br>用户id&nbsp&nbsp
-			<input name="yonghuid" type="text" value="">
+			<input id="yonghuid" name="yonghuid" type="text" value="" readonly="ture">
 			<br> 用户名&nbsp&nbsp
-			<input name="yonghuming" type="text" value="" >
+			<input id="yonghuming" name="yonghuming" type="text" value="" >
 			<br> 密码&nbsp&nbsp
-			<input name="mima" type="text" value="">
+			<input id="mima" name="mima" type="text" value="">
 			<br> 电话号码&nbsp&nbsp
-			<input name="dianhuahaoma" type="text" value="">
+			<input id="dianhuahaoma" name="dianhuahaoma" type="text" value="">
 			<br> 邮箱&nbsp&nbsp
-			<input name="youxiang" type="text" value="">
+			<input id="youxiang" name="youxiang" type="text" value="">
 			<br> 性别&nbsp&nbsp
-			<input name="xingbie" type="text" value="">
+			<input id="xingbie" name="xingbie" type="text" value="">
 			<br> 出生日期&nbsp&nbsp
-			<input name="chushengriqi" type="text" value=""> *格式不要变
+			<input id="chushengriqi" name="chushengriqi" type="text" value=""> *格式不要变
 			<br> 自我介绍&nbsp&nbsp
-			<textarea name="ziwojieshao" cols="16" rows="4">1223131</textarea>
+			<textarea id="ziwojieshao" name="ziwojieshao" cols="16" rows="4">1223131</textarea>
 			<br> qq号&nbsp&nbsp
-			<input name="qq" type="text" value="">
+			<input id="qq" name="qq" type="text" value="">
 			<br> 现居住地址&nbsp&nbsp
-			<input name="xianjuzhudizhi" type="text" value="">
+			<input id="xianjuzhudizhi" name="xianjuzhudizhi" type="text" value="">
 			<br> 用户头像&nbsp&nbsp
-			<input name="touxiang" type="text" value="">
+			<input id="yonghutouxiang" name="touxiang" type="text" value="">
 			<br>
 			<input type="submit" value="提交修改" /> &nbsp &nbsp &nbsp
 			<input type="reset" value="重置" />
@@ -139,23 +139,33 @@
 
 </html>
 <script type="text/javascript">
-	$("#xiugai").click(function() {
-		url = ''
-		$.post(url, {
-			data : $("#xiugai").attr('name')
-		}, function(data) {
-			yonghuxinxi.style.display = "block";
-
-		});
-
+	$(".xiugai").click(function() {
+	   yonghuxinxi.style.display = "block";
+          var changshi=$(this).attr("name");
+          // namechangshi="name"+changshi;
+          // alert($("#name"+changshi).html());
+	     // document.getElementById("taocanid").innerHTML =changshi;
+	     $("#yonghuid").val(changshi);
+         $("#yonghuming").val($("#name"+changshi).html());
+          $("#mima").val($("#password"+changshi).html());
+        $("#dianhuahaoma").val($("#phone"+changshi).html());
+          $("#youxiang").val($("#email"+changshi).html());
+            $("#xingbie").val($("#sex"+changshi).html());
+              $("#chushengriqi").val($("#birthday"+changshi).html());
+                $("#ziwojieshao").val($("#comment"+changshi).html());
+                  $("#qq").val($("#qq"+changshi).html());
+                    $("#xianjuzhudizhi").val($("#address"+changshi).html());
+                      $("#yonghutouxiang").val($("#image"+changshi).html());
 	})
 
-	$("#shanchu").click(function() {
-		// alert($(this).attr("name"));
+	$(".shanchu").click(function() {
+		//alert($(this).attr("name"));
 		url = '<?php echo U('Index/background/yhdelete');?>'
+
 		$.post(url, {
-			data: $("#shanchu").attr("name")
+			data: $(this).attr("name")
 		}, function(data) {
+
 			location.reload();
 		});
 	})

@@ -77,15 +77,15 @@
 		<!-- 以下是一层 -->
 		<?php if(is_array($content)): foreach($content as $key=>$u): ?><tr>
 			<td><?php echo ($u["id"]); ?></td>
-			<td><?php echo ($u["cityName"]); ?></td>
-			<td><?php echo ($u["xian"]); ?></td>
-			<td><?php echo ($u["jingdian"]); ?></td>
-			<td><?php echo ($u["station"]); ?></td>
-			<td><?php echo ($u["business"]); ?></td>
-			<td style="cursor:pointer;" id="xiugai" name="<?php echo ($u["id"]); ?>">
+			<td id="city<?php echo ($u["id"]); ?>"><?php echo ($u["cityName"]); ?></td>
+			<td id="xian<?php echo ($u["id"]); ?>"><?php echo ($u["xian"]); ?></td>
+			<td id="jingdian<?php echo ($u["id"]); ?>"><?php echo ($u["jingdian"]); ?></td>
+			<td id="station<?php echo ($u["id"]); ?>"><?php echo ($u["station"]); ?></td>
+			<td id="business<?php echo ($u["id"]); ?>"><?php echo ($u["business"]); ?></td>
+			<td style="cursor:pointer;" class="xiugai" name="<?php echo ($u["id"]); ?>">
 				<font size="3" color="red">修改</font>
 			</td>
-			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" id="shanchu">
+			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" ="shanchu">
 				<font size="3" color="red">删除</font>
 			</td>
 		</tr><?php endforeach; endif; ?>
@@ -94,7 +94,7 @@
 	</table>
 	<div id="yonghuxinxi" style="display:none;">
 		<form action="" name="yonghuguanli" id="yonghuguanli" method="post">
-			<div>ID：渲染上id就好</div>
+			位置管理id&nbsp&nbsp <input id="weizhiid" type="text" value="" readonly="true">
 			<br>
 			<br>
 			<div class="info">
@@ -111,11 +111,11 @@
 				<div id="show"></div>
 			</div>
 			景点&nbsp&nbsp
-			<input name="jingdian" type="text" value="">
+			<input id="jingdian" name="jingdian" type="text" value="">
 			<br> 机场火车站&nbsp&nbsp
-			<input name="jichanghuochezhan" type="text" value="">
+			<input id="jichanghuochezhan" name="jichanghuochezhan" type="text" value="">
 			<br> 商业区&nbsp&nbsp
-			<input name="shangyequ" type="text" value="">
+			<input id="shangyequ" name="shangyequ" type="text" value="">
 			<br>
 
 			<br>
@@ -140,16 +140,20 @@
 </html>
 
 <script type="text/javascript">
-	$("#xiugai").click(function() {
-		url = ""
-		$.post(url, {
-			data: $(this).attr("name")
-		}, function(data) {
-			yonghuxinxi.style.display = "block";
-		});
+	$(".xiugai").click(function() {
+		 yonghuxinxi.style.display = "block";
+          var changshi=$(this).attr("name");
+          namechangshi="name"+changshi;
+          // alert($("#name"+changshi).html());
+	     // document.getElementById("taocanid").innerHTML =changshi;
+	     $("#weizhiid").val(changshi);
+         $("#jingdian").val($("#jingdian"+changshi).html());
+          $("#jichanghuochezhan").val($("#station"+changshi).html());
+          $("#shangyequ").val($("#business"+changshi).html());
+			// alert("123")
 	})
 
-	$("#shanchu").click(function() {
+	$(".shanchu").click(function() {
 		// alert($(this).attr("name"));
 		url = '<?php echo U('Index/background/citydelete','','');?>'
 		$.post(url, {
@@ -161,10 +165,10 @@
 
 	$("#zengjia").click(function() {
 
-		url = ""
-		$.post(url, "zengjia", function(data) {
-			yonghuxinxi.style.display = "block";
-		});
-
+	 yonghuxinxi.style.display = "block";
+	 	     $("#weizhiid").val("kong");
+         $("#jingdian").val("");
+          $("#jichanghuochezhan").val("");
+          $("#shangyequ").val("");
 	})
 </script>
