@@ -1,6 +1,7 @@
 var t = new Date();
     var mydate=new Date("05/10/2015")
     var mydate1=new Date("05/12/2015")
+    var mydate2=new Date("07/15/2015")
     var da = t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate();
     document.getElementById("chufashijianshuru").value=da;
 //c:容器,y:年,m:月,a:出发时间json,f:是否显示双日历,fu:回调调
@@ -9,7 +10,7 @@ var t = new Date();
         'm': t.getMonth() + 1,
         'a': {
             'd1': da, //最早时间
-            'd2': '2015-08-05'//最晚时间
+            'd2': '2016-08-05'//最晚时间
         },
         'f': 0, //显示双日历用1，单日历用0
 
@@ -18,7 +19,7 @@ var t = new Date();
             if (to.id != "" & dateCompare(to.id, '2015-08-05') & dateCompare(da, to.id)) {
                 //alert(to);当点击
                 //alert(to.id + "--")
-              
+
                 document.getElementById("chufashijianshuru").value=to.id;
             }
         },
@@ -29,7 +30,7 @@ var t = new Date();
                 // alert(d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate());
                 return "<br/><em class='sss'>￥770</em>";
             }
-           else if (mydate1.toLocaleDateString() == d.toLocaleDateString()) {
+           else if (mydate2.toLocaleDateString() == d.toLocaleDateString()) {
                 //if (dateCompare(d.id, '2015-05-05') & dateCompare(da, to.id))
                 // alert(d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate());
                 return "<br/><em class='sss'>￥770</em>";
@@ -58,7 +59,7 @@ var t = new Date();
         else
             return true;
 
-    }  
+    }
 
 
     <!--//--><![CDATA[/><!--
@@ -98,7 +99,7 @@ function ISL_StopUp(){ //上翻停止
  }
  document.images['zuoguntu'].src='../Public/images/zuogun.png'
  AutoPlay();
- 
+
 }
 function ISL_StopUp1(){ //上翻停止
  clearInterval(MoveTimeObj);
@@ -110,7 +111,7 @@ function ISL_StopUp1(){ //上翻停止
  }
  document.images['zuoguntu'].src='../Public/images/zuogun1.png'
  AutoPlay();
- 
+
 }
 function ISL_ScrUp(){ //上翻动作
  if(GetObj('ISL_Cont').scrollLeft <= 0){GetObj('ISL_Cont').scrollLeft = GetObj('ISL_Cont').scrollLeft + GetObj('List1').offsetWidth}
@@ -135,7 +136,7 @@ function ISL_StopDown(){ //下翻停止
  }
  document.images['youguntu'].src='../Public/images/yougun.png'
  AutoPlay();
- 
+
 }
 function ISL_StopDown1(){ //下翻停止
  clearInterval(MoveTimeObj);
@@ -147,7 +148,7 @@ function ISL_StopDown1(){ //下翻停止
  }
  document.images['youguntu'].src='../Public/images/yougun1.png'
  AutoPlay();
- 
+
 }
 
 function ISL_ScrDown(){ //下翻动作

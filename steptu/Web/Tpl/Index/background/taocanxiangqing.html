@@ -17,8 +17,10 @@
 
 <body>
 	上传套餐图片：(最好是png jpg gif)
-	<form action="" name="taocantupian" id="taocantupian" method="post">
+	<form action="{:U('Index/background/tcxqimage')}" name="taocantupian" id="taocantupian" method="post">
 		<input id="file" name="file" type="file" size="30" maxlength="32" value="上传图片" />
+		套餐id&nbsp&nbsp <input name="taocanid" type="text" value="{$tr.id}" readonly="true">
+		<br>
 		<input type="submit" value="提交" />
 	</form>
 	<br>

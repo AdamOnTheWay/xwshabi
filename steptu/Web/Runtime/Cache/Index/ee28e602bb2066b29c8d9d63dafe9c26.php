@@ -243,7 +243,9 @@ background-repeat: no-repeat;
      </div>
      <div class="yougun" onmousedown="ISL_GoDown()" onmouseup="ISL_StopDown1()" onmouseout="ISL_StopDown()" onmouseover="document.images['youguntu'].src='../Public/images/yougun1.png'" >
         <img id="youguntu" src="../Public/images/yougun.png"></div>
-    </div></div></div>
+    </div>
+  </div>
+</div>
 
 
 

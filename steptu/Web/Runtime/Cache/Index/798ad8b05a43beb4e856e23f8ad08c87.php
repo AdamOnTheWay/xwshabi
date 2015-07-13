@@ -159,7 +159,7 @@
 	})
 
 	$(".shanchu").click(function() {
-		// alert($(this).attr("name"));
+		//alert($(this).attr("name"));
 		url = '<?php echo U('Index/background/yhdelete');?>'
 
 		$.post(url, {

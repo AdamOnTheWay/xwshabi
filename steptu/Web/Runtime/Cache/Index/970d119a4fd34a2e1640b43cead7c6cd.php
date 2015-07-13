@@ -89,7 +89,7 @@
 	<br>
 	<div id="yonghuxinxi" style="display:none;">
 		<form action="<?php echo U('Index/background/tcadd');?>" name="yonghuguanli" id="yonghuguanli" method="post">
-			套餐id&nbsp&nbsp <input id="taocanid" type="text" value="" readonly="true">
+			套餐id&nbsp&nbsp <input id="taocanid" name="taocanid" type="text" value="" readonly="true">
 			<br> 套餐名&nbsp&nbsp
 			<input id="taocanming" name="taocanming" type="text" value="">
 			<br> 是否属于优惠套餐：
@@ -112,12 +112,13 @@
           yonghuxinxi.style.display = "block";
           var changshi=$(this).attr("name");
           namechangshi="name"+changshi;
-          // alert($("#name"+changshi).html());
+
 	     // document.getElementById("taocanid").innerHTML =changshi;
 	     $("#taocanid").val(changshi);
          $("#taocanming").val($("#name"+changshi).html());
           $("#youhuijia").val($("#price"+changshi).html());
         $("#shifoushuyu").val($("#ifdiscount"+changshi).html());
+			//	alert($("#taocanid").val());
 	})
 
 	$(".shanchu").click(function() {
@@ -135,7 +136,7 @@
           $("#youhuijia").val("");
 		 $("#taocanid").val("kong");
 			yonghuxinxi.style.display = "block";
-		
+
 
 	})
 </script>

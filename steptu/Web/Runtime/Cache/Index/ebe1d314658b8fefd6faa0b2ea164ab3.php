@@ -155,7 +155,7 @@
 
 	$(".shanchu").click(function() {
 		// alert($(this).attr("name"));
-		url = ""
+		url = '<?php echo U('Index/background/citydelete','','');?>'
 		$.post(url, {
 			data: $(this).attr("name")
 		}, function(data) {

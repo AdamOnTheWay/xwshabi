@@ -15,6 +15,82 @@
 </head>
 <body>
 	<table border="1" cellspacing="10">
+<<<<<<< HEAD
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/yonghuguanli');?>'">用户管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/taocanguanli');?>'">套餐管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/haohuajiudianguanli');?>'">豪华酒店管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouchaoshijiudian');?>'">旅游超市酒店管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/shouyeguanli');?>'">首页管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/faqihuodongguanli');?>'">发起活动管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouchaoshiguanli');?>'">旅游超市管理</td>
+		<!-- 以下陈亚东来做 包括用户管理详情页面-->
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/zhutilvyouguanli');?>'">主题旅游管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/guanyuyoujiguanli');?>'">关于游迹管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouzhiguanli');?>'">旅游志管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/taocandingdan');?>'">套餐订单管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/jiudiandingdan');?>'">酒店订单管理</td>
+	</table>
+	<br>
+	<table border="1" cellspacing="10">
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouchaoshijiudian');?>'">位置管理</td>
+		<td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/lvyouchaoshixinxiguanli');?>'">旅游住酒店信息管理</td>
+	</table>
+	<br>
+	<br>
+	<form action="" name="haohuajiudiansousuo" method="post">旅游超市酒店搜索
+		<br> 旅游超市酒店id&nbsp&nbsp
+		<input name="lvyouchaoshiid" type="text" value="">
+		<br> 旅游超市酒店名&nbsp&nbsp
+		<input name="lvyouchaoshiming" type="text" value="">
+		<br> 旅游超市酒店价格&nbsp&nbsp
+		<input name="lvyouchaoshijiage" type="text" value="">
+		<br> 旅游超市酒店所在地
+		<br>城市&nbsp&nbsp
+		<input name="lvyouchaoshichengshi" type="text" value="">
+		<br> 区县&nbsp&nbsp
+		<input name="lvyouchaoshiquxian" type="text" value="">
+		<br>
+
+		<input type="submit" value="搜索" />
+	</form>
+	<br>
+	<br>
+	<br>
+	<table border="1" cellspacing="10">
+		<tr>
+			<td>旅游超市酒店id</td>
+			<td>旅游超市酒店名</td>
+			<td> 旅游超市价格</td>
+			<td>所在城市</td>
+			<td>所在区县</td>
+			<td>最早可入住日期</td>
+			<td>最晚可离店日期</td>
+			<td style="cursor:pointer;" id="zengjia">
+				<font size="3" color="red">增加</font>
+			</td>
+		</tr>
+
+		<!-- 以下是一层 name需要你渲染上去对应的套餐id-->
+		<?php if(is_array($content)): foreach($content as $key=>$u): ?><tr>
+			<td><?php echo ($u["id"]); ?></td>
+			<td><?php echo ($u["hotelName"]); ?></td>
+			<td> <?php echo ($u["price"]); ?></td>
+			<td><?php echo ($u["capital"]); ?></td>
+			<td><?php echo ($u["destination"]); ?></td>
+			<td><?php echo ($u["startTime"]); ?></td>
+			<td><?php echo ($u["endTime"]); ?></td>
+			<td style="cursor:pointer;" id="xiugai" name="<?php echo ($u["id"]); ?>">
+				<font size="3" color="red">修改</font>
+			</td>
+			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" id="shanchu">
+				<font size="3" color="red">删除</font>
+			</td>
+			<td style="cursor:pointer;" onclick="window.open('<?php echo U('Index/background/jiudianxiangqing','','');?>?id=<?php echo ($u["id"]); ?>');">
+				<font size="3" color="red">详情及修改</font>
+			</td>
+		</tr><?php endforeach; endif; ?>
+	<?php echo ($page); ?>
+=======
 <td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/yonghuguanli');?>'">用户管理</td>
 <td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/taocanguanli');?>'">套餐管理</td>
 <td style="cursor:pointer;" onclick="window.location.href='<?php echo U('Index/background/haohuajiudianguanli');?>'">旅游超市酒店管理</td>
@@ -60,6 +136,7 @@
     <td style="cursor:pointer;" class="xiugai" name="旅游超市id"><font size="3" color="red">修改</font></td>
     <td style="cursor:pointer;" name="套餐id" class="shanchu" ><font size="3" color="red">删除</font></td>
     <td style="cursor:pointer;" onclick="window.open('<?php echo U('Index/background/jiudianxiangqing');?>');" ><font size="3" color="red" >详情及修改</font></td></tr>
+>>>>>>> 4413667955309d8154257b2c1e92d5e6ac6dedf6
 	</table>
 
 <div id="yonghuxinxi" style="display:none;">

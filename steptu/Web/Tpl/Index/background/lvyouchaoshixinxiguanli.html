@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<title>旅游超市酒店</title>
 		 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
-   
+
     <script type="text/javascript" src="__JS__/jquery-easyui-1.4.2/jquery.min.js"></script>
       <script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
 <script type="text/javascript" src="../Public/js/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
@@ -41,7 +42,7 @@
    	旅游超市酒店价格&nbsp&nbsp<input name="lvyouchaoshijiage" type="text" value=""><br>
    	旅游超市酒店所在地<br>城市&nbsp&nbsp<input name="lvyouchaoshichengshi" type="text" value=""><br>
    	区县&nbsp&nbsp<input name="lvyouchaoshiquxian" type="text" value=""><br>
-   	
+
 <input type="submit" value="搜索" />
 </form>
 <br> <br> <br>
@@ -103,8 +104,8 @@
 <script type="text/javascript">
 var Gid  = document.getElementById ;
 var showArea = function(){
-	Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" + 	
-	Gid('s_city').value + " - 县/区" + 
+	Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" +
+	Gid('s_city').value + " - 县/区" +
 	Gid('s_county').value + "</h3>"
 							}
 Gid('s_county').setAttribute('onchange','showArea()');
@@ -137,14 +138,14 @@ $(".shanchu").click(function(){
 $("#zengjia").click(function(){
 
     yonghuxinxi.style.display = "block";
-         
+
        $("#haohuajiudianid").val("kong");
          $("#haohuajiudianming").val("");
           $("#haohuajiudianjiage").val("");
           $("#haohuajutidizhi").val("");
           $("#zuizaokeruzhu").val("");
           $("#zuiwanlidian").val("");
- 
+
 })
 
 </script>
