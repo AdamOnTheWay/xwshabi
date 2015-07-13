@@ -7,6 +7,15 @@
 		}
 
 	}
+
+	public function citydelete(){
+		$id = I('data');
+
+	if(	M('city')->where(array('id'=>I('data')))->delete()){
+		$this->ajaxreturn('ok');
+	}
+	}
+
 	public function hhjddelete(){
 		$id = I('data');
 
@@ -254,7 +263,7 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 
 
 
-
+			
 			$id = $_GET['id'];
 			$data = M('travelscency')->where(array('id'=>$id))->find();
 

@@ -36,68 +36,74 @@
 		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/lvyouchaoshijiudian')}'">位置管理</td>
 		<td style="cursor:pointer;" onclick="window.location.href='{:U('Index/background/lvyouchaoshixinxiguanli')}'">旅游住酒店信息管理</td>
 	</table>
-
 	<br>
-	<h3>位置管理，城市名和区县可重复添加</h3>
 	<br>
-	<br> 位置查询
-	<form action="" name="weizhichaxun" id="weizhichaxun" method="post">
-		ID&nbsp&nbsp
-		<input name="ID" type="text" value="">
-		<br> 城市名&nbsp&nbsp
-		<input name="chengshiming" type="text" value="">
-		<br> 区县名&nbsp&nbsp
-		<input name="quxianming" type="text" value="">
-		<br> 景点&nbsp&nbsp
-		<input name="jingdian" type="text" value="">
-		<br> 机场火车站&nbsp&nbsp
-		<input name="jichanghuochezhan" type="text" value="">
-		<br> 商业区&nbsp&nbsp
-		<input name="shangyequ" type="text" value="">
+	<form action="" name="haohuajiudiansousuo" method="post">旅游超市酒店搜索
+		<br> 旅游超市酒店id&nbsp&nbsp
+		<input name="lvyouchaoshiid" type="text" value="">
+		<br> 旅游超市酒店名&nbsp&nbsp
+		<input name="lvyouchaoshiming" type="text" value="">
+		<br> 旅游超市酒店价格&nbsp&nbsp
+		<input name="lvyouchaoshijiage" type="text" value="">
+		<br> 旅游超市酒店所在地
+		<br>城市&nbsp&nbsp
+		<input name="lvyouchaoshichengshi" type="text" value="">
+		<br> 区县&nbsp&nbsp
+		<input name="lvyouchaoshiquxian" type="text" value="">
 		<br>
+
 		<input type="submit" value="搜索" />
 	</form>
-
 	<br>
 	<br>
 	<br>
 	<table border="1" cellspacing="10">
 		<tr>
-			<td>id</td>
-			<td>城市名</td>
-			<td>区县</td>
-			<td>景点</td>
-			<td>机场火车站</td>
-			<td>商业区</td>
+			<td>旅游超市酒店id</td>
+			<td>旅游超市酒店名</td>
+			<td> 旅游超市价格</td>
+			<td>所在城市</td>
+			<td>所在区县</td>
+			<td>最早可入住日期</td>
+			<td>最晚可离店日期</td>
 			<td style="cursor:pointer;" id="zengjia">
 				<font size="3" color="red">增加</font>
 			</td>
 		</tr>
 
-		<!-- 以下是一层 -->
+		<!-- 以下是一层 name需要你渲染上去对应的套餐id-->
 		<foreach name="content" item="u">
 		<tr>
 			<td>{$u.id}</td>
-			<td>{$u.cityName}</td>
-			<td>{$u.xian}</td>
-			<td>{$u.jingdian}</td>
-			<td>{$u.station}</td>
-			<td>{$u.business}</td>
+			<td>{$u.hotelName}</td>
+			<td> {$u.price}</td>
+			<td>{$u.capital}</td>
+			<td>{$u.destination}</td>
+			<td>{$u.startTime}</td>
+			<td>{$u.endTime}</td>
 			<td style="cursor:pointer;" id="xiugai" name="{$u.id}">
 				<font size="3" color="red">修改</font>
 			</td>
 			<td style="cursor:pointer;" name="{$u.id}" id="shanchu">
 				<font size="3" color="red">删除</font>
 			</td>
+			<td style="cursor:pointer;" onclick="window.open('{:U('Index/background/jiudianxiangqing','','')}?id={$u.id}');">
+				<font size="3" color="red">详情及修改</font>
+			</td>
 		</tr>
 	</foreach>
 	{$page}
-
 	</table>
+
+
 	<div id="yonghuxinxi" style="display:none;">
 		<form action="" name="yonghuguanli" id="yonghuguanli" method="post">
-			<div>ID：渲染上id就好</div>
-			<br>
+			<div>旅游超市酒店id:&nbsp&nbsp</div>
+			<br> 旅游超市酒店名&nbsp&nbsp
+			<input name="haohuajiudianming" type="text" value="">
+			<br> 旅游超市酒店价格&nbsp&nbsp
+			<input name="haohuajiudianjiage" type="text" value="">
+			<br> 旅游超市酒店所在地&nbsp&nbsp
 			<br>
 			<div class="info">
 				<div>
@@ -112,14 +118,13 @@
 				</div>
 				<div id="show"></div>
 			</div>
-			景点&nbsp&nbsp
-			<input name="jingdian" type="text" value="">
-			<br> 机场火车站&nbsp&nbsp
-			<input name="jichanghuochezhan" type="text" value="">
-			<br> 商业区&nbsp&nbsp
-			<input name="shangyequ" type="text" value="">
+			&nbsp 具体地址：
+			<input name="haohuajutidizhi" type="text" value="">
 			<br>
-
+			<br> 最早可入住日期&nbsp&nbsp
+			<input name="zuizaokeruzhu" type="text" value="">按照格式填写
+			<br> 最晚可离店日期&nbsp&nbsp
+			<input name="zuiwanlidian" type="text" value="">按照格式填写
 			<br>
 			<input type="submit" value="提交修改" /> &nbsp &nbsp &nbsp
 			<input type="reset" value="重置" />
@@ -140,7 +145,6 @@
 </body>
 
 </html>
-
 <script type="text/javascript">
 	$("#xiugai").click(function() {
 		url = ""
@@ -153,9 +157,9 @@
 
 	$("#shanchu").click(function() {
 		// alert($(this).attr("name"));
-		url = '{:U(\'Index/background/citydelete\','','')}'
+		url ='{:U(\'Index/background/csdelete\')}'
 		$.post(url, {
-			data: $(this).attr("name")
+			data: $("#shanchu").attr("name")
 		}, function(data) {
 			location.reload();
 		});
@@ -164,7 +168,7 @@
 	$("#zengjia").click(function() {
 
 		url = ""
-		$.post(url, "zengjia", function(data) {
+		$.post(url, "xiugai", function(data) {
 			yonghuxinxi.style.display = "block";
 		});
 

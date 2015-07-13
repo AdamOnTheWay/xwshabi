@@ -86,7 +86,7 @@
 			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" id="shanchu">
 				<font size="3" color="red">删除</font>
 			</td>
-			<td style="cursor:pointer;" onclick="window.open('<?php echo U('Index/background/jiudianxiangqing');?>');">
+			<td style="cursor:pointer;" onclick="window.open('<?php echo U('Index/background/jiudianxiangqing','','');?>?id=<?php echo ($u["id"]); ?>');">
 				<font size="3" color="red">详情及修改</font>
 			</td>
 		</tr><?php endforeach; endif; ?>
