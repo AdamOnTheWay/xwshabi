@@ -118,7 +118,7 @@ position:relative;top:15px;left:20px;">发起活动</span></div>
             <div style="position:relative;left:10px;top:95px;font-size:14px;">发起人</div>
             <input name="mpfaqiren" id="mpfaqiren" type="text" value="" style="position:relative;left:10px;top:100px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
              <div style="position:relative;left:10px;top:110px;font-size:14px;">活动备注</div>
-              <textarea name="mpcontent" cols="16" rows="4" style="position:relative;left:10px;top:115px;font-size:15px;border: 1px solid #83a9e1;" ></textarea>
+              <textarea name="mpbeizhu" cols="16" rows="4" style="position:relative;left:10px;top:115px;font-size:15px;border: 1px solid #83a9e1;" ></textarea>
               <div style="position:absolute;top:615px;left:10px;color:#0032d3"><input name="checkbox" type="checkbox" checked="checked" value="checkbox" style="position:relative;top:-3px;" required="required">
      已阅读并同意相关法律条约
     </div>

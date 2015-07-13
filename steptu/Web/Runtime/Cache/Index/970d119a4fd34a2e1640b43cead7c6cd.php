@@ -68,14 +68,14 @@
 
 		<!-- 以下是一层 name需要你渲染上去对应的套餐id-->
 		<?php if(is_array($content)): foreach($content as $key=>$u): ?><tr>
-			<td><?php echo ($u["id"]); ?></td>
-			<td><?php echo ($u["name"]); ?></td>
-			<td><?php echo ($u["price"]); ?></td>
-			<td><?php echo ($u["ifdiscount"]); ?></td>
-			<td style="cursor:pointer;" id="xiugai" name="<?php echo ($u["id"]); ?>">
+			<td ><?php echo ($u["id"]); ?></td>
+			<td id="name<?php echo ($u["id"]); ?>" ><?php echo ($u["name"]); ?></td>
+			<td id="price<?php echo ($u["id"]); ?>"><?php echo ($u["price"]); ?></td>
+			<td id="ifdiscount<?php echo ($u["id"]); ?>"><?php echo ($u["ifdiscount"]); ?></td>
+			<td style="cursor:pointer;" class="xiugai" name="<?php echo ($u["id"]); ?>">
 				<font size="3" color="red">修改</font>
 			</td>
-			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" id="shanchu">
+			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" class="shanchu">
 				<font size="3" color="red">删除</font>
 			</td>
 			<td style="cursor:pointer;" onclick="window.open('<?php echo U('Index/background/taocanxiangqing','','');?>?id=<?php echo ($u["id"]); ?>');">
@@ -89,9 +89,9 @@
 	<br>
 	<div id="yonghuxinxi" style="display:none;">
 		<form action="<?php echo U('Index/background/tcadd');?>" name="yonghuguanli" id="yonghuguanli" method="post">
-			<div>套餐id&nbsp&nbsp</div>
+			套餐id&nbsp&nbsp <input id="taocanid" type="text" value="" readonly="true">
 			<br> 套餐名&nbsp&nbsp
-			<input name="taocanming" type="text" value="">
+			<input id="taocanming" name="taocanming" type="text" value="">
 			<br> 是否属于优惠套餐：
 			<select name="shifouyouhui">
 				<option value="1">是</option>
@@ -99,7 +99,7 @@
 			</select>
 			<br>
 			<br> 优惠价&nbsp&nbsp
-			<input name="youhuijia" type="text" value="">
+			<input id="youhuijia" name="youhuijia" type="text" value="">
 			<br>
 
 			<input type="submit" value="提交修改" /> &nbsp &nbsp &nbsp
@@ -111,17 +111,19 @@
 
 </html>
 <script type="text/javascript">
-	$("#xiugai").click(function() {
-
-		url = '<?php echo U('Index/background/taocanguanli','','');?>'
-		$.post(url, {
-			data: $(this).attr("name")
-		}, function(data) {
-			yonghuxinxi.style.display = "block";
-		});
+	$(".xiugai").click(function() {
+          yonghuxinxi.style.display = "block";
+          var changshi=$(this).attr("name");
+          namechangshi="name"+changshi;
+          // alert($("#name"+changshi).html());
+	     // document.getElementById("taocanid").innerHTML =changshi;
+	     $("#taocanid").val(changshi);
+         $("#taocanming").val($("#name"+changshi).html());
+          $("#youhuijia").val($("#price"+changshi).html());
+			// alert("123")
 	})
 
-	$("#shanchu").click(function() {
+	$(".shanchu").click(function() {
 		//alert($(this).attr("name"));
 		url = '<?php echo U('Index/background/tcdelete');?>'
 		$.post(url, {
@@ -132,11 +134,11 @@
 	})
 
 	$("#zengjia").click(function() {
-
-		url = ""
-		$.post(url, "zengjia", function(data) {
+$("#taocanming").val("");
+          $("#youhuijia").val("");
+		 $("#taocanid").val("kong");
 			yonghuxinxi.style.display = "block";
-		});
+		
 
 	})
 </script>

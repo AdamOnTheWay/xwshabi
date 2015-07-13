@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>首页管理</title>
+	<title>旅游超市管理</title>
 		 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
    
     <script type="text/javascript" src="__JS__/jquery-easyui-1.4.2/jquery.min.js"></script>

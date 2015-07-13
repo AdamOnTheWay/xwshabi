@@ -8,11 +8,12 @@
 
 	 	public function handUploadImage()
 	 	{
+	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "alert('请先登录')";
-	 			redirect(U('Index/index/index','',''));	
+	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
+	 			// redirect(U('Index/index/index','',''));	
+	 			return;
 	 		}
-
 	 		import('ORG.Net.UploadFile');
 	 		$file = new UploadFile();
 	 		$file->maxSize = 3333333333333;
@@ -83,9 +84,11 @@
 
 		//保存用户完善的信息
 	 	public function handUserInfo(){
+	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "alert('请先登录')";
-	 			redirect(U('Index/index/index','',''));	
+	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
+	 			// redirect(U('Index/index/index','',''));	
+	 			return;
 	 		}
 	 		$user = M('usertable');
 
@@ -111,9 +114,11 @@
 	 	}
 
 	 	public function myOrders(){  //展示所有的评论
+	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "alert('请先登录')";
-	 			redirect(U('Index/index/index','',''));	
+	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
+	 			// redirect(U('Index/index/index','',''));	
+	 			return;
 	 		}
 	 		$data = M('order');
 	 		import('ORG.Util.Page');
@@ -131,9 +136,11 @@
 	 	}
 
 	 	public function myEvaluations(){
+	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "alert('请先登录')";
-	 			redirect(U('Index/index/index','',''));	
+	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
+	 			// redirect(U('Index/index/index','',''));	
+	 			return;
 	 		}
 	 		$user['id'] = cookie("userid");
 	 		var_dump(I("class"));
@@ -160,9 +167,11 @@
 	 	// 保存订单评论
 	 	public function orderComment(){  
 
+	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "alert('请先登录')";
-	 			redirect(U('Index/index/index','',''));	
+	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
+	 			// redirect(U('Index/index/index','',''));	
+	 			return;
 	 		}
 	 		$orderComment = M('comment');
 	 		$data['travelId'] = I('travelId');
@@ -195,9 +204,11 @@
 
 	 	//写信
 	 	public function DoWriteLetter(){
+	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "alert('请先登录')";
-	 			redirect(U('Index/index/index','',''));	
+	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
+	 			// redirect(U('Index/index/index','',''));	
+	 			return;
 	 		}
 	 		import('ORG.Net.UploadFile');
 	 		$file = new UploadFile();
@@ -222,9 +233,11 @@
 	 	
 
 	 	function myGrades(){
-			if(cookie("userid") == ''){
-	 			echo "alert('请先登录')";
-	 			redirect(U('Index/index/index','',''));	
+			header("Content-type: text/html; charset=utf-8");
+	 		if(cookie("userid") == ''){
+	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
+	 			// redirect(U('Index/index/index','',''));	
+	 			return;
 	 		}
 	 		$table = M('score');
 	 		$cDate['time'] = array('ELT',date('Y-m-d'));
@@ -239,9 +252,11 @@
 	 	}
 
 	 	function Hello(){
+	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "alert('请先登录')";
-	 			redirect(U('Index/index/index','',''));	
+	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
+	 			// redirect(U('Index/index/index','',''));	
+	 			return;
 	 		}
 	 		$score = M('score');
 	 				$Sc['userid'] = cookie("userid"); //

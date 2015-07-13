@@ -66,15 +66,15 @@
 		<!-- 以下是一层 name需要你渲染上去对应的套餐id-->
 		<?php if(is_array($content)): foreach($content as $key=>$u): ?><tr>
 			<td><?php echo ($u["id"]); ?></td>
-			<td><?php echo ($u["hotelName"]); ?></td>
-			<td><?php echo ($u["price"]); ?></td>
-			<td><?php echo ($u["area"]); ?></td>
-			<td><?php echo ($u["startTime"]); ?></td>
-			<td><?php echo ($u["endTime"]); ?></td>
-			<td style="cursor:pointer;" id="xiugai" name="<?php echo ($u["id"]); ?>">
+			<td id="name<?php echo ($u["id"]); ?>"><?php echo ($u["hotelName"]); ?></td>
+			<td id="price<?php echo ($u["id"]); ?>"><?php echo ($u["price"]); ?></td>
+			<td id="area<?php echo ($u["id"]); ?>"><?php echo ($u["area"]); ?></td>
+			<td id="start<?php echo ($u["id"]); ?>"><?php echo ($u["startTime"]); ?></td>
+			<td id="end<?php echo ($u["id"]); ?>"><?php echo ($u["endTime"]); ?></td>
+			<td style="cursor:pointer;" class="xiugai" name="<?php echo ($u["id"]); ?>">
 				<font size="3" color="red">修改</font>
 			</td>
-			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" id="shanchu">
+			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" class="shanchu">
 				<font size="3" color="red">删除</font>
 			</td>
 			<td style="cursor:pointer;" onclick="window.open('<?php echo U('Index/background/jiudianxiangqing');?>?id=<?php echo ($u["id"]); ?>');">
@@ -88,11 +88,11 @@
 	<br>
 	<div id="yonghuxinxi" style="display:none;">
 		<form action="" name="yonghuguanli" id="yonghuguanli" method="post">
-			<div>豪华酒店id:&nbsp&nbsp</div>
+			豪华酒店id&nbsp&nbsp <input id="haohuajiudianid" type="text" value="" readonly="true">
 			<br> 豪华酒店名&nbsp&nbsp
-			<input name="haohuajiudianming" type="text" value="">
+			<input id="haohuajiudianming" name="haohuajiudianming" type="text" value="">
 			<br> 豪华酒店价格&nbsp&nbsp
-			<input name="haohuajiudianjiage" type="text" value="">
+			<input id="haohuajiudianjiage" name="haohuajiudianjiage" type="text" value="">
 			<br> 豪华酒店所在地&nbsp&nbsp
 			<br>
 			<div class="info">
@@ -108,13 +108,14 @@
 				</div>
 				<div id="show"></div>
 			</div>
+
 			&nbsp 具体地址：
-			<input name="haohuajutidizhi" type="text" value="">
+			<input id="haohuajutidizhi" name="haohuajutidizhi" type="text" value="">
 			<br>
 			<br> 最早可入住日期&nbsp&nbsp
-			<input name="zuizaokeruzhu" type="text" value="">按照格式填写
+			<input id="zuizaokeruzhu" name="zuizaokeruzhu" type="text" value="">按照格式填写
 			<br> 最晚可离店日期&nbsp&nbsp
-			<input name="zuiwanlidian" type="text" value="">按照格式填写
+			<input id="zuiwanlidian" name="zuiwanlidian" type="text" value="">按照格式填写
 			<br>
 			<input type="submit" value="提交修改" /> &nbsp &nbsp &nbsp
 			<input type="reset" value="重置" />
@@ -135,20 +136,25 @@
 
 </html>
 <script type="text/javascript">
-	$("#xiugai").click(function() {
-		url = ""
-		$.post(url, {
-			data: $(this).attr("name")
-		}, function(data) {
-			yonghuxinxi.style.display = "block";
-		});
+	$(".xiugai").click(function() {
+		  yonghuxinxi.style.display = "block";
+          var changshi=$(this).attr("name");
+          // namechangshi="name"+changshi;
+          // alert($("#name"+changshi).html());
+	     // document.getElementById("taocanid").innerHTML =changshi;
+	     $("#haohuajiudianid").val(changshi);
+         $("#haohuajiudianming").val($("#name"+changshi).html());
+          $("#haohuajiudianjiage").val($("#price"+changshi).html());
+          $("#haohuajutidizhi").val($("#area"+changshi).html());
+          $("#zuizaokeruzhu").val($("#start"+changshi).html());
+          $("#zuiwanlidian").val($("#end"+changshi).html());
 	})
 
-	$("#shanchu").click(function() {
+	$(".shanchu").click(function() {
 		// alert($(this).attr("name"));
 		url = '<?php echo U('Index/background/hhjddelete');?>'
 		$.post(url, {
-			data: $("#shanchu").attr("name")
+			data: $(this).attr("name")
 		}, function(data) {
 			location.reload();
 		});
@@ -156,10 +162,14 @@
 
 	$("#zengjia").click(function() {
 
-		url = ""
-		$.post(url, "xiugai", function(data) {
-			yonghuxinxi.style.display = "block";
-		});
+		yonghuxinxi.style.display = "block";
+         
+	     $("#haohuajiudianid").val("kong");
+         $("#haohuajiudianming").val("");
+          $("#haohuajiudianjiage").val("");
+          $("#haohuajutidizhi").val("");
+          $("#zuizaokeruzhu").val("");
+          $("#zuiwanlidian").val("");
 
 	})
 </script>
