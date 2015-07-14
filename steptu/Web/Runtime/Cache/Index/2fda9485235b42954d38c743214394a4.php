@@ -34,19 +34,27 @@
 	<br>
 
 	<form action="<?php echo U('Index/background/faqihuodongguanli');?>" name="huodongsousuo" method="post">活动搜索
-		<br> 旅游超市酒店id&nbsp&nbsp
-		<input name="lvyouchaoshiid" type="text" value="">
-		<br> 旅游超市酒店名&nbsp&nbsp
-		<input name="lvyouchaoshiming" type="text" value="">
-		<br> 旅游超市酒店价格&nbsp&nbsp
-		<input name="lvyouchaoshijiage" type="text" value="">
-		<br> 旅游超市酒店所在地
-		<br>城市&nbsp&nbsp
-		<input name="lvyouchaoshichengshi" type="text" value="">
-		<br> 区县&nbsp&nbsp
-		<input name="lvyouchaoshiquxian" type="text" value="">
-		<br>
-
+			活动id&nbsp&nbsp
+			<input id="taocanid" name="taocanid" type="text" value="" readonly="true">
+			<br>	活动类别&nbsp&nbsp
+			<input id="huodongleibie" name="taocanid" type="text" value="" readonly="true">
+			<br> 活动时间&nbsp&nbsp
+			<input id="huodongshijian" name="huodongshijian" type="text" value="">按格式输入
+			<br> 活动始发地&nbsp&nbsp
+			<input id="huodongshifadi" name="huodongshifadi" type="text" value="">
+			<br> 活动目的地&nbsp&nbsp
+			<input id="huodongmudidi" name="huodongmudidi" type="text" value="">
+			<br> 活动内容 &nbsp
+			<textarea id="huodongneirong" name="huodongneirong" cols="29" rows="14"></textarea>
+			<br>
+			<br> 最大参与人数&nbsp&nbsp
+			<input id="zuidacanyurenshu" name="zuidacanyurenshu" type="text" value="">
+			<br> 发起人&nbsp&nbsp
+			<input id="faqiren" name="faqiren" type="text" value="">按照格式填写
+			<br> 活动备注&nbsp
+			<textarea id="huodongbeizhu" name="huodongbeizhu" cols="29" rows="14"></textarea>
+			<br>
+			
 		<input type="submit" value="搜索" />
 	</form>
 	<br>
@@ -56,6 +64,7 @@
 	<table border="1" cellspacing="10">
 		<tr>
 			<td>活动id</td>
+			<td>活动类别</td>
 			<td>活动时间</td>
 			<td>活动始发地</td>
 			<td>活动目的地</td>
@@ -72,6 +81,7 @@
 		<tr>
 			<tr>
 				<?php if(is_array($content)): foreach($content as $key=>$u): ?><td><?php echo ($u["id"]); ?></td>
+					<td id="kind<?php echo ($u["id"]); ?>">活动类别</td>
 					<td id="time<?php echo ($u["id"]); ?>"><?php echo ($u["startTime"]); ?></td>
 					<td id="shifadi<?php echo ($u["id"]); ?>"><?php echo ($u["startarea"]); ?></td>
 					<td id="mudidi<?php echo ($u["id"]); ?>"><?php echo ($u["intentarea"]); ?></td>
@@ -92,6 +102,8 @@
 		<form action="<?php echo U('Index/background/hdadd');?>" name="yonghuguanli" id="yonghuguanli" method="post">
 			活动id&nbsp&nbsp
 			<input id="taocanid" name="taocanid" type="text" value="" readonly="true">
+			<br>	活动类别&nbsp&nbsp
+			<input id="huodongleibie" name="taocanid" type="text" value="" readonly="true">
 			<br> 活动时间&nbsp&nbsp
 			<input id="huodongshijian" name="huodongshijian" type="text" value="">按格式输入
 			<br> 活动始发地&nbsp&nbsp
@@ -120,6 +132,8 @@
 			// alert($("#name"+changshi).html());
 			// document.getElementById("taocanid").innerHTML =changshi;
 			$("#taocanid").val(changshi);
+			$("#huodongleibie").val($("#kind" + changshi).html());
+
 			$("#huodongshijian").val($("#time" + changshi).html());
 			$("#huodongshifadi").val($("#shifadi" + changshi).html());
 			$("#huodongmudidi").val($("#mudidi" + changshi).html());
@@ -140,9 +154,10 @@
 		})
 
 		$("#zengjia").click(function() {
-
-
+               
+   
 			$("#taocanid").val("kong");
+			$("#huodongleibie").val("");
 			$("#huodongshijian").val("");
 			$("#huodongshifadi").val("");
 			$("#huodongmudidi").val("");
