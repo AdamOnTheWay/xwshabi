@@ -11,13 +11,17 @@ class registerAction extends Action{
     }
 
     public function register(){
+        $this->display();
+    }
+
+    public function registerCheck(){
 
         if($this->isPost ()){  //是不是post提交
              $data['code']='';
             $data['err']='';
             $data['msg']='';
 
-            if($_POST['name'] == "" || $_POST['name'] == undefine){
+            if(I['name'] == "" || I['name'] == undefine){
                
 
                 $data['code']=0;
@@ -27,7 +31,7 @@ class registerAction extends Action{
                 return;
 
 
-            }elseif($_POST['password'] == "" || $_POST['password'] == undefine){
+            }elseif(I['password'] == "" || I['password'] == undefine){
 
 
                 $data['code']=0;
@@ -35,7 +39,7 @@ class registerAction extends Action{
                 $data['msg']='密码为空';
                 $this->ajaxReturn($data,'JSON'); //验证密码是否为空
 
-            }elseif($_POST['userSecondSecurity'] == ""|| $_POST['userSecondSecurity'] == undefine){
+            }elseif(I['userSecondSecurity'] == ""|| I['userSecondSecurity'] == undefine){
 
                 $data['code']=0;
                 $data['err']=2;
@@ -45,7 +49,7 @@ class registerAction extends Action{
 
 
 
-            }elseif($_POST['phone'] == ""|| $_POST['phone'] == undefine){
+            }elseif(I['phone'] == ""|| I['phone'] == undefine){
 
 
                 $data['code']=0;
@@ -54,7 +58,7 @@ class registerAction extends Action{
                 $this->ajaxReturn($data,'JSON');
                 return;
 
-            }elseif($_POST['email'] == ""|| $_POST['email'] == undefine){
+            }elseif(I['email'] == ""|| I['email'] == undefine){
 
 
                 $data['code']=0;
@@ -63,7 +67,7 @@ class registerAction extends Action{
                 $this->ajaxReturn($data,'JSON');
                 return;
 
-            }elseif($_POST['userSecondSecurity'] != $_POST['password']){
+            }elseif(I['userSecondSecurity'] != I['password']){
 
                 $data['code']=0;
                 $data['err']=5;
@@ -100,7 +104,8 @@ class registerAction extends Action{
            
 
             $user = M('usertable');
-            $test = $user->where("name = '{$_POST['name']}'")->select();
+            $condition['name'] = I('name');
+            $test = $user->where($condition)->select();
 
             if($test != "" || $test != false){
 
@@ -112,31 +117,51 @@ class registerAction extends Action{
 
             }else{
 
-                 $array= array(     'name' =>$_POST['name'] , 
+                 $array= array(     'name' =>I('name') , 
                                     'password' => I('password','','md5'),
-                                    'phone' => $_POST['phone'],
-                                    'email' =>  $_POST['email']);
+                                    'phone' => I('phone'),
+                                    'email' =>  I('email'),
+                                    'status' =>  0
+                                    );
 
                 $user ->add($array);
                 $data['code']=1;
                 $data['msg']='成功';
+                $condition['name'] = I('name');
+                $status = M('usertable')->where($condition)->find();
 
-                $user = M("usertable")->where('name = '.$_POST['name'])->find();
 
-
-                session('uid',$user['id']);
-                session('username',$user['username']);
-                session('time',date('Y-m-d H:i:s')); 
+                cookie('uid',$status['id'],3600); 
+                cookie('name',$status['id'],3600); 
                 $this->ajaxReturn($data,'JSON');
                 return;
             }
         }
 
         else{
-             _404('你没有按规定方式执行');
+             $this->show("页面无法显示","utf-8");
         }
     }
 
+    public function registerConfirm()
+    {
+
+        if(cookie('uid') != ''){
+             $this->display();
+        }else{
+            $this->show("页面错误","utf-8");
+        }
+    }
    
+   public function registerSuccess(){
+        if(1){ //验证吗正确
+            $con['id'] = cookie('uid');
+            $data['statuse'] = 1;
+            M('usertable')->where($con)->save($data);
+            $this->display();
+        }else{
+            $this->show("<script>alert('验证码错误,请重新验证');window.location.href='".U('Index/register/registerConfirm','','')."'</script>","utf-8");
+        }
+   }
 
 }

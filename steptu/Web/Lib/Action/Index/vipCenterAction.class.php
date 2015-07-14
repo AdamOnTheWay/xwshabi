@@ -8,17 +8,16 @@
 
 	 	public function handUploadImage()
 	 	{
-	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
-	 			// redirect(U('Index/index/index','',''));	
-	 			return;
+	 			$this->show("<script>alert('请先登录');window.history.go(-1);</script>","utf-8");
+	 			die();
 	 		}
+
 	 		import('ORG.Net.UploadFile');
 	 		$file = new UploadFile();
 	 		$file->maxSize = 3333333333333;
 	 		$file->allowExts = array('jpg','png','jpeg','gif');
-	 		$file->savePath = 'Public/uploads/hotel/';
+	 		$file->savePath = C('HEAD');
 
 	 		if(!$file->upload()){
 	 			$data['msg'] = 0;
@@ -28,15 +27,18 @@
 	 			
 	 		}else{
 	 			$info = $file-> getUploadFileInfo();
-	 			$image['image'] = $info[0]['savepath'].$info[0]['savename'];
-	 			$user['id'] = 1; //cookie得到
+	 			$image['image'] = C('HEAD_IMAGE').$info[0]['savepath'].$info[0]['savename'];
+	 			$user['id'] = cookie('userid'); //cookie得到
+	 			unlink(M('usertable')->where($user)->find('image'));
 	 			if(M('usertable')->where($user)->save($image)){
 
 		 			$score = M('score');
 					$Sc['userid'] = cookie("userid"); //
 					$Sc['way'] = 1;
 					if ($score->where($Sc)->find()) {
-
+						$data['msg'] = 1;
+		 				$data['path'] = C('HEAD_IMAGE').$info[0]['savepath'].$info[0]['savename'];
+		 				$this->ajaxReturn($data);
 					}else{
 
 						$dataScore['userid'] = cookie("userid");
@@ -48,7 +50,7 @@
 						$score->add($dataScore);
 
 		 				$data['msg'] = 1;
-		 				$data['path'] = $info[0]['savepath'].$info[0]['savename'];
+		 				$data['path'] = C('HEAD_IMAGE').$info[0]['savepath'].$info[0]['savename'];
 		 				$this->ajaxReturn($data);
 					}
 	 				
@@ -67,16 +69,13 @@
 	 	public function myInformation(){
 	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
-	 			// redirect(U('Index/index/index','',''));	
-	 			return;
+	 			$this->show("<script>alert('请先登录');window.history.go(-1);</script>","utf-8");
+	 			die();
 	 		}
 
 
 
 	 		$condition['id'] = cookie("userid"); //最后用cookie得到
-
-	 		var_dump($condition['id']);
 	 		$this->user = M('usertable')->where($condition)->find();
 	 		$this->display();
 	 	}
@@ -84,12 +83,6 @@
 
 		//保存用户完善的信息
 	 	public function handUserInfo(){
-	 		header("Content-type: text/html; charset=utf-8");
-	 		if(cookie("userid") == ''){
-	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
-	 			// redirect(U('Index/index/index','',''));	
-	 			return;
-	 		}
 	 		$user = M('usertable');
 
 
@@ -100,25 +93,30 @@
 	 		$data['birthday'] = I('birthday');
 	 		if(I('pwd') != ''){
 	 			$data['password'] = I('password','','md5');
-	 			 if($user->field('name')->where("id=1 and password ='".I('pwd','','md5')."'")->find()){
+
+
+	 			$conditon['id'] = cookie('userid');
+	 			$condition['password'] = I('pwd','','md5'); //得到查询的条件
+	 			
+
+	 			 if($user->field('name')->where($condition)->find()){
 	 				$user->where('id='.I('id'))->save($data);
-			 		$msg['msg'] = 1;
+			 		
+			 		$this->show("<script>alert('修改成功'); window.location.href = '".U('vipCenter/myInformation','','')."';</script>",'UTF-8');
 	 			}else{
-	 				$msg['msg'] = '密码错误';
+	 				$this->show("<script>alert('密码错误');window.location.href ='".U('vipCenter/myInformation','','')."';</script>",'UTF-8');
 	 			}
 	 		}else{
 	 			$user->where('id='.I('id'))->save($data);
-	 			$msg['msg'] = '1';
+	 			$this->show("<script>alert('修改成功');window.location.href = '".U('vipCenter/myInformation','','')."';</script>",'UTF-8');
 	 		}
-	 		$this->ajaxReturn($msg);
+	
 	 	}
 
 	 	public function myOrders(){  //展示所有的评论
-	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
-	 			// redirect(U('Index/index/index','',''));	
-	 			return;
+	 			$this->show("<script>alert('请先登录');window.history.go(-1);</script>","utf-8");
+	 			die();
 	 		}
 	 		$data = M('order');
 	 		import('ORG.Util.Page');
@@ -136,14 +134,12 @@
 	 	}
 
 	 	public function myEvaluations(){
-	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
-	 			// redirect(U('Index/index/index','',''));	
-	 			return;
+	 			$this->show("<script>alert('请先登录');window.history.go(-1);</script>","utf-8");
+	 			die();
 	 		}
 	 		$user['id'] = cookie("userid");
-	 		var_dump(I("class"));
+	 	
 	 		$this->class = I("class");
 	 		$this->juge = I('juge',1);
 
@@ -167,11 +163,9 @@
 	 	// 保存订单评论
 	 	public function orderComment(){  
 
-	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
-	 			// redirect(U('Index/index/index','',''));	
-	 			return;
+	 			$this->show("<script>alert('请先登录');window.history.go(-1);</script>","utf-8");
+	 			die();
 	 		}
 	 		$orderComment = M('comment');
 	 		$data['travelId'] = I('travelId');
@@ -187,6 +181,10 @@
 	  	}
 
 	 	public function myTravealBook(){
+	 		if(cookie("userid") == ''){
+	 			$this->show("<script>alert('请先登录');window.history.go(-1);</script>","utf-8");
+	 			die();
+	 		}
 	 		$this->user = M('usertable')->field('id,name,image,phone,email')->where('id = '.cookie('userid'))->find();
 
 
@@ -204,17 +202,15 @@
 
 	 	//写信
 	 	public function DoWriteLetter(){
-	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
-	 			// redirect(U('Index/index/index','',''));	
-	 			return;
+	 			$this->show("<script>alert('请先登录');window.history.go(-1);</script>","utf-8");
+	 			die();
 	 		}
 	 		import('ORG.Net.UploadFile');
 	 		$file = new UploadFile();
 	 		$file->maxSize = 3333333333333;
 	 		$file->allowExts = array('jpg','png','jpeg','gif');
-	 		$file->savePath = './Public/uploads/hotel/';
+	 		$file->savePath = C('HEAD');
 
 	 		if(!$file->upload()){
 	 			$this->ajaxReturn('msg',$file->getErrorMsg());
@@ -223,8 +219,8 @@
 	 			$data = I('post.');
 	 			$data['date'] = date('Y-m-d');
 	 			$data['userId'] = cookie("userid");
-	 			$data['image'] = $info[0]['savepath'].$info[0]['savename'];
-	 			var_dump($data);
+	 			$data['image'] = C('HEAD_IMAGE').$info[0]['savepath'].$info[0]['savename'];
+	 			
 	 			M('letter')->add($data);
 
 	 			$this->redirect("myTravealBook");
@@ -233,11 +229,9 @@
 	 	
 
 	 	function myGrades(){
-			header("Content-type: text/html; charset=utf-8");
-	 		if(cookie("userid") == ''){
-	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
-	 			// redirect(U('Index/index/index','',''));	
-	 			return;
+			if(cookie("userid") == ''){
+	 			$this->show("<script>alert('请先登录');window.history.go(-1);</script>","utf-8");
+	 			die();
 	 		}
 	 		$table = M('score');
 	 		$cDate['time'] = array('ELT',date('Y-m-d'));
@@ -252,11 +246,9 @@
 	 	}
 
 	 	function Hello(){
-	 		header("Content-type: text/html; charset=utf-8");
 	 		if(cookie("userid") == ''){
-	 			echo "<script>alert('请先登录'); window.location.href=document.referrer; </script>"; 
-	 			// redirect(U('Index/index/index','',''));	
-	 			return;
+	 			$this->show("<script>alert('请先登录');window.history.go(-1);</script>","utf-8");
+	 			die();
 	 		}
 	 		$score = M('score');
 	 				$Sc['userid'] = cookie("userid"); //
@@ -277,6 +269,48 @@
 	 		$this->display('vipCenter');
 	 	}
 
-	 }
+	public function myFelling(){
+		if(cookie("userid") == ''){
+	 			$this->show("<script>alert('请先登录');window.location.href='".U('Index/index/index')."'","utf-8");
+	 			die();
+	 		}
+		$this->user = M('usertable')->field('id,name,image,phone,email')->where(array('id' => cookie('userid') ))->find();
+		$this->display();
+	} 	
 
+	public function handFell()
+	{	
+		import('ORG.Net.UploadFile');
+ 		$file = new UploadFile();
+ 		$file->maxSize = 3333333333333;
+ 		$file->allowExts = array('jpg','png','jpeg','gif');
+ 		$file->savePath = C('HEAD');
+
+ 		if(!$file->upload()){
+ 			$data['msg'] = 0;
+ 			$data['path'] = $file->getErrorMsg();
+ 			
+ 			$this->ajaxReturn($data);
+ 			
+ 		}else{
+ 			$info = $file-> getUploadFileInfo();
+ 			$msg['image'] = C('HEAD_IMAGE').$info[0]['savepath'].$info[0]['savename'];
+ 			$msg['userId'] = cookie('userid');
+			$msg['note'] =  I('content');
+			$msg['name'] = I('title');
+			$msg['time'] = date('Y-m-d');
+ 			
+ 			if(M('travelnote')->add($msg)){	 			
+ 				$data['msg'] = 1;
+ 				$data['path'] = '保存成功';
+ 				$this->ajaxReturn($data);
+ 			}else{
+ 				$data['msg'] = 0;
+ 				$data['path'] = '保存出错';
+ 				$this->ajaxReturn($data);
+ 			}
+ 		
+		}
+	}
+}
 ?>

@@ -5,12 +5,12 @@
     <link rel="stylesheet" href="../Public/css/index.css" media="all" type="text/css">
     <title>我的信息</title>
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
-    <script type="text/javascript" src="../Public/js/jquery.form.js"></script>
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src='../Public/js/jquery.form.js'></script>
     <script src="../Public/js/jquery-easyui-1.4.2/locale/easyui-lang-zh_CN.js"></script>
     <script src="../Public/js/jquery.cookie.js"></script>
     <script src="../Public/js/vipcenter.js"></script>
-    <script src="../Public/js/login.js"></script>
+
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/demo/demo.css">
@@ -18,12 +18,7 @@
     <link href="../Public/css/vipCenter.css" rel="stylesheet" type="text/css">
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#sub').click(function(){
-                var option = {
-                    url: "{:U('Index/vipCenter/handUserInfo')}",
-                    success: showResponse
-
-                };
+            $('#submit').click(function(){
                 var password,confpassword;
                 password = document.getElementById("password").value;
                 confpassword = document.getElementById("confpassword_1").value;
@@ -36,26 +31,11 @@
                         if(password != confpassword){
                             alert("重新设的新密码不一致，请确认");   
                             return false;  
-                        }else{
-                           $('#form').ajaxForm(option).submit();
-                        }                        
+                        }                  
                     }
-                }else{
-                     $('#form').ajaxForm(option).submit();
-                }      
+                }   
             });
         });
-
-    function showResponse(data){
-        if (data["msg"] != '1') {
-            alert(data["msg"]);
-        }else{
-            $("#password").val("");
-            $("#pwd").val("");               //为什么不行
-            $("#confpassword_1").val("");
-            alert("成功");
-        }
-    }
         jQuery(document).ready(function($) {
             $('.theme-login').click(function(){
                 $('.theme-popover-mask').fadeIn(100);
@@ -78,8 +58,13 @@
         <a href="{:U('Index/index/index')}"><img src="__IMG__/index.png" class="index"></a>
         <a href="{:U('Index/travelBook/travelBook')}"><img src="__IMG__/travelbook.png" class="travelbook"></a>
         <img src="__IMG__/xuanchuan.png" class="xuanchuan">
-        <img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
         <img src="__IMG__/phone.png" class="phone">
+        <!--<a href="{:U('Index/index/register')}"><img src="__IMG__/register.png" class="register"></a>-->
+    </div>
+    
+    <div id="afterLogin" style="display: none">
+        <img src="../Public/images/afterLogin.png" class="login">
+        <button class="register" id="exitLogin">退出登录</button>
     </div>
     <div class="mainbox"></div>
 
@@ -95,7 +80,7 @@
         <div class="border">
             <div class="empty"></div>
             <div id="myInformation">
-                <form class="temp" id='form' method="post" action="{:U('Index/vipCenter/handUserInfo')}">
+                <form class="temp" id='form' method="post" action="{:U('Index/vipCenter/handUserInfo','','')}">
                     <input type="hidden" name='id' value="{$user.id}">
                     <div class="basicInformation">
                         <div class="chooseContent">
@@ -145,16 +130,12 @@
                         <div class="chooseContent">
                             <span>自我介绍</span>
                             <div class="chooses">
-                                <label><textarea name="comment" rows="3" cols="50" maxlength="140" onchange="this.value=this.value.substring(0, 140)" onkeydown="this.value=this.value.substring(0, 140)" onkeyup="this.value=this.value.substring(0, 140)" >{$user.comment}</textarea></label>
+                                <label><textarea name="comment" rows="3" cols="70" maxlength="140" onchange="this.value=this.value.substring(0, 140)" onkeydown="this.value=this.value.substring(0, 140)" onkeyup="this.value=this.value.substring(0, 140)" >{$user.comment}</textarea></label>
                                 <label style="vertical-align: bottom">限140字</label>
                             </div>
                         </div>
                         <div class="chooseContent">
-                            <!-- <span>是否接受邮件</span>
-                            <div class="chooses">
-                                <label><input type="radio" name="isEmail" value="yesEmail" required>接受邮件</label>
-                                <label><input type="radio" name="isEmail" value="noEmail" required>不接受邮件</label>
-                            </div> -->
+                         
                         </div>
                     </div>
                     <div class="contactInformation" method="post" action="#">
@@ -197,12 +178,9 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" id="sub">保存资料</button>
+                    <input type="submit" id="submit" style="width: 80px;height: 30px;border: none;margin-left: 45px">
                 </form>
-                <script type="text/javascript">
-                    function isEnterLegal(){
-                       
-                    }
+             
                 </script>
             </div>
         </div>
@@ -210,7 +188,11 @@
     <div class="navbar">
         <div class="userHead">
             <div class="imageBox">
+            <if condition="$user.image eq ''">
                 <img id="imgHead" src="../Public/images/vipCenter/head.png">
+                <else />
+                <img id="imgHead" src="{$user.image}">
+             </if>    
                 <a onclick="fileSelect()">上传头像</a>  <!-- -->
             </div>
             <span>{$user.name}</span>
@@ -233,7 +215,7 @@
             }
             function showResponse(data){
                 if (data["msg"] == 1) {
-                     $("#imgHead").attr('src',"/travel/steptu/"+data["path"]);
+                     $("#imgHead").attr('src',data["path"]);
                 }else{
                     alert(data["path"]);
                 }
@@ -254,7 +236,7 @@
                 <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myInformation','','')}">我的信息</a>
             </div>
             <div class="realNavbarContent">
-                <img src="../Public/images/vipCenter/point.png"><a href="myMoneyPot.html">我的储钱罐计划</a>
+                <img src="../Public/images/vipCenter/point.png"><a href="myMoneyPot.html">我的储钱罐旅行计划</a>
             </div>
             <div class="realNavbarContent">
                 <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myTravealBook','','')}">写给未来的信</a>
