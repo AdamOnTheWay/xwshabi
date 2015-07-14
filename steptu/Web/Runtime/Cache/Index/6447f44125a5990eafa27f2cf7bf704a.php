@@ -81,7 +81,7 @@
 	<br>
 	<br>
 	<br>
-	<form action="<?php echo U('Index/background/tcxq');?>" name="taocanxiangqingxiugai" method="post">
+	<form action="<?php echo U('Index/background/tcxq','','');?>" name="taocanxiangqingxiugai" method="post">
 		套餐id&nbsp&nbsp <input name="taocanid" type="text" value="<?php echo ($tr["id"]); ?>" readonly="true">
 		<br>
 		<br> 套餐名&nbsp&nbsp
@@ -106,7 +106,7 @@
 		<br>
 		<!-- 加载编辑器的容器 -->
 		<script id="container" name="taocanshuoming" type="text/plain">
-			这里写初始化内容
+			
 		</script>
 		<br>
 		<br> 优惠活动:

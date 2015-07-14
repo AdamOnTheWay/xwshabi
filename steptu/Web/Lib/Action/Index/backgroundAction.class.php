@@ -105,6 +105,21 @@ public function tcxq(){
 	if(I('youhuijia')!=''){
 		$pkg['price'] = I('youhuijia');
 	}
+	if(I('taocanshuoming')!=''){
+		$pkg['descriptionPrice'] = I('taocanshuoming');
+	}
+	if(I('youhuihuodong')!=''){
+		$pkg['discountAction'] = I('youhuihuodong');
+	}
+	if(I('chanpintese')!=''){
+		$pkg['characteristics'] = I('chanpintese');
+	}
+	if(I('xingchengjieshao')!=''){
+		$pkg['routeDescription'] = I('xingchengjieshao');
+	}
+	if(I('yudingxuzhi')!=''){
+		$pkg['bookInformation'] = I('yudingxuzhi');
+	}
 
 if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 	$this->success("ok");
@@ -622,6 +637,12 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 			}
 			if(I('fangxing8')!=''){
 				$data['house8'] =I('fangxing8');
+			}
+			if(I('fangxingyuding')!=''){
+				$data['intro'] =I('fangxingyuding');
+			}
+			if(I('jiudianjieshao')!=''){
+				$data['comment'] =I('jiudianjieshao');
 			}
 
 			$data['status']=1;

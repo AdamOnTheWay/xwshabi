@@ -121,8 +121,8 @@ background-repeat: no-repeat;
 <img src="../Public/images/package/youhuijiakuang.png" class="youhuijiakuang">
 <div class="youhuijiazi">优惠价: ￥<div class="youhuijia" id="youhuijia">&nbsp<?php echo ($scency["price"]); ?></div><div class="youhuijiazi2">起</div></div>
 <div class="feiyongshuoming" id="feiyongshuoming">
-    <?php echo ($scency["descriptionPrice"]); ?>
-</div>
+  <?php echo (stripslashes(htmlspecialchars_decode($scency["descriptionPrice"]))); ?>
+	</div>
 
 <div class="yudinglan">
 
@@ -146,17 +146,17 @@ background-repeat: no-repeat;
 </table>
 </div>
 <div class="neirongtiao" id="youhuihuodong"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">优惠活动</div></div>
-<div class="youhuihuodongcontent" id="youhuihuodongcontent"><?php echo ($scency["discountAction"]); ?></div>
+<div class="youhuihuodongcontent" id="youhuihuodongcontent"><?php echo (stripslashes(htmlspecialchars_decode($scency["discountAction"]))); ?></div>
 
 <div class="neirongtiao" id="chanpintese"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">产品特色</div></div>
-<div class="youhuihuodongcontent" id="chanpintesecontent"><?php echo ($scency["characteristics"]); ?></div>
+<div class="youhuihuodongcontent" id="chanpintesecontent"><?php echo (stripslashes(htmlspecialchars_decode($scency["characteristics"]))); ?></div>
 
 <div class="neirongtiao" id="xingchengjieshao"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">行程介绍</div></div>
-<div class="youhuihuodongcontent" id="xingchengjieshaocontent"><?php echo ($scency["routeDescription"]); ?></div>
+<div class="youhuihuodongcontent" id="xingchengjieshaocontent"><?php echo (stripslashes(htmlspecialchars_decode($scency["routeDescription"]))); ?></div>
 
 
 <div class="neirongtiao" id="yudingxuzhi"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">预定须知</div></div>
-<div class="youhuihuodongcontent" id="yudingxuzhicontent"><?php echo ($scency["bookInformation"]); ?></div>
+<div class="youhuihuodongcontent" id="yudingxuzhicontent"><?php echo (stripslashes(htmlspecialchars_decode($scency["bookInformation"]))); ?></div>
 
 <div class="neirongtiao" id="youkedianping"><img src="../Public/images/package/neirongtiao.png" style="float:left"><div style="position:relative;top:-25px;left:25px;font-size: 15px;color: white;font-family: inherit;">游客点评</div></div>
 <div class="youhuihuodongcontent" id="youkedianpingcontent">
