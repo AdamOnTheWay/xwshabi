@@ -4,20 +4,32 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Public/css/index.css" media="all" type="text/css">
     <title>我的评价</title>
-    <script  src="/steptu/Web/Tpl/ueditor/ueditor.config.js"></script>
-    <script src="/steptu/Web/Tpl/ueditor/ueditor.all.min.js"></script>
+    <script  src="__UEDITOR__/ueditor.config.js"></script>
+    <script src="__UEDITOR__/ueditor.all.min.js"></script>
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="../Public/js/jquery.form.js"></script>
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
     <script src="../Public/js/jquery-easyui-1.4.2/locale/easyui-lang-zh_CN.js"></script>
     <script src="../Public/js/jquery.cookie.js"></script>
     <script src="../Public/js/vipcenter.js"></script>
-    <script src="../Public/js/login.js"></script>
+    <!-- <script src="../Public/js/login.js"></script>-->
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/demo/demo.css">
     <link rel="stylesheet" href="../Public/css/css.css" media="all">
     <link href="../Public/css/vipCenter.css" rel="stylesheet" type="text/css">
+    <script>
+        jQuery(document).ready(function($) {
+            $('.theme-login').click(function(){
+                $('.theme-popover-mask').fadeIn(100);
+                $('.theme-popover').slideDown(200);
+            })
+            $('.theme-poptit .close').click(function(){
+                $('.theme-popover-mask').fadeOut(100);
+                $('.theme-popover').slideUp(200);
+            })
+        })
+    </script>
 </head>
 <body>
 <div class="quanbu">
@@ -29,7 +41,6 @@
         <a href="{:U('Index/index/index')}"><img src="__IMG__/index.png" class="index"></a>
         <a href="{:U('Index/travelBook/travelBook')}"><img src="__IMG__/travelbook.png" class="travelbook"></a>
         <img src="__IMG__/xuanchuan.png" class="xuanchuan">
-        <img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
         <img src="__IMG__/phone.png" class="phone">
         
     </div>
@@ -87,7 +98,7 @@
                     <input type='hidden' value="{$travelId}" name='travelId'>
                     <label><textarea class="textarea" name="content" id="content"></textarea><br/></label>
                     <script type="text/javascript">
-                            window.UEDITOR_HOME_URL = '/steptu/Web/Tpl/ueditor/';
+                            window.UEDITOR_HOME_URL = '__UEDITOR__';
                             window.UEDITOR_CONFIG.toolbars = [['undo', 'redo','|',
                                                                'bold', 'italic',
                                                                 'emotion','date', 'time'
@@ -120,8 +131,12 @@
    <div class="navbar">
         <div class="userHead">
             <div class="imageBox">
+             <if condition="$user.image eq ''">
                 <img id="imgHead" src="../Public/images/vipCenter/head.png">
-                <a onclick="fileSelect()" style="font-size: 10px">上传头像</a>  <!-- -->
+                <else />
+                <img id="imgHead" src="{$user.image}">
+             </if>        
+                <a onclick="fileSelect()">上传头像</a>  <!-- -->
             </div>
             <span>{$user.name}</span>
             <form id="form_face" method="post" enctype="multipart/form-data" style="width:auto;">  <!--  上传头像提交表单-->
@@ -143,7 +158,7 @@
             }
             function showResponse(data){
                 if (data["msg"] == 1) {
-                     $("#imgHead").attr('src',"/travel/steptu/"+data["path"]);
+                     $("#imgHead").attr('src',data["path"]);
                 }else{
                     alert(data["path"]);
                 }
@@ -164,7 +179,7 @@
                 <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myInformation','','')}">我的信息</a>
             </div>
             <div class="realNavbarContent">
-                <img src="../Public/images/vipCenter/point.png"><a href="myMoneyPot.html">我的储钱罐计划</a>
+                <img src="../Public/images/vipCenter/point.png"><a href="myMoneyPot.html">我的储钱罐旅行计划</a>
             </div>
             <div class="realNavbarContent">
                 <img src="../Public/images/vipCenter/point.png"><a href="{:U('Index/vipCenter/myTravealBook','','')}">写给未来的信</a>

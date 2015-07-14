@@ -10,44 +10,23 @@
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/demo/demo.css">
     <link rel="stylesheet" href="../Public/css/css.css" media="all">
     <link href="../Public/css/packageOrder.css" rel="stylesheet" type="text/css">
-       <script>
-
-$(document).ready(function() {
-
-// alert("dadf");
-
-  if($.cookie('username') != '' && $.cookie('username') != null && $.cookie('username') != undefined){
-
-       document.getElementById("dengluchenggong").innerHTML=$.cookie('username')+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
-      tuichudenglu.style.display="block";
-    }
-
-});
-</script>
-<script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
 </head>
 <body>
 <div class="quanbu">
-        <div style="position: absolute;left: 822px;top: 0px;font-size:14px;color:white"id="dengluchenggong"></div>
-<div id="tuichudenglu" style="position: absolute;left: 960px;top: 8px;font-size:14px;color:white;display:none;cursor: pointer;">退出登录</div>
     <div>
-        <a href="{:U('Index/travelStore/travelStore')}"><img src="__IMG__/travelsm.png" class="travelsm"></a>
-        <a href="{:U('Index/vipCenter/myInformation')}"><img src="__IMG__/personal.png" class="personal"></a>
-        <a href="{:U('Index/travelTheme/travelTheme')}"> <img src="__IMG__/travel.png" class="travel" ></a>
-        <a href="{:U('Index/makePlan/makePlan')}"> <img src="__IMG__/makeplan.png" class="makeplan"></a>
-        <a href="{:U('Index/index/index')}"><img src="__IMG__/index.png" class="index"></a>
-        <a href="{:U('Index/travelBook/travelBook')}"><img src="__IMG__/travelbook.png" class="travelbook"></a>
+        <img src="../Public/images/travelsm.png"  class="travelsm">
+        <img src="../Public/images/personal.png" class="personal">
+        <img src="../Public/images/travel.png" class="travel" >
+        <img src="../Public/images/makeplan.png" class="makeplan">
+        <img src="../Public/images/index.png" class="index">
+        <img src="../Public/images/yuan.png"  class="yuan">
+        <img src="../Public/images/travelbook.png" class="travelbook">
         <img src="../Public/images/xuanchuan.png" class="xuanchuan">
-        <img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
         <img src="../Public/images/phone.png" class="phone">
-<<<<<<< HEAD
-        <a href="javascript:;"class=" btn-large theme-login" style="" id="loganniu"><img src="../Public/images/login.png"   style=" position: absolute;left: 822px;top: 70px;cursor: pointer;"></a>
-        <a href="{:U('Index/index/register','','')}"><img src="__IMG__/register.png" style="position: absolute;left: 920px;top: 70px;" id="reanniu"></a>
-=======
-      
->>>>>>> cd41b8f3a1a3a0a508ca7cd6eba2a57be8c38146
+        <img src="../Public/images/register.png" class="register">
     </div>
-   
+    <div ><a href="javascript:;" class=" btn-large theme-login"><img src="../Public/images/login.png"class="login"></a>
+    </div>
 
     <div class="mainbox"></div>
 
@@ -68,45 +47,11 @@ $(document).ready(function() {
 
     <div>
         <div class="bottom"></div>
-        <div class="bottomsm">
-            <span class="bottombiao">旅游超市</span>
-            <div class="bottomxuanxiang">
-                <a href="{:U('Index/travelStore/smsousuojieguo')}">住</a><br>
-                <a href="{:U('Index/travelStore/travelStore')}">吃货</a>
-            </div>
-        </div>
-        <div class="bottompersonal">
-            <span class="bottombiao">会员中心</span>
-            <div class="bottomxuanxiang1">
-                <a href="{:U('Index/vipCenter/myOrders')}"> 我的订单</a><br>
-                <a href="{:U('Index/vipCenter/myGrades')}">我的积分</a> <br>
-                <a href="{:U('Index/vipCenter/myEvaluations')}"> 我的评价</a><br>
-                <a href="{:U('Index/vipCenter/myInformation')}">我的信息</a> <br>
-                <a href="{:U('Index/vipCenter/myMoneyPot')}">我的储钱罐旅行计划</a><br>
-            </div>
-        </div>
-        <div class="bottombook">
-            <span class="bottombiao">旅游志</span>
-            <div class="bottomxuanxiang">
-                <a href="{:U('Index/travelBook/travelBook')}">旅游随感</a> <br>
-                <a href="{:U('Index/travelBook/letterList')}"> 写给未来的信</a></div>
-        </div>
-        <div class="weishenme">
-            <span class="bottombiao">主题旅游</span>
-            <div class="bottomxuanxiang">
-                <a href="{:U('Index/travelTheme/travelTheme')}">城市之间</a><br>
-                <a href="{:U('Index/travelTheme/travelTheme')}"> 学子游</a><br>
-                <a href="{:U('Index/travelTheme/travelTheme')}">年休假</a><br>
-                <a href="{:U('Index/travelTheme/travelTheme')}">美食游</a>
-            </div></div>
-        <div class="bottomaboutus"><span class="bottombiao">关于游记</span><div class="bottomxuanxiang">
-            <a href="{:U('Index/index/aboutUs')}">关于我们</a><br>
-            <a href="{:U('Index/index/aboutUs')}">联系我们</a><br>
-            <a href="{:U('Index/index/aboutUs')}">一起合作</a><br>
-            <a href="{:U('Index/index/aboutUs')}">用户协议</a><br>
-            <a href="{:U('Index/index/aboutUs')}">诚聘英才</a>
-        </div>
-        </div>
+        <div class="bottomsm"><span class="bottombiao">旅游超市</span><div class="bottomxuanxiang">住<br>吃货</div></div>
+        <div class="bottompersonal"><span class="bottombiao">会员中心</span><div class="bottomxuanxiang1">我的订单<br>我的奖励<br>我的积分<br>我的评价<br>我的信息<br>我的储钱罐旅行计划</span><br>找朋友</div> </div>
+        <div class="bottombook"><span class="bottombiao">旅游志</span><div class="bottomxuanxiang">旅游随感<br>写给未来的信</div></div>
+        <div class="weishenme"><span class="bottombiao">主题旅游</span><div class="bottomxuanxiang">城市之间<br>学子游<br>年休假<br>美食游</div></div>
+        <div class="bottomaboutus"><span class="bottombiao">关于游记</span><div class="bottomxuanxiang">关于我们<br>联系我们<br>一起合作<br>用户协议<br>诚聘英才</div></div>
     </div>
     <img src="../Public/images/steptu.png" class="steptu">
     <img src="../Public/images/banquan.png" class="banquan">
