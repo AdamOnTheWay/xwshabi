@@ -148,7 +148,7 @@ a:hover{
 
 
     </div>
-    <div class="fangxingyuding"><img src="../Public/images/travelstore/fangxingyuding.png" style="margin:0 0 0 5px;"><br><?php echo ($hotel["hotelBrand"]); ?></div>
+    <div class="fangxingyuding"><img src="../Public/images/travelstore/fangxingyuding.png" style="margin:0 0 0 5px;"><br><?php echo (stripslashes(htmlspecialchars_decode($hotel["intro"]))); ?></div>
     <div class="fangxingyudinganniu">
       <form action="" name="smzhusousuo" method="post">
       <div style="margin:0 0 0 20px;float:left;font-size:13px;">入住</div>
@@ -168,7 +168,7 @@ a:hover{
 
 
     </form></div>
-    <div class="jiudianjieshao"><img src="../Public/images/travelstore/jiudianjieshao.png" style="margin:0 0 0 5px;"><br><?php echo ($hotel["comment"]); ?></div>
+    <div class="jiudianjieshao"><img src="../Public/images/travelstore/jiudianjieshao.png" style="margin:0 0 0 5px;"><br><?php echo (stripslashes(htmlspecialchars_decode($hotel["comment"]))); ?></div>
 
 
     <div class="zhukedianping"><img src="../Public/images/travelstore/zhukedianping.png" style="margin:0 0 0 5px;"><br>
@@ -365,12 +365,12 @@ $("#dlanniu").click(function(){
    $.post(url,{log:$("#name").val(),pwd:$("#psw").val()},function(data){
        console.log($.cookie('username'));
       // alert(data['address'][2]);
-      
+
       // console.log(shishi);
       if (data.code==1) {
       alert("登陆成功");
       var shishi=$.cookie('username');
-       document.getElementById("close").click(); 
+       document.getElementById("close").click();
       loganniu.style.display="none";
       reanniu.style.display="none";
       document.getElementById("dengluchenggong").innerHTML=shishi+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
