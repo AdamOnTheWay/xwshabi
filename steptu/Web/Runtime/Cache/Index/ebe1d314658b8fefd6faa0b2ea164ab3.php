@@ -85,7 +85,7 @@
 			<td style="cursor:pointer;" class="xiugai" name="<?php echo ($u["id"]); ?>">
 				<font size="3" color="red">修改</font>
 			</td>
-			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" ="shanchu">
+			<td style="cursor:pointer;" name="<?php echo ($u["id"]); ?>" class="shanchu">
 				<font size="3" color="red">删除</font>
 			</td>
 		</tr><?php endforeach; endif; ?>
@@ -93,8 +93,8 @@
 
 	</table>
 	<div id="yonghuxinxi" style="display:none;">
-		<form action="" name="yonghuguanli" id="yonghuguanli" method="post">
-			位置管理id&nbsp&nbsp <input id="weizhiid" type="text" value="" readonly="true">
+		<form action="<?php echo U('Index/background/cityadd');?>" name="yonghuguanli" id="yonghuguanli" method="post">
+			位置管理id&nbsp&nbsp <input id="weizhiid" name="weizhiid" type="text" value="" readonly="true">
 			<br>
 			<br>
 			<div class="info">
@@ -154,8 +154,8 @@
 	})
 
 	$(".shanchu").click(function() {
-		// alert($(this).attr("name"));
-		url = '<?php echo U('Index/background/citydelete','','');?>'
+		//alert($(this).attr("name"));
+		url = '<?php echo U('Index/background/citydelete');?>'
 		$.post(url, {
 			data: $(this).attr("name")
 		}, function(data) {
