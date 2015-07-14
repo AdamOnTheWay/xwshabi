@@ -87,8 +87,8 @@
 	<br>
 	<br>
 	<div id="yonghuxinxi" style="display:none;">
-		<form action="" name="yonghuguanli" id="yonghuguanli" method="post">
-			豪华酒店id&nbsp&nbsp <input id="haohuajiudianid" type="text" value="" readonly="true">
+		<form action="<?php echo U('Index/background/hhjdadd');?>" name="yonghuguanli" id="yonghuguanli" method="post">
+			豪华酒店id&nbsp&nbsp <input id="haohuajiudianid" name="haohuajiudianid" type="text" value="" readonly="true">
 			<br> 豪华酒店名&nbsp&nbsp
 			<input id="haohuajiudianming" name="haohuajiudianming" type="text" value="">
 			<br> 豪华酒店价格&nbsp&nbsp
@@ -100,7 +100,7 @@
 					<select id="s_province" name="s_province"></select>&nbsp;&nbsp;
 					<select id="s_city" name="s_city"></select>&nbsp;&nbsp;
 					<select id="s_county" name="s_county"></select>
-					<script class="resources library" src="/steptu/Web/Tpl/Index/background/city.js" type="text/javascript"></script>
+					<script class="resources library" src="/xwshabi/steptu/Web/Tpl/Index/background/city.js" type="text/javascript"></script>
 
 					<script type="text/javascript">
 						_init_area();
@@ -163,7 +163,7 @@
 	$("#zengjia").click(function() {
 
 		yonghuxinxi.style.display = "block";
-         
+
 	     $("#haohuajiudianid").val("kong");
          $("#haohuajiudianming").val("");
           $("#haohuajiudianjiage").val("");

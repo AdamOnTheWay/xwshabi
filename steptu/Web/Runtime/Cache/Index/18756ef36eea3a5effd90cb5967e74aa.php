@@ -139,7 +139,7 @@ a:hover{
 				<?php if(is_array($content)): foreach($content as $key=>$v): ?><div class="jiudianceng">
              <img src="../Public/images/travelstore/fengexian2.png">
               <div  class="jiudiancengshu">1</div>
-            <a href="<?php echo U('Index/travelStore/jiudian','','');?>/id/<?php echo ($v["id"]); ?>" target="_blank" > <span class="jiudianming"><?php echo ($v["hotelName"]); ?></span></a>
+            <a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($v["id"]); ?>" target="_blank" > <span class="jiudianming"><?php echo ($v["hotelName"]); ?></span></a>
               <div class="jiudianjiage">￥<?php echo ($v["price"]); ?>&nbsp<span class="jiudianjiageqi">起</span></div>
               <img src="../Public/images/travelstore/ditubiaozhi.png" class="ditubiaozhi" name="成都市一环路东一段">
               <div class="jiudiancengdizhi">地址：<?php echo ($v["area"]); ?></div>
@@ -426,7 +426,7 @@ var weizhishangchuan = "不限";
       // console.log(tianjia);
        document.getElementById("jichang").innerHTML=tianjia;
        tianjia=""
-        
+
 
         for (;i<=(data.xingzhengqu.length); i++) {
         tianjia+="<span class='weizhiziti'>"+data.xingzhengqu[i-1].xian+"</span>"
@@ -462,7 +462,7 @@ var weizhishangchuan = "不限";
 
    }
   )
- 
+
 
   // 百度地图API功能
   var zidingdizhi = "北京大学";
@@ -532,12 +532,12 @@ $("#dlanniu").click(function(){
    $.post(url,{log:$("#name").val(),pwd:$("#psw").val()},function(data){
        console.log($.cookie('username'));
       // alert(data['address'][2]);
-      
+
       // console.log(shishi);
       if (data.code==1) {
       alert("登陆成功");
       var shishi=$.cookie('username');
-       document.getElementById("close").click(); 
+       document.getElementById("close").click();
       loganniu.style.display="none";
       reanniu.style.display="none";
       document.getElementById("dengluchenggong").innerHTML=shishi+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";

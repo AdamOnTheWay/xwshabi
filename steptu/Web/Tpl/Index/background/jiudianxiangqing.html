@@ -35,16 +35,17 @@
 	<br>
 	<br>
 	<br> 上传酒店图片：(最好是png jpg gif)
-	<form action="" name="jiudiantupian" id="tjiudiantupian" method="post">
+	<form action="{:U('Index/background/hhjdimage')}" name="jiudiantupian" id="tjiudiantupian" method="post">
 		<input id="file" name="file" type="file" size="30" maxlength="32" value="上传图片" />
+			<input name="haohuajiudianid" type="text" value="{$ho.id}" readonly="true">
 		<input type="submit" value="酒店图片提交" />
 	</form>
 	<br>
 	<br>
 	<br>
-	<form action="" name="jiudianxiangqingxiugai" method="post">
+	<form action="{:U('Index/background/hhjdxq')}" name="jiudianxiangqingxiugai" method="post">
 		酒店id&nbsp&nbsp
-		<input name="haohuajiudianid" type="text" value="{$ho.id}">
+		<input name="haohuajiudianid" type="text" value="{$ho.id}" readonly="true">
 		<br> 酒店名&nbsp&nbsp
 		<input name="haohuajiudianming" type="text" value="{$ho.hotelName}">
 		<br> 酒店价格&nbsp&nbsp
@@ -76,21 +77,21 @@
 		<br> 房型种类：(最多输入八种)
 
 		<br>
-		<input name="fangxing1" type="text" value="">
+		<input name="fangxing1" type="text" value="{$ho.house1}">
 		<br>
-		<input name="fangxing2" type="text" value="">
+		<input name="fangxing2" type="text" value="{$ho.house2}">
 		<br>
-		<input name="fangxing3" type="text" value="">
+		<input name="fangxing3" type="text" value="{$ho.house3}">
 		<br>
-		<input name="fangxing4" type="text" value="">
+		<input name="fangxing4" type="text" value="{$ho.house4}">
 		<br>
-		<input name="fangxing5" type="text" value="">
+		<input name="fangxing5" type="text" value="{$ho.house5}">
 		<br>
-		<input name="fangxing6" type="text" value="">
+		<input name="fangxing6" type="text" value="{$ho.house6}">
 		<br>
-		<input name="fangxing7" type="text" value="">
+		<input name="fangxing7" type="text" value="{$ho.house7}">
 		<br>
-		<input name="fangxing8" type="text" value="">
+		<input name="fangxing8" type="text" value="{$ho.house8}">
 		<br>
 		<br> 房型预定:
 		<br>
@@ -139,9 +140,9 @@
 	</script>
 
 	<!-- 配置文件 -->
-	<script type="text/javascript" src="/steptu/Web/Tpl/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" src="/xwshabi/steptu/Web/Tpl/ueditor/ueditor.config.js"></script>
 	<!-- 编辑器源码文件 -->
-	<script type="text/javascript" src="/steptu/Web/Tpl/ueditor/ueditor.all.js"></script>
+	<script type="text/javascript" src="/xwshabi/steptu/Web/Tpl/ueditor/ueditor.all.js"></script>
 	<!-- 实例化编辑器 -->
 	<script type="text/javascript">
 		var editor = UE.getEditor('fangxingyuding');
