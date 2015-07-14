@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Public/css/index.css" media="all" type="text/css">
     <title>旅游随感</title>
-    <script  src="/steptu/Web/Tpl/ueditor/ueditor.config.js"></script>
-    <script src="/steptu/Web/Tpl/ueditor/ueditor.all.min.js"></script>
+    <script  src="__UEDITOR__/ueditor.config.js"></script>
+    <script src="__UEDITOR__/ueditor.all.min.js"></script>
+
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
-    <script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
-    <script type="text/javascript" src="__JS__/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+   
     <script src="../Public/js/register.js"></script>
     <script src="../Public/js/traveBook.js"></script>
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/themes/default/easyui.css">
@@ -39,35 +39,11 @@
                          
                     });
                 }else{
-                     alert("请填写评论内容");
+                     alert("请填写评论类容");
                 }
                
             });
-        });
-        jQuery(document).ready(function($) {
-            $('.theme-login').click(function(){
-                $('.theme-popover-mask').fadeIn(100);
-                $('.theme-popover').slideDown(200);
-            });
-            $('.theme-poptit .close').click(function(){
-                $('.theme-popover-mask').fadeOut(100);
-                $('.theme-popover').slideUp(200);
-            })
-
-        });
-        $(document).ready(function() {
-
-// alert("dadf");
-
-            if($.cookie('username') != '' && $.cookie('username') != null && $.cookie('username') != undefined){
-
-                loganniu.style.display="none";
-                reanniu.style.display="none";
-                document.getElementById("dengluchenggong").innerHTML=$.cookie('username')+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
-                tuichudenglu.style.display="block";
-            }
-
-        });
+        }); 
     </script>
 </head>
 <body>
@@ -80,10 +56,10 @@
         <a href="<?php echo U('Index/index/index');?>"><img src="__IMG__/index.png" class="index"></a>
         <a href="<?php echo U('Index/travelBook/travelBook');?>"><img src="__IMG__/travelbook.png" class="travelbook"></a>
         <img src="../Public/images/xuanchuan.png" class="xuanchuan">
-        <img src="__IMG__/logo1.png" style="position: absolute;left: 420px;top: 30px;width:300px;">
         <img src="../Public/images/phone.png" class="phone">
-        <a href="javascript:;"class=" btn-large theme-login" style="" id="loganniu"><img src="../Public/images/login.png"   style=" position: absolute;left: 822px;top: 70px;cursor: pointer;"></a>
-        <a href="<?php echo U('Index/index/register','','');?>"><img src="__IMG__/register.png" style="position: absolute;left: 920px;top: 70px;" id="reanniu"></a>
+        <img src="../Public/images/register.png" class="register">
+    </div>
+    <div ><a href="javascript:;" class=" btn-large theme-login"><img src="../Public/images/login.png"class="login"></a>
     </div>
 
     <div class="mainbox"></div>
@@ -91,7 +67,7 @@
     <div class="container">
 
        
-        <img src="../Public/images/travelBook/headtitle_felling.png" style="margin-top: 10px"><br>
+        <img src="../Public/images/travelBook/headtitle_felling.png"><br><br/>
         <img src="../Public/images/travelBook/title.png"><br/>
         <div id="mainboxrealFelling">
             <div class="contentsFromUser">
@@ -118,7 +94,7 @@
             </div>
             <div class="detialContents">
                 <div class="realDetials">
-                    <?php echo ($note["note"]); ?> 
+                    <?php echo (htmlspecialchars_decode($note["note"])); ?>
                     <!-- 内容 -->
                 <br>
                 </div>
@@ -128,7 +104,7 @@
             <textarea id='text'></textarea>
             <!-- 添加文本编辑器 -->
             <script type="text/javascript">
-                window.UEDITOR_HOME_URL = '/steptu/Web/Tpl/ueditor/';
+                window.UEDITOR_HOME_URL = '__UEDITOR__';
                 window.UEDITOR_CONFIG.toolbars = [['undo', 'redo','|',
                                                    'bold', 'italic',
                                                     'emotion',
@@ -140,8 +116,10 @@
             <button class="btn btn-primary" style="margin-left: 50px" id='sub'>  提 交  </button><br/><br/>
             <span><b>网友评论</b></span><br/>
             <?php if(is_array($list)): foreach($list as $key=>$v): ?><div class="comments">
-                    <img src="../Public/images/travelBook/headimg.png" class="imgeye">
-                    <span style="color: #0055FF"><b><?php echo ($v["name"]); ?></b> </span><br>
+                <?php if($v["image"] == ''): ?><img id="imgHead" src="../Public/images/vipCenter/head.png" class="imgeye">
+                <?php else: ?>
+                        <img id="imgHead" src="<?php echo ($v["image"]); ?>" class="imgeye"><?php endif; ?>
+                    <span style="color: #0055FF"><b><?php echo ($v["name"]); ?></b> </span><br><br/>
                     <span id="dataBox_2"><?php echo ($v["time"]); ?></span><br/><br/>
                     <div class="commentContent">
                         <p>
@@ -156,34 +134,11 @@
     </div>
   <div>
         <div class="bottom_1"></div>
-        <div class="bottomsm_1"><span class="bottombiao">旅游超市</span><div class="bottomxuanxiang">
-            <a href="<?php echo U('Index/travelStore/smsousuojieguo');?>">住</a><br>
-            <a href="<?php echo U('Index/travelStore/travelStore');?>">吃货</a>
-        </div></div>
-        <div class="bottompersonal_1"><span class="bottombiao">会员中心</span><div class="bottomxuanxiang1">
-            <a href="<?php echo U('Index/vipCenter/myOrders');?>"> 我的订单</a><br>
-            <a href="<?php echo U('Index/vipCenter/myGrades');?>">我的积分</a> <br>
-            <a href="<?php echo U('Index/vipCenter/myEvaluations');?>"> 我的评价</a><br>
-            <a href="<?php echo U('Index/vipCenter/myInformation');?>">我的信息</a> <br>
-            <a href="<?php echo U('Index/vipCenter/myMoneyPot');?>">我的储钱罐旅行计划</a><br>
-        </div> </div>
-        <div class="bottombook_1"><span class="bottombiao">旅游志</span><div class="bottomxuanxiang">
-            <a href="<?php echo U('Index/travelBook/travelBook');?>">旅游随感</a> <br>
-            <a href="<?php echo U('Index/travelBook/letterList');?>"> 写给未来的信</a>
-        </div></div>
-        <div class="weishenme_1"><span class="bottombiao">主题旅游</span><div class="bottomxuanxiang">
-            <a href="<?php echo U('Index/travelTheme/travelTheme');?>">城市之间</a><br>
-            <a href="<?php echo U('Index/travelTheme/travelTheme');?>"> 学子游</a><br>
-            <a href="<?php echo U('Index/travelTheme/travelTheme');?>">年休假</a><br>
-            <a href="<?php echo U('Index/travelTheme/travelTheme');?>">美食游</a>
-        </div></div>
-        <div class="bottomaboutus_1"><span class="bottombiao">关于游记</span><div class="bottomxuanxiang">
-            <a href="<?php echo U('Index/index/aboutUs');?>">关于我们</a><br>
-            <a href="<?php echo U('Index/index/aboutUs');?>">联系我们</a><br>
-            <a href="<?php echo U('Index/index/aboutUs');?>">一起合作</a><br>
-            <a href="<?php echo U('Index/index/aboutUs');?>">用户协议</a><br>
-            <a href="<?php echo U('Index/index/aboutUs');?>">诚聘英才</a>
-        </div></div>
+        <div class="bottomsm_1"><span class="bottombiao">旅游超市</span><div class="bottomxuanxiang">住<br>吃货</div></div>
+        <div class="bottompersonal_1"><span class="bottombiao">会员中心</span><div class="bottomxuanxiang1">我的订单<br>我的奖励<br>我的积分<br>我的评价<br>我的信息<br>我的储钱罐旅行计划</span><br>找朋友</div> </div>
+        <div class="bottombook_1"><span class="bottombiao">旅游志</span><div class="bottomxuanxiang">旅游随感<br>写给未来的信</div></div>
+        <div class="weishenme_1"><span class="bottombiao">主题旅游</span><div class="bottomxuanxiang">城市之间<br>学子游<br>年休假<br>美食游</div></div>
+        <div class="bottomaboutus_1"><span class="bottombiao">关于游记</span><div class="bottomxuanxiang">关于我们<br>联系我们<br>一起合作<br>用户协议<br>诚聘英才</div></div>
     </div>
     <img src="../Public/images/steptu.png" class="steptu_1">
     <img src="../Public/images/banquan.png" class="banquan_1">
@@ -191,76 +146,27 @@
     <img src="../Public/images/kexin.png" class="kexin_1">
     <img src="../Public/images/chengxin.png" class="chengxin_1">
     <div class="twoBtn">
-        <a style="top: 240px;left: 37%" href="<?php echo U('Index/travelBook/travelBook');?>"> 旅 游 随 感 </a>
-        <a style="top: 240px;left: 54%" href="<?php echo U('Index/travelBook/letterList');?>">写 给 未 来 的 信</a>
+        <a style="top: 242px;left: 37%" href="<?php echo U('Index/travelBook/travelBook');?>"> 旅 游 随 感 </a>
+        <a style="top: 242px;left: 54%" href="<?php echo U('Index/travelBook/letterList');?>">写 给 未 来 的 信</a>
     </div>
-    <div style="position: absolute;left: 822px;top: 0px;font-size:14px;color:white"id="dengluchenggong"></div>
-    <div id="tuichudenglu" style="position: absolute;left: 960px;top: 5px;font-size:14px;color:white;display:none;cursor: pointer;">退出登录</div>
-
 </div>
-<script src="__JS__/index.js" type="text/javascript"></script>
 
-<div  id="asdfq">
-    <div class="theme-popover" id="theme-popover">
-        <div class="theme-poptit">
-            <a href="javascript:;" title="关闭" class="close" id="close">×</a>
-            <h3>旅行是一种生活</h3>
-        </div>
-        <div class="theme-popbod dform">
-            <form class="theme-signin" name="loginform" action="<?php echo U('Index/loginVerify/loginVerify');?>" method="post">
-                <ol>
-                    <li ><h4>请登录</h4></li>
-                    <li><strong>用户名：</strong><input class="ipt" id="name" type="text" name="log" value="" size="20" /></li>
-                    <li><strong>密码：</strong><input class="ipt" id="psw" type="password" name="pwd" value="" size="20" /></li>
-                    <li><input class="btn btn-primary" name="submit" value=" 登 录 " id="dlanniu" /></li>
-                </ol>
-            </form>
-        </div>
+<div class="theme-popover">
+    <div class="theme-poptit">
+        <a href="javascript:;" title="关闭" class="close">×</a>
+        <h3>旅行是一种生活</h3>
     </div>
-    <div class="theme-popover-mask" id="theme-popover-mask"></div>
+    <div class="theme-popbod dform">
+        <form class="theme-signin" name="loginform" action="" method="post">
+            <ol>
+                <li><h4>请登录</h4></li>
+                <li><strong>用户名：</strong><input class="ipt" type="text" name="log" value="jq22" size="20" /></li>
+                <li><strong>密码：</strong><input class="ipt" type="password" name="pwd" value="***" size="20" /></li>
+                <li><input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " /></li>
+            </ol>
+        </form>
+    </div>
 </div>
+<div class="theme-popover-mask"></div>
 </body>
-<script type="text/javascript">
-
-    $("#dlanniu").click(function(){
-                // console.log($data['code']);
-                // alert("用户名/密码 错误！");
-                var url = '<?php echo U('Index/loginVerify/loginVerify');?>';
-                $.post(url,{log:$("#name").val(),pwd:$("#psw").val()},function(data){
-                            console.log($.cookie('username'));
-                            // alert(data['address'][2]);
-
-                            // console.log(shishi);
-                            if (data.code==1) {
-                                alert("登陆成功");
-                                var shishi=$.cookie('username');
-                                document.getElementById("close").click();
-                                loganniu.style.display="none";
-                                reanniu.style.display="none";
-                                document.getElementById("dengluchenggong").innerHTML=shishi+"&nbsp"+"&nbsp"+"<img src='../Public/images/dengluchenggong.png' >";
-                                tuichudenglu.style.display="block";
-                                // theme-popover.style.display=none;
-                                //  theme-popover-mask.style.display="none";
-                            }
-                            else
-                            {
-                                alert("用户名/密码 错误！")
-                            };
-                        }
-                )
-            }
-    )
-    $("#tuichudenglu").click(function(){
-        var url = '<?php echo U('Index/loginVerify/tuichudenglu');?>';
-        $.post(url,function(){
-            document.getElementById("dengluchenggong").innerHTML="";
-            loganniu.style.display="block";
-            reanniu.style.display="block";
-            tuichudenglu.style.display="none";
-        })
-
-
-
-    });
-</script>
 </html>

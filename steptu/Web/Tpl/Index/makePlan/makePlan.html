@@ -108,17 +108,17 @@ position:relative;top:15px;left:20px;">发起活动</span></div>
       <div style="position:relative;left:10px;top:20px;font-size:14px;">活动时间</div>
         <div style="position:relative;top:25px;left:10px;"><input name="mphuodongshijian" id="mphuodongshijian" type="text" value=""style="width:150px;" class="easyui-datebox" required="required"data-options="formatter:myformatter,parser:myparser" /> </div>
         <div style="position:relative;left:10px;top:35px;font-size:14px;">活动始发地</div>
-         <input name="mpshifadi" id="mpshifadi" type="text" value="" style="position:relative;left:10px;top:40px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
+         <input name="mpshifadi" id="mpshifadi" type="text" value="必填" style="position:relative;left:10px;top:40px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
          <div style="position:relative;left:10px;top:50px;font-size:14px;">活动目的地</div>
-         <input name="mpmudidi" id="mpmudidi" type="text" value="" style="position:relative;left:10px;top:55px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
+         <input name="mpmudidi" id="mpmudidi" type="text" value="必填" style="position:relative;left:10px;top:55px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
          <div style="position:relative;left:10px;top:65px;font-size:14px;">活动内容</div>
          <textarea name="mpcontent" cols="16" rows="4" maxlength="34"style="position:relative;left:10px;top:70px;font-size:15px;border: 1px solid #83a9e1;" >最多34字</textarea>
           <div style="position:relative;left:10px;top:80px;font-size:14px;">最大参与人数</div>
-            <input name="mpcanyurenshu" id="mpcanyurenshu" type="text" value="" style="position:relative;left:10px;top:85px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
+            <input name="mpcanyurenshu" id="mpcanyurenshu" type="text" value="必填" style="position:relative;left:10px;top:85px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
             <div style="position:relative;left:10px;top:95px;font-size:14px;">发起人</div>
-            <input name="mpfaqiren" id="mpfaqiren" type="text" value="" style="position:relative;left:10px;top:100px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
+            <input name="mpfaqiren" id="mpfaqiren" type="text" value="必填" style="position:relative;left:10px;top:100px;font-size:14px;border:1px solid #83a9e1;border-radius:4px;"/>
              <div style="position:relative;left:10px;top:110px;font-size:14px;">活动备注</div>
-              <textarea name="mpbeizhu" cols="16" rows="4" style="position:relative;left:10px;top:115px;font-size:15px;border: 1px solid #83a9e1;" ></textarea>
+              <textarea name="mpbeizhu" cols="16" rows="4" style="position:relative;left:10px;top:115px;font-size:15px;border: 1px solid #83a9e1;" >最多34字</textarea>
               <div style="position:absolute;top:615px;left:10px;color:#0032d3"><input name="checkbox" type="checkbox" checked="checked" value="checkbox" style="position:relative;top:-3px;" required="required">
      已阅读并同意相关法律条约
     </div>
@@ -131,12 +131,14 @@ position:relative;top:15px;left:20px;">发起活动</span></div>
 <div class="zhongyang">
 <img src="../Public/images/makeplan/mptiao.png" class="mptiao">
 <div class="sousuotiao">
-<div style="font-size:18px; color:white;position:relative; top:5px; left:5px; float:left;"> 活动搜索</div>
+<!-- <div style="font-size:16px; color:white;position:relative; top:5px; left:5px; float:left;"> 活动搜索</div> -->
 <form action="{:U('Index/makePlan/makePlan')}" name="huodongsousuo" method="post">
-     <div style="position:absolute;top:48px;left:85px;font-size:14px; color:white;" > 始发地</div>
-     <input name="shifadi" id="shifadi" type="text" value="" style="position:absolute;top:48px;left:135px;width:100px;font-size:14px;border-radius:4px;"/>
-     <div style="position:absolute;top:48px;left:245px;font-size:14px; color:white;" > 目的地</div>
-     <input name="mudidi" id="mudidi" type="text" value="" style="position:absolute;top:48px;left:295px;width:100px;font-size:14px;border-radius:4px;"/>
+     <div style="position:absolute;top:48px;left:5px;font-size:14px; color:white;" > 始发地</div>
+     <input name="shifadi" id="shifadi" type="text" value="" style="position:absolute;top:46px;left:55px;width:70px;font-size:14px;border-radius:4px;"/>
+     <div style="position:absolute;top:48px;left:130px;font-size:14px; color:white;" > 目的地</div>
+     <input name="mudidi" id="mudidi" type="text" value="" style="position:absolute;top:46px;left:180px;width:70px;font-size:14px;border-radius:4px;"/>
+      <div style="position:absolute;top:48px;left:260px;font-size:14px; color:white;" > 活动类别</div>
+         <input name="huodongleibie2" id="mudidi" type="text" value="" style="position:absolute;top:46px;left:325px;width:70px;font-size:14px;border-radius:4px;"/>
     <div style="position:absolute;top:48px;left:405px;font-size:14px; color:white;" > 活动时间</div>
     <div style="position:absolute;top:48px;left:465px;"><input id="huodongshijian" type="text" style="width:100px;" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"></div>
       <div style="position:absolute;top:48px;left:575px;font-size:14px; color:white;" > 发布时间</div>

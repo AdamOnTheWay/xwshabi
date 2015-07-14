@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Public/css/index.css" media="all" type="text/css">
-    <title>我的信息</title>
+    <title>我的订单</title>
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
     <script type="text/javascript" src='../Public/js/jquery.form.js'></script>
@@ -16,26 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/demo/demo.css">
     <link rel="stylesheet" href="../Public/css/css.css" media="all">
     <link href="../Public/css/vipCenter.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('#submit').click(function(){
-                var password,confpassword;
-                password = document.getElementById("password").value;
-                confpassword = document.getElementById("confpassword_1").value;
-                
-                if (password != '' || confpassword != '') {
-                    if ($("#pwd").val() == '') {
-                        alert("输入原密码");   
-                        return false;                     
-                    }else{
-                        if(password != confpassword){
-                            alert("重新设的新密码不一致，请确认");   
-                            return false;  
-                        }                  
-                    }
-                }   
-            });
-        });
+    <script>
         jQuery(document).ready(function($) {
             $('.theme-login').click(function(){
                 $('.theme-popover-mask').fadeIn(100);
@@ -59,9 +40,9 @@
         <a href="<?php echo U('Index/travelBook/travelBook');?>"><img src="__IMG__/travelbook.png" class="travelbook"></a>
         <img src="__IMG__/xuanchuan.png" class="xuanchuan">
         <img src="__IMG__/phone.png" class="phone">
-        <!--<a href="<?php echo U('Index/index/register');?>"><img src="__IMG__/register.png" class="register"></a>-->
+       
     </div>
-    
+   
     <div id="afterLogin" style="display: none">
         <img src="../Public/images/afterLogin.png" class="login">
         <button class="register" id="exitLogin">退出登录</button>
@@ -79,114 +60,34 @@
         </div>
         <div class="border">
             <div class="empty"></div>
-            <div id="myInformation">
-                <form class="temp" id='form' method="post" action="<?php echo U('Index/vipCenter/handUserInfo','','');?>">
-                    <input type="hidden" name='id' value="<?php echo ($user["id"]); ?>">
-                    <div class="basicInformation">
-                        <div class="chooseContent">
-                            <span>性别<label class="label">*</label></span>
-                            <div class="chooses">
-
-                                <?php if($user["sex"] == '男'): ?><label><input type="radio" name="sex" value="男" id='man' checked="checked">男</label>
-                                    <label><input type="radio" name="sex" value="女" id='woman'>女</label>
-                                <?php else: ?>
-                                    <label><input type="radio" name="sex" value="男" id='man'>男</label>
-                                    <label><input type="radio" name="sex" value="女" id='woman' checked="checked">女</label><?php endif; ?>
-                            </div>
-                        </div>
-                        <div class="chooseContent">
-                            <span>生日<label class="label">*</label></span>
-                            <div class="chooses">
-                                <input class="easyui-datebox" name="birthday" value="<?php echo ($user["birthday"]); ?>">
-                            </div>
-                        </div>
-                        <div class="chooseContent">
-                            <span>现居住地<label class="label">*</label></span>
-                            <div class="chooses">
-                                <label>
-                                    <!--省：-->
-                                    <select class="easyui-combobox" name="address">
-                                        <option><?php echo ($user["address"]); ?></option>
-                                        <option>四川</option>
-                                        <option>浙江</option>
-                                        <option>江苏</option>
-                                        <option>新疆</option>
-                                        <option>广州</option>
-                                        <option>重庆</option>
-                                    </select></label>
-                                <label>
-                                    <!--市：-->
-                                    <select class="easyui-combobox" name="city" required>
-                                        <option>成都</option>
-                                    </select></label>
-                                <!--区：-->
-                                <select class="easyui-combobox" required>
-                                    <option>成华</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="chooseContent">
-                            <span>自我介绍</span>
-                            <div class="chooses">
-                                <label><textarea name="comment" rows="3" cols="70" maxlength="140" onchange="this.value=this.value.substring(0, 140)" onkeydown="this.value=this.value.substring(0, 140)" onkeyup="this.value=this.value.substring(0, 140)" ><?php echo ($user["comment"]); ?></textarea></label>
-                                <label style="vertical-align: bottom">限140字</label>
-                            </div>
-                        </div>
-                        <div class="chooseContent">
-                         
-                        </div>
-                    </div>
-                    <div class="contactInformation" method="post" action="#">
-                        <div class="chooseContent">
-                            <span>QQ号</span>
-                            <div class="chooses">
-                                <input class="easyui-textbox" type="text" name="qq" value="<?php echo ($user["qq"]); ?>">
-                            </div>
-                        </div>
-                        <div class="chooseContent">
-                            <span>手机号</span>
-                            <div class="chooses">
-                                <input class="easyui-textbox" type="tel" value="<?php echo ($user["phone"]); ?>" name='phone' readonly>不可编辑
-                            </div>
-                        </div>
-                    </div>
-                    <div class="passwordArea">
-                        <div class="chooseContent">
-                            <span>原密码</span>
-                            <div class="chooses">
-                                <label><input id='pwd' class="easyui-textbox" name='pwd' type="password" ><label style="padding-left: 10px" >修改或添加信息必需填写</label></label>
-                            </div>
-                        </div>
-                        <div class="chooseContent">
-                            <span>新密码</span>
-                            <div class="chooses">
-                                <label><input class="easyui-textbox" type="password" id="password" name='password' ></label>
-                            </div>
-                        </div>
-                        <div class="chooseContent">
-                            <span>确认密码</span>
-                            <div class="chooses">
-                                <label><input class="easyui-textbox" type="password" id="confpassword_1" ></label>
-                            </div>
-                        </div>
-                        <div class="chooseContent">
-                            <span>电子邮箱</span>
-                            <div class="chooses">
-                                <label><input class="easyui-textbox" type="email" name="email" value="<?php echo ($user["email"]); ?>" readonly> 不可编辑<!-- <label style="padding-left: 10px"><input type="checkbox" name="isOpenEmail" value="open">公开电子邮箱</label> --></label>
-                            </div>
-                        </div>
-                    </div>
-                    <input type="submit" id="submit" style="width: 80px;height: 30px;border: none;margin-left: 45px">
-                </form>
-             
-                </script>
+            <div id="myOrders">    <!-- 我的订单-->
+                <div class="realOrders">
+                    <table>
+                        <tr style="background-color: #9ccde7;height: 30px;text-align: left;font-size: 12px">
+                            <th width="175px">时间</th>
+                            <th width="175px">订单号</th>
+                            <th width="200px">内容</th>
+                            <th width="100px">查看订单</th>
+                            <th width="50px">评价</th>
+                        </tr>
+                        <?php if(is_array($list)): foreach($list as $key=>$v): ?><tr>  <!--这里也是每增加一条，就增加一个tr -->
+                            <td><?php echo ($v["time"]); ?></td>
+                            <td><?php echo ($v["id"]); ?></td>
+                            <td><?php echo ($v["content"]); ?></td>
+                            <td><a href=""> 查看</a></td>
+                            <td><a href='<?php echo U("Index/vipCenter/myEvaluations","","");?>/travelId/<?php echo ($v["scencyOrHotelId"]); ?>'> 评价 </a></td>
+                        </tr><?php endforeach; endif; ?>                        
+                    </table>
+                    <?php echo ($show); ?>
+                </div>
             </div>
         </div>
     </div>
-    <div class="navbar">
-        <div class="userHead">
+   
+        <div class="navbar">
+            <div class="userHead">
             <div class="imageBox">
-            <?php if($user["image"] == ''): ?><img id="imgHead" src="../Public/images/vipCenter/head.png">
+               <?php if($user["image"] == ''): ?><img id="imgHead" src="../Public/images/vipCenter/head.png">
                 <?php else: ?>
                 <img id="imgHead" src="<?php echo ($user["image"]); ?>"><?php endif; ?>    
                 <a onclick="fileSelect()">上传头像</a>  <!-- -->
@@ -218,7 +119,7 @@
             }
             </script>
         </div>
-        <div class="realNavbar">
+            <div class="realNavbar">
             <div class="realNavbarContent">
                 <img src="../Public/images/vipCenter/point.png"><a href="<?php echo U('Index/vipCenter/myOrders','','');?>">我的订单</a>
             </div>
@@ -238,10 +139,10 @@
                 <img src="../Public/images/vipCenter/point.png"><a href="<?php echo U('Index/vipCenter/myTravealBook','','');?>">写给未来的信</a>
             </div>
             <div class="realNavbarContent">
-                <img src="../Public/images/vipCenter/point.png"><a href="<?php echo U('Index/vipCenter/myFelling','','');?>">旅游随感</a>
+                    <img src="../Public/images/vipCenter/point.png"><a href="<?php echo U('Index/vipCenter/myFelling','','');?>">旅游随感</a>
             </div>
         </div>
-    </div>
+        </div>
     <div>
         <div class="bottom"></div>
         <div class="bottomsm">
