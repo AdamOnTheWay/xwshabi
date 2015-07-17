@@ -11,7 +11,7 @@ class registerAction extends Action{
     }
 
     public function register(){
-        $this->display();
+        $this->display('index/register');
     }
 
     public function registerCheck(){
@@ -130,6 +130,7 @@ class registerAction extends Action{
                 $condition['name'] = I('name');
                 $status = M('usertable')->where($condition)->find();
 
+                $this->phone = I('phone');// 电话号码传到模板
 
                 cookie('uid',$status['id'],3600); 
                 cookie('name',$status['id'],3600); 
@@ -156,6 +157,13 @@ class registerAction extends Action{
    public function registerSuccess(){
         if(1){ //验证吗正确
             $con['id'] = cookie('uid');
+
+            cookie('userid',cookie('uid'),3600);
+            cookie('username',cookie('uname'),3600);
+
+            cookie('uid',null);
+            cookie('uname',null);
+
             $data['statuse'] = 1;
             M('usertable')->where($con)->save($data);
             $this->display();

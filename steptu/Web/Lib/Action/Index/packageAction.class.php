@@ -45,16 +45,52 @@ class packageAction extends Action
 	{
 
 		$data = I("post.");
+		// var_dump($data);
+
+		
+
+		$id = M('order');
 		$this->assign("data",$data);
-		var_dump($data);
+		
 		$this->display();
 	}
+
+	public function checkMonney(){
+		if(cookie('userid') == ''){
+			$this->show("<script>alert('请登录');</script>","utf-8");
+			die();
+		}
+
+		if(1){  // 付款成功
+		$data = I("post.");
+		$save['time'] = date("Y-m-d");
+		$save['content'] = $data['title'];
+		$save['scencyOrHotelId'] = $data['id'];
+		$save['class'] = 1;
+		$save['userId'] = cookie('userid');
+		$save['status'] = '评价';
+		$save['price'] = $data['money'];
+		$save['checkOrder'] = 0;
+		$save['name'] = $data['name'];
+		$save['phone'] = $data['phone'];
+		M('order')->add($save);
+
+		$this->display("order_4");
+		}else{// 付款失败
+			$this->show('付款失败');
+		}
+	}
+
 	public function order_3()
-	{
+	{	
+		$data = I("post.");
+		// var_dump($data);
+		$this->assign("data",$data);
 		$this->display();
 	}
 	public function order_4()
 	{
 		$this->display();
 	}
+
 }
