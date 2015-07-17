@@ -120,30 +120,30 @@ a:hover{
        <div id="List1">
         <!-- 图片列表 begin -->
          <div class="pic">
-          <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
+          <a href="<?php echo U('Index/package/package');?>?id=<?php echo ($store[0]["id"]); ?>" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($store[0]["id"]); ?>);" style="cursor:pointer;"/></a>
           <a href="<?php echo U('Index/package/package');?>?id=<?php echo ($store[0]["id"]); ?>" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($store[0]["name"]); ?></div><div style="font-size:13px;font-family: SimHei;color:#ff8004;"><?php echo ($store[0]["description"]); ?></div><div style="font-size:18px;font-family: SimHei;color:red;float:left;">￥<?php echo ($store[0]["price"]); ?></div></a>
 
          </div>
  <div class="pic">
-          <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
+          <a href="<?php echo U('Index/package/package');?>?id=<?php echo ($store[1]["id"]); ?>" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($store[1]["id"]); ?>);" style="cursor:pointer;"/></a>
           <a href="<?php echo U('Index/package/package');?>?id=<?php echo ($store[1]["id"]); ?>" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($store[1]["name"]); ?></div><div style="font-size:13px;font-family: SimHei;color:#ff8004;"><?php echo ($store[1]["description"]); ?></div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥<?php echo ($store[1]["price"]); ?></div></a>
 
          </div>
          <div class="pic">
-          <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
+          <a href="<?php echo U('Index/package/package');?>?id=<?php echo ($store[2]["id"]); ?>" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($store[2]["id"]); ?>);" style="cursor:pointer;"/></a>
           <a href="<?php echo U('Index/package/package');?>?id=<?php echo ($store[2]["id"]); ?>" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($store[2]["name"]); ?></div><div style="font-size:13px;font-family: SimHei;color:#ff8004;"><?php echo ($store[2]["description"]); ?></div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥<?php echo ($store[2]["price"]); ?></div></a>
 
          </div>
          <div class="pic">
-          <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
+          <a href="<?php echo U('Index/package/package');?>?id=<?php echo ($store[3]["id"]); ?>" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($store[3]["id"]); ?>);" style="cursor:pointer;"/></a>
           <a href="<?php echo U('Index/package/package');?>?id=<?php echo ($store[3]["id"]); ?>" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($store[3]["name"]); ?></div><div style="font-size:13px;font-family: SimHei;color:#ff8004;"><?php echo ($store[3]["description"]); ?></div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥<?php echo ($store[3]["price"]); ?></div></a>
 
          </div>
-         <div class="pic">
+         <!-- <div class="pic">
           <a href="<#ZC_BLOG_HOST#>?cat=1" target="_blank"><img src="../Public/images/travelstore/youhui.png" width="157" height="95" alt="一号图片"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/></a>
           <a href="<?php echo U('Index/package/package');?>" target="_blank"><div style="font-size:15px;font-family: SimHei;color:#046bb3;">桂林4</div><div style="font-size:13px;font-family: SimHei;color:#ff8004;">海南南山+植物园+植物园+呀诺达五日舒适团队</div><div style="font-size:18px;font-family: SimHei;color:red;;float:left;">￥230</div></a>
 
-         </div>
+         </div> -->
         <!-- 图片列表 end -->
        </div>
        <div id="List2"></div>

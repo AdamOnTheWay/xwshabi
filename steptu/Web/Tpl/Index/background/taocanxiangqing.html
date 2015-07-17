@@ -27,6 +27,7 @@
 	<br>
 	<br> 套餐价格日历修改：
 	<br>
+
 	<br> 日历价格搜索：
 	<br>
 	<br>
@@ -80,6 +81,7 @@
 	<br>
 	<br>
 	<br>
+	请选择好是否属于优惠套餐以及套餐主题<br>
 	<br>
 	<form action="{:U('Index/background/tcxq','','')}" name="taocanxiangqingxiugai" method="post">
 		套餐id&nbsp&nbsp <input name="taocanid" type="text" value="{$tr.id}" readonly="true">
@@ -95,6 +97,15 @@
 		<select name="shifouyouhui">
 			<option value="1">是</option>
 			<option value="0">否</option>
+		</select>
+		<br>套餐主题:
+		<select name="套餐主题">
+			<option value="wu">无</option>
+			<option value="chengshizhijian">城市之间</option>
+			<option value="nianxiujia">年休假</option>
+			<option value="xueziyou">学子游</option>
+			<option value="meishijie">美食街</option>
+
 		</select>
 		<br>
 		<br> 优惠价&nbsp&nbsp
