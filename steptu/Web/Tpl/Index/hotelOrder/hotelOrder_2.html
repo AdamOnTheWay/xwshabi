@@ -47,7 +47,8 @@
             <img src="../Public/images/package/third.png" class="third">
             <img src="../Public/images/package/fourth.png" class="fourth">
             <form class="orderContainer" method="post" action="{:U('Index/hotelOrder/hotelOrder_3','','')}">
-            <input type="hidden" name='title' value="{$save.title}:{$save.start}至{$save.end}:预定件间数:{$save.number}">
+            <input type="hidden" name='title' value="入住酒店:{$save.title}  入住时间:{$save.start}  入住天数:{$save.roomdate}    预定件间数:{$save.number}">
+            <input type="hidden" name='start' value="{$save.start}">
             <input type="hidden" name='name' value="{$save.name}">
             <input type="hidden" name='phone' value="{$save.phone}">
             <input type="hidden" name='money' value="{$save.money}">
@@ -60,7 +61,11 @@
                         </tr>
                         <tr>
                             <td>入离时间：</td>
-                            <td><span>{$save.start}</span> 至 <span>{$save.end}</span></td>
+                            <td><span>{$save.start}</span></td>
+                        </tr>
+                        <tr>
+                            <td>入住天数：</td>
+                            <td><span>{$save.roomdate}</span></td>
                         </tr>
                         <tr>
                             <td>预定间数：</td>

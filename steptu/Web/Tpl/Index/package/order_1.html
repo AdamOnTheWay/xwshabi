@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
+
+    <script src="../Public/js/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+    <script src="../Public/js/jquery-easyui-1.4.2/locale/easyui-lang-zh_CN.js"></script>
     <link rel="stylesheet" href="../Public/css/index.css" media="all" type="text/css">
     <title>套餐预定</title>
     
@@ -13,21 +16,33 @@
     <link href="../Public/css/packageOrder.css" rel="stylesheet" type="text/css">
     <script type="text/javascript">
     $(function(){
+         checkmoney();
+
         $("#submit").click(function(){
-           if($("#adult").val() == '0'&& $("#child").val() == '0'){
+           if($("#adult").val() == '0' &&  $("#child").val() == '0'  ){
                 alert("请填写旅游人数");
+                return false;
+           }else if(checkPhone()  == 1|| $("#name").val() == ''){
+                alert("填写正确的信息");
+                return false;
+           }else if($("#start").datebox('getValue') == ''){
+                alet("填写日期");
                 return false;
            }
         });
-        $("#phone").blur(function(){ //填写电话号码
-            var reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+
+        function checkPhone(){
+             var reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
             var phone = $("#phone").val();
             if(reg.test(phone)){
-               
+               return 0;
             }else{
                 alert("电话号码错误");
+                return 1;
             }
-            
+        }
+        $("#phone").blur(function(){ //填写电话号码
+                checkPhone();            
         });
         $("#adult,#child").change(function(){
             
@@ -38,13 +53,16 @@
                 $("#child").val(0);
             }
 
-
-            $.post("{:U('Index/package/countMoney','','')}",{adult:$("#adult").val(),child:$("#child").val(),id:1},function(data){
+                checkmoney();
+            
+        });
+    })
+    function checkmoney(){
+        $.post("{:U('Index/package/countMoney','','')}",{adult:$("#adult").val(),child:$("#child").val(),id:1},function(data){
                 $('.money').html("￥" + data);
                 $("#total").val(data);
             })
-        });
-    })
+    }
     </script>
 </head>
 <body>
@@ -87,9 +105,11 @@
                             <td>人数：</td>
                             <td class="enter"><label>成人<input type="number" value="0" required id="adult" name="adult">儿童<input name="child" type="number" required value="0" id="child"></label></td>
                         </tr>
+                        <td>开始时间：</td>
+                            <td><label><input class="easyui-datebox yuyu" id="start" name="start" style="width: 100px"></label></td>
                         <tr>
                             <td>联系人：</td>
-                            <td><label><input name="name" type="text" required style="width: 200px" id="name"></label></td>
+                            <td><label><input id='name' name="name" type="text" required style="width: 200px" id="name"></label></td>
                         </tr>
                         <tr>
                             <td>手机：</td>

@@ -14,18 +14,23 @@
     <link href="../Public/css/hotelOrder.css" rel="stylesheet" type="text/css">
     <script type="text/javascript">
         $(function(){
-
+            checkMoney()
             $("#submit").click(function(){
                if( $("#name").val() == '' || 
                     $('#phone') == '' ||
                     $("#start").datebox('getValue') == ''|| 
-                    $("#end").datebox('getValue') == ''||
                     $("total").val() == ''
                     ){
                     alert("请填写完信息");
                     return false;
+               }else if($('#roomdate').val() == 0){
+                    alert('请选择天数');
+                    return false;
                }
             });
+
+            
+
             $("#phone").blur(function(){ //填写电话号码
                 var reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
                 var phone = $("#phone").val();
@@ -38,29 +43,32 @@
                 }
                 
             });
-
-            $("input[name='start']").change(function(){
-                alert("sdfasd");
-            });
          
             $("#number").change(function(){
                  count();
             });
-    })
+
+            $("#roomdate").change(function(){
+                count();
+            });
+    });
     function count(){
 
-        if($("#start").datebox('getValue') == "" && $("#end").datebox('getValue') == ""){
+        if($("#start").datebox('getValue') == "" ){
             alert("选择日期");
-        }else{
-            $.post("{:U('Index/hotelOrder/countMoney','','')}",{number:$("#number").val(),id:1,start:$("#start").datebox('getValue'),end:$("#end").datebox('getValue')},function(data){
+        }
+        checkMoney();
+    }
+
+    function checkMoney(){
+        $.post("{:U('Index/hotelOrder/countMoney','','')}",{number:$("#number").val(),id:1,roomdate:$("#roomdate").val()},function(data){
                 
                         $('.money').html("￥" + data);          
                         $("#total").val(data);
                                  
                 })
-        }
-        
     }
+
     </script>
 </head>
 <body>
@@ -92,7 +100,7 @@
             <form class="orderContainer" name="form" method="post" action="{:U('Index/hotelOrder/hotelOrder_2','','')}">
                 <div class="realHotelOrder">
                     <span>预定信息</span>
-                    <input type="hidden" value="0" name="money">
+                    <input type="hidden" value="0" name="money" id='total'>
                     <input type="hidden" value="{$data['hotelName']}" name="title">
                     <input type="hidden" value="{$data['id']}" name="id">
                      <table>
@@ -102,7 +110,21 @@
                         </tr>
                         <tr>
                             <td>入离时间：</td>
-                            <td><label><input class="easyui-datebox yuyu" id="start" name="start" style="width: 100px"> 至 <input class="easyui-datebox" style="width: 100px" id="end" name="end"></label></td>
+                            <td><label><input class="easyui-datebox yuyu" id="start" name="start" style="width: 100px"></label></td>
+                        </tr>
+                        <tr>
+                            <td>入住天数 :  </td>
+                            <td>
+                            <select style="width: 100px" name='roomdate' id="roomdate">
+                            <?php 
+                                
+                                    for ($i=1; $i < 10 ; $i++) { 
+                                        # code...
+                                        echo "<option>".$i."</option>";
+                                    }
+                             ?>
+                             </select>
+                             </td>
                         </tr>
                         <tr>
                             <td>预定间数：</td>

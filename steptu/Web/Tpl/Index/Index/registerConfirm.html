@@ -60,9 +60,9 @@
         <div class="mainbox">
             <img src="../Public/images/register/word_2.png">
             <div class="confirmBox">
-               校验码已发送至<span>13608084679</span><br/>
+               校验码已发送至<span>{$phone}</span><br/>
                 请尽快完成验证<br/>
-                <form class="upForm">
+                <form class="upForm" action="{:U('Index/register/registerSuccess','','')}">
                     <label>校验码：<input required></label><br/>
                     <button type="submit">提交</button>
                 </form>
