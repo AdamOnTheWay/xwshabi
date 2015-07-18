@@ -7,6 +7,13 @@
 		}
 
 	}
+	public function chidelete(){
+		$id = I('data');
+	if(	M('food')->where(array('id'=>I('data')))->delete()){
+		$this->ajaxreturn('ok');
+	}
+
+}
 
 	public function citydelete(){
 		$id = I('data');
@@ -29,13 +36,13 @@
 			$data['xian'] =I('s_county');
 		}
 		if(I('jingdian')!=''){
-			$data['jingdian'] =I('jingdian');
+			$data['jingdian'] =array('LIKE',"%". I('jingdian')."%");
 		}
 		if(I('jichanghuochezhan')!=''){
-			$data['station'] =I('jichanghuochezhan');
+			$data['station'] =array('LIKE',"%". I('jichanghuochezhan')."%");
 		}
 		if(I('shangyequ')!=''){
-			$data['business'] =I('shangyequ');
+			$data['business'] =array('LIKE',"%". I('shangyequ')."%");
 		}
 
 		if(M('city')->add($data)){
@@ -55,13 +62,13 @@
 			$data['xian'] =I('s_county');
 		}
 		if(I('jingdian')!=''){
-			$data['jingdian'] =I('jingdian');
+			$data['jingdian'] =array('LIKE',"%". I('jingdian')."%");
 		}
 		if(I('jichanghuochezhan')!=''){
-			$data['station'] =I('jichanghuochezhan');
+			$data['station'] =array('LIKE',"%". I('jichanghuochezhan')."%");
 		}
 		if(I('shangyequ')!=''){
-			$data['business'] =I('shangyequ');
+			$data['business'] =array('LIKE',"%". I('shenagyequ')."%");
 		}
 		if(M('city')->where(array('id'=>I('weizhiid')))->save($data)){
 			$this->success('修改成功');
@@ -88,16 +95,16 @@
 	}
 public function tcxq(){
 	if(I('taocanming')!=''){
-		$pkg['name'] = I('taocanming');
+		$pkg['name'] = array('LIKE',"%". I('taocanming')."%");
 	}
 	if(I('taocanid')!=''){
 		$pkg['id'] = I('taocanid');
 	}
 	if(I('qishiriqi')!=''){
-		$pkg['startTime'] = I('qishiriqi');
+		$pkg['startTime'] = array('EGT',I('qishiriqi'));
 	}
 	if(I('jiezhiriqi')!=''){
-		$pkg['endTime'] = I('jiezhiriqi');
+		$pkg['endTime'] = array('ELT',I('jiezhiriqi'));
 	}
 	if(I('shifouyouhui')!=''){
 		$pkg['ifdiscount'] = I('shifouyouhui');
@@ -106,19 +113,19 @@ public function tcxq(){
 		$pkg['price'] = I('youhuijia');
 	}
 	if(I('taocanshuoming')!=''){
-		$pkg['descriptionPrice'] = I('taocanshuoming');
+		$pkg['descriptionPrice'] = array('LIKE',"%". I('taocanshuoming')."%");
 	}
 	if(I('youhuihuodong')!=''){
-		$pkg['discountAction'] = I('youhuihuodong');
+		$pkg['discountAction'] = array('LIKE',"%". I('youhuihuodong')."%");
 	}
 	if(I('chanpintese')!=''){
-		$pkg['characteristics'] = I('chanpintese');
+		$pkg['characteristics'] = array('LIKE',"%". I('chanpintese')."%");
 	}
 	if(I('xingchengjieshao')!=''){
-		$pkg['routeDescription'] = I('xingchengjieshao');
+		$pkg['routeDescription'] = array('LIKE',"%". I('xingchengjieshao')."%");
 	}
 	if(I('yudingxuzhi')!=''){
-		$pkg['bookInformation'] = I('yudingxuzhi');
+		$pkg['bookInformation'] = array('LIKE',"%". I('yudingxuzhi')."%");
 	}
 
 if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
@@ -130,7 +137,7 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 			if(I('taocanid')=='kong'){
 
 			if(I('taocanming')!=''){
-				$data['name'] = I('taocanming');
+				$data['name'] = array('LIKE',"%". I('taocanming')."%");
 			}
 			if(I('shifoushuyu')!=''){
 				$data['ifdiscount'] = I('shifoushuyu');
@@ -146,7 +153,7 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 		}else{
 
 			if(I('taocanming')!=''){
-				$data['name'] = I('taocanming');
+				$data['name'] = array('LIKE',"%". I('taocanming')."%");
 			}
 			if(I('shifoushuyu')!=''){
 				$data['ifdiscount'] = I('shifoushuyu');
@@ -539,13 +546,34 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 		}
 
 		public function faqihuodongguanli(){
-			$data['id'];
-			$data['startTime'];
-			$data['startarea'];
-			$data['content'];
-			$data['maxnumber'];
-			$data['initiator'];
-			$data['remark'];
+			if(I('taocanid')!=''){
+				$data['id'] = I('taocanid');
+			}
+			if(I('leibie')!=''){
+				$data['theme'] = array('LIKE',"%". I('leibie')."%");
+			}
+			if(I('huodongshijian')!=''){
+				$data['startTime'] =I('huodongshijian');
+			}
+			if(I('huodongshifadi')!=''){
+				$data['startarea'] =array('LIKE',"%". I('huodongshifadi')."%");
+			}
+			if(I('huodongmudidi')!=''){
+				$data['intentarea'] =array('LIKE',"%". I('huodongmudidi')."%");
+			}
+			if(I('huodongneirong')!=''){
+				$data['content'] =array('LIKE',"%". I('huodongneirong')."%");
+			}
+			if(I('zuidacanyurenshu')!=''){
+				$data['maxnumber'] =I('zuidacanyurenshu');
+			}
+			if(I('faqiren')!=''){
+				$data['initiator'] =array('LIKE',"%". I('faqiren')."%");
+			}
+			if(I('huodongbeizhu')!=''){
+				$data['remark'] =array('LIKE',"%". I('huodongbeizhu')."%");
+			}
+
 
 
 
@@ -716,6 +744,70 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 				$data['remark'] =I('huodongbeizhu');
 			}
 			if(M('action')->where(array('id'=>I('taocanid')))->save($data)){
+				$this->success('修改成功');
+			}else{
+				$this->error('由于某种原因修改失败');
+			}
+
+		}
+		}
+
+		public function lvyouchaoshiguanli(){
+			if(I('chidian')!=''){
+				$data['id'] = I('chidian');
+			}
+			if(I('chidianming')!=''){
+				$data['storeName'] = array('LIKE',"%". I('chidianming')."%");
+			}
+			if(I('chidiandianhua')!=''){
+				$data['phone'] =I('chidiandianhua');
+			}
+			if(I('chidiandizhi')!=''){
+				$data['area'] =array('LIKE',"%". I('chidiandizhi')."%");
+			}
+
+			import('ORG.Util.Page');
+ 		 $count = M('food')->where($data)->count();
+ 		 $page = new Page($count,5);
+ 		 $limit = $page->firstRow .','. $page->listRows;
+
+ 		 $content = M('food')->limit($limit)->where($data)->select();
+ 		 $this->content = $content;
+ 		 $this->page = $page->show();
+ 		 $this->display();
+		}
+
+		public function chiadd(){
+
+
+			if(I('chidianid')=='kong'){
+
+			if(I('taocanming')!=''){
+				$data['storeName'] = I('taocanming');
+			}
+			if(I('youhuijia')!=''){
+				$data['area'] = I('youhuijia');
+			}
+			if(I('phone')!=''){
+				$data['phone'] =I('phone');
+			}
+			if(M('food')->add($data)){
+				$this->success('添加成功');
+			}else{
+				$this->error('由于某种原因添加失败');
+			}
+		}else{
+
+			if(I('taocanming')!=''){
+				$data['storeName'] = I('taocanming');
+			}
+			if(I('youhuijia')!=''){
+				$data['area'] = I('youhuijia');
+			}
+			if(I('phone')!=''){
+				$data['phone'] =I('phone');
+			}
+			if(M('food')->where(array('id'=>I('chidianid')))->save($data)){
 				$this->success('修改成功');
 			}else{
 				$this->error('由于某种原因修改失败');
