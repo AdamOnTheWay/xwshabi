@@ -27,19 +27,13 @@ class hotelOrderAction extends Action
 
 		$id = I("id");
 		$number = I("number");
-
+		$days = I('roomdate');
 
 		$data = M("hotel")->field("price")->find($id);
 
-		$startdate=strtotime(I("start"));
-		$enddate=strtotime(I("end"));
-		$days=round(($enddate-$startdate)/86400)+1;
-
-		echo $days;
-
 		$money = $number * $data['price'] * $days;  //计算钱
 
-		$this->ajaxReturn($days);
+		$this->ajaxReturn($money);
 	}
 	function hotelOrder_2(){
 
@@ -74,9 +68,21 @@ class hotelOrderAction extends Action
 	}
 	function hotelOrder_4(){
 
-		$id = I("id");
+		// if(cookie('userid') == ''){
+		// 	$this->show('<script>alert('请登录');window.location.href='".U('Index/index/index')."'</script>','utf-8');
+		// }
 
-		$data = M("hotelName")->select($id);
+		if(1){ //预定成功
+			var_dump(I('post.'));
+		}
+
+		$data = I('post.');
+		$data['time'] = date('Y-m-d');
+		$data["userId"] = cookie('userid');
+		$data['status'] = '评价';
+		$data['class'] = 0;
+
+		M('order')->add($data);
 
 		
 

@@ -118,6 +118,7 @@
 	 			$this->show("<script>alert('请先登录');window.history.go(-1);</script>","utf-8");
 	 			die();
 	 		}
+
 	 		$data = M('order');
 	 		import('ORG.Util.Page');
 	 		//where 中的条件为session or cookie得到的
@@ -139,15 +140,16 @@
 	 			die();
 	 		}
 	 		$user['id'] = cookie("userid");
-	 	
-	 		$this->class = I("class");
+	 		$this->id = I('id');
+	 		$this->class = M('order')->find(I('id'));
 	 		$this->juge = I('juge',1);
 
 
 	 		$this->user = M('usertable')->field('id,name,image,phone,email')->where($user)->find();
 
 	 		$condition['userId'] =cookie("userid");
-	 		// $condition['scencyId'] 	= I('travelId');
+	 		$this->class = M('order') ->find(I('id'));
+	 	
 	 		import('ORG.Util.Page');
 	 		$count = M('comment')->where($condition)->count();
 	 		$page = new Page($count,2);
@@ -168,7 +170,7 @@
 	 			die();
 	 		}
 	 		$orderComment = M('comment');
-	 		$data['travelId'] = I('travelId');
+	 		$data['travelorhotelId'] = I('travelOrHotelId');
 	 		$data['userId'] = cookie("userid");
 	 		$data['content'] = I('content');
 	 		$data['class'] = I("class");
@@ -176,8 +178,13 @@
 	 		$data['time'] = date('Y-m-d');
 
 	 		$orderComment->add($data);
-
-	 		$this->redirect('myEvaluations',array('travelId'=>$data['travelId'],'class'=>I("class")));
+	 	
+	 		$return = array(
+	 			'travelId'=>$data['travelorhotelId'],
+	 			
+	 			'id'  => I('id')
+	 			);
+	 		$this->redirect('myEvaluations',$return);
 	  	}
 
 	 	public function myTravealBook(){

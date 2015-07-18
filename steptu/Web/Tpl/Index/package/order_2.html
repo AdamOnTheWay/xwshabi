@@ -55,6 +55,10 @@
                             <td>成人：<span>{$data.adult}</span>儿童：<span>{$data.child}</span></td>
                         </tr>
                         <tr>
+                            <td>开始时间:</td>
+                            <td>{$data.start}</td>
+                        </tr>
+                        <tr>
                             <td>联系人：</td>
                             <td>{$data.name}</td>
                         </tr>
@@ -71,7 +75,7 @@
                 <lable class="lastButton" onclick="window.history.back(-1);" id="up">上一步</lable>
                 <input name="money" type="hidden" value="{$data.money}">
                 <input name="id" type="hidden" value="{$data.id}">
-                <input name="title" type="hidden" value="{$data.title};成人：{$data.adult};儿童: $data.childe">
+                <input name="title" type="hidden" value="{$data.title}  成人{$data.adult};儿童: {$data.child}  开始时间:{$data.start}">
                 <input name="name" type="hidden" value="{$data.name}">
                 <input name="phone" type="hidden" value="{$data.phone}">
                 <input type='submit' value="下一步" class="nextButton" id="down">

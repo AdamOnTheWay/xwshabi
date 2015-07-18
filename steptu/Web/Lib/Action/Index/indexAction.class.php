@@ -43,9 +43,11 @@ class indexAction extends Action{
 
 		$hotel = M('hotel')->where(array('status'=>1))->order("id DESC")->limit("7")->select();
 		$name = M('hotel')->where(array('status'=>1))->order("id DESC")->distinct(true)->field('hotelName')->select();
+		$note1 = M('note')->order("id DESC")->find();
 		$this->assign('hds',$hotel);
 		$this->assign('hdn',$name);
 		$this->assign('note',$this->travelNote());
+		$this->assign('note1',$note1);
 		$this->assign('season',$this->discountSeason());
 		$this->display();
 

@@ -10,22 +10,25 @@ class makePlanAction extends Action{
 
 	public function makePlan(){
 		if(IS_POST){
+			if(I('shifadi')!=''){
+				$data['startarea']=array('LIKE','%'.I('shifadi').'%');
+			}
+			if(I('mudidi')!=''){
+				$data['intentarea']=array('LIKE','%'.I('mudidi').'%');
+			}
+			if(I('huodongshijian')!=''){
+				$data['startTime']=array('EGT',I('huodongshijian'));
+			}
+			if(I('$fabushijian')!=''){
+				$data['publishtime']=array('EGT',I('$fabushijian'));
+			}
+			if(I('huodongleibie2')!=''){
+				$data['theme']=array('LIKE','%'.I('huodongleibie2').'%');
+			}
 
-			$shifa = I('shifadi');
-			$mudi = I('mudidi');
-			$huodongshijian =I('huodongshijian');
-			$fabushijian = I('fabushijian');
-
-			$data = array(
-				'startarea' =>$shifa,
-				// 'startTime' => $fabushijian,
-
-				// 'intentarea' => $mudidi,
-				// 'publishtime' => ''
-				);
 			import('ORG.Util.Page');
 			$count = M('action')->where($data)->count();
-			$page = new Page($count,1);
+			$page = new Page($count,6);
 			$limit = $page->firstRow .','. $page->listRows;
 
 			$content = M('action')->order('id DESC')->limit($limit)->where($data)->select();

@@ -142,7 +142,7 @@ a:hover{
       </div>
 </div>
 
-    <div style="position:absolute;top:55px;left:485px;font-size:19px;color:#1983d9;">成都<?php echo ($hotel["hotelName"]); ?>酒店</div>
+    <div style="position:absolute;top:55px;left:485px;font-size:19px;color:#1983d9;"><?php echo ($hotel["destination"]); echo ($hotel["area"]); echo ($hotel["hotelName"]); ?>酒店</div>
     <div style="position:absolute;top:120px;left:495px;font-size:13px;">每间每晚:<span style="color:#FF6306;font-size:19px;">￥<?php echo ($hotel["price"]); ?></span>&nbsp起</div>
         <div style="position:absolute;top:150px;left:495px;font-size:13px;">酒店地址：<span id="jdjiudiandizhi"><?php echo ($hotel["area"]); ?></span></div>
 
@@ -156,12 +156,21 @@ a:hover{
       <div style="margin:0 0 0 20px;float:left;font-size:13px">离店</div>
         <div style="margin:-3px 0 0 10px;float:left"><input id="jiudianyudinglidianriqi" type="text" style="width:120px;" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"></div>
         <div style="margin:0 0 0 20px;float:left;font-size:13px">房型</div>
+
     <select name="fangxing" id="fangxing" style="margin:-3px 0 0 10px;float:left">
-       <option value="volvo">Volvo</option>
-       <option value="saab">Saab</option>
-       <option value="fiat" selected="selected">Fiat</option>
-       <option value="audi">Audi</option>
+
+       <option value="<?php echo ($hotel["house1"]); ?>"><?php echo ($hotel["house1"]); ?></option>
+			 <option value="<?php echo ($hotel["house2"]); ?>"><?php echo ($hotel["house2"]); ?></option>
+			 <option value="<?php echo ($hotel["house3"]); ?>"><?php echo ($hotel["house3"]); ?></option>
+			 <option value="<?php echo ($hotel["house4"]); ?>"><?php echo ($hotel["house4"]); ?></option>
+			 <option value="<?php echo ($hotel["house5"]); ?>"><?php echo ($hotel["house5"]); ?></option>
+			 <option value="<?php echo ($hotel["house6"]); ?>"><?php echo ($hotel["house6"]); ?></option>
+			 <option value="<?php echo ($hotel["house7"]); ?>"><?php echo ($hotel["house7"]); ?></option>
+			 <option value="<?php echo ($hotel["house8"]); ?>"><?php echo ($hotel["house8"]); ?></option>
+
+
        </select>
+
 
          <div style="margin:-6px 0 0 60px;float:left;font-size:13px; cursor: pointer;"><input type="image" src="../Public/images/travelstore/yuding.png" style="border:0;" ></div>
 
@@ -173,24 +182,24 @@ a:hover{
 
     <div class="zhukedianping"><img src="../Public/images/travelstore/zhukedianping.png" style="margin:0 0 0 5px;"><br>
       <div style="width:732px;height:38px;border:1px solid #d2d2d2;position:relative;top:5px;left:5px;">
-          <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha1">全部点评()</div>
-          <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha2">满意()</div>
-          <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha3">一般()</div>
-          <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha4">不满意()</div>
+          <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha1" name="<?php echo ($hotel["id"]); ?>">全部点评(<?php echo ($co); ?>)</div>
+          <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha2" name="<?php echo ($hotel["id"]); ?>">满意(<?php echo ($co1); ?>)</div>
+          <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha3" name="<?php echo ($hotel["id"]); ?>">一般(<?php echo ($co2); ?>)</div>
+          <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha4" name="<?php echo ($hotel["id"]); ?>">不满意(<?php echo ($co3); ?>)</div>
      </div>
 <!-- 这是一层评论楼 -->
-<div style="width:727px;margin:10px 0 0 0;">
+<?php if(is_array($co4)): foreach($co4 as $key=>$u): ?><div style="width:727px;margin:10px 0 0 0;">
+    <img src="../Public/images/package/fengexian3.jpg" style="position:relative;left:10px;">
+    <div style="width:60px;height:60px;border:1px solid #d2d2d2;position:relative;left:13px;float:left"><img src="../pu">这里放头像</div>
+    <div style="width:46px;height:22px;background-color:#FF6C0A;margin:5px 0 0 25px;color:white;font-size:14px;center;float:left;line-height:22px;text-align:center;"><?php echo ($u["level"]); ?></div>
+    <div style="width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;"><?php echo (stripslashes(htmlspecialchars_decode($u["content"]))); ?></div>
+</div><?php endforeach; endif; ?>
+<!-- <div style="width:727px;margin:10px 0 0 0;">
     <img src="../Public/images/package/fengexian3.jpg" style="position:relative;left:10px;">
     <div style="width:60px;height:60px;border:1px solid #d2d2d2;position:relative;left:13px;float:left"><img src="../pu">这里放头像</div>
     <div style="width:46px;height:22px;background-color:#FF6C0A;margin:5px 0 0 25px;color:white;font-size:14px;center;float:left;line-height:22px;text-align:center;">满意</div>
-    <div style="width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;">哈弗士大夫和大厦附近阿萨德飞结婚卡士大夫阿什顿房价肯定是减肥换金水发酵卡上的符合电费iweuiqworu活动时间复活节大师傅阿萨德飞回家大师傅开始大家发货撒旦就地方挥洒的减肥撒娇地方就阿斯顿飞回家阿斯顿飞机的萨芬很受打击飞洒地地方开始的缴费卡拉斯地方大煞风景阿斯蒂芬卡三飞洒的减肥哈三等奖回复就爱上看到附近拉上阿萨德加咖啡哈三等奖等奖盛大开放就撒旦法士大夫就卡死的浪费</div> <!-- 限定150字 -->
-</div>
-<div style="width:727px;margin:10px 0 0 0;">
-    <img src="../Public/images/package/fengexian3.jpg" style="position:relative;left:10px;">
-    <div style="width:60px;height:60px;border:1px solid #d2d2d2;position:relative;left:13px;float:left"><img src="../pu">这里放头像</div>
-    <div style="width:46px;height:22px;background-color:#FF6C0A;margin:5px 0 0 25px;color:white;font-size:14px;center;float:left;line-height:22px;text-align:center;">满意</div>
-    <div style="width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;">哈弗士大夫和大厦附近阿萨德飞结婚卡士大夫阿什顿房价肯定是减肥换金水发酵卡上的符合电费iweuiqworu活动时间复活节大师傅阿萨德飞回家大师傅开始大家发货撒旦就地方挥洒的减肥撒娇地方就阿斯顿飞回家阿斯顿飞机的萨芬很受打击飞洒地地方开始的缴费卡拉斯地方大煞风景阿斯蒂芬卡三飞洒的减肥哈三等奖回复就爱上看到附近拉上阿萨德加咖啡哈三等奖等奖盛大开放就撒旦法士大夫就卡死的浪费</div> <!-- 限定150字 -->
-</div>
+    <div style="width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;"> </div>
+</div> -->
 
 
 
@@ -401,18 +410,18 @@ tuichudenglu.style.display="none";
 
 $("#haha1").click(function(){
   $("#yincang").val("quanbudianping");
-  // alert($("#yincang").val());
-  url="";
-  $.post(url,{data:$("#yincang").val(),},function(data){
+ 	//alert($("#haha1").attr('name'));
+  url='<?php echo U('Index/travelStore/comment');?>';
+  $.post(url,{data:'all',id:$("#haha1").attr('name')},function(data){
     location.reload();
   });
 
 })
 $("#haha2").click(function(){
   $("#yincang").val("manyi");
-  // alert($("#yincang").val());
-  url="";
-  $.post(url,{data:$("#yincang").val(),},function(data){
+  //alert($("#haha2").attr('name'));
+  url='<?php echo U('Index/travelStore/comment');?>';
+  $.post(url,{data:'good',id:$("#haha2").attr('name')},function(data){
     location.reload();
   });
 
@@ -420,8 +429,8 @@ $("#haha2").click(function(){
 $("#haha3").click(function(){
   $("#yincang").val("yiban");
   // alert($("#yincang").val());
-  url="";
-  $.post(url,{data:$("#yincang").val(),},function(data){
+  url='<?php echo U('Index/travelStore/comment');?>';
+  $.post(url,{data:'normal',id:$("#haha3").attr('name')},function(data){
     location.reload();
   });
 
@@ -429,8 +438,8 @@ $("#haha3").click(function(){
 $("#haha4").click(function(){
   $("#yincang").val("bumanyi");
   // alert($("#yincang").val());
-  url="";
-  $.post(url,{data:$("#yincang").val(),},function(data){
+  url='<?php echo U('Index/travelStore/comment');?>';
+  $.post(url,{data:'bad',id:$("#haha4").attr('name')},function(data){
     location.reload();
   });
 

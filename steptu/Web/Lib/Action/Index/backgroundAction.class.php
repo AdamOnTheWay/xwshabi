@@ -95,16 +95,16 @@
 	}
 public function tcxq(){
 	if(I('taocanming')!=''){
-		$pkg['name'] = array('LIKE',"%". I('taocanming')."%");
+		$pkg['name'] = I('taocanming');
 	}
 	if(I('taocanid')!=''){
 		$pkg['id'] = I('taocanid');
 	}
 	if(I('qishiriqi')!=''){
-		$pkg['startTime'] = array('EGT',I('qishiriqi'));
+		$pkg['startTime'] =I('qishiriqi');
 	}
 	if(I('jiezhiriqi')!=''){
-		$pkg['endTime'] = array('ELT',I('jiezhiriqi'));
+		$pkg['endTime'] =I('jiezhiriqi');
 	}
 	if(I('shifouyouhui')!=''){
 		$pkg['ifdiscount'] = I('shifouyouhui');
@@ -113,19 +113,22 @@ public function tcxq(){
 		$pkg['price'] = I('youhuijia');
 	}
 	if(I('taocanshuoming')!=''){
-		$pkg['descriptionPrice'] = array('LIKE',"%". I('taocanshuoming')."%");
+		$pkg['descriptionPrice'] = I('taocanshuoming');
 	}
 	if(I('youhuihuodong')!=''){
-		$pkg['discountAction'] = array('LIKE',"%". I('youhuihuodong')."%");
+		$pkg['discountAction'] =  I('youhuihuodong');
 	}
 	if(I('chanpintese')!=''){
-		$pkg['characteristics'] = array('LIKE',"%". I('chanpintese')."%");
+		$pkg['characteristics'] =  I('chanpintese');
 	}
 	if(I('xingchengjieshao')!=''){
-		$pkg['routeDescription'] = array('LIKE',"%". I('xingchengjieshao')."%");
+		$pkg['routeDescription'] =  I('xingchengjieshao');
 	}
 	if(I('yudingxuzhi')!=''){
-		$pkg['bookInformation'] = array('LIKE',"%". I('yudingxuzhi')."%");
+		$pkg['bookInformation'] =  I('yudingxuzhi');
+	}
+	if(I('theme')!=''){
+		$pkg['status'] =  I('theme');
 	}
 
 if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
@@ -542,6 +545,29 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 
 		}
 		public function shouyeguanli(){
+			if(IS_POST){
+			import('ORG.Net.UploadFile');
+			$upload = new UploadFile();// 实例化上传类
+			$upload->maxSize  = 3145728 ;// 设置附件上传大小
+			$upload->allowExts  = array('jpg', 'png', 'jpeg');// 设置附件上传类型
+			$upload->savePath='Web/Tpl/Index/Public/images/travelNote/';// 设置附件上传目录
+ 		if(!$upload->upload()) {// 上传错误提示错误信息
+			$this->error($upload->getErrorMsg());
+ 		}else{// 上传成功 获取上传文件信息
+				$info =  $upload->getUploadFileInfo();
+
+
+
+ 		}
+		if(I('mpcontent')!=''){
+			$data['remark']=I('mpcontent');
+		}
+		$User = M("note"); // 实例化User对象
+		$data['image']='/xwshabi/steptu/'.$info[0]['savepath'].$info[0]['savename'];
+		if($User->add($data)){
+		$this->success('数据保存成功！');
+	}
+	}
 			$this->display();
 		}
 
@@ -594,23 +620,54 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 
 
 		public function tcxqimage(){
-			$file['image'] = I('file');
-			$id = I('taocanid');
-		if(M('travelscency')->where(array('id'=>$id))->save($file)){
-				$this->success('image');
-			}else{
-				$this->error('faild');
-			}
-		}
+			if(IS_POST){
 
+			import('ORG.Net.UploadFile');
+			$upload = new UploadFile();// 实例化上传类
+			$upload->maxSize  = 3145728 ;// 设置附件上传大小
+			$upload->allowExts  = array('jpg', 'png', 'jpeg');// 设置附件上传类型
+			$upload->savePath='Web/Tpl/Index/Public/images/travelstore/';// 设置附件上传目录
+ 		if(!$upload->upload()) {// 上传错误提示错误信息
+			$this->error($upload->getErrorMsg());
+ 		}else{// 上传成功 获取上传文件信息
+				$info =  $upload->getUploadFileInfo();
+
+
+
+ 		}
+
+		$User = M("travelscency"); // 实例化User对象
+		$data['image']='/xwshabi/steptu/'.$info[0]['savepath'].$info[0]['savename'];
+		if($User->where(array('id'=>I('taocanid')))->save($data)){
+		$this->success('数据保存成功！');
+	}
+}
+
+}
 		public function hhjdimage(){
-			$file['image'] = I('file');
-			$id = I('haohuajiudianid');
-		if(M('hotel')->where(array('id'=>$id))->save($file)){
-				$this->success('image');
-			}else{
-				$this->error('faild');
-			}
+			if(IS_POST){
+
+			import('ORG.Net.UploadFile');
+			$upload = new UploadFile();// 实例化上传类
+			$upload->maxSize  = 3145728 ;// 设置附件上传大小
+			$upload->allowExts  = array('jpg', 'png', 'jpeg');// 设置附件上传类型
+			$upload->savePath='Web/Tpl/Index/Public/images/travelstore/';// 设置附件上传目录
+ 		if(!$upload->upload()) {// 上传错误提示错误信息
+			$this->error($upload->getErrorMsg());
+ 		}else{// 上传成功 获取上传文件信息
+				$info =  $upload->getUploadFileInfo();
+
+
+
+ 		}
+
+		$User = M("hotel"); // 实例化User对象
+		$data['image']='/xwshabi/steptu/'.$info[0]['savepath'].$info[0]['savename'];
+		if($User->where(array('id'=>I('haohuajiudianid')))->save($data)){
+		$this->success('数据保存成功！');
+	}
+}
+
 		}
 
 
@@ -695,6 +752,9 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 			if(I('huodongshijian')!=''){
 				$data['startTime'] = I('huodongshijian');
 			}
+			if(I('theme')!=''){
+				$data['theme'] = I('theme');
+			}
 			if(I('huodongshifadi')!=''){
 				$data['startarea'] = I('huodongshifadi');
 			}
@@ -721,6 +781,9 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 				$this->error('由于某种原因添加失败');
 			}
 		}else{
+			if(I('theme')!=''){
+			$data['theme'] = I('theme');
+		}
 
 			if(I('huodongshijian')!=''){
 				$data['startTime'] = I('huodongshijian');

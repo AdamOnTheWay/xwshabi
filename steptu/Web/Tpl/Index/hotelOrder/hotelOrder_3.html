@@ -38,7 +38,13 @@
             <img src="../Public/images/package/second_blue.png" class="second">
             <img src="../Public/images/package/pay.png" class="third">
             <img src="../Public/images/package/fourth.png" class="fourth">
-            <form class="orderContainer">
+            <form class="orderContainer" action="{:U('Index/hotelOrder/hotelOrder_4','','')}" method='post'>
+
+                <input type="hidden" name='content' value="{$save.title}">
+                <input type="hidden" name='name' value="{$save.name}">
+                <input type="hidden" name='phone' value="{$save.phone}">
+                <input type="hidden" name='price' value="{$save.money}">
+                 <input type="hidden" name='scencyOrHotelId' value="{$save.id}">
                 <button class="lastButton">上一步</button>
                 <button class="nextButton" type="submit">下一步</button>
             </form>
