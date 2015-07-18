@@ -17,9 +17,9 @@
 
 <body>
 	上传套餐图片：(最好是png jpg gif)
-	<form action="<?php echo U('Index/background/tcxqimage');?>" name="taocantupian" id="taocantupian" method="post">
-		<input id="file" name="file" type="file" size="30" maxlength="32" value="上传图片" />
-		套餐id&nbsp&nbsp <input name="taocanid" type="text" value="<?php echo ($tr["id"]); ?>" readonly="true">
+	<form action="<?php echo U('Index/background/tcxqimage');?>" name="taocantupian" id="taocantupian" method="post" enctype="multipart/form-data">
+		<input id="file" name="file" type="file" size="30" maxlength="32" value="上传图片" /> 套餐id&nbsp&nbsp
+		<input name="taocanid" type="text" value="<?php echo ($tr["id"]); ?>" readonly="true">
 		<br>
 		<input type="submit" value="提交" />
 	</form>
@@ -80,11 +80,12 @@
 
 	<br>
 	<br>
+	<br> 请选择好是否属于优惠套餐以及套餐主题
 	<br>
-	请选择好是否属于优惠套餐以及套餐主题<br>
 	<br>
 	<form action="<?php echo U('Index/background/tcxq','','');?>" name="taocanxiangqingxiugai" method="post">
-		套餐id&nbsp&nbsp <input name="taocanid" type="text" value="<?php echo ($tr["id"]); ?>" readonly="true">
+		套餐id&nbsp&nbsp
+		<input name="taocanid" type="text" value="<?php echo ($tr["id"]); ?>" readonly="true">
 		<br>
 		<br> 套餐名&nbsp&nbsp
 		<input name="taocanming" type="text" value="<?php echo ($tr["name"]); ?>">
@@ -99,12 +100,12 @@
 			<option value="0">否</option>
 		</select>
 		<br>套餐主题:
-		<select name="套餐主题">
+		<select name="theme">
 			<option value="wu">无</option>
-			<option value="chengshizhijian">城市之间</option>
-			<option value="nianxiujia">年休假</option>
-			<option value="xueziyou">学子游</option>
-			<option value="meishijie">美食街</option>
+			<option value="城市之间">城市之间</option>
+			<option value="年休假">年休假</option>
+			<option value="学子游">学子游</option>
+			<option value="美食街">美食街</option>
 
 		</select>
 		<br>
@@ -117,7 +118,7 @@
 		<br>
 		<!-- 加载编辑器的容器 -->
 		<script id="container" name="taocanshuoming" type="text/plain">
-			
+
 		</script>
 		<br>
 		<br> 优惠活动:

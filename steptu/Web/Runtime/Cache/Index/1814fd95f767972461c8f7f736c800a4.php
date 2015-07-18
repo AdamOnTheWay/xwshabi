@@ -35,7 +35,7 @@
 	<br>
 	<br>
 	<br> 上传酒店图片：(最好是png jpg gif)
-	<form action="<?php echo U('Index/background/hhjdimage');?>" name="jiudiantupian" id="tjiudiantupian" method="post">
+	<form action="<?php echo U('Index/background/hhjdimage');?>" name="jiudiantupian" id="tjiudiantupian" method="post" enctype="multipart/form-data">
 		<input id="file" name="file" type="file" size="30" maxlength="32" value="上传图片" />
 			<input name="haohuajiudianid" type="text" value="<?php echo ($ho["id"]); ?>" readonly="true">
 		<input type="submit" value="酒店图片提交" />

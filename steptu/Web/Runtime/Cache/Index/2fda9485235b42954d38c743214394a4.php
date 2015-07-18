@@ -33,28 +33,27 @@
 	</table>
 	<br>
 
-	<form action="<?php echo U('Index/background/faqihuodongguanli');?>" name="huodongsousuo" method="post">活动搜索
-			活动id&nbsp&nbsp
-			<input id="taocanid" name="taocanid" type="text" value="" readonly="true">
-			<br>	活动类别&nbsp&nbsp
-			<input id="huodongleibie" name="taocanid" type="text" value="" readonly="true">
-			<br> 活动时间&nbsp&nbsp
-			<input id="huodongshijian" name="huodongshijian" type="text" value="">按格式输入
-			<br> 活动始发地&nbsp&nbsp
-			<input id="huodongshifadi" name="huodongshifadi" type="text" value="">
-			<br> 活动目的地&nbsp&nbsp
-			<input id="huodongmudidi" name="huodongmudidi" type="text" value="">
-			<br> 活动内容 &nbsp
-			<textarea id="huodongneirong" name="huodongneirong" cols="29" rows="14"></textarea>
-			<br>
-			<br> 最大参与人数&nbsp&nbsp
-			<input id="zuidacanyurenshu" name="zuidacanyurenshu" type="text" value="">
-			<br> 发起人&nbsp&nbsp
-			<input id="faqiren" name="faqiren" type="text" value="">按照格式填写
-			<br> 活动备注&nbsp
-			<textarea id="huodongbeizhu" name="huodongbeizhu" cols="29" rows="14"></textarea>
-			<br>
-			
+	<form action="<?php echo U('Index/background/faqihuodongguanli');?>" name="huodongsousuo" method="post">活动搜索 活动id&nbsp&nbsp
+		<input id="taocanid" name="taocanid" type="text" value="" >
+		<br> 活动类别&nbsp&nbsp
+		<input id="huodongleibie" name="leibie" type="text" value="" >
+		<br> 活动时间&nbsp&nbsp
+		<input id="huodongshijian" name="huodongshijian" type="text" value="">按格式输入
+		<br> 活动始发地&nbsp&nbsp
+		<input id="huodongshifadi" name="huodongshifadi" type="text" value="">
+		<br> 活动目的地&nbsp&nbsp
+		<input id="huodongmudidi" name="huodongmudidi" type="text" value="">
+		<br> 活动内容 &nbsp
+		<textarea id="huodongneirong" name="huodongneirong" cols="29" rows="14"></textarea>
+		<br>
+		<br> 最大参与人数&nbsp&nbsp
+		<input id="zuidacanyurenshu" name="zuidacanyurenshu" type="text" value="">
+		<br> 发起人&nbsp&nbsp
+		<input id="faqiren" name="faqiren" type="text" value="">按照格式填写
+		<br> 活动备注&nbsp
+		<textarea id="huodongbeizhu" name="huodongbeizhu" cols="29" rows="14"></textarea>
+		<br>
+
 		<input type="submit" value="搜索" />
 	</form>
 	<br>
@@ -101,9 +100,11 @@
 	<div id="yonghuxinxi" style="display:none;">
 		<form action="<?php echo U('Index/background/hdadd');?>" name="yonghuguanli" id="yonghuguanli" method="post">
 			活动id&nbsp&nbsp
+
 			<input id="huodongid" name="taocanid" type="text" value="" readonly="true">
 			<br>	活动类别&nbsp&nbsp
-			<input id="huodongleibie1" name="taocanid" type="text" value="" readonly="true">
+			<input id="huodongleibie1" name="theme" type="text" value="" readonly="true">
+
 			<br> 活动时间&nbsp&nbsp
 			<input id="huodongshijian1" name="huodongshijian" type="text" value="">按格式输入
 			<br> 活动始发地&nbsp&nbsp
@@ -154,8 +155,9 @@
 		})
 
 		$("#zengjia").click(function() {
-               
-   
+
+
+
 			$("#huodongid").val("kong");
 			$("#huodongleibie1").val("");
 			$("#huodongshijian1").val("");
@@ -165,6 +167,7 @@
 			$("#zuidacanyurenshu1").val("");
 			$("#faqiren1").val("");
 			$("#huodongbeizhu1").val("");
+
 			yonghuxinxi.style.display = "block";
 		})
 	</script>

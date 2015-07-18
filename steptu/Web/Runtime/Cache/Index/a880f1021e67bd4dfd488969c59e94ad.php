@@ -223,7 +223,7 @@
 
 					<div style="position:absolute;left:10px;width:130px;height:100px;">
 						<img src="<?php echo ($hs[0]["image"]); ?>" style="width:130px;height:70px;">
-						<div style="font-size:13px;width:130px;"><?php echo ($hs[0]["hotelName"]); ?>
+						<div style="font-size:13px;width:130px;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hs[0]["id"]); ?>"><?php echo ($hs[0]["hotelName"]); ?></a>
 							<span style="position:absolute;left:90px;color:#ff8004;">￥<?php echo ($hs[0]["price"]); ?></span>
 						</div>
 					</div>

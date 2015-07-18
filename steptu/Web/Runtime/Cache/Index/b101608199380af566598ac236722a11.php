@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>首页管理</title>
 		 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
-   
+
     <script type="text/javascript" src="__JS__/jquery-easyui-1.4.2/jquery.min.js"></script>
       <script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
 <script type="text/javascript" src="../Public/js/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
@@ -32,7 +32,7 @@
 </table>
 <br>
 <br><br><br>
-<form action="" name="lvyouzhi" id="lvyouzhi" method="post">
+<form action="<?php echo U('Index/background/shouyeguanli');?>" name="lvyouzhi" id="lvyouzhi" method="post" enctype="multipart/form-data">
 旅游志管理<br>图片：
 <input id="file"  name="file" type="file" size="30" maxlength="32" value="上传图片"/><br>
 内容:

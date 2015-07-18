@@ -140,9 +140,9 @@ position:relative;top:15px;left:20px;">发起活动</span></div>
       <div style="position:absolute;top:48px;left:260px;font-size:14px; color:white;" > 活动类别</div>
          <input name="huodongleibie2" id="mudidi" type="text" value="" style="position:absolute;top:46px;left:325px;width:70px;font-size:14px;border-radius:4px;"/>
     <div style="position:absolute;top:48px;left:405px;font-size:14px; color:white;" > 活动时间</div>
-    <div style="position:absolute;top:48px;left:465px;"><input id="huodongshijian" type="text" style="width:100px;" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"></div>
+    <div style="position:absolute;top:48px;left:465px;"><input id="huodongshijian" name="huodongshijian" type="text" style="width:100px;" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"></div>
       <div style="position:absolute;top:48px;left:575px;font-size:14px; color:white;" > 发布时间</div>
-    <div style="position:absolute;top:48px;left:635px;"><input id="fabushijian" type="text" style="width:100px;" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"></div>
+    <div style="position:absolute;top:48px;left:635px;"><input id="fabushijian" name="fabushijian" type="text" style="width:100px;" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"></div>
      <div style="position:absolute;left:748px;top:45px; cursor: pointer;"><input type="image" src="../Public/images/makeplan/sousuobiaozhi.png" style="border:0;" ></div>
    </form>
 </div>

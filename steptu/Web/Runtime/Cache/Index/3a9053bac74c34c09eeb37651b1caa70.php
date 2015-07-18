@@ -13,6 +13,31 @@
     <link rel="stylesheet" type="text/css" href="../Public/js/jquery-easyui-1.4.2/demo/demo.css">
     <link rel="stylesheet" href="../Public/css/css.css" media="all">
     <link href="../Public/css/register.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+                    function isEnterLegal(){
+                        var password,confpassword;
+                        password = document.getElementById("password").value;
+                        confpassword = document.getElementById("userSecondSecurity").value;
+                        if(password != confpassword){
+                            alert("请确认两次密码输入一致");
+                            return false;
+                        }
+                        else{
+                        $.post("<?php echo U('Index/register/registerCheck','','');?>",
+                            {name:$('#name').val(),password:$('#password').val(),userSecondSecurity:$('#userSecondSecurity').val(),email:$('#email').val(),phone:$('#phone').val()},
+                            function(data) {
+                                if(data['code'] == 0){
+                                    alert(data['msg']);
+                                }else{
+                                    
+                                    window.location.href="<?php echo U('Index/register/registerConfirm','','');?>";
+                                }
+                        });
+                    }
+                    }
+            </script>
+
     <script>
         jQuery(document).ready(function($) {
             $('.theme-login').click(function(){
@@ -62,7 +87,7 @@
         <div class="mainbox">
             <img src="../Public/images/register/word_1.png">
             <div class="theme-popbod dform">
-                <form class="theme-signin" name="form" action="<?php echo U('Index/index/registerConfirm');?>" method="post" id='form'>
+                <form class="theme-signin" name="form" action="<?php echo U('Index/register/registerConfirm','','');?>" method="post" id='form'>
                     <ol>
                          <li><strong>用户名：</strong><label><input class="ipt" type="text" id="name" name="name" size="20" required></label></li> 
                         <li><strong>密码：</strong><label><input class="ipt" type="password" id="password" name='password' size="20" required></label></li>

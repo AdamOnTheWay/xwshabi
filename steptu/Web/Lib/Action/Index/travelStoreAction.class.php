@@ -57,10 +57,10 @@
 
 				}
 				if(IS_POST){
-					$shifadi = I('smshifadi');
-					$mudidi= I('smmudidi');
-					$qishiri= I('smqishiri');
-					$jiezhiri= I('smjiezhiri');
+					$shifadi =array('LIKE',"%".I('smshifadi')."%");
+					$mudidi= array('LIKE',"%".I('smmudidi')."%");
+					$qishiri= array('EGT',I('smqishiri'));
+					$jiezhiri= array('ELT',I('smjiezhiri'));
 
 					if($shifadi!=''){
 						$data['startPos'] = array('LIKE',"%".I('smshifadi')."%");
@@ -80,8 +80,8 @@
 
 					//
 
-					$smudidi = I('chisousuomudidi');
-					$dianming = I('chisousuodianming');
+					$smudidi =  array('LIKE',"%".I('chisousuomudidi')."%");
+					$dianming = array('LIKE',"%".I('chisousuodianming')."%");
 
 					if($smudidi!=''){
 						$eat['area'] = array('LIKE',"%".I('chisousuomudidi')."%");
@@ -131,11 +131,55 @@
 		public function jiudian(){
 			$id = $_GET['id'];
 			$data = M('hotel')->where(array('id'=>$id))->find();
+			$co = M('comment')->where(array('class'=>0,'travelorhotelId'=>
+			$id))->count();
+			$co1 = M('comment')->where(array('class'=>0,'travelorhotelId'=>
+			$id,'level'=>满意))->count();
+			$co2 = M('comment')->where(array('class'=>0,'travelorhotelId'=>
+			$id,'level'=>一般))->count();
+			$co3 = M('comment')->where(array('class'=>0,'travelorhotelId'=>
+			$id,'level'=>不满意))->count();
+
+			$co4 = M('comment')->where(array('class'=>0,'travelorhotelId'=>
+			$id))->select();
 			$this->assign('hotel',$data);
+			$this->assign('co',$co);
+			$this->assign('co1',$co1);
+			$this->assign('co2',$co2);
+			$this->assign('co3',$co3);
+			$this->assign('co4',$co4);
 			$this->display();
 
 		}
 
+		public function comment(){
+			$order = I('data');
+			$id=I('id');
+			if($order=='all'){
+				$comment = M('comment')->where(array('class'=>0,'travelorhotelId'=>$id))->select();
+				$comment['re']='quanbu';
+					//$this->assign('co4',$comment);
+					$this->ajaxreturn($comment);
+			}
+			if($order=='good'){
+				$comment = M('comment')->where(array('class'=>0,'travelorhotelId'=>$id,'level'=>满意))->select();
+					//$this->assign('co4',$comment);
+					$comment['re']='manyi';
+					$this->ajaxreturn($comment);
+			}
+			if($order=='normal'){
+				$comment = M('comment')->where(array('class'=>0,'travelorhotelId'=>$id,'level'=>一般))->select();
+					//$this->assign('co4',$comment);
+					$comment['re']='yiban';
+						$this->ajaxreturn($comment);
+			}
+			if($order=='bad'){
+				$comment = M('comment')->where(array('class'=>0,'travelorhotelId'=>$id,'level'=>不满意))->select();
+					//$this->assign('co4',$comment);
+					$comment['re']='bumanyi';
+						$this->ajaxreturn($comment);
+			}
+		}
 
 	}
 

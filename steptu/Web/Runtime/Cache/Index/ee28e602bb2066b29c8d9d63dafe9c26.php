@@ -163,19 +163,19 @@ background-repeat: no-repeat;
 <div style="width:732px;height:38px;border:1px solid #d2d2d2;position:relative;top:-20px;left:5px;">
 
 
- <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha1" >全部点评()</div>
-  <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha2" onclick="this.form.submit()">满意()</div>
-  <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha3" onclick="this.form.submit()">一般()</div>
-    <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha4" onclick="this.form.submit()">不满意()</div>
+ <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha1" >全部点评(<?php echo ($co); ?>)</div>
+  <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha2" onclick="this.form.submit()">满意(<?php echo ($co1); ?>)</div>
+  <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha3" onclick="this.form.submit()">一般(<?php echo ($co2); ?>)</div>
+    <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha4" onclick="this.form.submit()">不满意(<?php echo ($co3); ?>)</div>
 
 </div>
 <!-- 这是一层评论楼 -->
-<div style="width:727px;margin:5px 0 0 0;">
+<?php if(is_array($co4)): foreach($co4 as $key=>$u): ?><div style="width:727px;margin:5px 0 0 0;">
 <img src="../Public/images/package/fengexian3.jpg" style="position:relative;left:10px;">
 <div style="width:60px;height:60px;border:1px solid #d2d2d2;position:relative;left:13px;float:left"><img src="../pu">这里放头像</div>
-<div style="width:46px;height:22px;background-color:#FF6C0A;margin:5px 0 0 25px;color:white;font-size:14px;center;float:left;line-height:22px;text-align:center;">满意</div>
-<div style="width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;">哈弗士大夫和大厦附近阿萨德飞结婚卡士大夫阿什顿房价肯定是减肥换金水发酵卡上的符合电费iweuiqworu活动时间复活节大师傅阿萨德飞回家大师傅开始大家发货撒旦就地方挥洒的减肥撒娇地方就阿斯顿飞回家阿斯顿飞机的萨芬很受打击飞洒地地方开始的缴费卡拉斯地方大煞风景阿斯蒂芬卡三飞洒的减肥哈三等奖回复就爱上看到附近拉上阿萨德加咖啡哈三等奖等奖盛大开放就撒旦法士大夫就卡死的浪费</div> <!-- 限定150字 -->
-</div>
+<div style="width:46px;height:22px;background-color:#FF6C0A;margin:5px 0 0 25px;color:white;font-size:14px;center;float:left;line-height:22px;text-align:center;"><?php echo ($u["level"]); ?></div>
+<div style="width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;"></div><?php echo (stripslashes(htmlspecialchars_decode($u["content"]))); ?>}
+</div><?php endforeach; endif; ?>
 
 
 
