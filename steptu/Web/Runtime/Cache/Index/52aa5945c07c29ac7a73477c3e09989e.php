@@ -188,14 +188,20 @@ a:hover{
           <div style="width:122px;height:25px;margin:5px 0 0 15px;text-align:center;float:left;line-height:25px;font-size:16px;cursor:pointer;" id="haha4" name="<?php echo ($hotel["id"]); ?>">不满意(<?php echo ($co3); ?>)</div>
      </div>
 <!-- 这是一层评论楼 -->
+<<<<<<< HEAD
 <div id="pinglunqu">
+=======
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
 <?php if(is_array($co4)): foreach($co4 as $key=>$u): ?><div style="width:727px;margin:10px 0 0 0;">
     <img src="../Public/images/package/fengexian3.jpg" style="position:relative;left:10px;">
     <div style="width:60px;height:60px;border:1px solid #d2d2d2;position:relative;left:13px;float:left"><img src="../pu">这里放头像</div>
     <div style="width:46px;height:22px;background-color:#FF6C0A;margin:5px 0 0 25px;color:white;font-size:14px;center;float:left;line-height:22px;text-align:center;"><?php echo ($u["level"]); ?></div>
     <div style="width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;"><?php echo (stripslashes(htmlspecialchars_decode($u["content"]))); ?></div>
 </div><?php endforeach; endif; ?>
+<<<<<<< HEAD
 </div>
+=======
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
 <!-- <div style="width:727px;margin:10px 0 0 0;">
     <img src="../Public/images/package/fengexian3.jpg" style="position:relative;left:10px;">
     <div style="width:60px;height:60px;border:1px solid #d2d2d2;position:relative;left:13px;float:left"><img src="../pu">这里放头像</div>
@@ -415,6 +421,7 @@ $("#haha1").click(function(){
  	//alert($("#haha1").attr('name'));
   url='<?php echo U('Index/travelStore/comment');?>';
   $.post(url,{data:'all',id:$("#haha1").attr('name')},function(data){
+<<<<<<< HEAD
         console.log(data);
     // alert(data.length);
      var i = 0;
@@ -437,6 +444,9 @@ $("#haha1").click(function(){
         tianjia+="<div style='width:727px;margin:5px 0 0 0;'><img src='../Public/images/package/fengexian3.jpg' style='position:relative;left:10px;'> <div style='width:60px;height:60px;border:1px solid #d2d2d2;position:relative;left:13px;float:left'><img src='../pu'>这里放头像</div><div style='width:46px;height:22px;background-color:#FF6C0A;margin:5px 0 0 25px;color:white;font-size:14px;center;float:left;line-height:22px;text-align:center;'>"+data[z].level+"</div><div style='width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;'>"+newstr1+"</div></div>"
       };
     $("#pinglunqu").html(tianjia);
+=======
+    location.reload();
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
   });
 
 })
@@ -445,6 +455,7 @@ $("#haha2").click(function(){
   //alert($("#haha2").attr('name'));
   url='<?php echo U('Index/travelStore/comment');?>';
   $.post(url,{data:'good',id:$("#haha2").attr('name')},function(data){
+<<<<<<< HEAD
         console.log(data);
     // alert(data.length);
      var i = 0;
@@ -467,6 +478,9 @@ $("#haha2").click(function(){
         tianjia+="<div style='width:727px;margin:5px 0 0 0;'><img src='../Public/images/package/fengexian3.jpg' style='position:relative;left:10px;'> <div style='width:60px;height:60px;border:1px solid #d2d2d2;position:relative;left:13px;float:left'><img src='../pu'>这里放头像</div><div style='width:46px;height:22px;background-color:#FF6C0A;margin:5px 0 0 25px;color:white;font-size:14px;center;float:left;line-height:22px;text-align:center;'>"+data[z].level+"</div><div style='width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;'>"+newstr1+"</div></div>"
       };
     $("#pinglunqu").html(tianjia);
+=======
+    location.reload();
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
   });
 
 })
@@ -475,6 +489,7 @@ $("#haha3").click(function(){
   // alert($("#yincang").val());
   url='<?php echo U('Index/travelStore/comment');?>';
   $.post(url,{data:'normal',id:$("#haha3").attr('name')},function(data){
+<<<<<<< HEAD
        console.log(data);
     // alert(data.length);
      var i = 0;
@@ -497,6 +512,9 @@ $("#haha3").click(function(){
         tianjia+="<div style='width:727px;margin:5px 0 0 0;'><img src='../Public/images/package/fengexian3.jpg' style='position:relative;left:10px;'> <div style='width:60px;height:60px;border:1px solid #d2d2d2;position:relative;left:13px;float:left'><img src='../pu'>这里放头像</div><div style='width:46px;height:22px;background-color:#FF6C0A;margin:5px 0 0 25px;color:white;font-size:14px;center;float:left;line-height:22px;text-align:center;'>"+data[z].level+"</div><div style='width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;'>"+newstr1+"</div></div>"
       };
     $("#pinglunqu").html(tianjia);
+=======
+    location.reload();
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
   });
 
 })
@@ -505,6 +523,7 @@ $("#haha4").click(function(){
   // alert($("#yincang").val());
   url='<?php echo U('Index/travelStore/comment');?>';
   $.post(url,{data:'bad',id:$("#haha4").attr('name')},function(data){
+<<<<<<< HEAD
         console.log(data);
     // alert(data.length);
      var i = 0;
@@ -527,6 +546,9 @@ $("#haha4").click(function(){
         tianjia+="<div style='width:727px;margin:5px 0 0 0;'><img src='../Public/images/package/fengexian3.jpg' style='position:relative;left:10px;'> <div style='width:60px;height:60px;border:1px solid #d2d2d2;position:relative;left:13px;float:left'><img src='../pu'>这里放头像</div><div style='width:46px;height:22px;background-color:#FF6C0A;margin:5px 0 0 25px;color:white;font-size:14px;center;float:left;line-height:22px;text-align:center;'>"+data[z].level+"</div><div style='width:645px;float:left;position:relative;left:25px;margin:5px 0 0 0;font-size:14px;'>"+newstr1+"</div></div>"
       };
     $("#pinglunqu").html(tianjia);
+=======
+    location.reload();
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
   });
 
 })

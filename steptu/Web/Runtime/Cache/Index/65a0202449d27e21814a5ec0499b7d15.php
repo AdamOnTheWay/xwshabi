@@ -218,7 +218,11 @@
 
 						<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[0]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
+<<<<<<< HEAD
 								<img src="<?php echo ($hds[0]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+=======
+								<img src="<?php echo ($hds[0]["image"]); ?>" border="0" style="height:200px;width:300px;" />
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
 								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[0]["id"]); ?>"><?php echo ($hds[0]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[0]["price"]); ?></div>
 								</div>
@@ -227,7 +231,11 @@
 
 						<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[1]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
+<<<<<<< HEAD
 								<img src="<?php echo ($hds[1]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+=======
+								<img src="<?php echo ($hds[1]["image"]); ?>" border="0" style="height:200px;width:300px;" />
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
 								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[1]["id"]); ?>"><?php echo ($hds[1]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[1]["price"]); ?></div>
 								</div>
@@ -236,7 +244,11 @@
 
 						<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[2]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
+<<<<<<< HEAD
 								<img src="<?php echo ($hds[2]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+=======
+								<img src="<?php echo ($hds[2]["image"]); ?>" border="0" style="height:200px;width:300px;" />
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
 								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[2]["id"]); ?>"><?php echo ($hds[2]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[2]["price"]); ?></div>
 								</div>
@@ -245,7 +257,11 @@
 
 						<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[3]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
+<<<<<<< HEAD
 								<img src="<?php echo ($hds[3]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+=======
+								<img src="<?php echo ($hds[3]["image"]); ?>" border="0" style="height:200px;width:300px;" />
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
 								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[3]["id"]); ?>"><?php echo ($hds[3]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[3]["price"]); ?></div>
 								</div>
@@ -254,7 +270,11 @@
 
 						<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[4]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
+<<<<<<< HEAD
 								<img src="<?php echo ($hds[4]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+=======
+								<img src="<?php echo ($hds[4]["image"]); ?>" border="0" style="height:200px;width:300px;" />
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
 								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[4]["id"]); ?>"><?php echo ($hds[4]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[4]["price"]); ?></div>
 								</div>
@@ -263,7 +283,11 @@
 
 					<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[5]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
+<<<<<<< HEAD
 									<img src="<?php echo ($hds[5]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+=======
+									<img src="<?php echo ($hds[5]["image"]); ?>" border="0" style="height:200px;width:300px;" />
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
 								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[5]["id"]); ?>"><?php echo ($hds[5]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[5]["price"]); ?></div>
 								</div>
@@ -272,7 +296,11 @@
 
 					<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[6]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
+<<<<<<< HEAD
 								<img src="<?php echo ($hds[6]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+=======
+								<img src="<?php echo ($hds[6]["image"]); ?>" border="0" style="height:200px;width:300px;" />
+>>>>>>> 1667af698ea93571941fe044120a651f45d6343b
 								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[6]["id"]); ?>"><?php echo ($hds[6]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[6]["price"]); ?></div>
 								</div>
