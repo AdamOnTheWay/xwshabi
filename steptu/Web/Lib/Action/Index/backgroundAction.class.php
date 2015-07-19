@@ -328,9 +328,7 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 			$this->assign('ho',$data);
 			$this->display();
 		}
-        public function jiudiandingdan(){
-			$this->display();
-		}
+    
 		public function lvyouchaoshijiudian(){
 			if(I('ID')!=''){
 				$data['id'] = I('ID');
@@ -361,7 +359,58 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 			$this->display();
 		}
 		public function taocandingdan(){
+			if(I('id') != ''){
+				$con["id"] = I('id');
+			}
+			if(I('time') != ''){
+				$con['time'] = I("time");
+			}
+			if(I('phone') != ''){
+				$con['phone'] = I('phone');
+			}
+			if(I('name') != ''){
+				$con['name'] = I('name');
+			}
+				$con['class'] = 1;
+
+			$data = M('order') ;
+			import('ORG.Util.Page');
+			$count = $data->where($con)->count();
+			$page = new Page($count,5);
+			$limit = $page->firstRow .','. $page->listRows;
+
+			$content = $data->limit($limit)->where($con)->select();
+			$this->content = $content;
+			$this->page = $page->show();
 			$this->display();
+
+		}
+		public function jiudiandingdan(){
+			if(I('id') != ''){
+				$con["id"] = I('id');
+			}
+			if(I('time') != ''){
+				$con['time'] = I("time");
+			}
+			if(I('phone') != ''){
+				$con['phone'] = I('phone');
+			}
+			if(I('name') != ''){
+				$con['name'] = I('name');
+			}
+				$con['class'] = 0;
+
+			$data = M('order') ;
+			import('ORG.Util.Page');
+			$count = $data->where($con)->count();
+			$page = new Page($count,5);
+			$limit = $page->firstRow .','. $page->listRows;
+
+			$content = $data->limit($limit)->where($con)->select();
+			$this->content = $content;
+			$this->page = $page->show();
+			$this->display();
+
 		}
 		public function taocanguanli(){
 
@@ -377,13 +426,6 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 			if(I('shifouyouhui')!=''){
 				$data['ifdiscount'] = I('shifouyouhui');
 			}
-
-
-
-
-
-
-
 
 
 			import('ORG.Util.Page');
@@ -878,6 +920,148 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 
 		}
 		}
+
+
+		public function guanyuyoujiguanli(){
+			$this->display();
+		}
+		public function addAboutUs(){
+			$data['aboutUs'] = I('aboutUs');
+			$tabel = M('information');
+			if($tabel->where('id=0')->save($data)){
+				$this->success("修改成功");
+			}else{
+				$this->error("出现了某些错误");
+			}
+			
+		}
+		public function addcooperation(){
+			$data['cooperation'] = I('cooperation');
+			$tabel = M('information');
+			if($tabel->where('id=0')->save($data)){
+				$this->success("修改成功");
+			}else{
+				$this->error("出现了某些错误");
+			}
+			
+		}
+		public function addcontactUs(){
+			$data['contactUs'] = I('contactUs');
+			$tabel = M('information');
+			if($tabel->where('id=0')->save($data)){
+				$this->success("修改成功");
+			}else{
+				$this->error("出现了某些错误");
+			}
+			
+		}
+		public function adduserLaws(){
+			$data['userLaws'] = I('userLaws');
+			$tabel = M('information');
+			if($tabel->where('id=0')->save($data)){
+				$this->success("修改成功");
+			}else{
+				$this->error("出现了某些错误");
+			}
+			
+		}
+		public function addrecrult(){
+			$data['recruit'] = I('recruit');
+
+			$tabel = M('information');
+			if($tabel->where('id=0')->save($data)){
+				$this->success("修改成功");
+			}else{
+			
+				$this->error("出现了某些错误");
+			}
+			
+		}
+
+		public function lvyouzhiguanli(){
+			$travelBook = M('travelbook');
+			$letterlist = M('letterlist');
+			if(I('travelid')!=''){
+				$travel['id'] = I('travelid');
+			}
+			if(I('travelname')!=''){
+				$travel['name'] = array('LIKE',"%". I('travelname')."%");
+			}
+			if(I('userName')!=''){
+				$travel['userName'] =I('userName');
+			}
+			if(I('content')!=''){
+				$travel['content'] =array('LIKE',"%". I('content')."%");
+			}
+
+
+			if(I('letterid')!=''){
+				$letter['id'] = I('letterid');
+			}
+			if(I('theme')!=''){
+				$letter['theme'] = array('LIKE',"%". I('theme')."%");
+			}
+			if(I('name')!=''){
+				$letter['name'] =I('name');
+			}
+			if(I('lettercontent')!=''){
+				$letter['content'] =array('LIKE',"%". I('lettercontent')."%");
+			}
+
+			import('ORG.Util.Page');
+			 $count = $travelBook->where($travel)->count();
+			 $min = $letterlist->where($letter)->count();
+
+			 $count = $count > $min ? $count : $min;
+
+			 $page = new Page($count,5);
+			 $limit = $page->firstRow .','. $page->listRows;
+
+			 $this->travelContent = $travelBook->limit($limit)->where($travel)->select();
+			 $this->letterContent = $letterlist->limit($limit)->where($letter)->select();
+			 
+			 // var_dump($this->travelContent);
+			 // // var_dump($this->letterContent);
+
+			 $this->page = $page->show();
+			 $this->display();
+
+		}
+
+		public function deleteTravel(){
+			$data = M('travelnote');
+			$comment = M('notecomment');
+			$comment->where('noteId='.I('id'))->delete();
+			if($data->delete(I('id'))){
+				$this->success("删除成功");
+			}else{
+				$this->error("删除失败");
+			}
+		}
+
+		public function lvyouzhixiangqing(){
+			$data = M('travelbook');
+			$this->content = $data->find(I('id'));
+			$this->display();
+		}
+
+		public function deletletter(){
+			$data = M('letter');
+			if($data->delete(I('id'))){
+				$this->success("删除成功");
+			}else{
+				$this->error("删除失败");
+			}
+		}
+		
+		public function weilaidexinxiangqing(){
+			$data = M('letterlist');
+			$this->content = $data->find(I('id'));
+			// var_dump($this->content );
+			$this->display();
+		}
+
+
 
 	}
 
