@@ -92,7 +92,9 @@
                             <li>酒店住宿</li>
                         </ol><br/>
                     </div>
-                    <input type='hidden' value="<?php echo ($travelId); ?>" name='travelId'>
+                    <input type='hidden' value="<?php echo ($travelId); ?>" name='travelOrHotelId'>
+                    <input type='hidden' value="<?php echo ($id); ?>" name='id'>
+                    <input type='hidden' value="<?php echo ($class["class"]); ?>" name='class'>
                     <label><textarea class="textarea" name="content" id="content"></textarea><br/></label>
                     <script type="text/javascript">
                             window.UEDITOR_HOME_URL = '__UEDITOR__';

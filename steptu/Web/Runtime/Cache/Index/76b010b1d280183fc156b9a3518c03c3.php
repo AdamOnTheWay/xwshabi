@@ -75,7 +75,7 @@
                             <td><?php echo ($v["id"]); ?></td>
                             <td><?php echo ($v["content"]); ?></td>
                             <td><a href=""> 查看</a></td>
-                            <td><a href='<?php echo U("Index/vipCenter/myEvaluations","","");?>/travelId/<?php echo ($v["scencyOrHotelId"]); ?>'> 评价 </a></td>
+                            <td><a href='<?php echo U("Index/vipCenter/myEvaluations","","");?>/travelId/<?php echo ($v["scencyOrHotelId"]); ?>/id/<?php echo ($v["id"]); ?>'> 评价 </a></td>
                         </tr><?php endforeach; endif; ?>                        
                     </table>
                     <?php echo ($show); ?>

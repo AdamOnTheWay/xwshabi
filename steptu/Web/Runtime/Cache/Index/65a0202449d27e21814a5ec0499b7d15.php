@@ -71,7 +71,7 @@
 
 
 	<div class="quanbu">
-
+       <div style="position:fixed;right:10%;top:85%;"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=983872881&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:983872881:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></div>
 		<div class="contentbg"></div>
 		<div class="content">
 			<!--优惠套餐条-->
@@ -90,7 +90,7 @@
 
 								<div class="pic">
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[0]["id"]); ?>" target="_blank">
-										<img src="<?php echo ($season[0]["image"]); ?>.jpg" width="145" height="145" alt="一号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[0]["id"]); ?>);" style="cursor:pointer;" />
+										<img src="<?php echo ($season[0]["image"]); ?>" width="145" height="145" alt="一号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[0]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[0]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[0]["name"]); ?></div>
@@ -101,7 +101,7 @@
 
 								<div class="pic">
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[1]["id"]); ?>" target="_blank">
-										<img src="<?php echo ($season[1]["image"]); ?>.jpg" width="145" height="145" alt="二号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[1]["id"]); ?>);" style="cursor:pointer;" />
+										<img src="<?php echo ($season[1]["image"]); ?>" width="145" height="145" alt="二号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[1]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[1]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[1]["name"]); ?></div>
@@ -111,7 +111,7 @@
 								</div>
 								<div class="pic">
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[2]["id"]); ?>" target="_blank">
-										<img src="<?php echo ($season[2]["image"]); ?>.jpg" width="145" height="145" alt="三号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[2]["id"]); ?>);" style="cursor:pointer;" />
+										<img src="<?php echo ($season[2]["image"]); ?>" width="145" height="145" alt="三号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[2]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[2]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[2]["name"]); ?></div>
@@ -121,7 +121,7 @@
 								</div>
 								<div class="pic">
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[3]["id"]); ?>" target="_blank">
-										<img src="<?php echo ($season[3]["image"]); ?>.jpg" width="145" height="145" alt="四号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[3]["id"]); ?>);" style="cursor:pointer;" />
+										<img src="<?php echo ($season[3]["image"]); ?>" width="145" height="145" alt="四号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[3]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[3]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[3]["name"]); ?></div>
@@ -131,7 +131,7 @@
 								</div>
 								<div class="pic">
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[4]["id"]); ?>" target="_blank">
-										<img src="<?php echo ($season[4]["image"]); ?>.jpg" width="145" height="145" alt="五号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[4]["id"]); ?>);" style="cursor:pointer;" />
+										<img src="<?php echo ($season[4]["image"]); ?>" width="145" height="145" alt="五号图片" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[4]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[4]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[4]["name"]); ?></div>
@@ -141,7 +141,7 @@
 								</div>
 								<div class="pic">
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[5]["id"]); ?>" target="_blank">
-										<img src="<?php echo ($season[5]["image"]); ?>.jpg" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[5]["id"]); ?>);" style="cursor:pointer;" />
+										<img src="<?php echo ($season[5]["image"]); ?>" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[5]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[5]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[5]["name"]); ?></div>
@@ -151,7 +151,7 @@
 								</div>
 								<div class="pic">
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[6]["id"]); ?>" target="_blank">
-										<img src="<?php echo ($season[6]["image"]); ?>.jpg" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[6]["id"]); ?>);" style="cursor:pointer;" />
+										<img src="<?php echo ($season[6]["image"]); ?>" width="145" height="145" alt="您自定义" onload="return imgzoom(this,600);" onclick="javascript:window.open(<?php echo U('Index/package/package');?>?id=<?php echo ($season[6]["id"]); ?>);" style="cursor:pointer;" />
 									</a>
 									<a href="<?php echo U('Index/package/package');?>?id=<?php echo ($season[6]["id"]); ?>" target="_blank">
 										<div style="font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($season[6]["name"]); ?></div>
@@ -178,9 +178,9 @@
 			<img src="__IMG__/lvyouzhi1.png" class="lvyouzhi">
 			<a href="<?php echo U('Index/travelBook/travelBook');?>"><img src="__IMG__/lvyouzhi2.png" class="lvyouzhi2"></a>
 			<div class="lvyouzhicontent">
-				<img src="" style="width:150px;height:150px;margin:15px 0 0 15px;">
+				<img src="<?php echo ($note1["image"]); ?>"  style="width:150px;height:150px;margin:15px 0 0 15px;">
 
-				<div style=" word-wrap:break-word; word-break:break-all;width:150px;margin:5px 0 0 15px;font-size:14px;"><?php echo ($note[0]["note"]); ?></div>
+				<div style=" word-wrap:break-word; word-break:break-all;width:150px;margin:5px 0 0 15px;font-size:14px;"><?php echo ($note1["remark"]); ?></div>
 
 			</div>
 			<div class="zhuhaohuaform">
@@ -216,64 +216,64 @@
 				<div id="demo" style="height:250px;width:280px; overflow:hidden; ">
 					<div id="demo1">
 
-						<a href="<?php echo U('Index/travelStore/jiudian','','');?>/id/3" target="_blank">
+						<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[0]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[0]["hotelName"]); ?>
+								<img src="<?php echo ($hds[0]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[0]["id"]); ?>"><?php echo ($hds[0]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[0]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
 
-						<a href="http://www.16sucai.com" target="_blank">
+						<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[1]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[1]["hotelName"]); ?>
+								<img src="<?php echo ($hds[1]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[1]["id"]); ?>"><?php echo ($hds[1]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[1]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
 
-						<a href="http://www.16sucai.com" target="_blank">
+						<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[2]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[2]["hotelName"]); ?>
+								<img src="<?php echo ($hds[2]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[2]["id"]); ?>"><?php echo ($hds[2]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[2]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
 
-						<a href="http://www.16sucai.com" target="_blank">
+						<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[3]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[3]["hotelName"]); ?>
+								<img src="<?php echo ($hds[3]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[3]["id"]); ?>"><?php echo ($hds[3]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[3]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
 
-						<a href="http://www.16sucai.com" target="_blank">
+						<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[4]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[4]["hotelName"]); ?>
+								<img src="<?php echo ($hds[4]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[4]["id"]); ?>"><?php echo ($hds[4]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[4]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
 
-						<a href="http://www.16sucai.com" target="_blank">
+					<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[5]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[5]["hotelName"]); ?>
+									<img src="<?php echo ($hds[5]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[5]["id"]); ?>"><?php echo ($hds[5]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[5]["price"]); ?></div>
 								</div>
 							</div>
 						</a>
 
-						<a href="http://www.16sucai.com" target="_blank">
+					<a href="<?php echo U('Index/travelStore/jiudian','','');?>?id=<?php echo ($hds[6]["id"]); ?>" target="_blank">
 							<div id="jiudiantu">
-								<img src="__IMG__/xilaideng.png" border="0" />
-								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><?php echo ($hds[6]["hotelName"]); ?>
+								<img src="<?php echo ($hds[6]["image"]); ?>" border="0" style="height:100px;width:180px;" />
+								<div id="jiudianming" style="position:relative;left:190px;top:-80px;font-size:15px;font-family: SimHei;color:#046bb3;"><a href="<?php echo U('Index/travelStore/jiudian');?>?id=<?php echo ($hds[6]["id"]); ?>"><?php echo ($hds[6]["hotelName"]); ?></a>
 									<div id="jiudianjiage" style="font-size:15px;font-family: SimHei;color:#ff8004;">￥<?php echo ($hds[6]["price"]); ?></div>
 								</div>
 							</div>

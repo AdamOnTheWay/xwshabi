@@ -77,7 +77,7 @@
 
 
 	<div class="quanbu">
-
+     <div style="position:fixed;right:10%;top:85%;"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=983872881&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:983872881:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></div>
 		<div class="contentbg"></div>
 		<div class="content">
 			<!--优惠套餐条-->
@@ -222,35 +222,38 @@
 
 
 			<div style="position: absolute;left: 230px;top: 280px;height: 234px;width: 288px;display:block" id="zhuhaohuajieguo">
-
+              <a href="{:U('Index/travelStore/jiudian')}?id={$hs[0].id}">
 					<div style="position:absolute;left:10px;width:130px;height:100px;">
 						<img src="{$hs[0].image}" style="width:130px;height:70px;">
 						<div style="font-size:13px;width:130px;">{$hs[0].hotelName}
 							<span style="position:absolute;left:90px;color:#ff8004;">￥{$hs[0].price}</span>
 						</div>
 					</div>
-
+					</a>
+<a href="{:U('Index/travelStore/jiudian')}?id={$hs[1].id}">
 				<div style="position:absolute;left:150px;width:130px;height:100px;">
 					<img src="" style="width:130px;height:70px;">
 					<div style="font-size:13px;width:130px;">{$hs[1].hotelName}
 						<span style="position:absolute;left:90px;color:#ff8004;">￥{$hs[1].price}</span>
 					</div>
 				</div>
-
+				</a>
+<a href="{:U('Index/travelStore/jiudian')}?id={$hs[2].id}">
 				<div style="position:absolute;left:10px;top:120px;width:130px;height:100px;">
 					<img src="" style="width:130px;height:70px;">
 					<div style="font-size:13px;width:130px;">{$hs[2].hotelName}
 						<span style="position:absolute;left:90px;color:#ff8004;">￥{$hs[2].price}</span>
 					</div>
 				</div>
-
+				</a>
+<a href="{:U('Index/travelStore/jiudian')}?id={$hs[3].id}">
 				<div style="position:absolute;left:150px;top:120px;width:130px;height:100px;">
 					<img src="" style="width:130px;height:70px;">
 					<div style="font-size:13px;width:130px;">{$hs[3].hotelName}
 						<span style="position:absolute;left:90px;color:#ff8004;">￥{$hs[3].price}</span>
 					</div>
 				</div>
-
+</a>
 
 			</div>
 

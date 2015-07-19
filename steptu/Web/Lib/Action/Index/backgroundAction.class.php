@@ -7,6 +7,13 @@
 		}
 
 	}
+	public function chidelete(){
+		$id = I('data');
+	if(	M('food')->where(array('id'=>I('data')))->delete()){
+		$this->ajaxreturn('ok');
+	}
+
+}
 
 	public function citydelete(){
 		$id = I('data');
@@ -29,13 +36,13 @@
 			$data['xian'] =I('s_county');
 		}
 		if(I('jingdian')!=''){
-			$data['jingdian'] =I('jingdian');
+			$data['jingdian'] =array('LIKE',"%". I('jingdian')."%");
 		}
 		if(I('jichanghuochezhan')!=''){
-			$data['station'] =I('jichanghuochezhan');
+			$data['station'] =array('LIKE',"%". I('jichanghuochezhan')."%");
 		}
 		if(I('shangyequ')!=''){
-			$data['business'] =I('shangyequ');
+			$data['business'] =array('LIKE',"%". I('shangyequ')."%");
 		}
 
 		if(M('city')->add($data)){
@@ -55,13 +62,13 @@
 			$data['xian'] =I('s_county');
 		}
 		if(I('jingdian')!=''){
-			$data['jingdian'] =I('jingdian');
+			$data['jingdian'] =array('LIKE',"%". I('jingdian')."%");
 		}
 		if(I('jichanghuochezhan')!=''){
-			$data['station'] =I('jichanghuochezhan');
+			$data['station'] =array('LIKE',"%". I('jichanghuochezhan')."%");
 		}
 		if(I('shangyequ')!=''){
-			$data['business'] =I('shangyequ');
+			$data['business'] =array('LIKE',"%". I('shenagyequ')."%");
 		}
 		if(M('city')->where(array('id'=>I('weizhiid')))->save($data)){
 			$this->success('修改成功');
@@ -94,10 +101,10 @@ public function tcxq(){
 		$pkg['id'] = I('taocanid');
 	}
 	if(I('qishiriqi')!=''){
-		$pkg['startTime'] = I('qishiriqi');
+		$pkg['startTime'] =I('qishiriqi');
 	}
 	if(I('jiezhiriqi')!=''){
-		$pkg['endTime'] = I('jiezhiriqi');
+		$pkg['endTime'] =I('jiezhiriqi');
 	}
 	if(I('shifouyouhui')!=''){
 		$pkg['ifdiscount'] = I('shifouyouhui');
@@ -109,16 +116,19 @@ public function tcxq(){
 		$pkg['descriptionPrice'] = I('taocanshuoming');
 	}
 	if(I('youhuihuodong')!=''){
-		$pkg['discountAction'] = I('youhuihuodong');
+		$pkg['discountAction'] =  I('youhuihuodong');
 	}
 	if(I('chanpintese')!=''){
-		$pkg['characteristics'] = I('chanpintese');
+		$pkg['characteristics'] =  I('chanpintese');
 	}
 	if(I('xingchengjieshao')!=''){
-		$pkg['routeDescription'] = I('xingchengjieshao');
+		$pkg['routeDescription'] =  I('xingchengjieshao');
 	}
 	if(I('yudingxuzhi')!=''){
-		$pkg['bookInformation'] = I('yudingxuzhi');
+		$pkg['bookInformation'] =  I('yudingxuzhi');
+	}
+	if(I('theme')!=''){
+		$pkg['status'] =  I('theme');
 	}
 
 if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
@@ -130,7 +140,7 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 			if(I('taocanid')=='kong'){
 
 			if(I('taocanming')!=''){
-				$data['name'] = I('taocanming');
+				$data['name'] = array('LIKE',"%". I('taocanming')."%");
 			}
 			if(I('shifoushuyu')!=''){
 				$data['ifdiscount'] = I('shifoushuyu');
@@ -146,7 +156,7 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 		}else{
 
 			if(I('taocanming')!=''){
-				$data['name'] = I('taocanming');
+				$data['name'] = array('LIKE',"%". I('taocanming')."%");
 			}
 			if(I('shifoushuyu')!=''){
 				$data['ifdiscount'] = I('shifoushuyu');
@@ -535,17 +545,61 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 
 		}
 		public function shouyeguanli(){
+			if(IS_POST){
+			import('ORG.Net.UploadFile');
+			$upload = new UploadFile();// 实例化上传类
+			$upload->maxSize  = 3145728 ;// 设置附件上传大小
+			$upload->allowExts  = array('jpg', 'png', 'jpeg');// 设置附件上传类型
+			$upload->savePath='Web/Tpl/Index/Public/images/travelNote/';// 设置附件上传目录
+ 		if(!$upload->upload()) {// 上传错误提示错误信息
+			$this->error($upload->getErrorMsg());
+ 		}else{// 上传成功 获取上传文件信息
+				$info =  $upload->getUploadFileInfo();
+
+
+
+ 		}
+		if(I('mpcontent')!=''){
+			$data['remark']=I('mpcontent');
+		}
+		$User = M("note"); // 实例化User对象
+		$data['image']='/xwshabi/steptu/'.$info[0]['savepath'].$info[0]['savename'];
+		if($User->add($data)){
+		$this->success('数据保存成功！');
+	}
+	}
 			$this->display();
 		}
 
 		public function faqihuodongguanli(){
-			$data['id'];
-			$data['startTime'];
-			$data['startarea'];
-			$data['content'];
-			$data['maxnumber'];
-			$data['initiator'];
-			$data['remark'];
+			if(I('taocanid')!=''){
+				$data['id'] = I('taocanid');
+			}
+			if(I('leibie')!=''){
+				$data['theme'] = array('LIKE',"%". I('leibie')."%");
+			}
+			if(I('huodongshijian')!=''){
+				$data['startTime'] =I('huodongshijian');
+			}
+			if(I('huodongshifadi')!=''){
+				$data['startarea'] =array('LIKE',"%". I('huodongshifadi')."%");
+			}
+			if(I('huodongmudidi')!=''){
+				$data['intentarea'] =array('LIKE',"%". I('huodongmudidi')."%");
+			}
+			if(I('huodongneirong')!=''){
+				$data['content'] =array('LIKE',"%". I('huodongneirong')."%");
+			}
+			if(I('zuidacanyurenshu')!=''){
+				$data['maxnumber'] =I('zuidacanyurenshu');
+			}
+			if(I('faqiren')!=''){
+				$data['initiator'] =array('LIKE',"%". I('faqiren')."%");
+			}
+			if(I('huodongbeizhu')!=''){
+				$data['remark'] =array('LIKE',"%". I('huodongbeizhu')."%");
+			}
+
 
 
 
@@ -566,23 +620,54 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 
 
 		public function tcxqimage(){
-			$file['image'] = I('file');
-			$id = I('taocanid');
-		if(M('travelscency')->where(array('id'=>$id))->save($file)){
-				$this->success('image');
-			}else{
-				$this->error('faild');
-			}
-		}
+			if(IS_POST){
 
+			import('ORG.Net.UploadFile');
+			$upload = new UploadFile();// 实例化上传类
+			$upload->maxSize  = 3145728 ;// 设置附件上传大小
+			$upload->allowExts  = array('jpg', 'png', 'jpeg');// 设置附件上传类型
+			$upload->savePath='Web/Tpl/Index/Public/images/travelstore/';// 设置附件上传目录
+ 		if(!$upload->upload()) {// 上传错误提示错误信息
+			$this->error($upload->getErrorMsg());
+ 		}else{// 上传成功 获取上传文件信息
+				$info =  $upload->getUploadFileInfo();
+
+
+
+ 		}
+
+		$User = M("travelscency"); // 实例化User对象
+		$data['image']='/xwshabi/steptu/'.$info[0]['savepath'].$info[0]['savename'];
+		if($User->where(array('id'=>I('taocanid')))->save($data)){
+		$this->success('数据保存成功！');
+	}
+}
+
+}
 		public function hhjdimage(){
-			$file['image'] = I('file');
-			$id = I('haohuajiudianid');
-		if(M('hotel')->where(array('id'=>$id))->save($file)){
-				$this->success('image');
-			}else{
-				$this->error('faild');
-			}
+			if(IS_POST){
+
+			import('ORG.Net.UploadFile');
+			$upload = new UploadFile();// 实例化上传类
+			$upload->maxSize  = 3145728 ;// 设置附件上传大小
+			$upload->allowExts  = array('jpg', 'png', 'jpeg');// 设置附件上传类型
+			$upload->savePath='Web/Tpl/Index/Public/images/travelstore/';// 设置附件上传目录
+ 		if(!$upload->upload()) {// 上传错误提示错误信息
+			$this->error($upload->getErrorMsg());
+ 		}else{// 上传成功 获取上传文件信息
+				$info =  $upload->getUploadFileInfo();
+
+
+
+ 		}
+
+		$User = M("hotel"); // 实例化User对象
+		$data['image']='/xwshabi/steptu/'.$info[0]['savepath'].$info[0]['savename'];
+		if($User->where(array('id'=>I('haohuajiudianid')))->save($data)){
+		$this->success('数据保存成功！');
+	}
+}
+
 		}
 
 
@@ -667,6 +752,9 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 			if(I('huodongshijian')!=''){
 				$data['startTime'] = I('huodongshijian');
 			}
+			if(I('theme')!=''){
+				$data['theme'] = I('theme');
+			}
 			if(I('huodongshifadi')!=''){
 				$data['startarea'] = I('huodongshifadi');
 			}
@@ -693,6 +781,9 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 				$this->error('由于某种原因添加失败');
 			}
 		}else{
+			if(I('theme')!=''){
+			$data['theme'] = I('theme');
+		}
 
 			if(I('huodongshijian')!=''){
 				$data['startTime'] = I('huodongshijian');
@@ -716,6 +807,70 @@ if(	M('travelscency')->where(array('id'=>I('taocanid')))->save($pkg)){
 				$data['remark'] =I('huodongbeizhu');
 			}
 			if(M('action')->where(array('id'=>I('taocanid')))->save($data)){
+				$this->success('修改成功');
+			}else{
+				$this->error('由于某种原因修改失败');
+			}
+
+		}
+		}
+
+		public function lvyouchaoshiguanli(){
+			if(I('chidian')!=''){
+				$data['id'] = I('chidian');
+			}
+			if(I('chidianming')!=''){
+				$data['storeName'] = array('LIKE',"%". I('chidianming')."%");
+			}
+			if(I('chidiandianhua')!=''){
+				$data['phone'] =I('chidiandianhua');
+			}
+			if(I('chidiandizhi')!=''){
+				$data['area'] =array('LIKE',"%". I('chidiandizhi')."%");
+			}
+
+			import('ORG.Util.Page');
+ 		 $count = M('food')->where($data)->count();
+ 		 $page = new Page($count,5);
+ 		 $limit = $page->firstRow .','. $page->listRows;
+
+ 		 $content = M('food')->limit($limit)->where($data)->select();
+ 		 $this->content = $content;
+ 		 $this->page = $page->show();
+ 		 $this->display();
+		}
+
+		public function chiadd(){
+
+
+			if(I('chidianid')=='kong'){
+
+			if(I('taocanming')!=''){
+				$data['storeName'] = I('taocanming');
+			}
+			if(I('youhuijia')!=''){
+				$data['area'] = I('youhuijia');
+			}
+			if(I('phone')!=''){
+				$data['phone'] =I('phone');
+			}
+			if(M('food')->add($data)){
+				$this->success('添加成功');
+			}else{
+				$this->error('由于某种原因添加失败');
+			}
+		}else{
+
+			if(I('taocanming')!=''){
+				$data['storeName'] = I('taocanming');
+			}
+			if(I('youhuijia')!=''){
+				$data['area'] = I('youhuijia');
+			}
+			if(I('phone')!=''){
+				$data['phone'] =I('phone');
+			}
+			if(M('food')->where(array('id'=>I('chidianid')))->save($data)){
 				$this->success('修改成功');
 			}else{
 				$this->error('由于某种原因修改失败');
