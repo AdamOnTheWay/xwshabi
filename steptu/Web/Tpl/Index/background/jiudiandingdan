@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>套餐订单管理</title>
+    <title>酒店订单管理</title>
     <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 
     <script type="text/javascript" src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
@@ -35,16 +35,22 @@
 <br>
 <br>
 <br>
-<form action="{:U('Index/background/taocandingdan','','')}" name="" method="post">套餐订单搜索
-    <br> 套餐订单id
-    <input name="id" type="text" value="">
-    
-    <br> 预定时间
-    <input name="time" type="text" value="">
-    <br/>联系人
-    <input type="text" name='name' value="">
+<form action="{:U('')}" name="" method="post">酒店订单搜索
+    <br> 酒店订单id
+    <input name="" type="text" value="">
+    <br> 酒店订单名
+    <input name="" type="text" value="">
+    <br> 入住时间
+    <input name="" type="text" value="">
+    <br> 入住天数
+    <input name="" type="number" value="">
+    <br/>预定间数
+    <input name="" type="text" value="">
+    <br/>住客姓名
+    <input type="text" value="">
     <br/>联系手机
-    <input type="text" value="" name="phone">
+    <input type="text" value="">
+    <br/>
     <input type="submit" value="搜索" />
 </form>
 <br>
@@ -53,54 +59,62 @@
 
 <table border="1" cellspacing="10">
     <tr>
-        <td>套餐订单id</td>
-        <td>套餐订单名</td>
-        <td>预定时间</td>
-        <td>联系人</td>
+        <td>酒店订单id</td>
+        <td>酒店订单名</td>
+        <td>入住时间</td>
+        <td>入住天数</td>
+        <td>预定间数</td>
+        <td>住客姓名</td>
         <td>联系电话</td>
-        <td>总的花费</td>
-        <td>套餐链接</td>
+        <td>酒店链接</td>
     </tr>
 
     <!-- 以下是一层 name需要你渲染上去对应的套餐id-->
     <foreach name="content" item="u" >
         <tr>
-            <td>{$u.id}</td>
-            <td>{$u.content}</td>
-            <td>{$u.time}</td>
-            <td>{$u.name}</td>
-            <td>{$u.phone}</td>
-            <td>{$u.price}</td>
+            <td>酒店订单id</td>
+            <td>酒店订单名</td>
+            <td>入住时间</td>
+            <td>入住天数</td>
+            <td>预定间数</td>
+            <td>住客姓名</td>
+            <td>联系电话</td>
+            <td>酒店链接</td>
             <td><a href="#">套餐的链接</a> </td>
-            
+            <td style="cursor:pointer;" class="xiugai" name="">
+                <font size="3" color="red">修改</font>
+            </td>
+            <td style="cursor:pointer;" name="" class="shanchu">
+                <font size="3" color="red">删除</font>
+            </td>
         </tr>
     </foreach>
-
-</table>
     {$page}
-<!-- <br>
+</table>
 <br>
 <br>
-<div id="taocandingdanxinxi" style="display:none;">
+<br>
+<div id="jiudianyudingxinxi" style="display:none;">
     <form action="{:U('')}" name="" id="" method="">
-        <br> 套餐订单id
+        <br> 酒店订单id
         <input name="" type="text" value="">
-        <br> 套餐订单名
+        <br> 酒店订单名
         <input name="" type="text" value="">
-        <br> 预定时间
+        <br> 入住时间
         <input name="" type="text" value="">
-        <br>订单包含人数
-        成人数 <input type="number">
-        儿童数<input type="number">
-        <br/>联系人
+        <br> 入住天数
+        <input name="" type="number" value="">
+        <br/>预定间数
+        <input name="" type="text" value="">
+        <br/>住客姓名
         <input type="text" value="">
         <br/>联系手机
         <input type="text" value="">
-
+        <br/>
         <input type="submit" value="提交修改" /> &nbsp &nbsp &nbsp
         <input type="reset" value="重置" />
     </form>
-</div> -->
+</div>
 
 </body>
 
@@ -109,7 +123,7 @@
 
 
     $(".xiugai").click(function() {
-        taocandingdanxinxi.style.display = "block";
+        jiudianyudingxinxi.style.display = "block";
 //        var changshi=$(this).attr("name");
 //        namechangshi="name"+changshi;
 //
