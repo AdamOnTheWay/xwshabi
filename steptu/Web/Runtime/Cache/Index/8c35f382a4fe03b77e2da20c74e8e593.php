@@ -1,1 +1,0 @@
-<?php if (!defined('THINK_PATH')) exit();?><script>alert('请先登录');window.history.go(-1);</script>

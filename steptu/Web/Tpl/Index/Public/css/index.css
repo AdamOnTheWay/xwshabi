@@ -203,15 +203,14 @@ position: absolute;
 
 }
 
-.bottomsm
+.bottomsm      /*旅游超市*/
 {
+
 	position: absolute;
-	left: 243px;
+	left: 343px;
 	top: 773px;
 	height: 180px;
 	width: 70px;
-	/*background-color: red;*/
-	
 
 }
 
@@ -245,17 +244,16 @@ position: absolute;
 	line-height:160%;
 
 }
+ /* 会员中心*/
 .bottompersonal
 {
 	position: absolute;
-	left: 343px;
+	left: 543px;
 	top: 773px;
 	height: 180px;
 	width: 70px;
-/*	background-color: red;*/
-	
-
 }
+ /* 旅游志*/
 .bottombook
 {
 	position: absolute;
@@ -267,18 +265,17 @@ position: absolute;
 	
 
 }
+/*主题旅游*/
 .weishenme
 {
 	position: absolute;
-	left: 543px;
+	left: 243px;
 	top: 773px;
 	height: 180px;
 	width: 70px;
-/*	background-color: red;*/
-	
 
 }
-
+/*关于游迹*/
 .bottomaboutus
 {
 	position: absolute;
