@@ -125,7 +125,7 @@
 	 		$condition['userId'] = cookie("userid");
 	 	
 	 		$count = $data->where($condition)->count();
-	 		$page = new Page($count,2);
+	 		$page = new Page($count,10);
 	 		$this->show = $page->show();
 	 		$this->list = $data->where($condition)->limit($page->firstRow.','.$page->listRows)->order('id desc')->select();
 
@@ -152,7 +152,7 @@
 	 	
 	 		import('ORG.Util.Page');
 	 		$count = M('comment')->where($condition)->count();
-	 		$page = new Page($count,2);
+	 		$page = new Page($count,10);
 	 		$this->show = $page->show();
 
 

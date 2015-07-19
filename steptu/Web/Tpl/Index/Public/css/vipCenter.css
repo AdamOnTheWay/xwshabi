@@ -164,7 +164,7 @@ body{
     border: 1px solid rgba(169, 169, 169, 0.51);
 }
 .myEvaluations{
-    height: 130px;
+    /*height: 130px;*/
     border: 1px solid rgba(169, 169, 169, 0.51);
     margin-left: 7px;
     margin-right: 7px;
@@ -235,7 +235,7 @@ body{
     background-color: #f6fbfe;
 }
 .basicInformation{
-    height: 49%;
+    height: 45%;
     border-bottom: 1px solid rgba(169, 169, 169, 0.51);
 }
 .basicInformation span{
@@ -256,7 +256,7 @@ body{
     color: red;
 }
 .contactInformation{
-    height: 17%;
+    height: 20%;
     border-bottom: 1px solid rgba(169, 169, 169, 0.51);
 }
 .contactInformation span{
@@ -363,7 +363,7 @@ button:hover{
 .background{
     margin-top: 2px;
     margin-left: 4px;
-    height: 75%;
+    height: 90%;
     width: 95%;
     line-height: 35px;
     vertical-align: middle;

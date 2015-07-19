@@ -83,7 +83,7 @@ body{
     margin-right: 10px;
 }
 .letterRealContents{
-    height: 75px;
+    height: 80px;
     border-bottom: 1px dashed darkgray;
 }
 .twoBtn a{
@@ -134,7 +134,7 @@ textarea{
     margin-bottom: 20px;
     margin-left: 10px;
     margin-right: 10px;
-    height: 18%;
+    height: 16%;
     overflow: auto;
     border-bottom: 1px solid darkgray;
     border-top: 1px solid darkgray;

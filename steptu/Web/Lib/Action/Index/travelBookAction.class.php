@@ -116,7 +116,7 @@
 
 			$count = $listLetters->where($checkStatus)->count();
 			import('ORG.Util.Page');
-			$pageLetters = new Page($count,2);
+			$pageLetters = new Page($count,5);
 			$show = $pageLetters->show();
 			$this->assign('pageLetters',$show);
 
