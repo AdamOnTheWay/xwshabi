@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Public/css/index.css" media="all" type="text/css">
-    <title>关于游迹</title>
+    <title>用户协议</title>
     <script src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="__JS__/jquery.cookie.js"></script>
     <script type="text/javascript" src="__JS__/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
@@ -60,15 +60,9 @@
         <img src="../Public/images/aboutUs/aboutUs.png"><br><br/>
         <img src="../Public/images/aboutUs/title.png"><br/>
         <div class="realContainer">
-            <img src="../Public/images/aboutUs/logo.png"><span>关于我们</span>
+            <img src="../Public/images/aboutUs/logo.png"><span>用户协议</span>
             <div class="realAboutUs">
-                在使用百度搜索引擎（以下简称百度）前，请您务必仔细阅读并透彻理解本声明。<br/>
-                您可以选择不使用百度，但如果您使用百度，您<br/>
-                的使用行为将被视为对本声明全部内容的认可。<br/>
-                鉴于百度以非人工检索方式、根据您键入的关键字自动生成到第三方网页的链接，<br/>
-                除百度注明之服务条款外，其他一切因使用百度而可能遭致的意外、疏忽、侵权及其造成的<br/>
-                损失（包括因下载被搜索链接到的第三方网站内容而感染电脑病毒），百度对其概不负责，<br/>
-                亦不承担任何法律责任。任何通过使用百度而搜索链接到的<br/>
+              {$usrLaws.userLaws|htmlspecialchars_decode}
             </div>
         </div>
     </div>
@@ -89,7 +83,7 @@
                 <a href="{:U('Index/vipCenter/myGrades')}">我的积分</a> <br>
                 <a href="{:U('Index/vipCenter/myEvaluations')}"> 我的评价</a><br>
                 <a href="{:U('Index/vipCenter/myInformation')}">我的信息</a> <br>
-                <a href="{:U('Index/vipCenter/myMoneyPot')}">我的储钱罐计划</a><br>
+                <a href="{:U('Index/vipCenter/myMoneyPot')}">我的储钱罐旅行计划</a><br>
             </div>
         </div>
         <div class="bottombook">
@@ -105,11 +99,11 @@
                 <a href="{:U('Index/travelTheme/travelTheme')}">年休假</a><br>
                 <a href="{:U('Index/travelTheme/travelTheme')}">美食游</a></div></div>
         <div class="bottomaboutus"><span class="bottombiao">关于游记</span><div class="bottomxuanxiang">
-            <a href="{:U('Index/index/aboutUs')}">关于我们</a><br>
-            <a href="{:U('Index/index/aboutUs')}">联系我们</a><br>
-            <a href="{:U('Index/index/aboutUs')}">一起合作</a><br>
-            <a href="{:U('Index/index/aboutUs')}">用户协议</a><br>
-            <a href="{:U('Index/index/aboutUs')}">诚聘英才</a></div>
+            <a href="{:U('Index/aboutYouJi/aboutUs')}">关于我们</a><br>
+            <a href="{:U('Index/aboutYouJi/contavtUs')}">联系我们</a><br>
+            <a href="{:U('Index/aboutYouJi/cooperation')}">一起合作</a><br>
+            <a href="{:U('Index/index/userLaws')}">用户协议</a><br>
+            <a href="{:U('Index/index/recruit')}">诚聘英才</a></div>
         </div>
     </div>
     <img src="../Public/images/steptu.png" class="steptu">
@@ -122,11 +116,11 @@
 
     <div class="severalBtn">
         <ul>
-            <li><a>关于我们</a></li>
-            <li><a>联系我们</a></li>
-            <li><a>一起合作</a></li>
-            <li><a>用户协议</a></li>
-            <li><a>诚聘英才</a></li>
+            <li><a href="{:U('Index/aboutYouJi/aboutUs')}">关于我们</a></li>
+            <li><a href="{:U('Index/aboutYouJi/contavtUs')}">联系我们</a></li>
+            <li><a href="{:U('Index/aboutYouJi/cooperation')}">一起合作</a></li>
+            <li><a href="{:U('Index/index/userLaws')}">用户协议</a><br></li>
+            <li><a href="{:U('Index/index/recruit')}">诚聘英才</a></li>
         </ul>
     </div>
 </div>

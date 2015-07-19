@@ -6,6 +6,7 @@ class indexAction extends Action{
 
 	//显示主页
 	public function index(){
+		// var_dump(md5("123"));
 
 		if(IS_POST){
 			//dump($_POST);
@@ -120,6 +121,34 @@ public function index2(){
 	//搜索旁边的酒店信息
 	public function discountHotel(){
 
+	}
+
+	public function aboutUs(){
+		// var_dump("expression");
+		$data = M('information');
+		$this->aboutUs = $data->field('aboutUs')->find('0');
+		$this->display();
+	}
+
+	public function contactUs(){
+		$this->contactUs = M('information')->field('contactUs')->find('0');
+		$this->display();
+	}
+	public function cooperation(){
+		$data = M('information');
+		$this->coopration =$data->field('cooperation')->find('0');
+		$this->display();
+	}
+	public function userLaws(){
+		$data = M('information');
+		$this->usrLaws = $data->field('userLaws')->find(0);
+		$this->display();
+	}
+
+	public function recruit(){
+		$data = M('information');
+		$this->recruit = $data->field('recruit')->find(0);
+		$this->display();
 	}
 
 }

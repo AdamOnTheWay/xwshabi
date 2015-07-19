@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>套餐订单管理</title>
+    <title>主题旅游管理</title>
     <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 
     <script type="text/javascript" src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
@@ -35,16 +35,24 @@
 <br>
 <br>
 <br>
-<form action="{:U('Index/background/taocandingdan','','')}" name="" method="post">套餐订单搜索
-    <br> 套餐订单id
-    <input name="id" type="text" value="">
-    
-    <br> 预定时间
-    <input name="time" type="text" value="">
-    <br/>联系人
-    <input type="text" name='name' value="">
-    <br/>联系手机
-    <input type="text" value="" name="phone">
+<form action="" name="" method="post">套餐搜索
+    <br> 主题id
+    <input name="" type="text" value="">
+    <br> 主题名
+    <input name="" type="text" value="">
+    <br> 主题类别
+    <select name="">
+        <option value="">城市之间</option>
+        <option value="">年休假</option>
+        <option value="">学子游</option>
+        <option value="">美食街</option>
+    </select>
+    <br>
+    <br> 主题价格
+    <input name="" type="text" value="">
+    <br>主题描述关键字
+    <input type="text" name="">
+    <br/>
     <input type="submit" value="搜索" />
 </form>
 <br>
@@ -53,63 +61,73 @@
 
 <table border="1" cellspacing="10">
     <tr>
-        <td>套餐订单id</td>
-        <td>套餐订单名</td>
-        <td>预定时间</td>
-        <td>联系人</td>
-        <td>联系电话</td>
-        <td>总的花费</td>
-        <td>套餐链接</td>
+        <td>主题id</td>
+        <td>主题名</td>
+        <td>主题类别</td>
+        <td>主题价格</td>
+        <td>主题描述关键字</td>
+        <td style="cursor:pointer;" id="zengjia">
+            <font size="3" color="red">增加</font>
+        </td>
     </tr>
 
-    <!-- 以下是一层 name需要你渲染上去对应的套餐id-->
-    <foreach name="content" item="u" >
+    <!-- 以下是一层 name需要你渲染上去对应的主题id-->
+    <foreach name="" item="" >
         <tr>
-            <td>{$u.id}</td>
-            <td>{$u.content}</td>
-            <td>{$u.time}</td>
-            <td>{$u.name}</td>
-            <td>{$u.phone}</td>
-            <td>{$u.price}</td>
-            <td><a href="#">套餐的链接</a> </td>
-            
+            <td>主题id</td>
+            <td>主题名</td>
+            <td>主题类别</td>
+            <td>主题价格</td>
+            <td>主题描述关键字</td>
+            <td style="cursor:pointer;" class="xiugai" name="">
+                <font size="3" color="red">修改</font>
+            </td>
+            <td style="cursor:pointer;" name="" class="shanchu">
+                <font size="3" color="red">删除</font>
+            </td>
         </tr>
     </foreach>
-
 </table>
-    {$page}
-<!-- <br>
 <br>
 <br>
-<div id="taocandingdanxinxi" style="display:none;">
-    <form action="{:U('')}" name="" id="" method="">
-        <br> 套餐订单id
+<br>
+<div id="zhutixinxi" style="display:none;">
+    <form action="" name="" id="" method="post">
+        <br> 主题id
         <input name="" type="text" value="">
-        <br> 套餐订单名
+        <br> 主题名
         <input name="" type="text" value="">
-        <br> 预定时间
+        <br> 主题类别
+        <select name="">
+            <option value="">城市之间</option>
+            <option value="">年休假</option>
+            <option value="">学子游</option>
+            <option value="">美食街</option>
+        </select>
+        <br>
+        <br> 主题价格
         <input name="" type="text" value="">
-        <br>订单包含人数
-        成人数 <input type="number">
-        儿童数<input type="number">
-        <br/>联系人
-        <input type="text" value="">
-        <br/>联系手机
-        <input type="text" value="">
-
+        <br>主题描述关键字
+        <input type="text" name="">
+        <br/>
         <input type="submit" value="提交修改" /> &nbsp &nbsp &nbsp
         <input type="reset" value="重置" />
     </form>
-</div> -->
+</div>
 
 </body>
 
 </html>
 <script type="text/javascript">
 
+    $("#zengjia").click(function() {
+        zhutixinxi.style.display = "block";
+
+    });
 
     $(".xiugai").click(function() {
-        taocandingdanxinxi.style.display = "block";
+        zhutixinxi.style.display = "block";
+
 //        var changshi=$(this).attr("name");
 //        namechangshi="name"+changshi;
 //
@@ -121,13 +139,12 @@
     });
 
     $(".shanchu").click(function() {
-        //alert($(this).attr("name"));
-        url = '{:U()}';
-        $.post(url, {
-            data: $(this).attr("")
-        }, function(data) {
-            location.reload();
-        });
+//        url = '{:U(\'Index/background/tcdelete\')}'
+//        $.post(url, {
+//            data: $(this).attr("name")
+//        }, function(data) {
+//            location.reload();
+//        });
     })
 
 

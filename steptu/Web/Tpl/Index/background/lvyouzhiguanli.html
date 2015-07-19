@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>酒店订单管理</title>
+    <title>旅游志管理</title>
     <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 
     <script type="text/javascript" src="../Public/js/jquery-easyui-1.4.2/jquery.min.js"></script>
@@ -35,96 +35,102 @@
 <br>
 <br>
 <br>
-<form action="{:U('')}" name="" method="post">酒店订单搜索
-    <br> 酒店订单id
-    <input name="id" type="text" value="">
-  
-    <br/>住客姓名
-    <input type="text" value="" name='name'>
-    <br/>联系手机
-    <input type="text" value="" name="phone">
-    <br/> 
+<form action="{:U('Index/background/lvyouzhiguanli')}" name="" method="post" style="float: left">旅游志搜索
+    <br> 旅游志id
+    <input name="travelid" type="text" value="">
+    <br> 旅游志名
+    <input name="travelname" type="text" value="">
+    <br> 作者
+    <input name="userName" type="text" value="">
+  <!--   <br>写作日期
+    <input class="easyui-datebox">
+ -->    <br/>旅游志内容关键字
+    <input type="text" value="" naem="content">
+    <br/>
     <input type="submit" value="搜索" />
 </form>
+<form action="" name="" method="post" style="float: left;margin-left: 100px">写给未来的信搜索
+    <br> 未来的信id
+    <input name="letterid" type="text" value="">
+    <br> 未来的信名
+    <input name="theme" type="text" value="">
+    <br> 作者
+    <input name="name" type="text" value="">
+    <!-- <br>写作日期
+    <input class="easyui-datebox"> -->
+    <br/>未来的信内容关键字
+    <input type="text" value="" name="lettercontent">
+    <br/>
+    <input type="submit" value="搜索" />
+</form>
+<div style="clear: both"></div>
 <br>
 <br>
 <br>
 
-<table border="1" cellspacing="10">
+
+
+<table border="1" cellspacing="10" style="float: left">
+
     <tr>
-        <td>酒店订单id</td>
-        <td>酒店订单名</td>
-        <td>住客姓名</td>
-        <td>联系电话</td>
-        <td>总的花费</td>
-        <td>酒店链接</td>
+        <td> 旅游志id</td>
+        <td>旅游志名</td>
+        <td>作者</td>
+        <td>写作日期</td>
     </tr>
 
-    <!-- 以下是一层 name需要你渲染上去对应的套餐id-->
-    <foreach name="content" item="u" >
+  <foreach name='travelContent' item='v'>
         <tr>
-            <td>{$u.id}</td>
-            <td>{$u.content}</td>
-            <td>{$u.name}</td>
-            <td>{$u.phone}</td>
-            <td>{$u.price}</td>
-            <td>酒店链接</td>
-            <td><a href="#">套餐的链接</a> </td>
-            <td style="cursor:pointer;" class="xiugai" name="">
-                <font size="3" color="red">修改</font>
-            </td>
+            <td> {$v.id}</td>
+            <td>{$v.name}</td>
+            <td>{$v.userName}</td>
+            <td>{$v.time}</td>
             <td style="cursor:pointer;" name="" class="shanchu">
-                <font size="3" color="red">删除</font>
+                <font size="3" color="red" onclick="window.open('{:U('Index/background/deleteTravel','','')}/id/{$v.id}');">删除</font>
+            </td>
+            <td style="cursor:pointer;" >  <!--跳转到旅游志详情  -->
+                <font size="3" color="red" onclick="window.open('{:U('Index/background/lvyouzhixiangqing','','')}/id/{$v.id}');">详情</font>
+            </td>
+        </tr>
+</foreach>
+    <!-- 循环-->
+</table>
+
+<table border="1" cellspacing="10" style="float: left;margin-left: 100px">
+    <tr>
+        <td> 未来的信id</td>
+        <td>未来的信名</td>
+        <td>作者</td>
+        <td>发送时间日期</td>
+    </tr>
+    <foreach name="letterContent" item='v'>
+        <tr>
+            <td> {$v.id}</td>
+            <td>{$v.theme}</td>
+            <td>{$v.name}</td>
+            <td>{$v.time}</td>
+            <td style="cursor:pointer;" name="" class="shanchu">
+                <font size="3" color="red" onclick="window.open('{:U('Index/background/deletletter','','')}/id/{$v.id}');">删除</font>
+            </td>
+            <td style="cursor:pointer;" >  <!--跳转到未来的信详情 -->
+                <font size="3" color="red" onclick="window.open('{:U('Index/background/weilaidexinxiangqing','','')}/id/{$v.id}');">详情</font>
             </td>
         </tr>
     </foreach>
-    {$page}
+    <!-- 循环-->
 </table>
+{$page}
+<div style="clear: both"></div>
 <br>
 <br>
 <br>
-<div id="jiudianyudingxinxi" style="display:none;">
-    <form action="{:U('')}" name="" id="" method="">
-        <br> 酒店订单id
-        <input name="" type="text" value="">
-        <br> 酒店订单名
-        <input name="" type="text" value="">
-        <br> 入住时间
-        <input name="" type="text" value="">
-        <br> 入住天数
-        <input name="" type="number" value="">
-        <br/>预定间数
-        <input name="" type="text" value="">
-        <br/>住客姓名
-        <input type="text" value="">
-        <br/>联系手机
-        <input type="text" value="">
-        <br/>
-        <input type="submit" value="提交修改" /> &nbsp &nbsp &nbsp
-        <input type="reset" value="重置" />
-    </form>
-</div>
 
 </body>
 
 </html>
 <script type="text/javascript">
 
-
-    $(".xiugai").click(function() {
-        jiudianyudingxinxi.style.display = "block";
-//        var changshi=$(this).attr("name");
-//        namechangshi="name"+changshi;
-//
-//        // document.getElementById("taocanid").innerHTML =changshi;
-//        $("#taocanid").val(changshi);
-//        $("#taocanming").val($("#name"+changshi).html());
-//        $("#youhuijia").val($("#price"+changshi).html());
-//        $("#shifoushuyu").val($("#ifdiscount"+changshi).html());
-    });
-
     $(".shanchu").click(function() {
-        //alert($(this).attr("name"));
         url = '{:U()}';
         $.post(url, {
             data: $(this).attr("")
@@ -132,6 +138,5 @@
             location.reload();
         });
     })
-
 
 </script>
