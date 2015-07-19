@@ -40,20 +40,20 @@
 					<div class="letterRealContents"><!--从这里开始循环 -->
 						<div class="realContents">
 							<div class="textword" >
-								<div class="information" style="margin-top: 5px">
-							<if condition="$s.userImage eq ''">
+								<div class="information_1" style="margin-top: 5px">
+								<if condition="$s.userImage eq ''">
 						                <img id="imgHead" src="../Public/images/vipCenter/head.png" class="imgeye" style="float: left">
 						                <else />
 						                <img id="imgHead" src="{$s.userImage}" class="imgeye" style="float: left">
 						             </if> 
 							
 									<div class="titlebox">
-										<p><a href="{:U('letter','','')}/id/{$s.id}"><b>{$s.theme}</b></a></p><br/>
+										<p><a href="{:U('letter','','')}/id/{$s.id}"><b>{$s.theme}</b></a></p>
 										{$s.name} &nbsp;&nbsp;&nbsp;&nbsp;<span id="dataBoxLetter" style="float: right"></span>
 									</div>
 								</div>
-								<div class="passage">
-									<!--<p>Welcome to SYSLAB! We do hands-on systems research on topics ranging from wireless ad-hoc networks to cloud computing to computer security. Principal ...Welcome to SYSLAB! We do hands-on systems research on topics ranging from wireless ad-hoc networks to cloud computing to computer security. Principal ...Welcome to SYSLAB! We do hands-on systems research on topics ranging from wireless ad-hoc networks to cloud computing to computer security. Principal ...</p>-->
+								<div class="passage_letter">
+									<p><!--这里放信的内容 --></p>
 								</div>
 							</div>
 						</div>
